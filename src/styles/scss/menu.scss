@@ -1,0 +1,79 @@
+@import 'variables';
+$menu-width:250px;
+.menuItemStyle {
+  display: block;
+  cursor: pointer;
+  width:$menuChannelWidth;
+  background: rgba(0,0,0,0.7);
+  font-family: "Comfortaa Light";
+  font-weight: normal;
+  color:white;
+  height: 60px;
+  line-height: 4.1em;
+              }
+.menuItemStyle:hover {
+  background: $hollowColor;
+}
+.menuItemStylefocus {
+  @extend .menuItemStyle;
+  //width:320px;
+  background: $main_color;
+
+                    }
+.circleButtonSpan {
+  width:40px;
+  height:40px;
+  position: relative;
+  top:-53px;
+  left:285px;
+  visibility: visible;
+}
+.circleButtonSpanNone {
+  visibility: hidden;
+}
+.menuChannel {
+  height:800px;
+  position: absolute;
+  top:0;
+  left:0;
+  transition: left 0.5s ease 100ms;
+             }
+.menuChannelLeft {
+  @extend .menuChannel;
+  left:270px;
+}
+.menuChannelNone {
+  @extend .menuChannel;
+  left:-500px;
+                }
+.divSideBar {
+  //position:absolute;
+  //text-align: center;
+  line-height: 2.8em;
+  margin-top: 15px;
+  margin-left: 50px;
+  text-align: center;
+  width:45px;
+  height:45px;
+            }
+.divSideBar:hover {
+  @extend .divSideBar;
+  cursor: pointer;
+  border-radius: 52px;
+  background: rgba(87, 87, 87, 0.6);
+}
+.numberSpan {
+  //position: relative;
+  width:20px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.span {
+  display:block;
+  width:20px;
+  float: left;
+  margin-right: 15px;
+  margin-left: 15px;
+  font-size:15px;
+  letter-spacing: 1px;
+}

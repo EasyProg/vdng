@@ -1,0 +1,16 @@
+                      {
+  "timeshift":        {
+     "status": "true"
+                      },
+  "parental_control": {
+     "status": "false"
+                      },
+  "catchup":          {
+     "status": "true"
+                      },
+  "epg":              {
+     "status": "true",
+     "mode": "2"
+                      },
+   "base_url": "https://cdnua01.hls.tv/hls/"
+                      }
