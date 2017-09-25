@@ -1,0 +1,113 @@
+@import 'variables';
+
+.categoryPanel {
+  height:600px;
+  top:-20px;
+  display:block;
+  width:$menuItemWidth;
+  max-width: $menuItemWidth;
+  min-width: $menuItemWidth;
+  margin-top: 20px;
+  position: absolute;
+  left:0;
+  transition: left 0.5s ease 100ms;
+               }
+.categoryLine{
+  position: absolute;
+  left:7%;
+  vertical-align: bottom;
+             }
+.categoryLineNone {
+@extend .categoryLine;
+display:none;
+                  }
+//.categoryPanelNone {
+//  margin-top: 20px;
+//  position: absolute;
+//  left:-500px;
+//  transition: left 0.5s ease 100ms;
+//}
+.categoryPanelNone {
+    @extend .categoryPanel;
+    left:-500px;
+    transition: left 0.5s ease 100ms;
+                   }
+.categoryItem {
+  display: block;
+  cursor: pointer;
+  width:$menuItemWidth;
+  //max-width:$menuItemWidth;
+  //min-width: 170px;
+  background: rgba(0,0,0,0.7);
+  font-family: "Comfortaa Light";
+  font-weight: normal;
+  color:white;
+  height: 60px;
+  line-height: 4em;
+  text-align: center;
+}
+.menuHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  width:$menuItemWidth;
+  max-width: $menuItemWidth;
+  min-width: 170px;
+  background: rgba(0,0,0,0.7);
+  font-family: "Comfortaa Light";
+  font-weight: normal;
+  color:white;
+  line-height: 6em;
+  text-align: center;
+  height: 80px;
+}
+.menuHeaderCh {
+  @extend .menuHeader;
+  width:$menuChannelWidth;
+  max-width:$menuChannelWidth;
+}
+.menuHeaderCircleDiv {
+  background: #4a4a4a;
+  border-radius: 45px;
+  width: 45px;
+  height: 45px;
+  margin-left: 20px;
+  margin-right:20px;
+  line-height: 4em;
+  text-align: center;
+                     }
+.categoryItem:hover {
+  background: $hollowColor;
+  filter:progid:DXImageTransform.Microsoft.Blur(10px);
+}
+.categoryItem:focus {
+  background: $hollowColor;
+  filter:progid:DXImageTransform.Microsoft.Blur(10px);
+}
+.categoryItemChosen {
+  @extend .categoryItem;
+  color: $main_color;
+}
+
+.workMotherFucker {
+  @extend .categoryItem;
+  background: $hollowColor;
+}
+.categoryText {
+  align-self: center;
+  text-align: left;
+}
+.categoryImage {
+  margin-top:5px;
+  float:left;
+  margin-left: 20px;
+  margin-right: 40px;
+  text-align: center;
+  height:40px;
+  width:40px;
+  //line-height:5em;
+}
+//.categoryImage:hover {
+//  background: #636363;
+//}

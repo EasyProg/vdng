@@ -1,0 +1,112 @@
+$divPlayerWidth:80%;
+$divPlayerWidthPx:1000px;
+$plButtonsLeft:10%;
+
+
+.centerDiv        {
+  //text-align: center;
+  display:flex;
+  display:-webkit-flex;
+  flex-direction:column;
+  -webkit-flex-direction:column;
+  justify-content: center;
+  -webkit-justify-content:center;
+  //z-index:2147483647;
+                  }
+.centerDivFull    {
+  @extend .centerDiv;
+  position: absolute;
+  z-index:2147483647;
+  top:85%;
+  left:30%;
+                  }
+.divPlayer        {
+  align-self: center;
+  position: absolute;
+  top:85%;
+  left:$plButtonsLeft;
+  width: $divPlayerWidth;
+  max-width:$divPlayerWidth;
+  min-width:350px;
+  height: 60px;
+  background: $main_color;
+  display:flex;
+  display:-webkit-flex;
+  flex-direction:row;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-between;
+  -webkit-justify-content:space-between;
+  z-index:2147483647;
+                  }
+.playerButtonsDiv {
+  cursor:pointer;
+  display:flex;
+  display:-webkit-flex;
+  margin: auto;
+  width: 260px;
+  height: 40px;
+  justify-content: space-between;
+  -webkit-justify-content:space-between;
+  align-items: center;
+  -webkit-align-items: center;
+                  }
+.videoTime        {
+  cursor: default;
+  line-height: 2.5em;
+  margin-left: 20px;
+  margin-right: 40px;
+  height: 60px;
+  width:  50px;
+  font-size: 1.5em;
+  font-family: "RobotoRegular";
+  color: white;
+                  }
+.progressBar      {
+  position: absolute;
+  top:84%;
+  left:$plButtonsLeft;
+  align-self: center;
+  -webkit-align-self: center;
+  height: 10px;
+  width:$divPlayerWidth;
+  max-width:$divPlayerWidth;
+  min-width:350px;
+  background:white;
+                  }
+
+.progressBarFull  {
+  @extend .progressBar;
+  top:84.3%;
+                  }
+#progress-bar::-webkit-progress-bar {
+  background: $main_color;
+}
+#progress-bar::-webkit-progress-value {
+  background:white;
+}
+#progress-bar::-moz-progress-bar {
+  background:$main_color;
+}
+.progressDiv {
+  border-radius:5px;
+  width:5px;
+  height:5px;
+  background: white;
+}
+
+.progresses {
+  width:200px;
+  height:3px;
+  position: relative;
+  top:-50px;
+  left:130px;
+  background: #575757;
+            }
+
+.progresses::-webkit-progress-bar {
+  background: #575757;
+}
+.progresses::-webkit-progress-value {
+  background:$main_color;
+}

@@ -1,0 +1,86 @@
+.archDiv {
+  top:0;
+  text-align: center;
+  color:white;
+  position:absolute;
+  right:345px;
+  display: block;
+  width:25%;
+  min-width:300px;
+  height:800px;
+  max-height: 800px;
+  background: $backMenuColor;
+  transition: all 0.5s ease 100ms;
+          }
+.archViolet {
+  color:$main_color;
+}
+.searchVideoDiv {
+  width: 300px;
+  height: 190px;
+  line-height: 3em;
+  margin-bottom: 20px;
+                }
+
+.contentDiv {
+  margin-top: 15px;
+  width:100%;
+  height:30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+            }
+
+.backInput {
+  letter-spacing: 2.5px;
+  text-transform:uppercase;
+  background:none;
+  width:100%;
+  padding:4px;
+  font-size: 1.8em;
+  text-align: center;
+  color:$main_color;
+  font-weight: 500;
+           }
+.buttonDiv {
+  border-radius: 5px;
+  border:2px solid grey;
+  width:50px;
+  height:40px;
+  line-height: 4em;
+           }
+.buttonDivEng {
+  @extend .buttonDiv;
+  line-height: 3em;
+}
+  .buttonDiv:hover {
+  @extend .buttonDiv;
+  cursor: pointer;
+  background: #353535;
+
+}
+.timeZone {
+  text-align: left;
+  width:150px;
+}
+.archItemDiv {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Comfortaa Light";
+  font-weight: normal;
+  color:white;
+  position: relative;
+  top:-100px;
+  width:100%;
+  margin-top: 15px;
+}
+.archItemDiv:hover {
+  @extend .archItemDiv;
+  cursor: pointer;
+  background: #545454;
+}
+.ImagDiv {
+  width:100px;
+}
