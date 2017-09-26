@@ -59,7 +59,7 @@ class VideoUpperMenu extends Component                         {
                 else if (this.props.menus.channelsMenuVisible) {
                     this.props.dispatch(setChannelsVisible(
                         {
-    channelsMenuVisible: false,
+                            channelsMenuVisible: false,
                             categoryMenuVisible: true,
                             settingsVisible:     false
                         }
@@ -68,16 +68,16 @@ class VideoUpperMenu extends Component                         {
                                                                }
                 break;
                                                                }
-            case 39:                                           {
-                this.props.dispatch(setChannelsVisible(
-                    {
-                            channelsMenuVisible: false,
-                            categoryMenuVisible: false,
-                            settingsVisible:     true
-                    }
-                ));
-                break;
-                                                               }
+            // case 39:                                           {
+            //     this.props.dispatch(setChannelsVisible(
+            //         {
+            //                 channelsMenuVisible: false,
+            //                 categoryMenuVisible: false,
+            //                 settingsVisible:     true
+            //         }
+            //     ));
+            //     break;
+            //                                                    }
     case 13:                                           {
                 if (this.props.menus.channelsMenuVisible)
                 this.props.dispatch(setChannelsVisible(
@@ -118,7 +118,7 @@ class VideoUpperMenu extends Component                         {
             return (<div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
             <progress id='progress-bar' min='0' max='100' value='0' className='displayNone'><div className="progressDiv"/></progress>
             <div  className="divPlayer">
-            <Timer isWholeProgramTime={true}/>
+            {/*<Timer isWholeProgramTime={true}/>*/}
             <div  className="playerButtonsDiv">
             <Icon className="large inverted step backward" onClick={(e)=>this.switchChannel('prev')}/>
             {this.props.isTimeShift?<Icon className="large inverted backward" onClick={(e)=>this.props.handleCurrentTimeContext(0)}/>:''}
@@ -126,7 +126,7 @@ class VideoUpperMenu extends Component                         {
             {this.props.isTimeShift?<Icon className="large inverted forward" onClick={(e)=>this.props.handleCurrentTimeContext(1)}/>:''}
             <Icon className="large inverted step forward" onClick={(e)=>this.switchChannel('next')}/>
             </div>
-            <Timer isWholeProgramTime={false}/>
+            {/*<Timer isWholeProgramTime={false}/>*/}
             </div>
             </div>
             )

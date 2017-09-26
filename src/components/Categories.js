@@ -26,7 +26,7 @@ import  {setChannelsVisible,getChannels} from '../actions/actions';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import * as $ from 'jquery';
 import ReactDOM from 'react-dom';
-class Categories extends Component          {
+class Categories extends Component              {
     constructor(props) {
     super(props);
     this.state = {
@@ -85,15 +85,15 @@ class Categories extends Component          {
                }
     Menu =     [
     {name:'All',         src:all,       category:'All channels'},
-    {name:'Now watching',src:play,      category: 54},
+    // {name:'Now watching',src:play,      category: 54},
     {name:'Favorites',   src:star,      category:'Любимые'},
     {name:'Blocked',     src:lock,      category:'Locked'},
-    {name:'TV Shows',    src:scene,     category:'Shows'},
+    // {name:'TV Shows',    src:scene,     category:'Shows'},
     {name:'Films',       src:film,      category:'Фильмы'},
     {name:'Music',       src:headphones,category:'Музыкальный'},
-    {name:'Popular',     src:mask,      category:'Популярное'},
-    {name:'3D / VR',     src:glasses,   category:'3D'},
-    {name:'Travel',      src:caravan,   category:'Путешевствия'},
+    // {name:'Popular',     src:mask,      category:'Популярное'},
+    // {name:'3D / VR',     src:glasses,   category:'3D'},
+    // {name:'Travel',      src:caravan,   category:'Путешевствия'},
     {name:'Comedy',      src:masks,     category:'Развлекательный'}
                 ];
 filterChannels(channels,category)                {
@@ -109,7 +109,7 @@ if (channels) {
               }
     this.props.dispatch(getChannels(filteredChannels));
 return filteredChannels;
-};
+                                                  };
 switchCateg(event,cat)                  {
     var i = this.Menu.map(x => x.category).indexOf(cat);
     var items = document.getElementsByClassName('categoryItem');
@@ -141,7 +141,7 @@ switchCateg(event,cat)                  {
     default:
     $('#video').focus();
 }
-}
+                                          }
 
 render()                {
     return (
@@ -150,8 +150,8 @@ render()                {
     <div className="menuHeader"/>
     <PerfectScrollbar>
     {
-        this.Menu.map ((item,i)=>
-                <div key={i} className='categoryItem' onClick={e=>this.handleClick (i,item.category)} tabIndex={i}>
+                            this.Menu.map((item,i)=>
+                            <div key={i} className='categoryItem' onClick={e=>this.handleClick (i,item.category)} tabIndex={i}>
                             <div         className="categoryImage"><img src={item.src} width="40" height="40"/></div>
                             <div         className="categoryText">
                             {item.name}
@@ -159,7 +159,7 @@ render()                {
                             <img src={underline} height={5} width={250} className={this.state.itemChosen===i?'categoryLine':'categoryLineNone'}/>
                             </div>
                                           )
-                }
+    }
     </PerfectScrollbar>
     </div>
         <div className="innerDiv">
@@ -169,14 +169,15 @@ render()                {
                     visibleSetContext={this.props.toggleMenuStateContext}
                     tabIndex={1}
             />
-            </div>
-            </div>
+         </div>
+    </div>
                 )
-                            }
+                          }
 }
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const mapDispatchToProps = (dispatch) =>
+bindActionCreators({
     dispatch,setChannelsVisible,getChannels
-},  dispatch);
+                   },       dispatch);
 export default connect(
     state => ({}),
     mapDispatchToProps

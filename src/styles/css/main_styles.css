@@ -372,7 +372,7 @@ hr {
       height: 200px; } }
   @media only screen and (min-device-width: 1281px) {
     .categoryPanel, .categoryPanelNone {
-      height: 800px; } }
+      height: 1200px; } }
 
 .categoryLine, .categoryLineNone {
   position: absolute;

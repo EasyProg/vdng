@@ -100,11 +100,11 @@ class VideoPlayer extends Component                {
     this.timer = this.state.fullScreen?
         setTimeout(function()          {
             //Скрыть плей
-            $("#vduppermenu,#vdbottommenu,#menu").fadeOut(1000);
+            $("#vduppermenu,#menu").fadeOut(1000);
         },5000):
         setTimeout(function()          {
             //Скрыть плей
-            $("#vduppermenu,#vdbottommenu").fadeOut(1000);
+            $("#vduppermenu").fadeOut(1000);
         },5000);
 
                                     }
@@ -112,7 +112,7 @@ class VideoPlayer extends Component                {
         {
         //Отобразить плей
         clearTimeout(this.timer);
-        $("#vduppermenu,#vdbottommenu,#menu").fadeIn(1000);
+        $("#vduppermenu,#menu").fadeIn(1000);
         //Запустить скрытие
         this.handlePlay();
         }
