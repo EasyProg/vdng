@@ -96,7 +96,7 @@ video::media-controls {
 
 .videoOnButtonsDiv {
   position: relative;
-  top: 50%; }
+  top: 50%;       }
 
 #video {
   align-self: center;
@@ -108,7 +108,7 @@ video::media-controls {
   top: 80%;
   z-index: 2147483647; }
 
-.panelDiv {
+.panelDiv       {
   position: absolute;
   top: 60%;
   width: 100%;
@@ -128,20 +128,20 @@ video::media-controls {
   background: rgba(87, 87, 87, 0.6); }
 
 .homeDiv, .homeDivLeft, .homeDivNone {
-          text-align: center;
-          color: white;
-          position: absolute;
-          right: 0;
-          display: block;
-          width: 345px;
-          max-width: 345px;
-          min-width: 200px;
-          height: 700px;
-          max-height: 1200px;
-          min-height: 500px;
-          background: rgba(0, 0, 0, 0.7);
-          transition: all 0.5s ease 100ms;
-          opacity: 1; }
+  text-align: center;
+  color: white;
+  position: absolute;
+  right: 0;
+  display: block;
+  width: 345px;
+  max-width: 345px;
+  min-width: 200px;
+  height: 700px;
+  max-height: 1200px;
+  min-height: 500px;
+  background: rgba(0, 0, 0, 0.7);
+  transition: all 0.5s ease 100ms;
+  opacity: 1; }
 
 .homeDivLeft {
   right: 345px; }
@@ -269,7 +269,7 @@ hr {
 .languageButtonFocus {
   cursor: pointer;
   border-radius: 5px;
-  background: #8567ff; }
+  background: #9677ff; }
 
 .switchClass {
   height: 20px;
@@ -328,7 +328,7 @@ hr {
   margin-bottom: 40px;
   margin-top: 40px; }
 
-.saveButton           {
+.saveButton {
   cursor: pointer;
   position: relative;
   width: 100%;
@@ -353,12 +353,12 @@ hr {
   background: #434343; }
 
 .categoryPanel, .categoryPanelNone {
+  height: 600px;
   top: -20px;
   display: block;
   width: 270px;
   max-width: 270px;
   min-width: 270px;
-  height: 600px;
   margin-top: 20px;
   position: absolute;
   left: 0;
@@ -377,18 +377,16 @@ hr {
   transition: left 0.5s ease 100ms; }
 
 .categoryItem, .categoryItemChosen, .workMotherFucker {
-display: block;
-cursor: pointer;
-width: 270px;
-max-width: 270px;
-min-width: 170px;
-background: rgba(0, 0, 0, 0.7);
-font-family: "Comfortaa Light";
-font-weight: normal;
-color: white;
-height: 60px;
-line-height: 4em;
-text-align: center; }
+  display: block;
+  cursor: pointer;
+  width: 270px;
+  background: rgba(0, 0, 0, 0.7);
+  font-family: "Comfortaa Light";
+  font-weight: normal;
+  color: white;
+  height: 60px;
+  line-height: 4em;
+  text-align: center; }
 
 .menuHeader, .menuHeaderCh {
   display: flex;
@@ -421,8 +419,8 @@ text-align: center; }
   text-align: center; }
 
 .categoryItem:hover, .categoryItemChosen:hover, .workMotherFucker:hover {
-background: #575757;
-filter: progid:DXImageTransform.Microsoft.Blur(10px); }
+  background: #575757;
+  filter: progid:DXImageTransform.Microsoft.Blur(10px); }
 
 .categoryItem:focus, .categoryItemChosen:focus, .workMotherFucker:focus {
   background: #575757;
@@ -515,12 +513,7 @@ filter: progid:DXImageTransform.Microsoft.Blur(10px); }
   min-width: 350px;
   background: white; }
 
-.progressBarFull    {
-  align-self: center;
-  -webkit-align-self: center;
-  height: 15px;
-  width: 800px;
-  background: white;
+.progressBarFull {
   top: 84.3%; }
 
 #progress-bar::-webkit-progress-bar {
@@ -606,7 +599,7 @@ filter: progid:DXImageTransform.Microsoft.Blur(10px); }
   text-align: center;
   padding-top: 15px; }
 
-.iconsDiv:hover     {
+.iconsDiv:hover {
   cursor: pointer;
   background: #9677ff;
   border-radius: 40px;
@@ -675,7 +668,7 @@ filter: progid:DXImageTransform.Microsoft.Blur(10px); }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
-.pnameFav     {
+.pnameFav {
   position: relative;
   left: 200px;
   top: -50%;
@@ -857,8 +850,5 @@ body {
 .displayNone {
   display: none;
   z-index: 2147483647; }
-
-#video {
-  position: relative; }
 
 /*# sourceMappingURL=main_styles.css.map */
