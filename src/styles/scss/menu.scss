@@ -3,7 +3,7 @@ $menu-width:250px;
 .menuItemStyle {
   display: block;
   cursor: pointer;
-  width:320px;
+  width:$menuChannelWidth;
   background: rgba(0,0,0,0.7);
   font-family: "Comfortaa Light";
   font-weight: normal;
@@ -12,11 +12,11 @@ $menu-width:250px;
   line-height: 4.1em;
               }
 .menuItemStyle:hover {
-  background: rgba(87, 87, 87, 0.6);
+background: $hollowColor;
 }
 .menuItemStylefocus {
   @extend .menuItemStyle;
-  width:320px;
+  //width:320px;
   background: $main_color;
 
                     }

@@ -3,7 +3,7 @@ $divPlayerWidthPx:1000px;
 $plButtonsLeft:10%;
 
 
-.centerDiv  {
+.centerDiv        {
   //text-align: center;
   display:flex;
   display:-webkit-flex;
@@ -12,15 +12,15 @@ $plButtonsLeft:10%;
   justify-content: center;
   -webkit-justify-content:center;
   //z-index:2147483647;
-            }
-.centerDivFull  {
+}
+.centerDivFull    {
   @extend .centerDiv;
   position: absolute;
   z-index:2147483647;
   top:85%;
   left:30%;
-                }
-.divPlayer {
+}
+.divPlayer        {
   align-self: center;
   position: absolute;
   top:85%;
@@ -38,22 +38,12 @@ $plButtonsLeft:10%;
   justify-content: space-between;
   -webkit-justify-content:space-between;
   z-index:2147483647;
-          }
-//.divPlayerFullSize {
-//  @extend .divPlayer;
-//  position: absolute;
-//  top:85%;
-//  width:800px;
-//  //left:7%;
-//  z-index:2147483647;
-//                   }
+}
 .playerButtonsDiv {
-  //z-index:2147483648;
   cursor:pointer;
   display:flex;
   display:-webkit-flex;
   margin: auto;
-  //align-self: center;
   width: 260px;
   height: 40px;
   justify-content: space-between;
@@ -61,18 +51,18 @@ $plButtonsLeft:10%;
   align-items: center;
   -webkit-align-items: center;
                   }
-.videoTime {
-  cursor: default;
-  line-height: 3em;
-  margin-left: 20px;
-  margin-right: 20px;
+        .videoTime        {
+          cursor: default;
+          line-height: 2.5em;
+          margin-left: 20px;
+          margin-right: 40px;
   height: 60px;
   width:  50px;
   font-size: 1.5em;
   font-family: "RobotoRegular";
   color: white;
-          }
-.progressBar {
+        }
+.progressBar      {
   position: absolute;
   top:84%;
   left:$plButtonsLeft;
@@ -83,14 +73,11 @@ $plButtonsLeft:10%;
   max-width:$divPlayerWidth;
   min-width:350px;
   background:white;
-             }
+}
 
 .progressBarFull  {
-  align-self: center;
-  -webkit-align-self: center;
-  height:15px;
-  width:800px;
-  background:white;
+  @extend .progressBar;
+  top:84.3%;
                   }
 #progress-bar::-webkit-progress-bar {
   background: $main_color;
@@ -99,5 +86,27 @@ $plButtonsLeft:10%;
   background:white;
 }
 #progress-bar::-moz-progress-bar {
+  background:$main_color;
+}
+.progressDiv {
+  border-radius:5px;
+  width:5px;
+  height:5px;
+  background: white;
+}
+
+.progresses {
+  width:200px;
+  height:3px;
+  position: relative;
+  top:-50px;
+  left:130px;
+  background: #575757;
+}
+
+.progresses::-webkit-progress-bar {
+  background: #575757;
+}
+.progresses::-webkit-progress-value {
   background:$main_color;
 }

@@ -13,19 +13,17 @@ import * as $ from 'jquery';
 //import css//
 //import 'semantic-ui-css/semantic.min.css'//;
 import '../styles/css/main_styles.css';
-var proxy = 'https://cors-anywhere.herokuapp.com/';
+    var    proxy = 'https://cors-anywhere.herokuapp.com/';
 var timeFormat = function(seconds)  {
     var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
     var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
     var h = Math.floor(m/60)<10 ? "0"+Math.floor(m/60) : Math.floor(m/60);
-    if (m&&s&&h==='00')
-    return m+":"+s;
-    else if (m&&s&&h!=='00')
-    return   h+':'+m+":"+s;
-    else return  '00:00'
-    // if (m&&s)
-    // return m+":"+s;
-    // else return '00:00'
+    h = h ==='00'?'':h;
+if (m&&s&&h)
+return h+':'+m+":"+s;
+else if (m&&s&&!h)
+return  m+":"+s;
+else return  '00:00'
                                     };
 //window.$ = window.JQuery = JQuery;
 const hls = new Hls();
@@ -34,7 +32,6 @@ class VideoPlayer extends Component                {
         constructor(props)                         {
         super(props);
         //Bind functions
-        this.handleOnPlay = this.handleOnPlay.bind(this);
         this.changeSize = this.changeSize.bind(this);
         this.changeRes = this.changeRes.bind(this);
         this.handleCurrTime = this.handleCurrTime.bind(this);
@@ -44,7 +41,9 @@ class VideoPlayer extends Component                {
         this.handlePlay=this.handlePlay.bind(this);
         this.escFullScreen = this.escFullScreen.bind(this);
         this.state = {playerButtonsAppear:false};
-        this.timer = '';                            }
+        this.timer = '';
+        this.state = {fullScreen:false};
+        }
         //Component Functions
         componentDidMount() {
         var vd = this.video.video;
@@ -58,11 +57,7 @@ class VideoPlayer extends Component                {
                                             });
         this.videoOnLoad();
                             }
-        componentWillUnmount()  {
-        this.vd.removeEndEventListener('timeupdate');
-
-                                }
-        toggle(isPlaying){
+toggle(isPlaying)       {
         var vd = this.video.video;
         //const vd = this.video;
         this.props.dispatch(togglePlay(isPlaying));
@@ -73,7 +68,7 @@ class VideoPlayer extends Component                {
                                 }
         changeRes(res)          {
                                 }
-        videoOnLoad() {
+videoOnLoad()           {
             if (this.props.video) {
                 var vd = document.getElementById('video');
                 if (navigator.userAgent.indexOf ('WOW64') !== -1) {
@@ -86,26 +81,8 @@ class VideoPlayer extends Component                {
                 hls.on(Hls.Events.MANIFEST_PARSED, function () {
                 vd.play();
                 });
-                if (vd) {
-                vd.addEventListener('timeupdate', this.handleOnPlay);
-                }
-                                  }
-        }
-        handleOnPlay()              {
-        var vd = document.getElementById('video');
-        //var vd =                    this.video.video;
-        //console.log(vd.video);
-        const time              =  vd.currentTime||0;
-        const duration          =  vd.duration||100;
-        var currentTime         =  document.getElementById('currentTime');
-        var durationTime        =  document.getElementById('duration');
-        currentTime.innerText   =  timeFormat(time);
-        durationTime.innerText  =  timeFormat(duration);
-        var progressBar         =  document.getElementById('progress-bar');
-        var percentage          =  Math.floor((100 / duration) * time);
-        progressBar.value       =  percentage;
-        progressBar.innerHTML   =  percentage+'%';
-                                    }
+                                }
+            }
         handleCurrTime(param)       {
         var vd = this.video.video;
         if (param===1)
@@ -118,12 +95,18 @@ class VideoPlayer extends Component                {
         {vd.playbackRate+=0.1;}
         else vd.playbackRate-=0.1;
                                     }
-        handlePlay()                                {
-        this.timer = setTimeout(function()          {
-        //Скрыть плей
-        $("#vduppermenu,#vdbottommenu").fadeOut(1000);
+handlePlay()                              {
+    this.timer = this.state.fullScreen?
+        setTimeout(function()          {
+            //Скрыть плей
+            $("#vduppermenu,#vdbottommenu,#menu").fadeOut(1000);
+        },5000):
+        setTimeout(function()          {
+            //Скрыть плей
+            $("#vduppermenu,#vdbottommenu").fadeOut(1000);
         },5000);
-                                                    }
+
+}
         menuFullScreenAppears()
         {
         //Отобразить плей
@@ -138,6 +121,7 @@ class VideoPlayer extends Component                {
             && !document.webkitFullscreenElement
             && !document.msRequestFullscreen)
         this.props.dispatch(toggleFullScreen(false));
+    this.setState({fullScreen:false})
                                                   }
 
         changeSize()                              {
@@ -169,6 +153,7 @@ class VideoPlayer extends Component                {
         //alert('Your browsers doesn\'t support fullscreen');
                                                   }
         document.addEventListener ("webkitfullscreenchange", this.escFullScreen, false);
+    this.setState({fullScreen:true});
         }
         //from fullScreen to Normal
         else                                      {
@@ -183,18 +168,19 @@ class VideoPlayer extends Component                {
                     document.webkitCancelFullScreen();
         }
          this.props.dispatch(toggleFullScreen(false));
-
+    this.setState({fullScreen:false});
                                                    }}
         //Component Functions
         render()        {
             this.videoOnLoad();
-            return (
-                        <div         ref={(dv)=>this.div=dv} className="centerDiv">
-                        <Video       isPlaying={this.props.isPlaying}
-                                     fullSize= {this.props.fullScreen}
-                                     video=    {this.props.video}
-                                     ref=      {(video)=>this.video=video}
-                        />
+    return      (
+                        <div             ref={(dv)=>this.div=dv} className="centerDiv">
+                            <Video           isPlaying={this.props.isPlaying}
+                                             fullSize= {this.props.fullScreen}
+                                             video=    {this.props.video}
+                                             ref=      {(video)=>this.video=video}
+                            />
+                            <div className="panelDiv"/>
                         <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                          toggleContext={this.toggle}
                                          handleOnPlayContext={this.handleOnPlay}
@@ -204,7 +190,7 @@ class VideoPlayer extends Component                {
                                          changeResContext= {this.changeRes}/>
                         <div id="processDiv" className="displayNone"/>
                         </div>
-                   )
+                        )
                        }
                                                     }
                        const mapDispatchToProps = (dispatch) => bindActionCreators({
@@ -214,9 +200,8 @@ class VideoPlayer extends Component                {
                        state => ({
                        video:                state.videoReducer.video,
                        isPlaying:            state.videoReducer.isPlaying,
-                       //fullScreen:           state.videoReducer.fullScreen,
-                       autoPlay:             state.videoReducer.autoPlay,
-                       //menus:                state.menuReducer.menus
+    autoPlay:             state.videoReducer.autoPlay,
+fullScreen:           state.videoReducer.fullScreen
                        }),
                        mapDispatchToProps
                                                     )(VideoPlayer);

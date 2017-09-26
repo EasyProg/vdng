@@ -2,7 +2,7 @@
 .menuItemStyle, .menuItemStylefocus {
   display: block;
   cursor: pointer;
-  width: 320px;
+  width: 340px;
   background: rgba(0, 0, 0, 0.7);
   font-family: "Comfortaa Light";
   font-weight: normal;
@@ -11,11 +11,10 @@
   line-height: 4.1em; }
 
 .menuItemStyle:hover, .menuItemStylefocus:hover {
-  background: rgba(87, 87, 87, 0.6); }
+  background: #575757; }
 
 .menuItemStylefocus {
-  width: 320px;
-  background: #8567ff; }
+  background: #9677ff; }
 
 .circleButtonSpan {
   width: 40px;
@@ -102,12 +101,18 @@ video::media-controls {
 #video {
   align-self: center;
   width: 100%;
-  height: auto; }
+  height: 99%; }
 
 .playBackDiv {
   position: fixed;
   top: 80%;
   z-index: 2147483647; }
+
+.panelDiv {
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  height: 40%; }
 
 .homeButton, .homeButton:hover {
   width: 45px;
@@ -115,27 +120,31 @@ video::media-controls {
   margin-right: 50px;
   text-align: center;
   line-height: 2.8em;
-  margin-top: 15px; }
+  margin-top: 20px; }
 
 .homeButton:hover {
   cursor: pointer;
   border-radius: 50px;
   background: rgba(87, 87, 87, 0.6); }
 
-.homeDiv, .homeDivNone {
-  text-align: center;
-  color: white;
-  position: absolute;
-  left: 83%;
-  top: -15px;
-  display: block;
-  width: 200%;
-  max-width: 320px;
-  min-width: 200px;
-  height: 570%;
-  background: rgba(0, 0, 0, 0.3);
-  transition: all 0.5s ease 100ms;
-  opacity: 1; }
+.homeDiv, .homeDivLeft, .homeDivNone {
+          text-align: center;
+          color: white;
+          position: absolute;
+          right: 0;
+          display: block;
+          width: 345px;
+          max-width: 345px;
+          min-width: 200px;
+          height: 700px;
+          max-height: 1200px;
+          min-height: 500px;
+          background: rgba(0, 0, 0, 0.7);
+          transition: all 0.5s ease 100ms;
+          opacity: 1; }
+
+.homeDivLeft {
+  right: 345px; }
 
 .homeDivNone {
   opacity: 0;
@@ -183,7 +192,7 @@ hr {
   width: 140px;
   height: 35px;
   border: 1px solid grey;
-  background: #8567ff;
+  background: #9677ff;
   color: white; }
 
 .logoutButton:hover {
@@ -230,7 +239,7 @@ hr {
 .divUsualImgFocus {
   cursor: pointer;
   border-radius: 65px;
-  background: #8567ff; }
+  background: #9677ff; }
 
 .settingsDiv {
   position: relative;
@@ -264,7 +273,7 @@ hr {
 
 .switchClass {
   height: 20px;
-  background: #8567ff; }
+  background: #9677ff; }
 
 .resetToDefault {
   border-radius: 5px;
@@ -273,7 +282,7 @@ hr {
   width: 90%;
   margin: 10px;
   height: 50px;
-  background: #8567ff;
+  background: #9677ff;
   color: white;
   font-family: "Comfortaa Light";
   text-align: center; }
@@ -282,10 +291,10 @@ hr {
   margin: 15px; }
 
 .toggleClass.react-toggle--checked .react-toggle-track {
-  background-color: #8567ff; }
+  background-color: #9677ff; }
 
 .toggleClass.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #8567ff; }
+  background-color: #9677ff; }
 
 .divInput {
   position: relative;
@@ -301,7 +310,7 @@ hr {
   align-items: center; }
 
 .divInput:hover {
-  border: 1px solid #8567ff;
+  border: 1px solid #9677ff;
   cursor: pointer; }
 
 .inputPassword {
@@ -319,13 +328,13 @@ hr {
   margin-bottom: 40px;
   margin-top: 40px; }
 
-.saveButton {
+.saveButton           {
   cursor: pointer;
   position: relative;
   width: 100%;
   margin: 10px;
   height: 40px;
-  background: #8567ff;
+  background: #9677ff;
   color: white;
   font-family: "Comfortaa Light";
   text-align: center; }
@@ -346,9 +355,10 @@ hr {
 .categoryPanel, .categoryPanelNone {
   top: -20px;
   display: block;
-  width: 15%;
-  max-width: 15%;
-  min-width: 10%;
+  width: 270px;
+  max-width: 270px;
+  min-width: 270px;
+  height: 600px;
   margin-top: 20px;
   position: absolute;
   left: 0;
@@ -366,19 +376,19 @@ hr {
   left: -500px;
   transition: left 0.5s ease 100ms; }
 
-.categoryItem, .categoryItemChosen {
-  display: block;
-  cursor: pointer;
-  width: 270px;
-  max-width: 270px;
-  min-width: 170px;
-  background: rgba(0, 0, 0, 0.7);
-  font-family: "Comfortaa Light";
-  font-weight: normal;
-  color: white;
-  height: 60px;
-  line-height: 4em;
-  text-align: center; }
+.categoryItem, .categoryItemChosen, .workMotherFucker {
+display: block;
+cursor: pointer;
+width: 270px;
+max-width: 270px;
+min-width: 170px;
+background: rgba(0, 0, 0, 0.7);
+font-family: "Comfortaa Light";
+font-weight: normal;
+color: white;
+height: 60px;
+line-height: 4em;
+text-align: center; }
 
 .menuHeader, .menuHeaderCh {
   display: flex;
@@ -397,8 +407,8 @@ hr {
   height: 80px; }
 
 .menuHeaderCh {
-  width: 320px;
-  max-width: 320px; }
+  width: 340px;
+  max-width: 340px; }
 
 .menuHeaderCircleDiv {
   background: #4a4a4a;
@@ -410,12 +420,19 @@ hr {
   line-height: 4em;
   text-align: center; }
 
-.categoryItem:hover, .categoryItemChosen:hover {
-  background: #4a4a4a;
+.categoryItem:hover, .categoryItemChosen:hover, .workMotherFucker:hover {
+background: #575757;
+filter: progid:DXImageTransform.Microsoft.Blur(10px); }
+
+.categoryItem:focus, .categoryItemChosen:focus, .workMotherFucker:focus {
+  background: #575757;
   filter: progid:DXImageTransform.Microsoft.Blur(10px); }
 
 .categoryItemChosen {
-  color: #8567ff; }
+  color: #9677ff; }
+
+.workMotherFucker {
+  background: #575757; }
 
 .categoryText {
   align-self: center;
@@ -453,7 +470,7 @@ hr {
   max-width: 80%;
   min-width: 350px;
   height: 60px;
-  background: #8567ff;
+  background: #9677ff;
   display: flex;
   display: -webkit-flex;
   flex-direction: row;
@@ -477,16 +494,16 @@ hr {
 
 .videoTime {
   cursor: default;
-  line-height: 3em;
+  line-height: 2.5em;
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 40px;
   height: 60px;
   width: 50px;
   font-size: 1.5em;
   font-family: "RobotoRegular";
   color: white; }
 
-.progressBar {
+.progressBar, .progressBarFull {
   position: absolute;
   top: 84%;
   left: 10%;
@@ -498,21 +515,42 @@ hr {
   min-width: 350px;
   background: white; }
 
-.progressBarFull {
+.progressBarFull    {
   align-self: center;
   -webkit-align-self: center;
   height: 15px;
   width: 800px;
-  background: white; }
+  background: white;
+  top: 84.3%; }
 
 #progress-bar::-webkit-progress-bar {
-  background: #8567ff; }
+  background: #9677ff; }
 
 #progress-bar::-webkit-progress-value {
   background: white; }
 
 #progress-bar::-moz-progress-bar {
-  background: #8567ff; }
+  background: #9677ff; }
+
+.progressDiv {
+  border-radius: 5px;
+  width: 5px;
+  height: 5px;
+  background: white; }
+
+.progresses {
+  width: 200px;
+  height: 3px;
+  position: relative;
+  top: -50px;
+  left: 130px;
+  background: #575757; }
+
+.progresses::-webkit-progress-bar {
+  background: #575757; }
+
+.progresses::-webkit-progress-value {
+  background: #9677ff; }
 
 .divBottomPlayer, .divBottomPlayerFull {
   z-index: 2147483647;
@@ -568,9 +606,9 @@ hr {
   text-align: center;
   padding-top: 15px; }
 
-.iconsDiv:hover {
+.iconsDiv:hover     {
   cursor: pointer;
-  background: #8567ff;
+  background: #9677ff;
   border-radius: 40px;
   position: inherit; }
 
@@ -589,7 +627,7 @@ hr {
 
 .iconResDiv:hover, .iconResDivFull:hover {
   cursor: pointer;
-  background: #8567ff;
+  background: #9677ff;
   border-radius: 40px; }
 
 .upper_buttons_res, .upper_buttons_live {
@@ -612,10 +650,12 @@ hr {
   top: -5px; }
 
 .tvimg {
-  margin-right: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
   margin-top: 7px; }
 
 .pname {
+  margin-left: 10px;
   height: 60px;
   position: absolute;
   white-space: nowrap;
@@ -635,16 +675,16 @@ hr {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
-.pnameFav {
+.pnameFav     {
   position: relative;
-  left: 190px;
+  left: 200px;
   top: -50%;
   z-index: 33; }
 
 .rateContainer {
   position: relative;
   top: 25px;
-  margin-right: 10px;
+  margin-right: 20px;
   float: right;
   display: flex;
   flex-direction: row;
@@ -658,7 +698,7 @@ hr {
   height: 7px;
   margin-right: 3px;
   border-radius: 5px;
-  background: #8567ff; }
+  background: #9677ff; }
 
 .rateDivFilledChosen {
   background: white; }
@@ -671,25 +711,27 @@ hr {
   background: #686868; }
 
 .archDiv {
-  top: 10px;
-  background: white;
+  top: 0;
   text-align: center;
   color: white;
   position: absolute;
-  left: -300px;
+  right: 345px;
   display: block;
   width: 25%;
-  max-width: 300px;
   min-width: 300px;
-  height: 700px;
-  background: rgba(0, 0, 0, 0.3);
-  transition: all 0.5s ease 100ms;
-  opacity: 1; }
+  height: 800px;
+  max-height: 800px;
+  background: rgba(0, 0, 0, 0.7);
+  transition: all 0.5s ease 100ms; }
+
+.archViolet {
+  color: #9677ff; }
 
 .searchVideoDiv {
   width: 300px;
   height: 190px;
-  line-height: 3em; }
+  line-height: 3em;
+  margin-bottom: 20px; }
 
 .contentDiv {
   margin-top: 15px;
@@ -707,17 +749,20 @@ hr {
   padding: 4px;
   font-size: 1.8em;
   text-align: center;
-  color: #8567ff;
+  color: #9677ff;
   font-weight: 500; }
 
-.buttonDiv, .buttonDiv:hover {
+.buttonDiv, .buttonDivEng, .buttonDiv:hover {
   border-radius: 5px;
   border: 2px solid grey;
   width: 50px;
   height: 40px;
-  line-height: 3.3em; }
+  line-height: 4em; }
 
-.buttonDiv:hover {
+.buttonDivEng {
+  line-height: 3em; }
+
+.buttonDiv:hover, .buttonDivEng:hover {
   cursor: pointer;
   background: #353535; }
 
@@ -750,7 +795,10 @@ hr {
   border: 0; }
 
 body {
-  background: black; }
+  background: black;
+  outline: 0;
+  border: 0;
+  overflow: hidden; }
 
 @font-face {
   font-family: "Comfortaa-Light";

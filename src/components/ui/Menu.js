@@ -9,6 +9,7 @@ import Categories from '../Categories';
 import HomeMenu from '../HomeMenu';
 import home from '../../img/hm.png';
 import menu from '../../img/main_menu.gif';
+import prev_button from '../../img/play-previous-button.gif'
 import * as $ from 'jquery';
 class Menu extends Component            {
     constructor(props) {
@@ -44,13 +45,12 @@ class Menu extends Component            {
                     <div className="divSideBar"
                          onClick={(e) => this.toggleMenuState()}>
                     <img src={menu} height={45} width={30}/>
-                         {/*<Icon className="big inverted sidebar"/>*/}
                     </div>
                     <Categories visible={this.props.menus.categoryMenuVisible}
-                    channelVisible=     {this.props.menus.channelsMenuVisible}
-                    toggleMenuStateContext={this.toggleMenuState}/>
+                                channelVisible={this.props.menus.channelsMenuVisible}
+                                toggleMenuStateContext={this.toggleMenuState}/>
                     <div className={this.props.fullScreen?"menuCenterText":'displayNone'}>
-                        <div className="menuCenterTextBig">{this.props.category} {' < '}
+                        <div className="menuCenterTextBig">{this.props.category} <img src={prev_button} width={30} height={30}/>
                         <span className="menuCenterTextBigBold">{this.props.channelId}{'. '}{this.props.channel}</span></div>
                         <div>А здесь должно быть название того что идет</div>
                     </div>
@@ -60,7 +60,7 @@ class Menu extends Component            {
                          onClick={(e) => this.toggleMenuState('right')}>
                          <img src={home} width={40} height={40}/>
                     </div>
-                    <HomeMenu visible={this.props.menus.settingsVisible}/>
+<HomeMenu visible={this.props.menus.settingsVisible} isParentControl/>
                 </div>
             </div>
               )
@@ -75,7 +75,8 @@ state => ({fullScreen:state.videoReducer.fullScreen,
            channel:   state.videoReducer.video.channel,
            channelId: state.videoReducer.video.channelId,
            category:  state.channelReducer.chosenCategory,
-           menus:     state.menuReducer.menus
+    menus:     state.menuReducer.menus,
+isParentControl: state.settingsReducer.parentalControl
           }),
           mapDispatchToProps
                        )(Menu);
