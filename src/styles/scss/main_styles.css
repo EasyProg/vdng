@@ -28,11 +28,16 @@
   visibility: hidden; }
 
 .menuChannel, .menuChannelLeft, .menuChannelNone {
-  height: 800px;
   position: absolute;
   top: 0;
   left: 0;
   transition: left 0.5s ease 100ms; }
+  @media only screen and (min-device-width: 480px) {
+    .menuChannel, .menuChannelLeft, .menuChannelNone {
+      height: 200px; } }
+  @media only screen and (min-device-width: 1282px) {
+    .menuChannel, .menuChannelLeft, .menuChannelNone {
+      height: 800px; } }
 
 .menuChannelLeft {
   left: 270px; }
@@ -136,7 +141,7 @@ video::media-controls {
   width: 345px;
   max-width: 345px;
   min-width: 200px;
-  height: 700px;
+  height: 1000px;
   max-height: 1200px;
   min-height: 500px;
   background: rgba(0, 0, 0, 0.7);
@@ -353,7 +358,6 @@ hr {
   background: #434343; }
 
 .categoryPanel, .categoryPanelNone {
-  height: 600px;
   top: -20px;
   display: block;
   width: 270px;
@@ -363,6 +367,12 @@ hr {
   position: absolute;
   left: 0;
   transition: left 0.5s ease 100ms; }
+  @media only screen and (min-device-width: 480px) {
+    .categoryPanel, .categoryPanelNone {
+      height: 200px; } }
+  @media only screen and (min-device-width: 1281px) {
+    .categoryPanel, .categoryPanelNone {
+      height: 800px; } }
 
 .categoryLine, .categoryLineNone {
   position: absolute;

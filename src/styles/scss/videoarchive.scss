@@ -1,5 +1,5 @@
 .archDiv {
-top:0;
+  top:0;
   text-align: center;
   color:white;
   position:absolute;
@@ -16,9 +16,9 @@ top:0;
   color:$main_color;
 }
 .searchVideoDiv {
-  width: 300px;
-  height: 190px;
-  line-height: 3em;
+width: 300px;
+height: 190px;
+line-height: 3em;
 margin-bottom: 20px;
                 }
 
@@ -48,7 +48,7 @@ margin-bottom: 20px;
   width:50px;
   height:40px;
 line-height: 4em;
-}
+           }
 .buttonDivEng {
   @extend .buttonDiv;
   line-height: 3em;
@@ -59,13 +59,13 @@ line-height: 4em;
   background: #353535;
 
 }
-.timeZone {
+.timeZone         {
   text-align: left;
   width:150px;
-}
+                  }
 .archItemDiv {
   display:flex;
-  flex-direction: row;
+  flex-direction:  row;
   justify-content: space-around;
   align-items: center;
   font-family: "Comfortaa Light";
