@@ -1,19 +1,20 @@
 @import 'variables';
 $menu-width:250px;
 .menuItemStyle {
-  display: block;
-  cursor: pointer;
-  width:$menuChannelWidth;
-  background: rgba(0,0,0,0.7);
-  font-family: "Comfortaa Light";
-  font-weight: normal;
-  color:white;
-  height: 60px;
-  line-height: 4.1em;
+    display: block;
+    cursor: pointer;
+    width:$menuChannelWidth;
+    background: rgba(0,0,0,0.7);
+    font-family: "Comfortaa Light";
+    font-weight: bold;
+    letter-spacing: 1px;
+    color:white;
+    height: 60px;
+    line-height: 4.1em;
               }
 .menuItemStyle:hover {
 background: $hollowColor;
-}
+                     }
 .menuItemStylefocus {
   @extend .menuItemStyle;
   //width:320px;
@@ -32,7 +33,13 @@ background: $hollowColor;
   visibility: hidden;
 }
 .menuChannel {
-  height:800px;
+  @media only screen and (min-device-width: 480px) {
+    height:200px;
+                                                   }
+  @media only screen and (min-device-width: 1282px){
+    height:800px;
+                                                   }
+  //height:800px;
   position: absolute;
   top:0;
   left:0;

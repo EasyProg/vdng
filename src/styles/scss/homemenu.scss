@@ -14,7 +14,7 @@ margin-top: 20px;
   border-radius: 50px;
   background: rgba(87, 87, 87, 0.6)
 }
-.homeDiv          {
+.homeDiv           {
   text-align: center;
   color:white;
   position:absolute;
@@ -23,13 +23,13 @@ margin-top: 20px;
   width:345px;
   max-width:345px;
   min-width:200px;
-  height:700px;
+  height:1000px;
   max-height: 1200px;
   min-height: 500px;
   background: $backMenuColor;
   transition: all 0.5s ease 100ms;
   opacity: 1;
-}
+                    }
 .homeDivLeft
 {
   @extend .homeDiv;

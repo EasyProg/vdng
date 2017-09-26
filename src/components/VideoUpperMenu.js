@@ -59,7 +59,7 @@ class VideoUpperMenu extends Component                         {
                 else if (this.props.menus.channelsMenuVisible) {
                     this.props.dispatch(setChannelsVisible(
                         {
-    channelsMenuVisible: false,
+                            channelsMenuVisible: false,
                             categoryMenuVisible: true,
                             settingsVisible:     false
                         }
@@ -68,16 +68,16 @@ class VideoUpperMenu extends Component                         {
                                                                }
                 break;
                                                                }
-            case 39:                                           {
-                this.props.dispatch(setChannelsVisible(
-                    {
-                            channelsMenuVisible: false,
-                            categoryMenuVisible: false,
-                            settingsVisible:     true
-                    }
-                ));
-                break;
-                                                               }
+            // case 39:                                           {
+            //     this.props.dispatch(setChannelsVisible(
+            //         {
+            //                 channelsMenuVisible: false,
+            //                 categoryMenuVisible: false,
+            //                 settingsVisible:     true
+            //         }
+            //     ));
+            //     break;
+            //                                                    }
     case 13:                                           {
                 if (this.props.menus.channelsMenuVisible)
                 this.props.dispatch(setChannelsVisible(
@@ -99,14 +99,14 @@ class VideoUpperMenu extends Component                         {
     let isPos  =  i-1>=0;
     var nextElem = this.props.channels[i+1];
     var prevElem = this.props.channels[i-1];
-    if (param==='next')                                         {
+    if (param==='next')                                        {
         if (!isOver) nextElem = this.props.channels[0];
         if (nextElem)
         {
             this.props.dispatch(changeVideo(nextElem));
         }
         }
-        if (param==='prev')                                        {
+        if (param==='prev')                                         {
             if (!isPos) prevElem = this.props.channels[this.props.channels.length - 1];
             if (prevElem)                                           {
             this.props.dispatch(changeVideo(prevElem));
@@ -115,10 +115,10 @@ class VideoUpperMenu extends Component                         {
         }
 
         render() {
-            return (       <div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
-            <progress id='progress-bar' min='0' max='100' value='0' className={this.props.isTimeShift?'progressBarFull':'displayNone'}><div className="progressDiv"/></progress>
+            return (<div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
+            <progress id='progress-bar' min='0' max='100' value='0' className='displayNone'><div className="progressDiv"/></progress>
             <div  className="divPlayer">
-            <Timer isWholeProgramTime={true}/>
+            {/*<Timer isWholeProgramTime={true}/>*/}
             <div  className="playerButtonsDiv">
             <Icon className="large inverted step backward" onClick={(e)=>this.switchChannel('prev')}/>
             {this.props.isTimeShift?<Icon className="large inverted backward" onClick={(e)=>this.props.handleCurrentTimeContext(0)}/>:''}
@@ -126,11 +126,11 @@ class VideoUpperMenu extends Component                         {
             {this.props.isTimeShift?<Icon className="large inverted forward" onClick={(e)=>this.props.handleCurrentTimeContext(1)}/>:''}
             <Icon className="large inverted step forward" onClick={(e)=>this.switchChannel('next')}/>
             </div>
-            <Timer isWholeProgramTime={false}/>
+            {/*<Timer isWholeProgramTime={false}/>*/}
             </div>
             </div>
             )
-        }
+            }
                                                                 }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
 dispatch,changeVideo,toggleCategory,setChannelsVisible,toggleFullScreen

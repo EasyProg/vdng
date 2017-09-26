@@ -17,12 +17,11 @@ class PlayDiv extends Component {
 toggle(isPlaying) {
     this.props.dispatch(togglePlay(isPlaying));
 }
-
-    render() {
+    render(){
         return (
             <div>
             <VideoPlayer isVideoPlaying={this.props.isPlaying} videoStr={this.props.video.videoStr}/>
-                <div className="divPlayer">
+             <div className="divPlayer">
                 <div className="playerButtonsDiv">
                     <div>
                         <Icon className="inverted step backward"/>
@@ -40,16 +39,14 @@ toggle(isPlaying) {
                         <Icon className="inverted step forward"/>
                     </div>
                 </div>
-
                 {/*<Button circular icon='pause circle outline' color="white"/>*/}
-                 </div>
-                <div className="divBottomPlayer">
-                </div>
-                </div>
-        )
+              </div>
+              <div className="divBottomPlayer">
+              </div>
+            </div>
+                )
     }
 }
-
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     dispatch,togglePlay
 }, dispatch);

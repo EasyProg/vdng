@@ -13,7 +13,7 @@ var result = !isPlaying;
             }
 }
 
-export function toggleAutoPlay(isPlaying)    {
+export function toggleAutoPlay(isPlaying){
     var result = !isPlaying;
     console.log(result);
     return  {

@@ -55,9 +55,10 @@ class VideoPlayer extends Component                {
             appearsVideo();
             }
                                             });
+        $('#video').click(this.menuFullScreenAppears());
         this.videoOnLoad();
                             }
-toggle(isPlaying)       {
+        toggle(isPlaying)       {
         var vd = this.video.video;
         //const vd = this.video;
         this.props.dispatch(togglePlay(isPlaying));
@@ -68,7 +69,7 @@ toggle(isPlaying)       {
                                 }
         changeRes(res)          {
                                 }
-videoOnLoad()           {
+        videoOnLoad()           {
             if (this.props.video) {
                 var vd = document.getElementById('video');
                 if (navigator.userAgent.indexOf ('WOW64') !== -1) {
@@ -95,23 +96,23 @@ videoOnLoad()           {
         {vd.playbackRate+=0.1;}
         else vd.playbackRate-=0.1;
                                     }
-handlePlay()                              {
+    handlePlay()                    {
     this.timer = this.state.fullScreen?
         setTimeout(function()          {
             //Скрыть плей
-            $("#vduppermenu,#vdbottommenu,#menu").fadeOut(1000);
+            $("#vduppermenu,#menu").fadeOut(1000);
         },5000):
         setTimeout(function()          {
             //Скрыть плей
-            $("#vduppermenu,#vdbottommenu").fadeOut(1000);
+            $("#vduppermenu").fadeOut(1000);
         },5000);
 
-}
+                                    }
         menuFullScreenAppears()
         {
         //Отобразить плей
         clearTimeout(this.timer);
-        $("#vduppermenu,#vdbottommenu,#menu").fadeIn(1000);
+        $("#vduppermenu,#menu").fadeIn(1000);
         //Запустить скрытие
         this.handlePlay();
         }

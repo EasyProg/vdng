@@ -7,7 +7,7 @@ import cancel from '../img/cancel.png';
 import noimage from '../img/noimage.png';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-    import angle from '../img/arrow-pointing-to-right.gif';
+import angle from '../img/arrow-pointing-to-right.gif';
 var arch =
 [
     {name:'Game of thrones',     date:'13.04.2017', time:'15:30'},
@@ -39,13 +39,14 @@ var arch =
     this.state = {videos:arch}
 }
     searchVideo()                       {
-    var research = this.input.value;
+    var research = this.input.value.toUpperCase();
     console.log(research);
     if (research!=='')
-{var result = this.state.videos.filter(function(item){
-    return item.name.indexOf(research)!==-1
-});
-    this.setState({videos:result});}
+                                    {
+    var result = this.state.videos.filter(function(item){
+    return item.name.toUpperCase().indexOf(research)!==-1
+    });
+    this.setState({videos:result}); }
     else this.setState({videos:arch});  }
     render()                        {
     return (
