@@ -20,10 +20,12 @@ video::media-controls         {
    margin-left:15px;
                               }
 .playerButtonsDiv>i:hover     {
-  text-shadow: 2px 2px 3px rgba(255,255,255,0.3),0 0 1em white;
-                              }
+text-shadow: 2px 2px 3px
+rgba(255,255,255,0.3),0 0 1em white;
+}
 .playerButtonsDiv>img:hover   {
-  box-shadow: inset 0px 2px 24px 40px rgba(255,255,255,0.4),0 0 2em white;
+  box-shadow: inset 0px 2px 24px 40px
+  rgba(255,255,255,0.4),0 0 2em white;
   outline: 0;
   border-radius: 25px;
 }
@@ -34,20 +36,17 @@ video::media-controls         {
 #video                        {
   align-self: center;
   width: 100%;
-  height: auto;
-                              }
-// div Devices
-//.hoverDiv                     {
-//  position: absolute;
-//  display: block;
-//  width:100%;
-//  //top:98%;
-//  height:80%;
-//  z-index:2147483647;
-//                              }
+height:99%;
+}
 
-.playBackDiv {
+.playBackDiv                  {
   position: fixed;
   top:80%;
   z-index:2147483647;
-              }
+}
+.panelDiv                     {
+  position: absolute;
+  top:60%;
+  width:100%;
+  height:40%;
+}

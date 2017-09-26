@@ -1,32 +1,40 @@
-.homeButton {
+
+.homeButton       {
   width:45px;
   height:45px;
   margin-right:50px;
   text-align: center;
   line-height: 2.8em;
-  margin-top: 15px;
+margin-top: 20px;
 }
+
 .homeButton:hover {
   @extend .homeButton;
   cursor: pointer;
   border-radius: 50px;
   background: rgba(87, 87, 87, 0.6)
 }
-.homeDiv {
+.homeDiv          {
   text-align: center;
   color:white;
-  position: absolute;
-  left:83%;
-  top:-15px;
+  position:absolute;
+  right:0;
   display: block;
-  width:200%;
-  max-width:320px;
+  width:345px;
+  max-width:345px;
   min-width:200px;
-  height: 570%;
-  background: rgba(0,0,0,0.3);
+  height:700px;
+  max-height: 1200px;
+  min-height: 500px;
+  background: $backMenuColor;
   transition: all 0.5s ease 100ms;
   opacity: 1;
-         }
+}
+.homeDivLeft
+{
+  @extend .homeDiv;
+  right:345px;
+}
 .homeDivNone {
   @extend .homeDiv;
   opacity: 0;

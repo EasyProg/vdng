@@ -1,6 +1,5 @@
 import  React, {Component,PropTypes} from 'react';
 import  '../styles/css/main_styles.css';
-import  {connect} from 'react-redux';
 
 
 export default class Video extends Component    {
@@ -12,15 +11,7 @@ export default class Video extends Component    {
     isPlaying:PropTypes.bool.isRequired,
     video:    PropTypes.object.isRequired
                        };
-    // shouldComponentUpdate(nextProps,nextState)  {
-    // console.log(nextProps.fullSize+'     '+this.props.fullSize);
-    // if         (nextProps.fullSize!==this.props.fullSize)
-    // return false;
-    // else return true
-    //
-    //                                             }
-    render() {
-        console.log('Render');
+render() {
         return (
                         <div id="videoDiv">
                             <video id="video" ref={(video)=>this.video=video}

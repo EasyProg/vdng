@@ -1,28 +1,25 @@
-.tvimg      {
-  margin-right: 20px;
+.tvimg       {
+  margin-right: 10px;
+  margin-left: 10px;
   margin-top: 7px;
-            }
-//.shadow {
-//  height: 20px;
-//  width:200px;
-//  margin:20px auto;
-//  box-shadow:inset 0px -190px 190px -50px #add7f8;
-//}
+}
 .pname       {
+  margin-left: 10px;
   height: 60px;
   position: absolute;
   white-space:nowrap;
   overflow: hidden;
   width:170px;
-  //margin-bottom: 20px;
              }
 .pnameShadow {
   position: absolute;
   left:90%;
   height: 110%;
-  //box-shadow: 10px 10px 70px 50px rgba(0,0,0,0.7);
-  z-index: 30;
-             }
+z-index: 30;
+}
+//.pgDiv       {
+//margin-left: 10px;
+//             }
 
 .divShadow {
   @extend .pnameShadow;
@@ -32,10 +29,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-.pnameFav {
-  position: relative;
-  left:190px;
+        .pnameFav {
+          position: relative;
+          left:200px;
   top:-50%;
   z-index: 33;
   //margin-bottom: 20px;
@@ -43,7 +39,7 @@
 .rateContainer {
   position: relative;
   top:25px;
-  margin-right: 10px;
+  margin-right: 20px;
   float: right;
   display:flex;
   flex-direction: row;
@@ -63,8 +59,6 @@
   @extend .rateDivFilled;
   background: white;
 }
-
-
 .rateDivEmpty  {
   width: 7px;
   height: 7px;

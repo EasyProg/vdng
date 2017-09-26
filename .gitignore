@@ -15,6 +15,9 @@
 # production
 /build
 
+# workspaceignore
+.idea/workspace.xml
+
 # misc
 .DS_Store
 .env.local
@@ -22,7 +25,7 @@
 .env.test.local
 .env.production.local
 
-npm-debug.log*
+npm-debug.log*goo
 yarn-debug.log*
 yarn-error.log*
 

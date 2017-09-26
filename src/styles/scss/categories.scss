@@ -1,17 +1,18 @@
 @import 'variables';
 
 .categoryPanel {
+height:600px;
   top:-20px;
   display:block;
-  width:15%;
-  max-width: 15%;
-  min-width: 10%;
+  width:$menuItemWidth;
+  max-width: $menuItemWidth;
+  min-width: $menuItemWidth;
   margin-top: 20px;
   position: absolute;
   left:0;
   transition: left 0.5s ease 100ms;
                }
-.categoryLine {
+.categoryLine{
   position: absolute;
   left:7%;
   vertical-align: bottom;
@@ -35,8 +36,8 @@ display:none;
   display: block;
   cursor: pointer;
   width:$menuItemWidth;
-  max-width:$menuItemWidth;
-  min-width: 170px;
+  //max-width:$menuItemWidth;
+  //min-width: 170px;
   background: rgba(0,0,0,0.7);
   font-family: "Comfortaa Light";
   font-weight: normal;
@@ -63,8 +64,8 @@ display:none;
 }
 .menuHeaderCh {
   @extend .menuHeader;
-  width:320px;
-  max-width: 320px;
+width:$menuChannelWidth;
+  max-width:$menuChannelWidth;
 }
 .menuHeaderCircleDiv {
   background: #4a4a4a;
@@ -77,13 +78,22 @@ display:none;
   text-align: center;
                      }
 .categoryItem:hover {
-  background: #4a4a4a;
+background: $hollowColor;
+  filter:progid:DXImageTransform.Microsoft.Blur(10px);
+}
+.categoryItem:focus {
+  background: $hollowColor;
   filter:progid:DXImageTransform.Microsoft.Blur(10px);
 }
 .categoryItemChosen {
   @extend .categoryItem;
   color: $main_color;
 }
+
+        .workMotherFucker {
+          @extend .categoryItem;
+          background: $hollowColor;
+        }
 .categoryText {
   align-self: center;
   text-align: left;

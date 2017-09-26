@@ -13,7 +13,7 @@ static propTypes = {
         userName: PropTypes.string.isRequired,
         logged:PropTypes.bool
 
-    };
+};
 render () {
 
       return (
@@ -28,7 +28,7 @@ render () {
               </div>
 
            </div>
-      )
-  }
+              )
+}
 }
 
