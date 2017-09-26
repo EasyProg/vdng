@@ -74,7 +74,7 @@ this.props.dispatch(setChannelsVisible({
                </PerfectScrollbar>
                </div>
                </div>
-               )
+                        )
         }
                                         }
 const mapDispatchToProps = (dispatch) => bindActionCreators({

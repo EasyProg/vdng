@@ -5,7 +5,8 @@
   width: 340px;
   background: rgba(0, 0, 0, 0.7);
   font-family: "Comfortaa Light";
-  font-weight: normal;
+  font-weight: bold;
+  letter-spacing: 1px;
   color: white;
   height: 60px;
   line-height: 4.1em; }
@@ -392,7 +393,9 @@ hr {
   width: 270px;
   background: rgba(0, 0, 0, 0.7);
   font-family: "Comfortaa Light";
-  font-weight: normal;
+  font-weight: bold;
+  letter-spacing: 1px;
+  letter-spacing: 0.6px;
   color: white;
   height: 60px;
   line-height: 4em;
@@ -408,7 +411,8 @@ hr {
   min-width: 170px;
   background: rgba(0, 0, 0, 0.7);
   font-family: "Comfortaa Light";
-  font-weight: normal;
+  font-weight: bold;
+  letter-spacing: 1px;
   color: white;
   line-height: 6em;
   text-align: center;
@@ -846,7 +850,7 @@ body {
 .menuCenterText, .menuCenterTextBig, .menuCenterTextBigBold {
   letter-spacing: 2px;
   font-family: "Comfortaa Light";
-  font-weight: normal;
+  font-weight: bold;
   font-size: 20px;
   color: white; }
 
