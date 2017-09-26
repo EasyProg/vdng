@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2309f941-4b33-4db9-a988-0b031d5a3870" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/img/arrow-pointing-to-right.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/img/play-previous-button.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/ui/Timer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/settings.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Categories.js" afterPath="$PROJECT_DIR$/src/components/Categories.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Channel.js" afterPath="$PROJECT_DIR$/src/components/Channel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ChannelList.js" afterPath="$PROJECT_DIR$/src/components/ChannelList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HomeMenu.js" afterPath="$PROJECT_DIR$/src/components/HomeMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/LoginDiv.js" afterPath="$PROJECT_DIR$/src/components/LoginDiv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Video.js" afterPath="$PROJECT_DIR$/src/components/Video.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoArchive.js" afterPath="$PROJECT_DIR$/src/components/VideoArchive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoBottomMenu.js" afterPath="$PROJECT_DIR$/src/components/VideoBottomMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoPlayer.js" afterPath="$PROJECT_DIR$/src/components/VideoPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoUpperMenu.js" afterPath="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/Menu.js" afterPath="$PROJECT_DIR$/src/components/ui/Menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/App.js" afterPath="$PROJECT_DIR$/src/containers/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/TVChannelImg.scss" afterPath="$PROJECT_DIR$/src/styles/scss/TVChannelImg.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/categories.scss" afterPath="$PROJECT_DIR$/src/styles/scss/categories.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/homemenu.scss" afterPath="$PROJECT_DIR$/src/styles/scss/homemenu.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.scss" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/menu.scss" afterPath="$PROJECT_DIR$/src/styles/scss/menu.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/variables.scss" afterPath="$PROJECT_DIR$/src/styles/scss/variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/video.scss" afterPath="$PROJECT_DIR$/src/styles/scss/video.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" afterPath="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/videoarchive.scss" afterPath="$PROJECT_DIR$/src/styles/scss/videoarchive.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +18,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="384">
+              <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -236,7 +204,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128000" />
+    <option name="totallyTimeSpent" value="1456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -651,8 +619,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="384">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
           <folding />
         </state>
       </provider>
