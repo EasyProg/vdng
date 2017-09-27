@@ -21,15 +21,18 @@ body  {
           overflow:  hidden;
       }
 @font-face {
-  font-family: "Comfortaa-Light";
-  src: url(../fonts/Comfortaa-Light.ttf);
+  font-family: "ComfortaaLight";
+  src: url("../fonts/ComfortaaLight.eot");
+  src: url("../fonts/ComfortaaLight.eot?#iefix")format("embedded-opentype"),
+  url("../fonts/ComfortaaLight.woff") format("woff"),
+  url("../fonts/ComfortaaLight.ttf") format("truetype");
   font-weight: 600;
 }
 @font-face {
   font-family: "RobotoMedium";
   src: url(../fonts/RobotoMedium.ttf);
   font-weight: 600;
-}
+           }
 
 
 .testDiv {
