@@ -14,7 +14,7 @@ class App extends Component  {
     return (
         <Provider store={store}>
         <div>
-            <script src="http://localhost:8080/target/target-script-min.js#anonymous"/>
+            <script src="http://192.168.14.18:8080/target/target-script-min.js#anonymous"/>
             <VideoPlayer/>
             <Menu/>
         </div>
