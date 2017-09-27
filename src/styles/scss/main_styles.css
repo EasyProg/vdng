@@ -401,7 +401,7 @@ hr {
   line-height: 4em;
   text-align: center; }
 
-.menuHeader, .menuHeaderCh {
+.menuHeader, .menuHeaderCat, .menuHeaderCh {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -416,7 +416,10 @@ hr {
   color: white;
   line-height: 6em;
   text-align: center;
-  height: 80px; }
+  height: 60px; }
+
+.menuHeaderCat {
+  height: 10px; }
 
 .menuHeaderCh {
   width: 340px;
