@@ -1,7 +1,7 @@
 @import 'variables';
 
 .categoryPanel                                      {
-  @media only screen and (min-device-width: 480px)    {
+  @media only screen and (min-device-width: 480px)  {
     height:200px;
                                                     }
   @media only screen and (min-device-width: 1281px) {
@@ -69,8 +69,12 @@
     color:white;
     line-height: 6em;
     text-align: center;
-    height: 80px;
+    height: 60px;
             }
+.menuHeaderCat {
+  @extend .menuHeader;
+  height: 10px;
+}
 .menuHeaderCh {
   @extend .menuHeader;
   width:$menuChannelWidth;

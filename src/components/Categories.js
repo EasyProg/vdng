@@ -147,7 +147,7 @@ render()                {
     return (
     <div>
     <div className= {this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories" onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
-    <div className="menuHeader"/>
+    <div className="menuHeaderCat"/>
     <PerfectScrollbar>
     {
                             this.Menu.map((item,i)=>
