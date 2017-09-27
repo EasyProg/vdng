@@ -47,10 +47,11 @@ class VideoPlayer extends Component                 {
         //Component Functions
         componentDidMount()     {
         var vd = this.video.video;
+        var bd = document.getElementById('root');
         var appearsVideo = this.menuFullScreenAppears;
-        vd.addEventListener('mousemove',this.menuFullScreenAppears);
-        vd.addEventListener('click',    this.menuFullScreenAppears);
-        $('#video').keydown(function(event) {
+        bd.addEventListener('mousemove',this.menuFullScreenAppears);
+        bd.addEventListener('click',    this.menuFullScreenAppears);
+        $('body').keydown(function(event)   {
             if (event.keyCode===13)
             {
             appearsVideo();
@@ -179,13 +180,13 @@ class VideoPlayer extends Component                 {
         render()        {
         this.videoOnLoad();
         return          (
-                        <div                 ref={(dv)=>this.div=dv} className="centerDiv">
-                        <Video               isPlaying={this.props.isPlaying}
-                                             fullSize= {this.props.fullScreen}
-                                             video=    {this.props.video}
-                                             ref=      {(video)=>this.video=video}
+                        <div             ref={(dv)=>this.div=dv} className="centerDiv">
+                        <Video           isPlaying={this.props.isPlaying}
+                                         fullSize= {this.props.fullScreen}
+                                         video=    {this.props.video}
+                                         ref=      {(video)=>this.video=video}
                          />
-                            <div className="panelDiv"/>
+                        <div className="panelDiv"/>
                         <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                          toggleContext={this.toggle}
                                          handleOnPlayContext={this.handleOnPlay}
