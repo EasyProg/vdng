@@ -1,8 +1,8 @@
 import React, { Component,PropTypes } from 'react';
 import {Icon} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import pause from '../img/pause_button.png';
-import play from '../img/play-button.png';
+import pause from '../img/pause-button.gif';
+import play from '../img/play-button.gif';
 import '../styles/css/main_styles.css';
     import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -121,9 +121,9 @@ class VideoUpperMenu extends Component                         {
             {/*<Timer isWholeProgramTime={true}/>*/}
             <div  className="playerButtonsDiv">
             <Icon className="large inverted step backward" onClick={(e)=>this.switchChannel('prev')}/>
-            {this.props.isTimeShift?<Icon className="large inverted backward" onClick={(e)=>this.props.handleCurrentTimeContext(0)}/>:''}
+            {/*{this.props.isTimeShift?<Icon className="large inverted backward" onClick={(e)=>this.props.handleCurrentTimeContext(0)}/>:''}*/}
             <img  onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
-            {this.props.isTimeShift?<Icon className="large inverted forward" onClick={(e)=>this.props.handleCurrentTimeContext(1)}/>:''}
+            {/*{this.props.isTimeShift?<Icon className="large inverted forward" onClick={(e)=>this.props.handleCurrentTimeContext(1)}/>:''}*/}
             <Icon className="large inverted step forward" onClick={(e)=>this.switchChannel('next')}/>
             </div>
             {/*<Timer isWholeProgramTime={false}/>*/}
