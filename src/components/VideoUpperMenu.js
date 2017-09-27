@@ -25,8 +25,9 @@ class VideoUpperMenu extends Component                         {
             //event.preventDefault();
             func(event);
                                                                });
-    $('#video,.panelDiv').click (
-                function()      {
+    $('#video,.panelDiv').click     (
+                function(event)     {
+                event.stopPropagation();
                 t.props.dispatch(setChannelsVisible(
                     {
                             channelsMenuVisible: false,
@@ -34,7 +35,7 @@ class VideoUpperMenu extends Component                         {
                             settingsVisible:     false
                     }));
                     $('#video').focus();
-                                }
+                                    }
                                     );
                                                                }
     switchKeyPress(event)                                      {

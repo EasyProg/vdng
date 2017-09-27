@@ -4,8 +4,7 @@
   cursor: pointer;
   width: 340px;
   background: rgba(0, 0, 0, 0.3);
-  font-family: "Comfortaa Light";
-  font-weight: bold;
+  font-family: "ComfortaaRegular";
   letter-spacing: 1px;
   color: white;
   height: 60px;
@@ -394,10 +393,8 @@ hr {
   cursor: pointer;
   width: 270px;
   background: rgba(0, 0, 0, 0.7);
-  font-family: "Comfortaa Light";
-  font-weight: bold;
+  font-family: "ComfortaaRegular";
   letter-spacing: 1px;
-  letter-spacing: 0.6px;
   color: white;
   height: 60px;
   line-height: 4em;
@@ -412,7 +409,7 @@ hr {
   max-width: 270px;
   min-width: 170px;
   background: rgba(0, 0, 0, 0.7);
-  font-family: "Comfortaa Light";
+  font-family: "ComfortaaLight";
   font-weight: bold;
   letter-spacing: 1px;
   color: white;
@@ -813,10 +810,10 @@ body {
   overflow: hidden; }
 
 @font-face {
-  font-family: "ComfortaaLight";
-  src: url("../fonts/ComfortaaLight.eot");
-  src: url("../fonts/ComfortaaLight.eot?#iefix") format("embedded-opentype"), url("../fonts/ComfortaaLight.woff") format("woff"), url("../fonts/ComfortaaLight.ttf") format("truetype");
-  font-weight: 600; }
+  font-family: "ComfortaaRegular";
+  src: url("../fonts/ComfortaaRegular.eot");
+  src: url("../fonts/ComfortaaRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/ComfortaaRegular.woff") format("woff"), url("../fonts/ComfortaaRegular.ttf") format("truetype");
+  font-weight: bold; }
 @font-face {
   font-family: "RobotoMedium";
   src: url(../fonts/RobotoMedium.ttf);
@@ -855,8 +852,7 @@ body {
 
 .menuCenterText, .menuCenterTextBig, .menuCenterTextBigBold {
   letter-spacing: 2px;
-  font-family: "Comfortaa Light";
-  font-weight: bold;
+  font-family: "ComfortaaRegular";
   font-size: 20px;
   color: white; }
 
