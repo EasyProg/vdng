@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2309f941-4b33-4db9-a988-0b031d5a3870" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoPlayer.js" afterPath="$PROJECT_DIR$/src/components/VideoPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/Menu.js" afterPath="$PROJECT_DIR$/src/components/ui/Menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/App.js" afterPath="$PROJECT_DIR$/src/containers/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoUpperMenu.js" afterPath="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" afterPath="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,41 +21,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VideoPlayer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/VideoPlayer.js">
+      <file leaf-file-name="VideoUpperMenu.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="41" column="47" lean-forward="false" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="47" />
+            <state relative-caret-position="425">
+              <caret line="121" column="12" lean-forward="false" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video_upper_menu.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="56" column="20" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
+      <file leaf-file-name="animations.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/scss/animations.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeMenu.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/HomeMenu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+            <state relative-caret-position="0">
+              <caret line="0" column="28" lean-forward="true" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -72,7 +64,6 @@
         <option value="$PROJECT_DIR$/src/components/VideoArchive.js" />
         <option value="$PROJECT_DIR$/src/styles/scss/homemenu.scss" />
         <option value="$PROJECT_DIR$/src/styles/scss/videoarchive.scss" />
-        <option value="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
         <option value="$PROJECT_DIR$/src/actions/actions.js" />
         <option value="$PROJECT_DIR$/src/components/PlayDiv.js" />
         <option value="$PROJECT_DIR$/src/styles/css/main_styles.css" />
@@ -86,6 +77,8 @@
         <option value="$PROJECT_DIR$/src/components/VideoPlayer.js" />
         <option value="$PROJECT_DIR$/src/containers/App.js" />
         <option value="$PROJECT_DIR$/src/components/ui/Menu.js" />
+        <option value="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
+        <option value="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" />
       </list>
     </option>
   </component>
@@ -240,7 +233,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26680000" />
+    <option name="totallyTimeSpent" value="27440000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -248,10 +241,10 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18981972" sideWeight="0.54375" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18981972" sideWeight="0.54583335" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2852598" sideWeight="0.45625" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2852598" sideWeight="0.45416668" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -394,6 +387,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -401,14 +395,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="19" lean-forward="false" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -507,12 +493,12 @@
         <state relative-caret-position="331">
           <caret line="395" column="20" lean-forward="false" selection-start-line="395" selection-start-column="20" selection-end-line="395" selection-end-column="20" />
           <folding>
-            <marker date="1506502484919" expanded="true" signature="54:192" ph="{...}" />
-            <marker date="1506502484919" expanded="true" signature="8225:8231" ph="{...}" />
-            <marker date="1506502484919" expanded="true" signature="16722:16760" ph="{...}" />
-            <marker date="1506502484919" expanded="true" signature="16805:16850" ph="{...}" />
-            <marker date="1506502484919" expanded="true" signature="16875:16899" ph="{...}" />
-            <marker date="1506502484919" expanded="true" signature="16914:16957" ph="{...}" />
+            <marker date="1506512377584" expanded="true" signature="54:192" ph="{...}" />
+            <marker date="1506512377584" expanded="true" signature="8225:8231" ph="{...}" />
+            <marker date="1506512377584" expanded="true" signature="16722:16760" ph="{...}" />
+            <marker date="1506512377584" expanded="true" signature="16805:16850" ph="{...}" />
+            <marker date="1506512377584" expanded="true" signature="16875:16899" ph="{...}" />
+            <marker date="1506512377584" expanded="true" signature="16914:16957" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -577,22 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/scss/animations.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="28" lean-forward="true" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="937">
-          <caret line="128" column="53" lean-forward="true" selection-start-line="128" selection-start-column="53" selection-end-line="128" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ChannelList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -647,9 +617,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+        <state relative-caret-position="578">
+          <caret line="46" column="47" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/scss/animations.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="28" lean-forward="true" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="56" column="20" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="121" column="12" lean-forward="false" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

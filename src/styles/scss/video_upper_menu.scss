@@ -51,17 +51,17 @@ $plButtonsLeft:10%;
   align-items: center;
   -webkit-align-items: center;
                   }
-        .videoTime        {
-          cursor: default;
-          line-height: 2.5em;
-          margin-left: 20px;
-          margin-right: 40px;
+.videoTime        {
+  cursor: default;
+  line-height: 2.5em;
+  margin-left: 20px;
+  margin-right: 40px;
   height: 60px;
   width:  50px;
   font-size: 1.5em;
   font-family: "RobotoRegular";
   color: white;
-        }
+                  }
 .progressBar      {
   position: absolute;
   top:84%;
