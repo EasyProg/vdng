@@ -11,7 +11,7 @@ const initialState =    {
 //Global state variables
         isPlaying:true,
         autoPlay:true,
-    fullScreen:false
+        fullScreen:false
                         };
 const   channelState = {
         chosenCategory   :'All channels',
@@ -21,8 +21,8 @@ const  menuState =     {
        menus:{
        channelsMenuVisible:false,
        categoryMenuVisible:false,
-           settingsVisible:false,
-           vdArchVisible:false
+       settingsVisible:false,
+       vdArchVisible:false
        }
 };
 const  settingsState =  {
