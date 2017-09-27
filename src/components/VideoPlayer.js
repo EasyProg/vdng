@@ -49,14 +49,15 @@ class VideoPlayer extends Component                {
         var vd = this.video.video;
         var appearsVideo = this.menuFullScreenAppears;
         vd.addEventListener('mousemove',this.menuFullScreenAppears);
+        vd.addEventListener('click',    this.menuFullScreenAppears);
         $('#video').keydown(function(event) {
             if (event.keyCode===13)
             {
             appearsVideo();
             }
                                             });
-        $('#video').click(this.menuFullScreenAppears());
-        this.videoOnLoad();
+        $('#video').click   (
+        this.videoOnLoad());
                             }
         toggle(isPlaying)       {
         var vd = this.video.video;
@@ -100,7 +101,7 @@ class VideoPlayer extends Component                {
     this.timer = this.state.fullScreen?
         setTimeout(function()          {
             //Скрыть плей
-            $("#vduppermenu,#menu").fadeOut(1000);
+        $("#vduppermenu,#menu").fadeOut(1000);
         },5000):
         setTimeout(function()          {
             //Скрыть плей
@@ -153,7 +154,7 @@ class VideoPlayer extends Component                {
         else                                      {
         //alert('Your browsers doesn\'t support fullscreen');
                                                   }
-        document.addEventListener ("webkitfullscreenchange", this.escFullScreen, false);
+    document.addEventListener ("webkitfullscreenchange", this.escFullScreen, false);
     this.setState({fullScreen:true});
         }
         //from fullScreen to Normal
@@ -173,7 +174,7 @@ class VideoPlayer extends Component                {
                                                    }}
         //Component Functions
         render()        {
-            this.videoOnLoad();
+        this.videoOnLoad();
     return      (
                         <div             ref={(dv)=>this.div=dv} className="centerDiv">
                             <Video           isPlaying={this.props.isPlaying}
