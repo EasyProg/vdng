@@ -38,7 +38,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
     settingsVisible:false
     }));
     //Set UI
-    }
+                                             }
     categVisible()                              {
         this.props.dispatch(setChannelsVisible  (
             {
@@ -75,8 +75,8 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
                </PerfectScrollbar>
                </div>
                </div>
-                        )
-        }
+                                                )
+            }
                                         }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
 dispatch,
