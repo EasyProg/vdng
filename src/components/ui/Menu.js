@@ -16,7 +16,9 @@ class Menu extends Component            {
         super(props);
         this.toggleMenuState = this.toggleMenuState.bind(this);
                        }
-    toggleMenuState(menuType = 'left')  {
+    toggleMenuState(e,menuType = 'left')  {
+     //e.nativeEvent.stopImmediatePropagation();
+     //e.stopPropagation();
      var categoryState = this.props.menus.categoryMenuVisible;
      var settingsState = this.props.menus.settingsVisible;
      //Туггл кнопок если стейт изменился
@@ -37,13 +39,13 @@ class Menu extends Component            {
                 settingsVisible:!settingsState
             }));
         }
-                                        }
+                                            }
     render() {
         return (
             <div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>
                 <div className="menuDives">
                     <div className="divSideBar"
-                         onClick={(e) => this.toggleMenuState()}>
+                         onClick={(e) => {e.stopPropagation(); this.toggleMenuState(e)}}>
                     <img src={menu} height={45} width={30}/>
                     </div>
                     <Categories visible={this.props.menus.categoryMenuVisible}

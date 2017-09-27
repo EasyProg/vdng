@@ -20,6 +20,6 @@ class App extends Component  {
         </Provider>
     );
   }
-                             }
+                              }
 
 export default App;
