@@ -61,6 +61,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
                {this.props.playList.map((elem, i) =>
                             <Channel
                             key={i}
+                            img={elem.img}
                             channelId       =   {elem.channelId}
                             hiddenChannel   =   {this.props.category==='Locked'}
                             programName     =   {elem.channel}

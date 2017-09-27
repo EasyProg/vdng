@@ -59,6 +59,7 @@ class Categories extends Component              {
     var channels = [];
     var t = '';
     var link ='';
+    var imgLink ='';
     let parseCategory ='';
     let parseChannelID = 0;
     if (arr) {
@@ -72,12 +73,13 @@ class Categories extends Component              {
                         var c =  e.EXTINF['aspect-ratio'];
                         parseCategory = c.substring(c.indexOf('category=',1)+9,c.indexOf(';keycode',1));
                         parseChannelID= Number(c.substring(c.indexOf('id=',1)+3,c.indexOf(';category',1)));
+                        imgLink =  c.substring(c.indexOf('thumb=',1)+6,c.indexOf(';type',1))
                          }
                                           }
                                           }
             if (typeof e === 'string')    {
                 link = e;
-                channels.push({channelId:parseChannelID,channel: t, link: link, category:parseCategory,img:'none'});
+                channels.push({channelId:parseChannelID,channel: t, link: link, category:parseCategory,img:imgLink,});
                                           }
         });
                }

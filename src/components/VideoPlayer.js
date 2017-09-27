@@ -59,6 +59,9 @@ class VideoPlayer extends Component     {
         $('#video,#panelDiv').click(function(event) {
             appearsVideo();
         });
+        $('#video,#panelDiv').mousemove(function(event) {
+            appearsVideo();
+        });
         this.videoOnLoad();
                                 }
         toggle(isPlaying)       {
@@ -181,7 +184,7 @@ class VideoPlayer extends Component     {
         render()        {
         this.videoOnLoad();
         return          (
-                        <div             ref={(dv)=>this.div=dv} className="centerDiv" id="centerDiv">
+                        <div             ref=      {(dv)=>this.div=dv} className="centerDiv" id="centerDiv">
                         <Video           isPlaying={this.props.isPlaying}
                                          fullSize= {this.props.fullScreen}
                                          video=    {this.props.video}
