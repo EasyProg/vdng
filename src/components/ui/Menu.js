@@ -11,13 +11,15 @@ import home from '../../img/hm.png';
 import menu from '../../img/main_menu.gif';
 import prev_button from '../../img/play-previous-button.gif'
 import * as $ from 'jquery';
-class Menu extends Component              {
-    constructor(props) {
+class Menu extends Component                {
+    constructor(props)                      {
         super(props);
         this.toggleMenuState = this.toggleMenuState.bind(this);
-                       }
-    toggleMenuState(e,menuType = 'left')  {
-     //e.nativeEvent.stopImmediatePropagation();
+                                            }
+    // componentWillUnmount() {
+    // console.log('sdsdsdsd');
+    // }
+     toggleMenuState(e,menuType = 'left')   {
      //e.stopPropagation();
      var categoryState = this.props.menus.categoryMenuVisible;
      var settingsState = this.props.menus.settingsVisible;
@@ -30,6 +32,7 @@ class Menu extends Component              {
                settingsVisible:false
                                                   }));
         $('#channels').focus();
+        $("#vduppermenu").fadeOut(100);
         }
         else
         {
@@ -39,13 +42,13 @@ class Menu extends Component              {
                 settingsVisible:!settingsState
             }));
         }
-                                            }
+                                             }
     render()    {
         return (
             <div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>
                 <div className="menuDives">
                     <div className={this.props.menus.channelsMenuVisible||this.props.menus.categoryMenuVisible?"displayNone":'divSideBar'}
-                         onClick={(e) => {e.stopPropagation(); this.toggleMenuState(e)}}>
+                         onClick={(e) => this.toggleMenuState(e)}>
                     <img src={menu} height={45} width={30}/>
                     </div>
                     <Categories visible={this.props.menus.categoryMenuVisible}
@@ -81,5 +84,5 @@ state => ({fullScreen:state.videoReducer.fullScreen,
            isParentControl:
                       state.settingsReducer.parentalControl
           }),
-          mapDispatchToProps
+                      mapDispatchToProps
                        )(Menu);

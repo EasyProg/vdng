@@ -14,22 +14,22 @@ import * as $ from 'jquery';
 //import 'semantic-ui-css/semantic.min.css'//;
 import '../styles/css/main_styles.css';
 var proxy = 'https://cors-anywhere.herokuapp.com/';
-var timeFormat = function(seconds)                  {
-    var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
-    var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
-    var h = Math.floor(m/60)<10 ? "0"+Math.floor(m/60) : Math.floor(m/60);
-    h = h ==='00'?'':h;
-if (m&&s&&h)
-return h+':'+m+":"+s;
-else if (m&&s&&!h)
-return  m+":"+s;
-else return  '00:00'
-                                                    };
+var timeFormat = function(seconds)      {
+        var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
+        var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
+        var h = Math.floor(m/60)<10 ? "0"+Math.floor(m/60) : Math.floor(m/60);
+        h = h ==='00'?'':h;
+        if (m&&s&&h)
+        return h+':'+m+":"+s;
+        else if (m&&s&&!h)
+        return  m+":"+s;
+        else return  '00:00'
+                                        };
 //window.$ = window.JQuery = JQuery;
 const hls = new Hls();
-class VideoPlayer extends Component                 {
+class VideoPlayer extends Component     {
         //vd = this.video?this.video.video:'';
-        constructor(props)                          {
+        constructor(props)              {
         super(props);
         //Bind functions
         this.changeSize = this.changeSize.bind(this);
@@ -43,21 +43,22 @@ class VideoPlayer extends Component                 {
         this.state = {playerButtonsAppear:false};
         this.timer = '';
         this.state = {fullScreen:false};
-        }
+                                }
         //Component Functions
         componentDidMount()     {
-        var vd = this.video.video;
-        var bd = document.getElementById('root');
+        //var vd = this.video.video;
+        //var bd = document.getElementById('centerDiv');
         var appearsVideo = this.menuFullScreenAppears;
-        bd.addEventListener('mousemove',this.menuFullScreenAppears);
-        bd.addEventListener('click',    this.menuFullScreenAppears);
+            //bd.addEventListener('onclick',appearsVideo);
         $('body').keydown(function(event)   {
             if (event.keyCode===13)
             {
             appearsVideo();
             }
                                             });
-        //$('#video').click       (
+        $('#video,#panelDiv').click(function(event) {
+            appearsVideo();
+        });
         this.videoOnLoad();
                                 }
         toggle(isPlaying)       {
@@ -180,13 +181,14 @@ class VideoPlayer extends Component                 {
         render()        {
         this.videoOnLoad();
         return          (
-                        <div             ref={(dv)=>this.div=dv} className="centerDiv">
+                        <div             ref={(dv)=>this.div=dv} className="centerDiv" id="centerDiv">
                         <Video           isPlaying={this.props.isPlaying}
                                          fullSize= {this.props.fullScreen}
                                          video=    {this.props.video}
                                          ref=      {(video)=>this.video=video}
+                                         onClick = {e=>this.menuFullScreenAppears()}
                          />
-                        <div className="panelDiv"/>
+                        <div className="panelDiv" id="panelDiv"/>
                         <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                          toggleContext={this.toggle}
                                          handleOnPlayContext={this.handleOnPlay}
@@ -194,7 +196,6 @@ class VideoPlayer extends Component                 {
                                          handleCurrPlaybackContext={this.handleCurrPlayback}/>
                         <VideoBottomMenu changeSizeContext={this.changeSize}
                                          changeResContext= {this.changeRes}/>
-                        <div id="processDiv" className="displayNone"/>
                         </div>
                        )
                        }

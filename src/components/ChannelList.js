@@ -90,7 +90,7 @@ state => ({
 video:state.videoReducer.video,
 channelCategory:state.channelReducer.chosenCategory,
 autoPlay:state.videoReducer.autoPlay,
-    channelsMenuVisible:state.menuReducer.menus.channelsMenuVisible
+channelsMenuVisible:state.menuReducer.menus.channelsMenuVisible
 }),
 mapDispatchToProps
 )(ChannelList);
