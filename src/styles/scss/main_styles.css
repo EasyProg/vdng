@@ -3,7 +3,7 @@
   display: block;
   cursor: pointer;
   width: 340px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.3);
   font-family: "Comfortaa Light";
   font-weight: bold;
   letter-spacing: 1px;
@@ -29,16 +29,18 @@
   visibility: hidden; }
 
 .menuChannel, .menuChannelLeft, .menuChannelNone {
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  background: rgba(0, 0, 0, 0.8);
   transition: left 0.5s ease 100ms; }
   @media only screen and (min-device-width: 480px) {
     .menuChannel, .menuChannelLeft, .menuChannelNone {
       height: 200px; } }
   @media only screen and (min-device-width: 1282px) {
     .menuChannel, .menuChannelLeft, .menuChannelNone {
-      height: 800px; } }
+      height: 1200px; } }
 
 .menuChannelLeft {
   left: 270px; }
@@ -811,8 +813,9 @@ body {
   overflow: hidden; }
 
 @font-face {
-  font-family: "Comfortaa-Light";
-  src: url(../fonts/Comfortaa-Light.ttf);
+  font-family: "ComfortaaLight";
+  src: url("../fonts/ComfortaaLight.eot");
+  src: url("../fonts/ComfortaaLight.eot?#iefix") format("embedded-opentype"), url("../fonts/ComfortaaLight.woff") format("woff"), url("../fonts/ComfortaaLight.ttf") format("truetype");
   font-weight: 600; }
 @font-face {
   font-family: "RobotoMedium";

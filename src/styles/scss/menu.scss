@@ -4,7 +4,7 @@ $menu-width:250px;
     display: block;
     cursor: pointer;
     width:$menuChannelWidth;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.3);
     font-family: "Comfortaa Light";
     font-weight: bold;
     letter-spacing: 1px;
@@ -37,12 +37,14 @@ background: $hollowColor;
     height:200px;
                                                    }
   @media only screen and (min-device-width: 1282px){
-    height:800px;
+    height:1200px;
                                                    }
   //height:800px;
+  height: 100%;
   position: absolute;
   top:0;
   left:0;
+  background: rgba(0,0,0,0.8);
   transition: left 0.5s ease 100ms;
              }
 .menuChannelLeft {
