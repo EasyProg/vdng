@@ -11,7 +11,7 @@ import home from '../../img/hm.png';
 import menu from '../../img/main_menu.gif';
 import prev_button from '../../img/play-previous-button.gif'
 import * as $ from 'jquery';
-class Menu extends Component            {
+class Menu extends Component              {
     constructor(props) {
         super(props);
         this.toggleMenuState = this.toggleMenuState.bind(this);
@@ -40,11 +40,11 @@ class Menu extends Component            {
             }));
         }
                                             }
-    render() {
+    render()    {
         return (
             <div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>
                 <div className="menuDives">
-                    <div className="divSideBar"
+                    <div className={this.props.menus.channelsMenuVisible||this.props.menus.categoryMenuVisible?"displayNone":'divSideBar'}
                          onClick={(e) => {e.stopPropagation(); this.toggleMenuState(e)}}>
                     <img src={menu} height={45} width={30}/>
                     </div>
@@ -77,8 +77,9 @@ state => ({fullScreen:state.videoReducer.fullScreen,
            channel:   state.videoReducer.video.channel,
            channelId: state.videoReducer.video.channelId,
            category:  state.channelReducer.chosenCategory,
-    menus:     state.menuReducer.menus,
-isParentControl: state.settingsReducer.parentalControl
+           menus:     state.menuReducer.menus,
+           isParentControl:
+                      state.settingsReducer.parentalControl
           }),
           mapDispatchToProps
                        )(Menu);
