@@ -116,7 +116,7 @@ class VideoPlayer extends Component                 {
                                     {
         //Отобразить плей
         clearTimeout(this.timer);
-        $("#vduppermenu,#menu").fadeIn(1000);
+        $("#vduppermenu,#menu").fadeIn(1);
         //Запустить скрытие
         this.handlePlay();
                                     }
