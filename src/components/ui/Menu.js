@@ -43,7 +43,7 @@ class Menu extends Component                {
             }));
         }
                                              }
-    render()    {
+    render()   {
         return (
             <div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>
                 <div className="menuDives">
@@ -69,7 +69,7 @@ class Menu extends Component                {
                 </div>
             </div>
               )
-            }
+              }
 
                                         }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
