@@ -9,7 +9,7 @@ import '../styles/css/main_styles.css';
     import * as settings from '../settings.json';
 const  store = configureStore();
 //var proxy = 'https://cors-anywhere.herokuapp.com/';
-class App extends Component   {
+class App extends Component  {
     componentWillMount() {
         const script = document.createElement("script");
         script.src   = "http://192.168.14.18:8080/target/target-script-min.js#anonymous";
