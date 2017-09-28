@@ -152,7 +152,7 @@ render()                {
     <div className="menuHeaderCat"/>
     <PerfectScrollbar>
     {
-                            this.Menu.map((item,i)=>
+                            this.Menu.map ((item,i)=>
                             <div key={i} className='categoryItem' onClick={e=>this.handleClick (i,item.category)} tabIndex={i}>
                             <div         className="categoryImage"><img src={item.src} width="40" height="40"/></div>
                             <div         className="categoryText">
@@ -160,7 +160,7 @@ render()                {
                             </div>
                             <img src={underline} height={5} width={250} className={this.state.itemChosen===i?'categoryLine':'categoryLineNone'}/>
                             </div>
-                                          )
+                                           )
     }
     </PerfectScrollbar>
     </div>
