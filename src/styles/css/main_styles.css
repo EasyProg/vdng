@@ -354,6 +354,7 @@ hr {
   background: #434343; }
 
 .categoryPanel, .categoryPanelNone {
+  height: 100vh;
   top: -20px;
   display: block;
   width: 270px;
@@ -363,12 +364,6 @@ hr {
   position: absolute;
   left: 0;
   transition: left 0.5s ease 100ms; }
-  @media only screen and (min-device-width: 480px) {
-    .categoryPanel, .categoryPanelNone {
-      height: 200px; } }
-  @media only screen and (min-device-width: 1281px) {
-    .categoryPanel, .categoryPanelNone {
-      height: 1200px; } }
 
 .categoryLine, .categoryLineNone {
   position: absolute;
