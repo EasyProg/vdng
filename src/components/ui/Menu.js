@@ -19,8 +19,9 @@ class Menu extends Component                {
     // componentWillUnmount() {
     // console.log('sdsdsdsd');
     // }
-     toggleMenuState(e,menuType = 'left')   {
+     toggleMenuState(menuType = 'left')   {
      //e.stopPropagation();
+         console.log('Event Log');
      var categoryState = this.props.menus.categoryMenuVisible;
      var settingsState = this.props.menus.settingsVisible;
      //Туггл кнопок если стейт изменился
@@ -45,29 +46,35 @@ class Menu extends Component                {
                                              }
     render()   {
         return (
-            <div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>
+        <div id="menu" className="mainMenuDiv">
+            {/*<div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>*/}
                 <div className="menuDives">
                     <div className={this.props.menus.channelsMenuVisible||this.props.menus.categoryMenuVisible?"displayNone":'divSideBar'}
-                         onClick={(e) => this.toggleMenuState(e)}>
+                    onClick={(e) => this.toggleMenuState()}>
                     <img src={menu} height={45} width={30}/>
                     </div>
                     <Categories visible={this.props.menus.categoryMenuVisible}
                                 channelVisible={this.props.menus.channelsMenuVisible}
                                 toggleMenuStateContext={this.toggleMenuState}/>
                     <div className={this.props.fullScreen?"menuCenterText":'displayNone'}>
-                        <div className="menuCenterTextBig">{this.props.category} <img src={prev_button} width={30} height={30}/>
-                        <span className="menuCenterTextBigBold">{this.props.channelId}{'. '}{this.props.channel}</span></div>
-                        <div>А здесь должно быть название того что идет</div>
+                            <div className="menuCenterTextBig">
+                            <img src={this.props.channelImg} width={50} height={50} className="imgChannelStyle"/>
+                            {this.props.category}
+                            <img src={prev_button} width={30} height={30}/>
+                            <span className="menuCenterTextBigBold">{this.props.channelId}{'. '}{this.props.channel}
+                            </span>
+                            </div>
+                        {/*<div>А здесь должно быть название того что идет</div>*/}
                     </div>
                 </div>
-                <div className="menuDives">
+                {/*<div className="menuDives">*/}
                     {/*<div className="homeButton"*/}
                          {/*onClick={(e) => this.toggleMenuState('right')}>*/}
                          {/*<img src={home} width={40} height={40}/>*/}
                     {/*</div>*/}
-                <HomeMenu visible={this.props.menus.settingsVisible} isParentControl/>
-                </div>
-            </div>
+                {/*<HomeMenu visible={this.props.menus.settingsVisible} isParentControl/>*/}
+                {/*</div>*/}
+        </div>
               )
               }
 
@@ -79,6 +86,7 @@ export default connect (
 state => ({fullScreen:state.videoReducer.fullScreen,
            channel:   state.videoReducer.video.channel,
            channelId: state.videoReducer.video.channelId,
+           channelImg:state.videoReducer.video.channelImg,
            category:  state.channelReducer.chosenCategory,
            menus:     state.menuReducer.menus,
            isParentControl:

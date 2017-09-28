@@ -28,8 +28,8 @@ export default class Channel extends Component {
             <span className="divShadow"/>
             </span>
             {this.props.favorite ? <span className="pnameFav"><img src={book} width={10} height={10}/></span> : ''}
-            <Rating maxRate={5} rate={3} chosen={this.props.chosen}/>
-            <progress className='progresses' value={50} max={100} min={0}/>
+            {/*<Rating maxRate={5} rate={3} chosen={this.props.chosen}/>*/}
+            {/*<progress className='progresses' value={50} max={100} min={0}/>*/}
         </div>
                  )
                  }

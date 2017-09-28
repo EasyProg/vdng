@@ -1,18 +1,19 @@
 import {combineReducers} from 'redux';
-    import * as settings from '../settings.json';
+        import * as settings from '../settings.json';
 
 
-const initialState =    {
+const initialState =   {
         video:       {link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/3303/stream.m3u8',
         channelId:51,
         channel: '1+1',
+        channelImg:'https://admin.hls.tv/cdn/logo/746d07c80571189d7d991e6810c9d34d.jpg',
         itemChosen:null,
-                     },
+                       },
 //Global state variables
         isPlaying:true,
         autoPlay:true,
         fullScreen:false
-                        };
+                       };
 const   channelState = {
         chosenCategory   :'All channels',
         channels:[]
@@ -26,10 +27,10 @@ const  menuState =     {
        }
 };
 const  settingsState =  {
-    timeShift:       settings.timeshift.status,
-    parentalControl: settings.parental_control.status,
-    catchUp:         false,
-    epgStatus:       false,
+        timeShift:       settings.timeshift.status,
+        parentalControl: settings.parental_control.status,
+        catchUp:         false,
+        epgStatus:       false,
 };
 
 function videoReducer(state=initialState,action=null)           {
@@ -52,24 +53,24 @@ function videoReducer(state=initialState,action=null)           {
 function channelReducer (state=channelState,action=null)        {
     switch (action.type) {
     case 'TOGGLE_CATEGORY':
-            return {...state,chosenCategory:action.category};
+        return {...state,chosenCategory:action.category};
         case 'GET_CHANNELS':
-            return {...state,channels:action.channelsArr};
+        return {...state,channels:action.channelsArr};
         default:
-            return state;
+        return state;
                          }
                                                                 }
 //menu visible
 function menuReducer (state=menuState,action=null)              {
     switch (action.type) {
         case 'CHANNELS_MENU_VISIBLE' :
-            return {...state,menus:action.menus};
+        return {...state,menus:action.menus};
         default:
-            return state;
+        return state;
                          }
                                                                 }
 function settingsReducer(state=settingsState,action=null)       {
-    return  state;
+        return  state;
 }
 
 

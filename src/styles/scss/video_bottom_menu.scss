@@ -2,7 +2,7 @@
   z-index:2147483647;
   position: absolute;
   top:90%;
-  left:18%;
+  left:$plButtonsLeft;
   //position: relative;
   align-self: center;
   -webkit-align-self: center;
@@ -74,10 +74,11 @@ top:15%;
   width:60px;
   height:55px;
   position:inherit;
-  left:85%;
-  margin-left: 10px;
+  right:0;
+  //left:85%;
+  //margin-left: 10px;
   min-width:60px;
-}
+            }
 .iconResDivFull {
   @extend .iconResDiv;
   left:110%;

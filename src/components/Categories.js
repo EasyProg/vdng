@@ -12,6 +12,7 @@ import underline from '../img/Underline.png';
 import play from '../img/play-categ.png';
 import lock from '../img/lock.png';
 import all from '../img/crowd-of-users.png';
+import menu from '../img/main_menu.gif';
 import point from '../img/pointing-to-left.gif';
 //import elements
 import {Icon} from 'semantic-ui-react';
@@ -88,8 +89,8 @@ class Categories extends Component              {
     Menu =     [
     {name:'All',         src:all,       category:'All channels'},
     // {name:'Now watching',src:play,      category: 54},
-    {name:'Favorites',   src:star,      category:'Любимые'},
-    {name:'Blocked',     src:lock,      category:'Locked'},
+    // {name:'Favorites',   src:star,      category:'Любимые'},
+    // {name:'Blocked',     src:lock,      category:'Locked'},
     // {name:'TV Shows',    src:scene,     category:'Shows'},
     {name:'Films',       src:film,      category:'Фильмы'},
     {name:'Music',       src:headphones,category:'Музыкальный'},
@@ -110,9 +111,9 @@ if (channels) {
      })
               }
     this.props.dispatch(getChannels(filteredChannels));
-return filteredChannels;
+    return filteredChannels;
                                                   };
-switchCateg(event,cat)                  {
+    switchCateg(event,cat)                  {
     var i = this.Menu.map(x => x.category).indexOf(cat);
     var items = document.getElementsByClassName('categoryItem');
     //
@@ -121,23 +122,23 @@ switchCateg(event,cat)                  {
     switch (event.keyCode)  {
 
     case 40:
-{  items[nextElem].focus();
+    {  items[nextElem].focus();
     this.setState(
-{
+    {
     itemChosen:nextElem,
     category:this.Menu[nextElem].category,
-});
+    });
     break;}
     case 38:
     items[prevElem].focus();
     this.setState(
-{
+    {
     itemChosen:prevElem,
     category:this.Menu[prevElem].category,
-});
+    });
     break;
     case 13:
-{this.handleClick(this.state.itemChosen,this.state.category);
+    {this.handleClick(this.state.itemChosen,this.state.category);
     $('#video').focus();
     break;}
     default:
@@ -149,7 +150,11 @@ render()                {
     return (
     <div>
     <div className= {this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories" onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
-    <div className="menuHeaderCat"/>
+        <div className="menuHeaderCat">
+            <div className='divSideBar' onClick={(e) => this.props.toggleMenuStateContext()}>
+                <img src={menu} height={45} width={30}/>
+            </div>
+        </div>
     <PerfectScrollbar>
     {
                             this.Menu.map ((item,i)=>
@@ -158,7 +163,7 @@ render()                {
                             <div         className="categoryText">
                             {item.name}
                             </div>
-                            <img src={underline} height={5} width={250} className={this.state.itemChosen===i?'categoryLine':'categoryLineNone'}/>
+                            <img src={underline} height={5} width={300} className={this.state.itemChosen===i?'categoryLine':'categoryLineNone'}/>
                             </div>
                                            )
     }
@@ -168,8 +173,8 @@ render()                {
             <ChannelList
                 playList={this.state.channels}
                 category={this.state.category}
-                    visibleSetContext={this.props.toggleMenuStateContext}
-                    tabIndex={1}
+                visibleSetContext={this.props.toggleMenuStateContext}
+                tabIndex={1}
             />
          </div>
     </div>

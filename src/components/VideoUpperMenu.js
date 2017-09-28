@@ -6,7 +6,10 @@ import play from '../img/play-button.gif';
 import '../styles/css/main_styles.css';
     import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {changeVideo,toggleCategory,setChannelsVisible,toggleFullScreen} from '../actions/actions';
+import {changeVideo,
+        toggleCategory,
+        setChannelsVisible,
+        toggleFullScreen} from '../actions/actions';
 import Timer from '../components/ui/Timer';
 import * as $ from 'jquery';
 class VideoUpperMenu extends Component                         {
@@ -22,11 +25,11 @@ class VideoUpperMenu extends Component                         {
         var t = this;
         $('#video').focus();
         $('#video').keydown(function(event)                    {
-            //event.preventDefault();
-            func(event);
+        //event.preventDefault();
+        func(event);
                                                                });
-    $('#video,.panelDiv').click     (
-                function(event)     {
+    $('#video,.panelDiv').click                                (
+                function(event)                                {
                 event.stopPropagation();
                 t.props.dispatch(setChannelsVisible(
                     {
@@ -35,8 +38,8 @@ class VideoUpperMenu extends Component                         {
                             settingsVisible:     false
                     }));
                     $('#video').focus();
-                                    }
-                                    );
+                                                               }
+                                                               );
                                                                }
     switchKeyPress(event)                                      {
         //event.stopPropagation();
@@ -79,7 +82,7 @@ class VideoUpperMenu extends Component                         {
             //     ));
             //     break;
             //                                                    }
-    case 13:                                           {
+    case 13:                                                   {
                 if (this.props.menus.channelsMenuVisible)
                 this.props.dispatch(setChannelsVisible(
             {
@@ -89,7 +92,7 @@ class VideoUpperMenu extends Component                         {
             }
                 ));
                 break;
-            }
+                                                               }
             default:break;
                                                                }
                                                                }
@@ -107,9 +110,9 @@ class VideoUpperMenu extends Component                         {
             this.props.dispatch(changeVideo(nextElem));
         }
         }
-        if (param==='prev')                                         {
+        if (param==='prev')                                    {
             if (!isPos) prevElem = this.props.channels[this.props.channels.length - 1];
-            if (prevElem)                                           {
+            if (prevElem)                                      {
             this.props.dispatch(changeVideo(prevElem));
         }
         }
@@ -132,11 +135,11 @@ class VideoUpperMenu extends Component                         {
             </div>
             )
             }
-                                                                }
+                                                            }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
 dispatch,changeVideo,toggleCategory,setChannelsVisible,toggleFullScreen
 }, dispatch);
-export default connect (
+export default connect      (
     state =>        ({ fullScreen:state.videoReducer.fullScreen,
     channels:state.channelReducer.channels,
     video:state.videoReducer.video,
@@ -144,4 +147,4 @@ export default connect (
     isTimeShift:state.settingsReducer.timeShift
 }),
               mapDispatchToProps
-                       )(VideoUpperMenu);
+                            )(VideoUpperMenu);

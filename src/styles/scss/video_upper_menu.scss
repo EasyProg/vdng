@@ -10,14 +10,14 @@ $plButtonsLeft:10%;
   justify-content: center;
   -webkit-justify-content:center;
   //z-index:2147483647;
-}
+                  }
 .centerDivFull    {
   @extend .centerDiv;
   position: absolute;
   z-index:2147483647;
   top:85%;
   left:30%;
-}
+                  }
 .divPlayer        {
   align-self: center;
   position: absolute;
@@ -26,6 +26,7 @@ $plButtonsLeft:10%;
   width: $divPlayerWidth;
   max-width:$divPlayerWidth;
   min-width:$divPlayerWidth;
+  margin-bottom: 10px;
   height: 60px;
   background: $main_color;
   display:flex;

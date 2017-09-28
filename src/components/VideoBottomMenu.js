@@ -41,31 +41,32 @@ resolutions = ['360р','480р','720р','1080р','1440р'];
     render () {
         {if (this.state.showResolution === false) {
             return (
-                <div id='vdbottommenu' className='displayNone'>
+                <div id='vdbottommenu' className="displayNone">
+{/*className='displayNone'                    */}
                     <div className="divBottomPlayer">
-                    <div className="playerButtonsBottomDiv">
-                        <div className="iconsDiv" onClick={(e)=>this.setLock(this.state.lock)}>
-                            <Icon className={this.state.lock?"large inverted lock alternate":"large inverted unlock alternate"}/>
-                        </div>
-                        <div className="iconsDiv">
-                            <Icon className="large inverted bookmark"/>
-                        </div>
-                        <div className="iconsDiv">
-                          <img src={live} width={40} height={30} className="imgLive"/>
-                        </div>
-                        <div className="iconsDiv" onClick={(e) => this.setState({showResolution: true})}>
-                            <div className="upper_buttons_res">
-                                {this.state.resolution}
-                            </div>
-                        </div>
-                    </div>
+                    {/*<div className="playerButtonsBottomDiv">*/}
+                        {/*<div className="iconsDiv" onClick={(e)=>this.setLock(this.state.lock)}>*/}
+                            {/*<Icon className={this.state.lock?"large inverted lock alternate":"large inverted unlock alternate"}/>*/}
+                        {/*</div>*/}
+                        {/*<div className="iconsDiv">*/}
+                            {/*<Icon className="large inverted bookmark"/>*/}
+                        {/*</div>*/}
+                        {/*<div className="iconsDiv">*/}
+                          {/*<img src={live} width={40} height={30} className="imgLive"/>*/}
+                        {/*</div>*/}
+                        {/*<div className="iconsDiv" onClick={(e) => this.setState({showResolution: true})}>*/}
+                            {/*<div className="upper_buttons_res">*/}
+                                {/*{this.state.resolution}*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
                     <div className="iconResDiv" onClick={(e)=>this.changeSize(e)}>
                         <img src={border} width={25} height={25}/>
                     </div>
                     </div>
                 </div>
                  )
-        }
+                                                    }
         else {
             return (
                 <div id='vdbottommenu' className='divBottomPlayer'>

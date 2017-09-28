@@ -1,10 +1,10 @@
 @import 'variables';
 $menu-width:250px;
-.menuItemStyle {
+.menuItemStyle        {
     display: block;
     cursor: pointer;
     width:$menuChannelWidth;
-    min-width:200px;
+    min-width:$menuChannelWidth;
     background: rgba(0,0,0,0.3);
     font-family: "ComfortaaRegular";
     //font-weight: bold;
@@ -12,28 +12,28 @@ $menu-width:250px;
     color:white;
     height: 60px;
     line-height: 4.1em;
-               }
-.menuItemStyle:hover {
+                      }
+.menuItemStyle:hover  {
 background: $hollowColor;
-                     }
-.menuItemStylefocus {
+                      }
+.menuItemStylefocus   {
   @extend .menuItemStyle;
   //width:320px;
   background: $main_color;
 
-                    }
-.circleButtonSpan {
+                      }
+.circleButtonSpan     {
   width:40px;
   height:40px;
   position: relative;
   top:-53px;
   left:285px;
   visibility: visible;
-}
+                      }
 .circleButtonSpanNone {
   visibility: hidden;
 }
-.menuChannel {
+.menuChannel          {
   //@media only screen and (min-device-width: 480px) {
   //  height:200px;
   //                                                 }
@@ -47,38 +47,38 @@ background: $hollowColor;
   left:0;
   background: rgba(0,0,0,0.8);
   transition: left 0.5s ease 100ms;
-             }
-.menuChannelLeft {
+                      }
+.menuChannelLeft      {
   @extend .menuChannel;
   left:270px;
-                 }
-.menuChannelNone {
+                      }
+.menuChannelNone      {
   @extend .menuChannel;
   left:-500px;
-                 }
-.divSideBar {
+                      }
+.divSideBar           {
   //position:absolute;
   //text-align: center;
-  line-height: 3em;
-  margin-top: 7%;
-  margin-left:7%;
+  //line-height: 3em;
+  margin-top: 1.5%;
+  margin-left:1.5%;
   text-align: center;
-  width:60px;
+  width:50px;
   height:50px;
-            }
-.divSideBar:hover {
+                      }
+.divSideBar:hover     {
   @extend .divSideBar;
   cursor: pointer;
-  border-radius: 52px;
+  border-radius: 40px;
   background: rgba(87, 87, 87, 0.6);
-}
-.numberSpan {
+                      }
+.numberSpan           {
   //position: relative;
   width:20px;
   margin-left: 10px;
   margin-right: 20px;
-}
-.span {
+                      }
+.span                 {
   display:block;
   width:20px;
   float: left;
@@ -86,4 +86,4 @@ background: $hollowColor;
   margin-left: 15px;
   font-size:15px;
   letter-spacing: 1px;
-}
+                      }

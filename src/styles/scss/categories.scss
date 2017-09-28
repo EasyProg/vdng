@@ -10,8 +10,8 @@
     top:-20px;
     display:block;
     width:$menuItemWidth;
-    max-width: $menuItemWidth;
-    min-width: $menuItemWidth;
+    max-width:$menuItemWidth;
+    min-width:$menuItemWidth;
     margin-top: 20px;
     position: absolute;
     left:0;
@@ -62,7 +62,7 @@
     max-width: $menuItemWidth;
     min-width: 170px;
     background: rgba(0,0,0,0.7);
-    font-family: "ComfortaaLight";
+    font-family: "ComfortaaRegular";
     font-weight: bold;
     letter-spacing: 1px;
     color:white;
@@ -72,7 +72,7 @@
             }
 .menuHeaderCat {
   @extend .menuHeader;
-  height: 10px;
+  //height: 10px;
 }
 .menuHeaderCh {
   @extend .menuHeader;

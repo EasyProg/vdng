@@ -2,8 +2,8 @@
 .menuItemStyle, .menuItemStylefocus {
   display: block;
   cursor: pointer;
-  width: 320px;
-  min-width: 200px;
+  width: 350px;
+  min-width: 350px;
   background: rgba(0, 0, 0, 0.3);
   font-family: "ComfortaaRegular";
   letter-spacing: 1px;
@@ -43,16 +43,15 @@
   left: -500px; }
 
 .divSideBar, .divSideBar:hover {
-  line-height: 3em;
-  margin-top: 7%;
-  margin-left: 7%;
+  margin-top: 1.5%;
+  margin-left: 1.5%;
   text-align: center;
-  width: 60px;
+  width: 50px;
   height: 50px; }
 
 .divSideBar:hover {
   cursor: pointer;
-  border-radius: 52px;
+  border-radius: 40px;
   background: rgba(87, 87, 87, 0.6); }
 
 .numberSpan {
@@ -358,9 +357,9 @@ hr {
   height: 100vh;
   top: -20px;
   display: block;
-  width: 270px;
-  max-width: 270px;
-  min-width: 270px;
+  width: 350px;
+  max-width: 350px;
+  min-width: 350px;
   margin-top: 20px;
   position: absolute;
   left: 0;
@@ -381,7 +380,7 @@ hr {
 .categoryItem, .categoryItemChosen, .workMotherFucker {
   display: block;
   cursor: pointer;
-  width: 270px;
+  width: 350px;
   background: rgba(0, 0, 0, 0.7);
   font-family: "ComfortaaRegular";
   letter-spacing: 1px;
@@ -395,11 +394,11 @@ hr {
   flex-direction: row;
   align-items: center;
   cursor: pointer;
-  width: 270px;
-  max-width: 270px;
+  width: 350px;
+  max-width: 350px;
   min-width: 170px;
   background: rgba(0, 0, 0, 0.7);
-  font-family: "ComfortaaLight";
+  font-family: "ComfortaaRegular";
   font-weight: bold;
   letter-spacing: 1px;
   color: white;
@@ -407,12 +406,9 @@ hr {
   text-align: center;
   height: 60px; }
 
-.menuHeaderCat {
-  height: 10px; }
-
 .menuHeaderCh {
-  width: 320px;
-  max-width: 320px; }
+  width: 350px;
+  max-width: 350px; }
 
 .menuHeaderCircleDiv {
   background: #4a4a4a;
@@ -473,6 +469,7 @@ hr {
   width: 80%;
   max-width: 80%;
   min-width: 80%;
+  margin-bottom: 10px;
   height: 60px;
   background: #9677ff;
   display: flex;
@@ -555,7 +552,7 @@ hr {
   z-index: 2147483647;
   position: absolute;
   top: 90%;
-  left: 18%;
+  left: 10%;
   align-self: center;
   -webkit-align-self: center;
   width: 80%;
@@ -617,8 +614,7 @@ hr {
   width: 60px;
   height: 55px;
   position: inherit;
-  left: 85%;
-  margin-left: 10px;
+  right: 0;
   min-width: 60px; }
 
 .iconResDivFull {
@@ -838,23 +834,35 @@ body {
 
 .menuDives {
   height: 50px;
+  width: 100%;
   display: flex; }
 
 .menuCenterText, .menuCenterTextBig, .menuCenterTextBigBold {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   letter-spacing: 2px;
   font-family: "ComfortaaRegular";
   font-size: 20px;
-  color: white; }
+  color: white;
+  margin-top: 20px; }
 
 .menuCenterTextBig, .menuCenterTextBigBold {
-  font-size: 30px;
-  margin-bottom: 10px; }
+  font-size: 1.8rem;
+  text-wrap: none; }
 
 .menuCenterTextBigBold {
-  font-weight: bold; }
+  position: relative;
+  font-weight: bold;
+  top: -8px; }
 
 .displayNone {
   display: none;
   z-index: 2147483647; }
+
+.imgChannelStyle {
+  top: 25px;
+  margin: 15px;
+  left: 0; }
 
 /*# sourceMappingURL=main_styles.css.map */
