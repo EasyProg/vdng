@@ -6,12 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2309f941-4b33-4db9-a988-0b031d5a3870" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Video.js" afterPath="$PROJECT_DIR$/src/components/Video.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Channel.js" afterPath="$PROJECT_DIR$/src/components/Channel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/categories.scss" afterPath="$PROJECT_DIR$/src/styles/scss/categories.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/menu.scss" afterPath="$PROJECT_DIR$/src/styles/scss/menu.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/variables.scss" afterPath="$PROJECT_DIR$/src/styles/scss/variables.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" afterPath="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,70 +26,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Categories.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Categories.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="28" column="49" lean-forward="true" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VideoPlayer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/VideoPlayer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1378">
-              <caret line="80" column="65" lean-forward="true" selection-start-line="80" selection-start-column="65" selection-end-line="80" selection-end-column="65" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-                <element signature="e#165#226#0" expanded="true" />
-                <element signature="e#382#423#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Video.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Video.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="categories.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/scss/categories.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="menu.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/styles/scss/menu.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state relative-caret-position="323">
+              <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
+      <file leaf-file-name="video_upper_menu.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="53" column="24" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="50" column="19" lean-forward="true" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="variables.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/scss/variables.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Channel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Channel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="49" lean-forward="true" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,21 +89,22 @@
         <option value="$PROJECT_DIR$/src/components/PlayDiv.js" />
         <option value="$PROJECT_DIR$/src/styles/css/main_styles.css" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
-        <option value="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" />
         <option value="$PROJECT_DIR$/src/styles/scss/homemenu.scss" />
         <option value="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
         <option value="$PROJECT_DIR$/src/styles/scss/video.scss" />
         <option value="$PROJECT_DIR$/src/styles/scss/main_styles.scss" />
-        <option value="$PROJECT_DIR$/src/components/Channel.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/VideoPlayer.js" />
         <option value="$PROJECT_DIR$/src/components/ChannelList.js" />
         <option value="$PROJECT_DIR$/src/containers/App.js" />
         <option value="$PROJECT_DIR$/src/components/ui/Menu.js" />
         <option value="$PROJECT_DIR$/src/components/Categories.js" />
-        <option value="$PROJECT_DIR$/src/styles/scss/menu.scss" />
         <option value="$PROJECT_DIR$/src/styles/scss/categories.scss" />
         <option value="$PROJECT_DIR$/src/components/Video.js" />
+        <option value="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" />
+        <option value="$PROJECT_DIR$/src/styles/scss/menu.scss" />
+        <option value="$PROJECT_DIR$/src/styles/scss/variables.scss" />
+        <option value="$PROJECT_DIR$/src/components/Channel.js" />
       </list>
     </option>
   </component>
@@ -263,7 +238,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51388000" />
+    <option name="totallyTimeSpent" value="53331000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -271,11 +246,11 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18072917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16648993" sideWeight="0.55" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16648993" sideWeight="0.55625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26193002" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22905621" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2852598" sideWeight="0.45" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2852598" sideWeight="0.44375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -391,14 +366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/scss/variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/scss/main_styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-10999">
@@ -477,12 +444,12 @@
         <state relative-caret-position="331">
           <caret line="395" column="20" lean-forward="false" selection-start-line="395" selection-start-column="20" selection-end-line="395" selection-end-column="20" />
           <folding>
-            <marker date="1506588662578" expanded="true" signature="54:139" ph="{...}" />
-            <marker date="1506588662578" expanded="true" signature="8225:8231" ph="{...}" />
-            <marker date="1506588662578" expanded="true" signature="16393:16431" ph="{...}" />
-            <marker date="1506588662578" expanded="true" signature="16476:16521" ph="{...}" />
-            <marker date="1506588662578" expanded="true" signature="16546:16570" ph="{...}" />
-            <marker date="1506588662578" expanded="true" signature="16585:16628" ph="{...}" />
+            <marker date="1506591119784" expanded="true" signature="54:102" ph="{...}" />
+            <marker date="1506591119784" expanded="true" signature="8225:8231" ph="{...}" />
+            <marker date="1506591119784" expanded="true" signature="16414:16452" ph="{...}" />
+            <marker date="1506591119784" expanded="true" signature="16497:16542" ph="{...}" />
+            <marker date="1506591119784" expanded="true" signature="16567:16591" ph="{...}" />
+            <marker date="1506591119784" expanded="true" signature="16606:16649" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -519,14 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="28" lean-forward="true" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="56" column="20" lean-forward="false" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -623,26 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Channel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="53" column="24" lean-forward="true" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/VideoPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1378">
@@ -655,19 +594,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Categories.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Video.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="28" column="49" lean-forward="true" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/scss/menu.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="493">
+          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -679,13 +612,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Video.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Categories.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        <state relative-caret-position="119">
+          <caret line="28" column="49" lean-forward="true" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="49" column="20" lean-forward="true" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#49#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/scss/menu.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Channel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="49" lean-forward="true" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/scss/variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="50" column="19" lean-forward="true" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

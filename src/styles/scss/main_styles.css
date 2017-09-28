@@ -2,7 +2,8 @@
 .menuItemStyle, .menuItemStylefocus {
   display: block;
   cursor: pointer;
-  width: 340px;
+  width: 320px;
+  min-width: 200px;
   background: rgba(0, 0, 0, 0.3);
   font-family: "ComfortaaRegular";
   letter-spacing: 1px;
@@ -42,12 +43,12 @@
   left: -500px; }
 
 .divSideBar, .divSideBar:hover {
-  line-height: 2.8em;
-  margin-top: 15px;
-  margin-left: 50px;
+  line-height: 3em;
+  margin-top: 7%;
+  margin-left: 7%;
   text-align: center;
-  width: 45px;
-  height: 45px; }
+  width: 60px;
+  height: 50px; }
 
 .divSideBar:hover {
   cursor: pointer;
@@ -410,8 +411,8 @@ hr {
   height: 10px; }
 
 .menuHeaderCh {
-  width: 340px;
-  max-width: 340px; }
+  width: 320px;
+  max-width: 320px; }
 
 .menuHeaderCircleDiv {
   background: #4a4a4a;
@@ -471,7 +472,7 @@ hr {
   left: 10%;
   width: 80%;
   max-width: 80%;
-  min-width: 350px;
+  min-width: 80%;
   height: 60px;
   background: #9677ff;
   display: flex;
@@ -488,7 +489,7 @@ hr {
   display: flex;
   display: -webkit-flex;
   margin: auto;
-  width: 260px;
+  width: 53.3333333333%;
   height: 40px;
   justify-content: space-between;
   -webkit-justify-content: space-between;

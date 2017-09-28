@@ -4,6 +4,7 @@ $menu-width:250px;
     display: block;
     cursor: pointer;
     width:$menuChannelWidth;
+    min-width:200px;
     background: rgba(0,0,0,0.3);
     font-family: "ComfortaaRegular";
     //font-weight: bold;
@@ -50,20 +51,20 @@ background: $hollowColor;
 .menuChannelLeft {
   @extend .menuChannel;
   left:270px;
-}
+                 }
 .menuChannelNone {
   @extend .menuChannel;
   left:-500px;
-                }
+                 }
 .divSideBar {
   //position:absolute;
   //text-align: center;
-  line-height: 2.8em;
-  margin-top: 15px;
-  margin-left: 50px;
+  line-height: 3em;
+  margin-top: 7%;
+  margin-left:7%;
   text-align: center;
-  width:45px;
-  height:45px;
+  width:60px;
+  height:50px;
             }
 .divSideBar:hover {
   @extend .divSideBar;

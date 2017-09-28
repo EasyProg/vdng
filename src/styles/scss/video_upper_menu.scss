@@ -1,8 +1,6 @@
 $divPlayerWidth:80%;
 $divPlayerWidthPx:1000px;
 $plButtonsLeft:10%;
-
-
 .centerDiv        {
   //text-align: center;
   display:flex;
@@ -27,7 +25,7 @@ $plButtonsLeft:10%;
   left:$plButtonsLeft;
   width: $divPlayerWidth;
   max-width:$divPlayerWidth;
-  min-width:350px;
+  min-width:$divPlayerWidth;
   height: 60px;
   background: $main_color;
   display:flex;
@@ -38,13 +36,13 @@ $plButtonsLeft:10%;
   justify-content: space-between;
   -webkit-justify-content:space-between;
   z-index:2147483647;
-}
+                  }
 .playerButtonsDiv {
   cursor:pointer;
   display:flex;
   display:-webkit-flex;
   margin: auto;
-  width: 260px;
+  width: $divPlayerWidth/1.5;
   height: 40px;
   justify-content: space-between;
   -webkit-justify-content:space-between;
