@@ -45,10 +45,10 @@ class VideoUpperMenu extends Component                         {
         //event.stopPropagation();
         switch (event.keyCode)                                 {
             case 40:
-                this.switchChannel('prev');
+                this.switchChannel('next');
                 break;
             case 38:
-                this.switchChannel('next');
+                this.switchChannel('prev');
                 break;
             case 37:                                           {
                 if (!this.props.menus.channelsMenuVisible)     {

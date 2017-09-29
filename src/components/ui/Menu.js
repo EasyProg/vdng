@@ -11,15 +11,15 @@ import home from '../../img/hm.png';
 import menu from '../../img/main_menu.gif';
 import prev_button from '../../img/play-previous-button.gif'
 import * as $ from 'jquery';
-class Menu extends Component                {
-        constructor(props)                  {
+class Menu extends Component                        {
+        constructor(props)                          {
         super(props);
         this.toggleMenuState = this.toggleMenuState.bind(this);
-                                            }
+                                                    }
     // componentWillUnmount() {
     // console.log('sdsdsdsd');
     // }
-     toggleMenuState(menuType = 'left')     {
+     toggleMenuState(menuType = 'left')             {
      //e.stopPropagation();
          console.log('Event Log');
      var categoryState = this.props.menus.categoryMenuVisible;
@@ -45,11 +45,11 @@ class Menu extends Component                {
                 channelsMenuVisible:false,
                 categoryMenuVisible:false,
                 settingsVisible:!settingsState
-            }));
+                                                  }));
         }
-                                             }
-    render()   {
-        return (
+                                                    }
+    render()    {
+        return  (
         <div id="menu" className="mainMenuDiv">
             {/*<div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>*/}
                 <div className="menuDives">
@@ -72,10 +72,10 @@ class Menu extends Component                {
                     </div>
                 </div>
                 {/*<div className="menuDives">*/}
-                    {/*<div className="homeButton"*/}
-                         {/*onClick={(e) => this.toggleMenuState('right')}>*/}
-                         {/*<img src={home} width={40} height={40}/>*/}
-                    {/*</div>*/}
+                {/*<div className="homeButton"*/}
+                {/*onClick={(e) => this.toggleMenuState('right')}>*/}
+                {/*<img src={home} width={40} height={40}/>*/}
+                {/*</div>*/}
                 {/*<HomeMenu visible={this.props.menus.settingsVisible} isParentControl/>*/}
                 {/*</div>*/}
         </div>
@@ -87,14 +87,14 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
 dispatch,setChannelsVisible
                                                             }, dispatch);
 export default connect (
-state => ({fullScreen:state.videoReducer.fullScreen,
-           channel:   state.videoReducer.video.channel,
-           channelId: state.videoReducer.video.channelId,
-           channelImg:state.videoReducer.video.img,
-           category:  state.channelReducer.chosenCategory,
-           menus:     state.menuReducer.menus,
+state => ({fullScreen:  state.videoReducer.fullScreen,
+           channel:     state.videoReducer.video.channel,
+           channelId:   state.videoReducer.video.channelId,
+           channelImg:  state.videoReducer.video.img,
+           category:    state.channelReducer.chosenCategory,
+           menus:       state.menuReducer.menus,
            isParentControl:
-                      state.settingsReducer.parentalControl
+                        state.settingsReducer.parentalControl
           }),
                       mapDispatchToProps
                        )(Menu);

@@ -1,4 +1,4 @@
-.divBottomPlayer   {
+.divBottomPlayer          {
   z-index:2147483647;
   position: absolute;
   top:90%;
@@ -19,15 +19,15 @@
   align-items: center;
   -webkit-align-items: center;
   margin-top: 10px;
-                    }
-.divBottomPlayerFull {
+                          }
+.divBottomPlayerFull      {
   @extend .divBottomPlayer;
     z-index:2147483647;
     position: absolute;
     top:91%;
     left:40%;
-}
-.playerButtonsBottomDiv {
+                          }
+.playerButtonsBottomDiv   {
   left:-10%;
   position:relative;
   display:flex;
@@ -41,13 +41,13 @@
   -webkit-justify-content:space-between;
   align-items: center;
   -webkit-align-items: center;
-}
+                           }
 .playerButtonsBottomDivRes {
 @extend .playerButtonsBottomDiv;
 left:24%;
 top:15%;
-}
-.iconsDiv {
+                           }
+.iconsDiv                  {
   color: white;
   font-size: 13px;
   font-family: "RobotoMedium";
@@ -59,16 +59,16 @@ top:15%;
   height:55px;
   text-align: center;
   padding-top: 15px;
-}
-.iconsDiv:hover {
+                           }
+.iconsDiv:hover            {
   @extend .iconsDiv;
   cursor:pointer;
   background:$main_color;
   border-radius:40px;
   position: inherit;
-}
+                           }
 //Resolution Div
-.iconResDiv {
+.iconResDiv                {
   text-align: center;
   padding-top: 15px;
   width:60px;
@@ -78,20 +78,20 @@ top:15%;
   //left:85%;
   //margin-left: 10px;
   min-width:60px;
-            }
-.iconResDivFull {
+                           }
+.iconResDivFull            {
   @extend .iconResDiv;
   left:110%;
-}
-.iconResDiv:hover {
+                           }
+.iconResDiv:hover          {
   @extend .iconResDiv;
   cursor:pointer;
   background:$main_color;
   border-radius:40px;
   //position: inherit;
-}
+                           }
 //
-.upper_buttons_res {
+.upper_buttons_res         {
   margin: auto;
   color: white;
   position: relative;
@@ -102,15 +102,15 @@ top:15%;
   font-weight: bold;
   line-height: 1.4em;
   //vertical-align: middle;
-}
-.upper_buttons_live {
+                            }
+.upper_buttons_live         {
   @extend .upper_buttons_res;
   z-index:3;
   border:1px solid white;
   //line-height: 3em;
-}
+                            }
 
-.imgLive {
+.imgLive                    {
   position:relative;
   top:-5px;
-}
+                            }

@@ -355,12 +355,11 @@ hr {
   background: #434343; }
 
 .categoryPanel, .categoryPanelNone {
-  height: 100vh;
-  top: -20px;
-  display: block;
   width: 350px;
   max-width: 350px;
   min-width: 350px;
+  top: -20px;
+  display: block;
   margin-top: 20px;
   position: absolute;
   left: 0;
@@ -379,9 +378,9 @@ hr {
   transition: left 0.5s ease 100ms; }
 
 .categoryItem, .categoryItemChosen, .workMotherFucker {
+  width: 350px;
   display: block;
   cursor: pointer;
-  width: 350px;
   background: rgba(0, 0, 0, 0.7);
   font-family: "ComfortaaRegular";
   letter-spacing: 1px;

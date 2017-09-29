@@ -1,46 +1,56 @@
 @import 'variables';
-.categoryPanel                                       {
+  .categoryPanel                          {
   //@media only screen and (min-device-width: 480px)  {
   //  height:200px;
   //                                                  }
-  //@media only screen and (min-device-width: 1281px) {
-  //  height:1200px;
-  //                                                  }
-    height:100vh;
+  //@media only screen and (max-width: 480px)
+  //                                      {
+  //    width:100vw;
+  //    max-width:100vw;
+  //    min-width:100vw;
+  //                                      }
+  //@media only screen and (max-width: 2320px)
+  //                                      {
+  //  width:     $menuItemWidth;
+  //  max-width: $menuItemWidth;
+  //  min-width: $menuItemWidth;
+  //                                      }
+   //height:100vh;
+    width:     $menuItemWidth;
+    max-width: $menuItemWidth;
+    min-width: $menuItemWidth;
     top:-20px;
     display:block;
-    width:$menuItemWidth;
-    max-width:$menuItemWidth;
-    min-width:$menuItemWidth;
     margin-top: 20px;
     position: absolute;
     left:0;
     transition: left 0.5s ease 100ms;
-                                                     }
-.categoryLine                                        {
+                                        }
+.categoryLine                           {
     position: absolute;
     left:7%;
     vertical-align: bottom;
-                                                     }
-.categoryLineNone {
+                                        }
+  .categoryLineNone                     {
     @extend .categoryLine;
     display:none;
-                  }
+                                        }
 //.categoryPanelNone {
 //  margin-top: 20px;
 //  position: absolute;
 //  left:-500px;
 //  transition: left 0.5s ease 100ms;
 //}
-.categoryPanelNone {
+.categoryPanelNone                      {
     @extend .categoryPanel;
     left:-500px;
     transition: left 0.5s ease 100ms;
-                   }
-.categoryItem {
+                                        }
+.categoryItem                           {
+    width:     $menuItemWidth;
     display: block;
     cursor: pointer;
-    width:$menuItemWidth;
+    //width:$menuItemWidth;
     //max-width:$menuItemWidth;
     //min-width: 170px;
     background: rgba(0,0,0,0.7);
@@ -52,8 +62,8 @@
     height: 60px;
     line-height: 4em;
     text-align: center;
-                }
-.menuHeader {
+                                        }
+.menuHeader                             {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -69,17 +79,17 @@
     line-height: 6em;
     text-align: center;
     height: 60px;
-            }
-.menuHeaderCat {
+                                        }
+.menuHeaderCat                          {
   @extend .menuHeader;
   //height: 10px;
-}
-.menuHeaderCh {
+                                        }
+.menuHeaderCh                           {
   @extend .menuHeader;
   width:$menuChannelWidth;
   max-width:$menuChannelWidth;
-}
-.menuHeaderCircleDiv {
+                                        }
+.menuHeaderCircleDiv                    {
     background: #4a4a4a;
     border-radius: 45px;
     width: 45px;
@@ -88,29 +98,29 @@
     margin-right:20px;
     line-height: 4em;
     text-align: center;
-                     }
-.categoryItem:hover {
+                                        }
+.categoryItem:hover                     {
 background: $hollowColor;
   filter:progid:DXImageTransform.Microsoft.Blur(10px);
 }
-.categoryItem:focus {
+.categoryItem:focus                     {
   background: $hollowColor;
   filter:progid:DXImageTransform.Microsoft.Blur(10px);
-}
-.categoryItemChosen {
+                                        }
+.categoryItemChosen                     {
   @extend .categoryItem;
   color: $main_color;
-}
+                                        }
 
-        .workMotherFucker {
-          @extend .categoryItem;
-          background: $hollowColor;
-                          }
-.categoryText             {
+.workMotherFucker                       {
+  @extend .categoryItem;
+  background: $hollowColor;
+                                        }
+.categoryText                           {
   align-self: center;
   text-align: left;
-                          }
-.categoryImage            {
+                                        }
+.categoryImage                          {
     margin-top:5px;
     float:left;
     margin-left: 20px;
@@ -119,10 +129,10 @@ background: $hollowColor;
     height:40px;
     width:40px;
   //line-height:5em;
-                          }
+                                        }
 //.categoryImage:hover {
 //  background: #636363;
 //}
-.hoverDiv {
+.hoverDiv                               {
   width:5px;
-}
+                                        }

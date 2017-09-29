@@ -1,17 +1,17 @@
-.tvimg       {
+.tvimg          {
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 7px;
-}
-.pname       {
+                }
+.pname          {
   margin-left: 10px;
   height: 60px;
   position: absolute;
   white-space:nowrap;
   overflow: hidden;
   width:170px;
-             }
-.pnameShadow {
+                }
+.pnameShadow    {
   position: absolute;
   left:90%;
   height: 110%;
@@ -21,22 +21,22 @@ z-index: 30;
 //margin-left: 10px;
 //             }
 
-.divShadow {
+.divShadow      {
   @extend .pnameShadow;
   background: -webkit-linear-gradient(bottom, rgba(47, 79, 79, 0), #2f4f4f 5em, #2f4f4f);
   background: linear-gradient(0deg, rgba(47, 79, 79, 0), #2f4f4f 5em, #2f4f4f);
   background-size: contain;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-        .pnameFav {
-          position: relative;
-          left:200px;
+                }
+.pnameFav       {
+  position: relative;
+  left:200px;
   top:-50%;
   z-index: 33;
   //margin-bottom: 20px;
-          }
-.rateContainer {
+                }
+.rateContainer  {
   position: relative;
   top:25px;
   margin-right: 20px;
@@ -47,22 +47,22 @@ z-index: 30;
   height:15px;
   width:50px;
   z-index: 31;
-               }
+                }
 .rateDivFilled  {
   width: 7px;
   height: 7px;
   margin-right: 3px;
   border-radius: 5px;
   background: $main_color;
-          }
+                }
 .rateDivFilledChosen {
   @extend .rateDivFilled;
   background: white;
 }
-.rateDivEmpty  {
+.rateDivEmpty   {
   width: 7px;
   height: 7px;
   margin-right: 2px;
   border-radius: 5px;
   background: #686868;
-}
+                 }
