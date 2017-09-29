@@ -11,24 +11,56 @@
     import Channel from './Channel';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-    class ChannelList extends Component     {
-    constructor(props)                      {
+    class ChannelList extends Component       {
+    constructor(props)                        {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.categVisible = this.categVisible.bind(this);
-                                            }
-    static propTypes = {
+    this.menuFullScreenAppears = this.menuFullScreenAppears.bind(this);
+    this.timer = '';
+    this.menuTimer = '';
+                                              }
+    static propTypes =                        {
     playList:   PropTypes.array.isRequired,
     category:   PropTypes.string.isRequired,
     visibleSetContext:PropTypes.func.isRequired
-                                            };
-    handleKey(elem,e)                       {
+                                              };
+    handleKey(elem,e)                         {
     if (e.keyCode===13)
     {
         this.handleClick (elem);
     }
-                                            }
-    handleClick (elem)                      {
+                                              }
+    handlePlay()                              {
+            this.timer =
+                setTimeout(function()         {
+                    //Скрыть плей
+                    $("#vduppermenu").fadeOut(1000);
+                },5000);
+            this.menuTimer = setTimeout (
+                function()              {
+                    //Скрыть плей
+                    $("#menu").fadeOut(1000);
+                },8000)
+
+                                               }
+    menuFullScreenAppears()
+                                               {
+            //Отобразить плей
+            clearTimeout(this.timer);
+            clearTimeout(this.menuTimer);
+            $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
+            //Запустить скрытие
+            this.handlePlay();
+            //Вернуть скрытие обратно
+            //var appearsVideo = this.menuFullScreenAppears;
+            //$('#video,#panelDiv').mousemove(function(event)
+            //                                          {
+            //appearsVideo();
+            //                                          });
+                                               }
+
+    handleClick (elem)                         {
     this.props.dispatch(changeVideo(elem));
     this.props.dispatch(toggleCategory(elem.category));
     this.props.dispatch(togglePlay(!this.props.autoPlay));
@@ -38,7 +70,13 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
     settingsVisible:false
     }));
     //Set UI
-                                             }
+    //Set mousemove back
+        var appearsVideo = this.menuFullScreenAppears;
+        $('#video,#panelDiv').mousemove(function(event) {
+            appearsVideo();
+                                                        });
+
+                                                }
     categVisible()                              {
         this.props.dispatch(setChannelsVisible  (
             {
@@ -77,7 +115,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
                </div>
                                                 )
             }
-                                        }
+                                                }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
 dispatch,
 changeVideo,

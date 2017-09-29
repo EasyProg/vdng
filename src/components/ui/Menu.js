@@ -34,6 +34,8 @@ class Menu extends Component                {
                                                   }));
         $('#channels').focus();
         $("#vduppermenu").fadeOut(100);
+        //Unbind mousemove events
+        $('#video,#panelDiv').off('mousemove');
         }
         else
         {
@@ -44,47 +46,45 @@ class Menu extends Component                {
             }));
         }
                                              }
-    render()                {
-        return              (
-                <div id="menu" className="mainMenuDiv">
-                {/*<div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>*/}
+    render()   {
+        return (
+        <div id="menu" className="mainMenuDiv">
+            {/*<div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>*/}
                 <div className="menuDives">
-                    <div
-                        className={this.props.menus.channelsMenuVisible || this.props.menus.categoryMenuVisible ? "displayNone" : 'divSideBar'}
-                        onClick={(e) => this.toggleMenuState()}>
-                        <img src={menu} height={45} width={30}/>
+                    <div className={this.props.menus.channelsMenuVisible||this.props.menus.categoryMenuVisible?"displayNone":'divSideBar'}
+                    onClick={(e) => this.toggleMenuState()}>
+                    <img src={menu} height={45} width={30}/>
                     </div>
                     <Categories visible={this.props.menus.categoryMenuVisible}
                                 channelVisible={this.props.menus.channelsMenuVisible}
                                 toggleMenuStateContext={this.toggleMenuState}/>
-                    <div
-                        className={this.props.fullScreen && !this.props.menus.channelsMenuVisible && !this.props.menus.categoryMenuVisible ? "menuCenterText" : 'displayNone'}>
-                        <div className="menuCenterTextBig">
+                    <div className={this.props.fullScreen?"menuCenterText":'displayNone'}>
+                            <div className="menuCenterTextBig">
                             <img src={this.props.channelImg} width={50} height={50} className="imgChannelStyle"/>
                             {this.props.category}
                             <img src={prev_button} width={30} height={30}/>
                             <span className="menuCenterTextBigBold">{this.props.channelId}{'. '}{this.props.channel}
                             </span>
-                        </div>
+                            </div>
                         {/*<div>А здесь должно быть название того что идет</div>*/}
                     </div>
                 </div>
                 {/*<div className="menuDives">*/}
-                {/*<div className="homeButton"*/}
-                {/*onClick={(e) => this.toggleMenuState('right')}>*/}
-                {/*<img src={home} width={40} height={40}/>*/}
-                {/*</div>*/}
+                    {/*<div className="homeButton"*/}
+                         {/*onClick={(e) => this.toggleMenuState('right')}>*/}
+                         {/*<img src={home} width={40} height={40}/>*/}
+                    {/*</div>*/}
                 {/*<HomeMenu visible={this.props.menus.settingsVisible} isParentControl/>*/}
                 {/*</div>*/}
-            </div>
-                            )
-                            }
+        </div>
+              )
+              }
 
-                            }
+                                        }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
 dispatch,setChannelsVisible
                                                             }, dispatch);
-export default connect      (
+export default connect (
 state => ({fullScreen:state.videoReducer.fullScreen,
            channel:   state.videoReducer.video.channel,
            channelId: state.videoReducer.video.channelId,
@@ -95,4 +95,4 @@ state => ({fullScreen:state.videoReducer.fullScreen,
                       state.settingsReducer.parentalControl
           }),
                       mapDispatchToProps
-                            )(Menu);
+                       )(Menu);

@@ -1,7 +1,7 @@
 .divBottomPlayer   {
   z-index:2147483647;
   position: absolute;
-  bottom:-1%;
+  top:90%;
   left:$plButtonsLeft;
   //position: relative;
   align-self: center;
@@ -19,15 +19,15 @@
   align-items: center;
   -webkit-align-items: center;
   margin-top: 10px;
-                    }
-.divBottomPlayerFull    {
+                            }
+.divBottomPlayerFull        {
   @extend .divBottomPlayer;
-  z-index:2147483647;
-  position: absolute;
-  top:91%;
-  left:40%;
-                        }
-.playerButtonsBottomDiv {
+    z-index:2147483647;
+    position: absolute;
+    top:91%;
+    left:40%;
+                            }
+.playerButtonsBottomDiv     {
   left:-10%;
   position:relative;
   display:flex;

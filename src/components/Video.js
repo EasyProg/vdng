@@ -22,7 +22,7 @@ export default class Video extends Component
             <div id="videoDiv" onClick={this.props.onClick}>
                 <video id="video" ref={(video) => this.video = video}
                        autoPlay={this.props.isPlaying}
-                       loop
+                       //loop
                        playsInline
                        tabIndex={1}
                 />
