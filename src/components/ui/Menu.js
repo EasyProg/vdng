@@ -19,7 +19,7 @@ class Menu extends Component                {
     // componentWillUnmount() {
     // console.log('sdsdsdsd');
     // }
-     toggleMenuState(menuType = 'left')   {
+     toggleMenuState(menuType = 'left')     {
      //e.stopPropagation();
          console.log('Event Log');
      var categoryState = this.props.menus.categoryMenuVisible;
@@ -86,7 +86,7 @@ export default connect (
 state => ({fullScreen:state.videoReducer.fullScreen,
            channel:   state.videoReducer.video.channel,
            channelId: state.videoReducer.video.channelId,
-           channelImg:state.videoReducer.video.channelImg,
+           channelImg:state.videoReducer.video.img,
            category:  state.channelReducer.chosenCategory,
            menus:     state.menuReducer.menus,
            isParentControl:

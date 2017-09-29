@@ -148,8 +148,8 @@ if (channels) {
 
 render()                {
     return (
-    <div>
-    <div className= {this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories" onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
+    <div className="hoverDiv">
+    <div className={this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories" onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
         <div className="menuHeaderCat">
             <div className='divSideBar' onClick={(e) => this.props.toggleMenuStateContext()}>
                 <img src={menu} height={45} width={30}/>

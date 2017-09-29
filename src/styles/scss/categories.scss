@@ -105,12 +105,12 @@ background: $hollowColor;
         .workMotherFucker {
           @extend .categoryItem;
           background: $hollowColor;
-        }
-.categoryText {
+                          }
+.categoryText             {
   align-self: center;
   text-align: left;
-}
-.categoryImage {
+                          }
+.categoryImage            {
     margin-top:5px;
     float:left;
     margin-left: 20px;
@@ -119,7 +119,10 @@ background: $hollowColor;
     height:40px;
     width:40px;
   //line-height:5em;
-               }
+                          }
 //.categoryImage:hover {
 //  background: #636363;
 //}
+.hoverDiv {
+  width:5px;
+}

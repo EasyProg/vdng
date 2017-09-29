@@ -34,22 +34,28 @@ rgba(255,255,255,0.3),0 0 1em white;
   top:50%;
                               }
 #video                        {
+  //@media only screen and (max-device-width: 340px) {
+  //  vertical-align: middle;
+  //}
+  //top:50%;
+  //overflow: hidden;
+  //vertical-align: middle;
   align-self: center;
   width: 100%;
-height:99%;
-}
+  height:99%;
+                              }
 
 .playBackDiv                  {
   position: fixed;
   top:80%;
   z-index:2147483647;
-}
-.panelDiv {
+                              }
+.panelDiv                     {
   position: absolute;
   top:60%;
   width:100%;
   height:40%;
-}
+                              }
 //.processDiv {
 //visibility: hidden;
 //width:100%;

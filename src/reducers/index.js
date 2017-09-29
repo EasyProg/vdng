@@ -6,7 +6,7 @@ const initialState =   {
         video:       {link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/3303/stream.m3u8',
         channelId:51,
         channel: '1+1',
-        channelImg:'https://admin.hls.tv/cdn/logo/746d07c80571189d7d991e6810c9d34d.jpg',
+        img:'https://admin.hls.tv/cdn/logo/746d07c80571189d7d991e6810c9d34d.jpg',
         itemChosen:null,
                        },
 //Global state variables

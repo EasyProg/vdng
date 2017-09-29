@@ -447,6 +447,9 @@ hr {
   height: 40px;
   width: 40px; }
 
+.hoverDiv {
+  width: 5px; }
+
 .centerDiv, .centerDivFull {
   display: flex;
   display: -webkit-flex;
@@ -471,7 +474,7 @@ hr {
   min-width: 80%;
   margin-bottom: 10px;
   height: 60px;
-  background: #9677ff;
+  background: #805EE0;
   display: flex;
   display: -webkit-flex;
   flex-direction: row;
@@ -848,8 +851,7 @@ body {
   margin-top: 20px; }
 
 .menuCenterTextBig, .menuCenterTextBigBold {
-  font-size: 1.8rem;
-  text-wrap: none; }
+  font-size: 1.5rem; }
 
 .menuCenterTextBigBold {
   position: relative;
