@@ -3,6 +3,7 @@ $divPlayerWidthPx:1000px;
 $plButtonsLeft:10%;
 .centerDiv        {
   //text-align: center;
+  height: 100%;
   display:flex;
   display:-webkit-flex;
   flex-direction:column;
