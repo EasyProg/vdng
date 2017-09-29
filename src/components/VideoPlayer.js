@@ -42,26 +42,29 @@ class VideoPlayer extends Component     {
         this.escFullScreen = this.escFullScreen.bind(this);
         this.state = {playerButtonsAppear:false};
         this.timer = '';
+        this.menuTimer = '';
         this.state = {fullScreen:false};
-                                }
+                                        }
         //Component Functions
-        componentDidMount()     {
+        componentDidMount()      {
         //var vd = this.video.video;
         //var bd = document.getElementById('centerDiv');
         var appearsVideo = this.menuFullScreenAppears;
             //bd.addEventListener('onclick',appearsVideo);
-        $('body').keydown(function(event)   {
+        $('body').keydown(function(event)
+                                {
+
             if (event.keyCode===13)
             {
             appearsVideo();
             }
-                                            });
-        $('#video,#panelDiv').click(function(event) {
+                                });
+        $('#video,#panelDiv').click(    function(event) {
             appearsVideo();
-        });
+                                                        });
         $('#video,#panelDiv').mousemove(function(event) {
             appearsVideo();
-        });
+                                                        });
         this.videoOnLoad();
                                 }
         toggle(isPlaying)       {
@@ -109,22 +112,34 @@ class VideoPlayer extends Component     {
         this.timer = this.state.fullScreen?
         setTimeout(function()       {
             //Скрыть плей
-        $("#vduppermenu,#menu").fadeOut(1000);
+        $("#vduppermenu").fadeOut(1000);
         },5000):
         setTimeout(function()       {
             //Скрыть плей
-        $("#vduppermenu,#vdbottommenu,#menu").fadeOut(1000);
+        $("#vduppermenu,#vdbottommenu").fadeOut(1000);
         },5000);
+        this.menuTimer = setTimeout (
+            function()              {
+            //Скрыть плей
+        $("#menu").fadeOut(1000);
+        },8000)
 
                                     }
         menuFullScreenAppears()
                                     {
         //Отобразить плей
         clearTimeout(this.timer);
+        clearTimeout(this.menuTimer);
         $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
         //Запустить скрытие
         this.handlePlay();
-                                    }
+        //Вернуть скрытие обратно
+        //var appearsVideo = this.menuFullScreenAppears;
+        //$('#video,#panelDiv').mousemove(function(event)
+        //                                          {
+        //appearsVideo();
+        //                                          });
+                                     }
         escFullScreen()                           {
         if (   !document.fullscreenElement
             && !document.mozFullScreenElement

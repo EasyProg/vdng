@@ -12,7 +12,7 @@ import menu from '../../img/main_menu.gif';
 import prev_button from '../../img/play-previous-button.gif'
 import * as $ from 'jquery';
 class Menu extends Component                {
-    constructor(props)                      {
+        constructor(props)                  {
         super(props);
         this.toggleMenuState = this.toggleMenuState.bind(this);
                                             }
@@ -34,6 +34,10 @@ class Menu extends Component                {
                                                   }));
         $('#channels').focus();
         $("#vduppermenu").fadeOut(100);
+        //Unbind mousemove events
+        $('#video,#panelDiv').off('mousemove');
+
+
         }
         else
         {
@@ -75,8 +79,8 @@ class Menu extends Component                {
                 {/*<HomeMenu visible={this.props.menus.settingsVisible} isParentControl/>*/}
                 {/*</div>*/}
         </div>
-              )
-              }
+                )
+                }
 
                                         }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
