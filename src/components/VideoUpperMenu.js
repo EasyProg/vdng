@@ -45,10 +45,10 @@ class VideoUpperMenu extends Component                         {
         //event.stopPropagation();
         switch (event.keyCode)                                 {
             case 40:
-                this.switchChannel('prev');
+                this.switchChannel('next');
                 break;
             case 38:
-                this.switchChannel('next');
+                this.switchChannel('prev');
                 break;
             case 37:                                           {
                 if (!this.props.menus.channelsMenuVisible)     {
@@ -97,26 +97,25 @@ class VideoUpperMenu extends Component                         {
                                                                }
                                                                }
     switchChannel(param='next')                                {
-    var i = this.props.channels.map(x =>
-    x.channelId).indexOf(this.props.video.channelId);
-    let isOver =  i+1<this.props.channels.length;
-    let isPos  =  i-1>=0;
-    var nextElem = this.props.channels[i+1];
-    var prevElem = this.props.channels[i-1];
-    if (param==='next')                                        {
-        if (!isOver) nextElem = this.props.channels[0];
-        if (nextElem)
-        {
-            this.props.dispatch(changeVideo(nextElem));
+        var i = this.props.channels.map(x =>
+            x.channelId).indexOf(this.props.video.channelId);
+        let isOver = i + 1 < this.props.channels.length;
+        let isPos = i - 1 >= 0;
+        var nextElem = this.props.channels[i + 1];
+        var prevElem = this.props.channels[i - 1];
+        if (param === 'next') {
+            if (!isOver) nextElem = this.props.channels[0];
+            if (nextElem) {
+                this.props.dispatch(changeVideo(nextElem));
+            }
         }
-        }
-        if (param==='prev')                                    {
+        if (param === 'prev') {
             if (!isPos) prevElem = this.props.channels[this.props.channels.length - 1];
-            if (prevElem)                                      {
-            this.props.dispatch(changeVideo(prevElem));
+            if (prevElem) {
+                this.props.dispatch(changeVideo(prevElem));
+            }
         }
-        }
-        }
+                                                              }
 
         render() {
             return (<div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">

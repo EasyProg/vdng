@@ -115,6 +115,7 @@ class VideoPlayer extends Component     {
             //Скрыть плей
         $("#vduppermenu,#vdbottommenu,#menu").fadeOut(1000);
         },5000);
+        //$('#vduppermenu').focus();
 
                                     }
         menuFullScreenAppears()
@@ -191,7 +192,7 @@ class VideoPlayer extends Component     {
                                          ref=      {(video)=>this.video=video}
                                          onClick = {e=>this.menuFullScreenAppears()}
                          />
-                        <div className="panelDiv" id="panelDiv"/>
+                        <div             className="panelDiv" id="panelDiv"/>
                         <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                          toggleContext={this.toggle}
                                          handleOnPlayContext={this.handleOnPlay}

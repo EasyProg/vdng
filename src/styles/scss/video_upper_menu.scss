@@ -9,6 +9,7 @@ $plButtonsLeft:10%;
   -webkit-flex-direction:column;
   justify-content: center;
   -webkit-justify-content:center;
+  height: 100%;
   //z-index:2147483647;
                   }
 .centerDivFull    {
@@ -21,12 +22,12 @@ $plButtonsLeft:10%;
 .divPlayer        {
   align-self: center;
   position: absolute;
-  top:85%;
+  bottom:10%;
   left:$plButtonsLeft;
   width: $divPlayerWidth;
   max-width:$divPlayerWidth;
   min-width:$divPlayerWidth;
-  margin-bottom: 10px;
+  margin-bottom: 5vh;
   height: 60px;
   background: #805EE0;
   display:flex;
@@ -74,38 +75,41 @@ $plButtonsLeft:10%;
   background:white;
 }
 
-.progressBarFull  {
+.progressBarFull                   {
   @extend .progressBar;
   top:84.3%;
-                  }
-#progress-bar::-webkit-progress-bar {
+                                   }
+#progress-bar::-webkit-progress-bar
+                                   {
   background: $main_color;
-}
-#progress-bar::-webkit-progress-value {
+                                   }
+#progress-bar::-webkit-progress-value
+                                   {
   background:white;
-}
-#progress-bar::-moz-progress-bar {
+                                   }
+#progress-bar::-moz-progress-bar   {
   background:$main_color;
-}
-.progressDiv {
+                                   }
+.progressDiv                       {
   border-radius:5px;
   width:5px;
   height:5px;
   background: white;
-}
+                                   }
 
-.progresses {
+.progresses                        {
   width:200px;
   height:3px;
   position: relative;
   top:-50px;
   left:130px;
   background: #575757;
-}
+                                   }
 
-.progresses::-webkit-progress-bar {
+.progresses::-webkit-progress-bar  {
   background: #575757;
-}
-.progresses::-webkit-progress-value {
+                                   }
+.progresses::-webkit-progress-value
+                                   {
   background:$main_color;
-}
+                                   }

@@ -55,7 +55,7 @@ export default class HomeMenu extends Component {
         );
         default: return <div/>
     }
-    }
+                                }
     VideoArchive = props =>
     (
         <div>

@@ -102,7 +102,8 @@ video::media-controls {
 #video {
   align-self: center;
   width: 100%;
-  height: 99%; }
+  height: 99%;
+  top: 50%; }
 
 .playBackDiv {
   position: fixed;
@@ -356,13 +357,13 @@ hr {
 .categoryPanel, .categoryPanelNone {
   height: 100vh;
   top: -20px;
-  display: block;
   width: 350px;
   max-width: 350px;
   min-width: 350px;
   margin-top: 20px;
   position: absolute;
   left: 0;
+  background: rgba(0, 0, 0, 0.8);
   transition: left 0.5s ease 100ms; }
 
 .categoryLine, .categoryLineNone {
@@ -456,7 +457,8 @@ hr {
   flex-direction: column;
   -webkit-flex-direction: column;
   justify-content: center;
-  -webkit-justify-content: center; }
+  -webkit-justify-content: center;
+  height: 100%; }
 
 .centerDivFull {
   position: absolute;
@@ -467,12 +469,12 @@ hr {
 .divPlayer {
   align-self: center;
   position: absolute;
-  top: 85%;
+  bottom: 10%;
   left: 10%;
   width: 80%;
   max-width: 80%;
   min-width: 80%;
-  margin-bottom: 10px;
+  margin-bottom: 5vh;
   height: 60px;
   background: #805EE0;
   display: flex;
@@ -554,7 +556,7 @@ hr {
 .divBottomPlayer, .divBottomPlayerFull {
   z-index: 2147483647;
   position: absolute;
-  top: 90%;
+  bottom: -1%;
   left: 10%;
   align-self: center;
   -webkit-align-self: center;
@@ -797,6 +799,13 @@ body {
   outline: 0;
   border: 0;
   overflow: hidden; }
+
+#root {
+  height: 100%; }
+
+div [data-reactroot] {
+  position: relative;
+  height: 100%; }
 
 @font-face {
   font-family: "ComfortaaRegular";
