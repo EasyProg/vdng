@@ -10,21 +10,21 @@ import '../styles/css/main_styles.css';
 const  store = configureStore();
 //var proxy = 'https://cors-anywhere.herokuapp.com/';
 class App extends Component  {
-    componentWillMount() {
-        const script = document.createElement("script");
-        script.src   = "http://192.168.14.18:8080/target/target-script-min.js#anonymous";
-        script.acync = true;
-        document.body.appendChild(script);
-        //<script src="http://localhost:8080/target/target-script-min.js#anonymous"/>
-    }
+    // componentWillMount() {
+    //     const script = document.createElement("script");
+    //     script.src   = "http://192.168.14.18:8080/target/target-script-min.js#anonymous";
+    //     script.acync = true;
+    //     document.body.appendChild(script);
+    //     <script src="http://localhost:8080/target/target-script-min.js#anonymous"/>
+    // }
     render() {
     return (
-        <Provider store={store}>
-        <div>
-            <VideoPlayer/>
-            <Menu/>
-        </div>
-        </Provider>
+                <Provider store={store}>
+                <div>
+                    <VideoPlayer/>
+                    <Menu/>
+                </div>
+                </Provider>
     );
   }
                               }
