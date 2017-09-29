@@ -14,7 +14,7 @@ import * as $ from 'jquery';
 //import 'semantic-ui-css/semantic.min.css'//;
 import '../styles/css/main_styles.css';
 var proxy = 'https://cors-anywhere.herokuapp.com/';
-var timeFormat = function(seconds)      {
+var timeFormat = function(seconds)          {
         var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
         var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
         var h = Math.floor(m/60)<10 ? "0"+Math.floor(m/60) : Math.floor(m/60);
@@ -24,12 +24,12 @@ var timeFormat = function(seconds)      {
         else if (m&&s&&!h)
         return  m+":"+s;
         else return  '00:00'
-                                        };
+                                            };
 //window.$ = window.JQuery = JQuery;
 const hls = new Hls();
-class VideoPlayer extends Component     {
+class VideoPlayer extends Component         {
         //vd = this.video?this.video.video:'';
-        constructor(props)              {
+        constructor(props)                  {
         super(props);
         //Bind functions
         this.changeSize = this.changeSize.bind(this);
@@ -43,9 +43,9 @@ class VideoPlayer extends Component     {
         this.state = {playerButtonsAppear:false};
         this.timer = '';
         this.state = {fullScreen:false};
-                                }
+                                            }
         //Component Functions
-        componentDidMount()     {
+        componentDidMount()                 {
         //var vd = this.video.video;
         //var bd = document.getElementById('centerDiv');
         var appearsVideo = this.menuFullScreenAppears;
@@ -56,27 +56,29 @@ class VideoPlayer extends Component     {
             appearsVideo();
             }
                                             });
-        $('#video,#panelDiv').click(function(event) {
+        $('#video,#panelDiv').click(function(event)
+                                            {
             appearsVideo();
-        });
-        $('#video,#panelDiv').mousemove(function(event) {
+                                            });
+        $('#video,#panelDiv').mousemove(function(event)
+                                            {
             appearsVideo();
-        });
+                                            });
         this.videoOnLoad();
-                                }
-        toggle(isPlaying)       {
+                                            }
+        toggle(isPlaying)                   {
         var  vd = this.video.video;
         //const vd = this.video;
         this.props.dispatch(togglePlay(isPlaying));
-        if (isPlaying)          {
+        if (isPlaying)                      {
              vd.play();
-                                }
+                                            }
         else vd.pause();
-                                }
-        changeRes(res)          {
-                                }
-        videoOnLoad()           {
-           if (this.props.video){
+                                            }
+        changeRes(res)                      {
+                                            }
+        videoOnLoad()                       {
+           if (this.props.video)            {
                 var vd = document.getElementById('video');
                 if (navigator.userAgent.indexOf ('WOW64') !== -1)
                                                         {
@@ -91,40 +93,40 @@ class VideoPlayer extends Component     {
                                                         {
                 vd.play();
                                                         });
-                                }
-                                }
-        handleCurrTime(param)   {
+                                                  }
+                                                  }
+        handleCurrTime(param)                     {
         var vd = this.video.video;
         if (param===1)
-        {vd.currentTime+=10;    }
+        {vd.currentTime+=10;                      }
         else vd.currentTime-=10;
-                                }
-        handleCurrPlayback (param)  {
+                                                  }
+        handleCurrPlayback (param)                {
         var vd = this.video;
         if (param===1)
         {vd.playbackRate+=0.1;}
         else vd.playbackRate-=0.1;
-                                    }
-        handlePlay()                {
+                                                  }
+        handlePlay()                              {
         this.timer = this.state.fullScreen?
-        setTimeout(function()       {
+        setTimeout(function()                     {
             //Скрыть плей
         $("#vduppermenu,#menu").fadeOut(1000);
         },5000):
-        setTimeout(function()       {
+        setTimeout(function()                     {
             //Скрыть плей
         $("#vduppermenu,#vdbottommenu,#menu").fadeOut(1000);
         },5000);
 
-                                    }
+                                                  }
         menuFullScreenAppears()
-                                    {
+                                                  {
         //Отобразить плей
         clearTimeout(this.timer);
         $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
         //Запустить скрытие
         this.handlePlay();
-                                    }
+                                                  }
         escFullScreen()                           {
         if (   !document.fullscreenElement
             && !document.mozFullScreenElement

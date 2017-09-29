@@ -67,9 +67,10 @@ class Categories extends Component              {
         arr.map((e, i) => {
             if (typeof e === 'object')    {
                 for (var key in e.EXTINF) {
-                    if (key !== 'aspect-ratio') {
+                    if (key !== 'aspect-ratio')
+                                          {
                         t = key;
-                                                }
+                                          }
                     else {
                         var c =  e.EXTINF['aspect-ratio'];
                         parseCategory = c.substring(c.indexOf('category=',1)+9,c.indexOf(';keycode',1));

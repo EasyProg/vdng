@@ -18,7 +18,7 @@ export default class Video extends Component
                         }
 
     render()            {
-        return (
+        return          (
             <div id="videoDiv" onClick={this.props.onClick}>
                 <video id="video" ref={(video) => this.video = video}
                        autoPlay={this.props.isPlaying}
@@ -27,7 +27,7 @@ export default class Video extends Component
                        tabIndex={1}
                 />
             </div>
-                )
+                        )
                         }
                         }
 

@@ -27,11 +27,13 @@ class Menu extends Component                {
      //Туггл кнопок если стейт изменился
         if (menuType === 'left')
         {
-           this.props.dispatch(setChannelsVisible({
+           this.props.dispatch(setChannelsVisible
+                                            ({
                channelsMenuVisible:false,
                categoryMenuVisible:!categoryState,
                settingsVisible:false
-                                                  }));
+
+                                            }));
         $('#channels').focus();
         $("#vduppermenu").fadeOut(100);
         //Unbind mousemove events
@@ -39,7 +41,8 @@ class Menu extends Component                {
         }
         else
         {
-            this.props.dispatch(setChannelsVisible({
+            this.props.dispatch(setChannelsVisible
+                                            ({
                 channelsMenuVisible:false,
                 categoryMenuVisible:false,
                 settingsVisible:!settingsState
@@ -49,7 +52,7 @@ class Menu extends Component                {
     render()   {
         return (
         <div id="menu" className="mainMenuDiv">
-            {/*<div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>*/}
+                {/*<div id="menu" className={this.props.fullScreen ? 'mainMenuDivFull' : "mainMenuDiv"}>*/}
                 <div className="menuDives">
                     <div className={this.props.menus.channelsMenuVisible||this.props.menus.categoryMenuVisible?"displayNone":'divSideBar'}
                     onClick={(e) => this.toggleMenuState()}>
@@ -59,13 +62,13 @@ class Menu extends Component                {
                                 channelVisible={this.props.menus.channelsMenuVisible}
                                 toggleMenuStateContext={this.toggleMenuState}/>
                     <div className={this.props.fullScreen?"menuCenterText":'displayNone'}>
-                            <div className="menuCenterTextBig">
-                            <img src={this.props.channelImg} width={50} height={50} className="imgChannelStyle"/>
-                            {this.props.category}
-                            <img src={prev_button} width={30} height={30}/>
-                            <span className="menuCenterTextBigBold">{this.props.channelId}{'. '}{this.props.channel}
-                            </span>
-                            </div>
+                                <div className="menuCenterTextBig">
+                                <img src={this.props.channelImg} width={50} height={50} className="imgChannelStyle"/>
+                                {this.props.category}
+                                <img src={prev_button} width={30} height={30}/>
+                                <span className="menuCenterTextBigBold">{this.props.channelId}{'. '}{this.props.channel}
+                                </span>
+                                </div>
                         {/*<div>А здесь должно быть название того что идет</div>*/}
                     </div>
                 </div>
@@ -77,8 +80,8 @@ class Menu extends Component                {
                 {/*<HomeMenu visible={this.props.menus.settingsVisible} isParentControl/>*/}
                 {/*</div>*/}
         </div>
-              )
-              }
+                )
+                }
 
                                         }
 const mapDispatchToProps = (dispatch) => bindActionCreators({

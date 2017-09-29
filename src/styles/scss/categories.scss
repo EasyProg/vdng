@@ -1,5 +1,5 @@
 @import 'variables';
-.categoryPanel                                       {
+.categoryPanel                                        {
   //@media only screen and (min-device-width: 480px)  {
   //  height:200px;
   //                                                  }
@@ -23,22 +23,22 @@
     left:7%;
     vertical-align: bottom;
                                                      }
-.categoryLineNone {
+.categoryLineNone                                    {
     @extend .categoryLine;
     display:none;
-                  }
+                                                     }
 //.categoryPanelNone {
 //  margin-top: 20px;
 //  position: absolute;
 //  left:-500px;
 //  transition: left 0.5s ease 100ms;
 //}
-.categoryPanelNone {
+.categoryPanelNone                                   {
     @extend .categoryPanel;
     left:-500px;
     transition: left 0.5s ease 100ms;
-                   }
-.categoryItem {
+                                                     }
+.categoryItem                                        {
     display: block;
     cursor: pointer;
     width:$menuItemWidth;
@@ -53,8 +53,8 @@
     height: 60px;
     line-height: 4em;
     text-align: center;
-                }
-.menuHeader {
+                                                     }
+.menuHeader                                          {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -70,17 +70,17 @@
     line-height: 6em;
     text-align: center;
     height: 60px;
-            }
-.menuHeaderCat {
+                                                      }
+.menuHeaderCat                                        {
   @extend .menuHeader;
   //height: 10px;
 }
-.menuHeaderCh {
+.menuHeaderCh                                         {
   @extend .menuHeader;
   width:$menuChannelWidth;
   max-width:$menuChannelWidth;
-}
-.menuHeaderCircleDiv {
+                                                      }
+.menuHeaderCircleDiv                                  {
     background: #4a4a4a;
     border-radius: 45px;
     width: 45px;
@@ -89,29 +89,29 @@
     margin-right:20px;
     line-height: 4em;
     text-align: center;
-                     }
-.categoryItem:hover {
-background: $hollowColor;
-  filter:progid:DXImageTransform.Microsoft.Blur(10px);
-}
-.categoryItem:focus {
-  background: $hollowColor;
-  filter:progid:DXImageTransform.Microsoft.Blur(10px);
-}
-.categoryItemChosen {
-  @extend .categoryItem;
-  color: $main_color;
-}
+                                                      }
+.categoryItem:hover                                   {
+    background: $hollowColor;
+    filter:progid:DXImageTransform.Microsoft.Blur(10px);
+                                                      }
+.categoryItem:focus                                   {
+    background: $hollowColor;
+    filter:progid:DXImageTransform.Microsoft.Blur(10px);
+                                                      }
+.categoryItemChosen                                   {
+    @extend .categoryItem;
+    color: $main_color;
+                                                      }
 
-        .workMotherFucker {
-          @extend .categoryItem;
-          background: $hollowColor;
-                          }
-.categoryText             {
-  align-self: center;
-  text-align: left;
-                          }
-.categoryImage            {
+.workMotherFucker                                     {
+    @extend .categoryItem;
+    background: $hollowColor;
+                                                      }
+.categoryText                                         {
+    align-self: center;
+    text-align: left;
+                                                      }
+.categoryImage                                        {
     margin-top:5px;
     float:left;
     margin-left: 20px;
@@ -120,10 +120,10 @@ background: $hollowColor;
     height:40px;
     width:40px;
   //line-height:5em;
-                          }
+                                                      }
 //.categoryImage:hover {
 //  background: #636363;
 //}
-.hoverDiv {
+.hoverDiv                                             {
   width:5px;
-}
+                                                      }
