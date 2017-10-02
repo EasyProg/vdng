@@ -64,7 +64,7 @@ class VideoPlayer extends Component         {
                                             {
             appearsVideo();
                                             });
-        $('#video').muted = false;
+        //$('#video').muted = false;
         this.videoOnLoad();
                                             }
         toggle(isPlaying)                   {
@@ -116,7 +116,7 @@ class VideoPlayer extends Component         {
         },5000):
         setTimeout(function()                     {
             //Скрыть плей
-        $("#vduppermenu,#vdbottommenu,#menu").fadeOut(1000);
+        $("#vduppermenu,#vdbottommenu").fadeOut(1000);
         },5000);
 
                                                   }

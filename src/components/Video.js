@@ -14,7 +14,8 @@ export default class Video extends Component
                         };
 
     componentDidMount() {
-    this.video.play();
+    //this.video.play();
+    this.video.muted = false;
                         }
 
     render()            {
