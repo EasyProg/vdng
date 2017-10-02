@@ -61,7 +61,7 @@ class Menu extends Component                {
                     <Categories visible={this.props.menus.categoryMenuVisible}
                                 channelVisible={this.props.menus.channelsMenuVisible}
                                 toggleMenuStateContext={this.toggleMenuState}/>
-                    <div className={this.props.fullScreen?"menuCenterText":'displayNone'}>
+                    <div className={this.props.fullScreen&&!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":'displayNone'}>
                                 <div className="menuCenterTextBig">
                                 <img src={this.props.channelImg} width={50} height={50} className="imgChannelStyle"/>
                                 {this.props.category}
