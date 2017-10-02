@@ -2,7 +2,7 @@ import  React, {Component,PropTypes} from 'react';
 import  '../styles/css/main_styles.css';
 
 export default class Video extends Component
-                        {
+                                            {
     constructor(props)  {
         super(props);
                         }
@@ -23,12 +23,13 @@ export default class Video extends Component
                 <video id="video" ref={(video) => this.video = video}
                        autoPlay={this.props.isPlaying}
                        //loop
+                       muted
                        playsInline
                        tabIndex={1}
                 />
             </div>
                         )
                         }
-                        }
+                                            }
 
 //Merge request to master project

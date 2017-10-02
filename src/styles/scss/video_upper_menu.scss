@@ -1,7 +1,7 @@
 $divPlayerWidth:80%;
 $divPlayerWidthPx:1000px;
 $plButtonsLeft:10%;
-.centerDiv        {
+.centerDiv                         {
   //text-align: center;
   height: 100%;
   display:flex;
@@ -10,20 +10,19 @@ $plButtonsLeft:10%;
   -webkit-flex-direction:column;
   justify-content: center;
   -webkit-justify-content:center;
-  height: 100%;
   //z-index:2147483647;
-                  }
-.centerDivFull    {
+                                   }
+.centerDivFull                     {
   @extend .centerDiv;
   position: absolute;
   z-index:2147483647;
   top:85%;
   left:30%;
-                  }
-.divPlayer        {
+                                   }
+.divPlayer                         {
   align-self: center;
   position: absolute;
-  bottom:10%;
+  bottom:70px;
   left:$plButtonsLeft;
   width: $divPlayerWidth;
   max-width:$divPlayerWidth;
@@ -39,8 +38,8 @@ $plButtonsLeft:10%;
   justify-content: space-between;
   -webkit-justify-content:space-between;
   z-index:2147483647;
-                  }
-.playerButtonsDiv {
+                                   }
+.playerButtonsDiv                  {
   cursor:pointer;
   display:flex;
   display:-webkit-flex;
@@ -51,8 +50,8 @@ $plButtonsLeft:10%;
   -webkit-justify-content:space-between;
   align-items: center;
   -webkit-align-items: center;
-                  }
-.videoTime        {
+                                   }
+.videoTime                         {
   cursor: default;
   line-height: 2.5em;
   margin-left: 20px;
@@ -62,8 +61,8 @@ $plButtonsLeft:10%;
   font-size: 1.5em;
   font-family: "RobotoRegular";
   color: white;
-                  }
-.progressBar      {
+                                   }
+.progressBar                       {
   position: absolute;
   top:84%;
   left:$plButtonsLeft;
@@ -74,7 +73,7 @@ $plButtonsLeft:10%;
   max-width:$divPlayerWidth;
   min-width:350px;
   background:white;
-}
+                                   }
 
 .progressBarFull                   {
   @extend .progressBar;

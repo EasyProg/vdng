@@ -114,7 +114,7 @@ if (channels) {
     this.props.dispatch(getChannels(filteredChannels));
     return filteredChannels;
                                                   };
-    switchCateg(event,cat)                  {
+    switchCateg(event,cat)                        {
     var i = this.Menu.map(x => x.category).indexOf(cat);
     var items = document.getElementsByClassName('categoryItem');
     //

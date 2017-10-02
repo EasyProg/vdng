@@ -455,8 +455,7 @@ hr {
   flex-direction: column;
   -webkit-flex-direction: column;
   justify-content: center;
-  -webkit-justify-content: center;
-  height: 100%; }
+  -webkit-justify-content: center; }
 
 .centerDivFull {
   position: absolute;
@@ -467,7 +466,7 @@ hr {
 .divPlayer {
   align-self: center;
   position: absolute;
-  bottom: 10%;
+  bottom: 70px;
   left: 10%;
   width: 80%;
   max-width: 80%;
@@ -554,7 +553,7 @@ hr {
 .divBottomPlayer, .divBottomPlayerFull {
   z-index: 2147483647;
   position: absolute;
-  top: 90%;
+  bottom: 20px;
   left: 10%;
   align-self: center;
   -webkit-align-self: center;
@@ -572,7 +571,7 @@ hr {
 .divBottomPlayerFull {
   z-index: 2147483647;
   position: absolute;
-  top: 91%;
+  bottom: 5%;
   left: 40%; }
 
 .playerButtonsBottomDiv, .playerButtonsBottomDivRes {

@@ -64,6 +64,7 @@ class VideoPlayer extends Component         {
                                             {
             appearsVideo();
                                             });
+        $('#video').muted = false;
         this.videoOnLoad();
                                             }
         toggle(isPlaying)                   {
