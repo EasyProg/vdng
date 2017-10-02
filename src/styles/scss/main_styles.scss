@@ -27,7 +27,7 @@ body  {
 div [data-reactroot] {
   position: relative;
   height:100%;
-}
+                     }
 @font-face {
   font-family: "ComfortaaRegular";
   src: url("../fonts/ComfortaaRegular.eot");
@@ -54,8 +54,8 @@ div [data-reactroot] {
   display: block;
   width:0;
   transition: width 1s ease 1s;
-                }
-.mainMenuDiv {
+               }
+.mainMenuDiv   {
   top:-20px;
   margin-top: 15px;
   position: fixed;
@@ -66,7 +66,7 @@ div [data-reactroot] {
   justify-content: space-between;
   align-items: center;
   z-index:2147483647;
-            }
+               }
 .mainMenuDivFull {
 @extend .mainMenuDiv;
 height:120px;

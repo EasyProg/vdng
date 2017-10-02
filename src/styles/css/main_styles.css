@@ -4,7 +4,6 @@
   cursor: pointer;
   width: 350px;
   min-width: 350px;
-  background: rgba(0, 0, 0, 0.3);
   font-family: "ComfortaaRegular";
   letter-spacing: 1px;
   color: white;
@@ -29,7 +28,7 @@
   visibility: hidden; }
 
 .menuChannel, .menuChannelLeft, .menuChannelNone {
-  height: 100vh;
+  height: 101vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -355,7 +354,7 @@ hr {
   background: #434343; }
 
 .categoryPanel, .categoryPanelNone {
-  height: 100vh;
+  height: 101vh;
   top: -20px;
   width: 350px;
   max-width: 350px;
@@ -382,7 +381,6 @@ hr {
   display: block;
   cursor: pointer;
   width: 350px;
-  background: rgba(0, 0, 0, 0.7);
   font-family: "ComfortaaRegular";
   letter-spacing: 1px;
   color: white;
@@ -398,7 +396,6 @@ hr {
   width: 350px;
   max-width: 350px;
   min-width: 170px;
-  background: rgba(0, 0, 0, 0.7);
   font-family: "ComfortaaRegular";
   font-weight: bold;
   letter-spacing: 1px;
