@@ -10,10 +10,10 @@ import VideoPlayer from './VideoPlayer';
 class PlayDiv extends Component {
     constructor(props) {
         super(props);
-    }
+                       }
     static propTypes = {
         //isVideoPlaying: PropTypes.bool.isRequired
-    };
+                       };
 toggle(isPlaying) {
     this.props.dispatch(togglePlay(isPlaying));
 }

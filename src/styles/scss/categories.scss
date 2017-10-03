@@ -6,10 +6,10 @@
   //@media only screen and (min-device-width: 1281px) {
   //  height:1200px;
   //                                                  }
-    height:101vh;
+    height:96vh;
     top:-20px;
     //display:block;
-    width:$menuItemWidth;
+    width:$menuCatWidth;
     max-width:$menuItemWidth;
     min-width:$menuItemWidth;
     margin-top: 20px;
@@ -41,17 +41,18 @@
 .categoryItem                                        {
     display: block;
     cursor: pointer;
-    width:$menuItemWidth;
+    width:$menuCatWidth;
     //max-width:$menuItemWidth;
     //min-width: 170px;
     //background: rgba(0,0,0,0.7);
     font-family: "ComfortaaRegular";
+    font-size:1.3em;
     //font-weight: bold;
     letter-spacing: 1px;
     //letter-spacing: 0.6px;
     color:white;
-    height: 60px;
-    line-height: 4em;
+    height: 110px;
+    line-height: 6em;
     text-align: center;
                                                      }
 .menuHeader                                          {
@@ -67,35 +68,43 @@
     font-weight: bold;
     letter-spacing: 1px;
     color:white;
-    line-height: 6em;
+    line-height: 2em;
     text-align: center;
+    text-wrap: none;
     height: 60px;
                                                       }
 .menuHeaderCat                                        {
   @extend .menuHeader;
+  width:$menuChannelWidth;
+  max-width:$menuChannelWidth;
+  font-size:1.2em;
   //height: 10px;
 }
 .menuHeaderCh                                         {
   @extend .menuHeader;
   width:$menuChannelWidth;
   max-width:$menuChannelWidth;
+  font-size:1.2em;
                                                       }
 .menuHeaderCircleDiv                                  {
     background: #4a4a4a;
     border-radius: 45px;
+    //display: block;
+    //position: relative;
     width: 45px;
     height: 45px;
     margin-left: 20px;
     margin-right:20px;
-    line-height: 4em;
+    line-height: 3.3em;
     text-align: center;
+    //margin-top: 20px;
                                                       }
 .categoryItem:hover                                   {
-    background: $hollowColor;
+    background:$menuHoverColor;
     filter:progid:DXImageTransform.Microsoft.Blur(10px);
                                                       }
 .categoryItem:focus                                   {
-    background: $hollowColor;
+    background:$menuActiveColor;
     filter:progid:DXImageTransform.Microsoft.Blur(10px);
                                                       }
 .categoryItemChosen                                   {
@@ -105,7 +114,7 @@
 
 .workMotherFucker                                     {
     @extend .categoryItem;
-    background: $hollowColor;
+    background: $menuActiveColor;
                                                       }
 .categoryText                                         {
     align-self: center;

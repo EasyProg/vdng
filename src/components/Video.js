@@ -2,7 +2,7 @@ import  React, {Component,PropTypes} from 'react';
 import  '../styles/css/main_styles.css';
 
 export default class Video extends Component
-                                            {
+                                                    {
     constructor(props)  {
         super(props);
                         }
@@ -19,7 +19,8 @@ export default class Video extends Component
                         }
 
     render()            {
-        return          (
+        if (this.props.video!=='none')
+        {return          (
             <div id="videoDiv" onClick={this.props.onClick}>
                 <video id="video" ref={(video) => this.video = video}
                        autoPlay={this.props.isPlaying}
@@ -29,8 +30,11 @@ export default class Video extends Component
                        tabIndex={1}
                 />
             </div>
-                        )
+                        )}
+        else return (
+            <div className="errorsDiv">Network error</div>
+                    )
                         }
-                                            }
+                                                     }
 
 //Merge request to master project

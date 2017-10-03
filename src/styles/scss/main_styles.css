@@ -1,20 +1,21 @@
 @charset "UTF-8";
 .menuItemStyle, .menuItemStylefocus {
-  display: block;
+  text-wrap: none;
   cursor: pointer;
-  width: 350px;
-  min-width: 350px;
+  width: 360px;
+  min-width: 360px;
   font-family: "ComfortaaRegular";
+  font-size: 1.3em;
   letter-spacing: 1px;
   color: white;
   height: 110px;
-  line-height: 7.4em; }
+  line-height: 5.7em; }
 
 .menuItemStyle:hover, .menuItemStylefocus:hover {
-  background: #575757; }
+  background: #9677ff; }
 
 .menuItemStylefocus {
-  background: #9677ff; }
+  background: #575757; }
 
 .circleButtonSpan {
   width: 40px;
@@ -36,36 +37,37 @@
   transition: left 0.5s ease 100ms; }
 
 .menuChannelLeft {
-  left: 270px; }
+  left: 360px; }
 
 .menuChannelNone {
   left: -500px; }
 
-.divSideBar, .divSideBar:hover {
+.divSideBar, .divSideBar:hover, .divSideBar_StateChannel, .divSideBar_StateGroup {
   margin-top: 1.5%;
   margin-left: 1.5%;
   text-align: center;
   width: 50px;
-  height: 50px; }
+  height: 50px;
+  line-height: 6.2em; }
 
-.divSideBar:hover {
+.divSideBar:hover, .divSideBar_StateChannel:hover, .divSideBar_StateGroup:hover {
   cursor: pointer;
   border-radius: 40px;
   background: rgba(87, 87, 87, 0.6); }
+
+.divSideBar_StateChannel {
+  right: 10px;
+  line-height: 5em; }
+
+.divSideBar_StateGroup {
+  right: 10px;
+  margin-left: 80%;
+  line-height: 5em; }
 
 .numberSpan {
   width: 20px;
   margin-left: 10px;
   margin-right: 20px; }
-
-.span {
-  display: block;
-  width: 20px;
-  float: left;
-  margin-right: 15px;
-  margin-left: 15px;
-  font-size: 15px;
-  letter-spacing: 1px; }
 
 video::-webkit-media-controls {
   display: none; }
@@ -83,8 +85,13 @@ video::media-controls {
 
 .span {
   float: left;
-  margin-right: 15px;
   margin-left: 15px; }
+
+.spanChannelid {
+  margin-left: 10px;
+  float: left;
+  padding-right: 25px;
+  width: 30px; }
 
 .playerButtonsDiv > i:hover {
   text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.3), 0 0 1em white; }
@@ -98,11 +105,16 @@ video::media-controls {
   position: relative;
   top: 50%; }
 
-#video {
+#video, .errorsDiv {
   align-self: center;
   width: 100%;
   height: 99%;
   top: 50%; }
+
+.errorsDiv {
+  font: 30px Times New Roman bold;
+  color: white;
+  text-align: center; }
 
 .playBackDiv {
   position: fixed;
@@ -116,9 +128,10 @@ video::media-controls {
   height: 40%; }
 
 .homeButton, .homeButton:hover {
+  position: absolute;
   width: 45px;
   height: 45px;
-  margin-right: 50px;
+  right: 10px;
   text-align: center;
   line-height: 2.8em;
   margin-top: 20px; }
@@ -354,11 +367,11 @@ hr {
   background: #434343; }
 
 .categoryPanel, .categoryPanelNone {
-  height: 101vh;
+  height: 96vh;
   top: -20px;
   width: 350px;
-  max-width: 350px;
-  min-width: 350px;
+  max-width: 360px;
+  min-width: 360px;
   margin-top: 20px;
   position: absolute;
   left: 0;
@@ -382,10 +395,11 @@ hr {
   cursor: pointer;
   width: 350px;
   font-family: "ComfortaaRegular";
+  font-size: 1.3em;
   letter-spacing: 1px;
   color: white;
-  height: 60px;
-  line-height: 4em;
+  height: 110px;
+  line-height: 6em;
   text-align: center; }
 
 .menuHeader, .menuHeaderCat, .menuHeaderCh {
@@ -393,20 +407,27 @@ hr {
   flex-direction: row;
   align-items: center;
   cursor: pointer;
-  width: 350px;
-  max-width: 350px;
+  width: 360px;
+  max-width: 360px;
   min-width: 170px;
   font-family: "ComfortaaRegular";
   font-weight: bold;
   letter-spacing: 1px;
   color: white;
-  line-height: 6em;
+  line-height: 2em;
   text-align: center;
+  text-wrap: none;
   height: 60px; }
 
+.menuHeaderCat {
+  width: 360px;
+  max-width: 360px;
+  font-size: 1.2em; }
+
 .menuHeaderCh {
-  width: 350px;
-  max-width: 350px; }
+  width: 360px;
+  max-width: 360px;
+  font-size: 1.2em; }
 
 .menuHeaderCircleDiv {
   background: #4a4a4a;
@@ -415,11 +436,11 @@ hr {
   height: 45px;
   margin-left: 20px;
   margin-right: 20px;
-  line-height: 4em;
+  line-height: 3.3em;
   text-align: center; }
 
 .categoryItem:hover, .categoryItemChosen:hover, .workMotherFucker:hover {
-  background: #575757;
+  background: #9677ff;
   filter: progid:DXImageTransform.Microsoft.Blur(10px); }
 
 .categoryItem:focus, .categoryItemChosen:focus, .workMotherFucker:focus {
@@ -540,8 +561,8 @@ hr {
   width: 200px;
   height: 3px;
   position: relative;
-  top: -50px;
-  left: 130px;
+  top: -104px;
+  left: 150px;
   background: #575757; }
 
 .progresses::-webkit-progress-bar {
@@ -554,7 +575,7 @@ hr {
   z-index: 2147483647;
   position: absolute;
   bottom: 20px;
-  left: 10%;
+  left: 18%;
   align-self: center;
   -webkit-align-self: center;
   width: 80%;
@@ -616,7 +637,7 @@ hr {
   width: 60px;
   height: 55px;
   position: inherit;
-  right: 0;
+  right: 140px;
   min-width: 60px; }
 
 .iconResDivFull {
@@ -648,7 +669,7 @@ hr {
 
 .tvimg {
   margin-right: 10px;
-  margin-left: 10px;
+  margin-left: 15px;
   margin-top: 7px; }
 
 .pname {
@@ -680,7 +701,8 @@ hr {
 
 .rateContainer {
   position: relative;
-  top: 25px;
+  top: 45px;
+  left: 10px;
   margin-right: 20px;
   float: right;
   display: flex;
@@ -786,6 +808,11 @@ hr {
 
 .ImagDiv {
   width: 100px; }
+
+.divCateg {
+  display: flex;
+  width: 270px;
+  align-items: center; }
 
 * {
   outline: 0;

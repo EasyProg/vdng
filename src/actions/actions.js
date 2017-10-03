@@ -49,7 +49,7 @@ export function getChannels (channelsArr) {
 
 }
 
-export function setChannelsVisible (visibility) {
+export function setMenusVisible (visibility) {
     return {
         type:'CHANNELS_MENU_VISIBLE',
         menus:visibility

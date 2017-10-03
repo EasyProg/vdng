@@ -1,9 +1,9 @@
 $main_color: #9677ff;
-//$menuItemWidth:20%;
-//$menuChannelWidth:25%;
-$menuItemWidth:350px;
-$menuChannelWidth:350px;
-//$menuItemWidth:30vw;
-//$menuChannelWidth:30vw;
-$hollowColor:  rgba(87, 87, 87, 1);
-$backMenuColor:rgba(0,0,0,0.7);
+$menuItemWidth:360px;
+$menuCatWidth:350px;
+$menuChannelWidth:360px;
+$backMenuColor: rgba(0,0,0,0.7);
+//цвет при наведении на пункт меню
+$menuHoverColor:#9677ff;
+//цвет выбранного пункта
+$menuActiveColor:rgba(87, 87, 87, 1);

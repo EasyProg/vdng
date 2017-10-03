@@ -52,7 +52,7 @@ function videoReducer(state=initialState,action=null)           {
 //After adding all channels variables
 function channelReducer (state=channelState,action=null)        {
     switch (action.type) {
-    case 'TOGGLE_CATEGORY':
+    case     'TOGGLE_CATEGORY':
         return {...state,chosenCategory:action.category};
         case 'GET_CHANNELS':
         return {...state,channels:action.channelsArr};

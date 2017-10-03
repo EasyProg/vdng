@@ -16,8 +16,14 @@ video::media-controls         {
 //Bottom Invis Buttons
 .span                         {
    float: left;
-   margin-right:15px;
+   //margin-right:15px;
    margin-left:15px;
+                              }
+.spanChannelid                {
+   margin-left: 10px;
+   float: left;
+   padding-right:25px;
+   width:30px;
                               }
 .playerButtonsDiv>i:hover     {
 text-shadow: 2px 2px 3px
@@ -45,6 +51,15 @@ rgba(255,255,255,0.3),0 0 1em white;
   height:99%;
   top:50%;
                               }
+.errorsDiv                    {
+@extend  #video;
+font:30px Times New Roman bold;
+color:white;
+text-align: center;
+                              }
+
+
+
 
 .playBackDiv                  {
   position: fixed;

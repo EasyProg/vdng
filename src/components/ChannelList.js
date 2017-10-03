@@ -1,17 +1,18 @@
     import React, {Component,PropTypes} from 'react';
     import {connect} from 'react-redux';
     import {bindActionCreators} from 'redux';
-    import {changeVideo,toggleCategory,togglePlay,getChannels,setChannelsVisible} from '../actions/actions';
+    import {changeVideo,toggleCategory,togglePlay,getChannels,setMenusVisible} from '../actions/actions';
     import {Button} from 'semantic-ui-react';
     import 'semantic-ui-css/semantic.min.css';
     import '../styles/css/main_styles.css';
     import * as $ from 'jquery';
-    import point from '../img/pointing-to-left.gif';
     //import '../components/Channel';
     import Channel from './Channel';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import 'react-perfect-scrollbar/dist/css/styles.css';
-    class ChannelList extends Component       {
+    import PerfectScrollbar from 'react-perfect-scrollbar';
+    import 'react-perfect-scrollbar/dist/css/styles.css';
+    import HomeButton from './ui/HomeButton';
+    import CategoryName from './ui/CategoryName';
+    class  ChannelList extends Component       {
     constructor(props)                        {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -37,19 +38,19 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
                     //Скрыть плей
                     $("#vduppermenu").fadeOut(1000);
                 },5000);
-            this.menuTimer = setTimeout (
-                function()              {
-                    //Скрыть плей
-                    $("#menu").fadeOut(1000);
-                },8000)
+            // this.menuTimer = setTimeout (
+            //     function()              {
+            //         //Скрыть плей
+            //         $("#menu").fadeOut(1000);
+            //     },8000)
 
-                                               }
+                                              }
     menuFullScreenAppears()
-                                               {
+                                              {
             //Отобразить плей
             clearTimeout(this.timer);
             clearTimeout(this.menuTimer);
-            $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
+            $("#vduppermenu,#vdbottommenu").fadeIn(1);
             //Запустить скрытие
             this.handlePlay();
             //Вернуть скрытие обратно
@@ -64,7 +65,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
     this.props.dispatch(changeVideo(elem));
     this.props.dispatch(toggleCategory(elem.category));
     this.props.dispatch(togglePlay(!this.props.autoPlay));
-    this.props.dispatch(setChannelsVisible({
+    this.props.dispatch(setMenusVisible({
     channelsMenuVisible:false,
     categoryMenuVisible:false,
     settingsVisible:false
@@ -78,9 +79,9 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
                                                 }
     categVisible()                              {
-        this.props.dispatch(setChannelsVisible  (
+        this.props.dispatch(setMenusVisible     (
             {
-                channelsMenuVisible:false,
+                channelsMenuVisible:true,
                 categoryMenuVisible:true,
                 settingsVisible:false
             }                                   ));
@@ -90,11 +91,19 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
     render(){
         return                                  (
         <div>
-        <div className={this.props.channelsMenuVisible?'menuChannel':'menuChannelNone'} onClick={this.props.onClick} id="channels">
-        {this.props.playList.length?<div className="menuHeaderCh">
-            <div className="menuHeaderCircleDiv" onClick={(e)=>this.categVisible()}>
-                <img src={point} width={20} height={20}/>
-            </div>{this.props.channelCategory}</div>:''}
+            <div className={this.props.channelsMenuVisible&&this.props.catMenuVisible?
+                        'menuChannelLeft':this.props.channelsMenuVisible&&
+                        !this.props.catMenuVisible?'menuChannel':'menuChannelNone'}
+                        onClick={this.props.onClick} id="channels">
+            {this.props.playList.length?
+            <div className="menuHeaderCh">
+            <CategoryName visible ={this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible}
+                          categ   ={this.props.channelCategory}
+                          categVisibleContext = {this.categVisible}
+                          reversed={false}
+            />
+            <HomeButton/>
+            </div>:''}
                <PerfectScrollbar>
                {this.props.playList.map((elem, i) =>
                             <Channel
@@ -116,23 +125,25 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
                                                 )
             }
                                                 }
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-dispatch,
-changeVideo,
-toggleCategory,
-togglePlay,
-getChannels,
-setChannelsVisible
-}, dispatch);
-export default connect(
-state => ({
-video:state.videoReducer.video,
-channelCategory:state.channelReducer.chosenCategory,
-autoPlay:state.videoReducer.autoPlay,
-channelsMenuVisible:state.menuReducer.menus.channelsMenuVisible
-}),
-mapDispatchToProps
-)(ChannelList);
+        const mapDispatchToProps = (dispatch) => bindActionCreators({
+        dispatch,
+        changeVideo,
+        toggleCategory,
+        togglePlay,
+        getChannels,
+        setMenusVisible
+        }, dispatch);
+        export default connect(
+        state => ({
+        video:state.videoReducer.video,
+        channelCategory:state.channelReducer.chosenCategory,
+        autoPlay:state.videoReducer.autoPlay,
+        channelsMenuVisible:state.menuReducer.menus.channelsMenuVisible,
+        catMenuVisible:state.menuReducer.menus.categoryMenuVisible,
+        menus:state.menuReducer.menus
+                 }),
+        mapDispatchToProps
+        )(ChannelList);
 
 
 

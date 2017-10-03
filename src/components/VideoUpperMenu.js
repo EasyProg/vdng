@@ -8,7 +8,7 @@ import '../styles/css/main_styles.css';
 import {bindActionCreators} from 'redux';
 import {changeVideo,
         toggleCategory,
-        setChannelsVisible,
+        setMenusVisible,
         toggleFullScreen} from '../actions/actions';
 import Timer from '../components/ui/Timer';
 import * as $ from 'jquery';
@@ -31,7 +31,7 @@ class VideoUpperMenu extends Component                         {
     $('#video,.panelDiv').click                                (
                 function(event)                                {
                 event.stopPropagation();
-                t.props.dispatch(setChannelsVisible(
+                t.props.dispatch(setMenusVisible(
                     {
                             channelsMenuVisible: false,
                             categoryMenuVisible: false,
@@ -52,7 +52,7 @@ class VideoUpperMenu extends Component                         {
                 break;
             case 37:                                           {
                 if (!this.props.menus.channelsMenuVisible)     {
-                    this.props.dispatch(setChannelsVisible(
+                    this.props.dispatch(setMenusVisible(
                         {
                             channelsMenuVisible: true,
                             categoryMenuVisible: false,
@@ -61,7 +61,7 @@ class VideoUpperMenu extends Component                         {
                     ));
                                                                }
                 else if (this.props.menus.channelsMenuVisible) {
-                    this.props.dispatch(setChannelsVisible(
+                    this.props.dispatch(setMenusVisible(
                         {
                             channelsMenuVisible: false,
                             categoryMenuVisible: true,
@@ -72,19 +72,19 @@ class VideoUpperMenu extends Component                         {
                                                                }
                 break;
                                                                }
-            // case 39:                                           {
-            //     this.props.dispatch(setChannelsVisible(
-            //         {
-            //                 channelsMenuVisible: false,
-            //                 categoryMenuVisible: false,
-            //                 settingsVisible:     true
-            //         }
-            //     ));
-            //     break;
-            //                                                    }
-    case 13:                                                   {
+            case 39:                                           {
+                this.props.dispatch(setMenusVisible(
+                    {
+                            channelsMenuVisible: false,
+                            categoryMenuVisible: false,
+                            settingsVisible:     true
+                    }
+                ));
+                break;
+                                                               }
+            case 13:                                           {
                 if (this.props.menus.channelsMenuVisible)
-                this.props.dispatch(setChannelsVisible(
+                this.props.dispatch(setMenusVisible(
             {
                 channelsMenuVisible: false,
                 categoryMenuVisible: false,
@@ -136,7 +136,7 @@ class VideoUpperMenu extends Component                         {
             }
                                                             }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-dispatch,changeVideo,toggleCategory,setChannelsVisible,toggleFullScreen
+dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);
 export default connect      (
     state =>        ({ fullScreen:state.videoReducer.fullScreen,

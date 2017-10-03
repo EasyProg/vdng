@@ -1,25 +1,29 @@
 @import 'variables';
 $menu-width:250px;
 .menuItemStyle        {
-    display: block;
+    //position: absolute;
+    //display: block;
+    text-wrap: none;
     cursor: pointer;
     width:$menuChannelWidth;
     min-width:$menuChannelWidth;
     //background: rgba(0,0,0,0.3);
     font-family: "ComfortaaRegular";
+    font-size:1.3em;
     //font-weight: bold;
     letter-spacing: 1px;
     color:white;
     height: 110px;
-    line-height: 7.4em;
+    line-height: 5.7em;
+    //text-align: center;
                       }
-.menuItemStyle:hover  {
-background: $hollowColor;
+  .menuItemStyle:hover{
+  background:$menuHoverColor;
                       }
 .menuItemStylefocus   {
   @extend .menuItemStyle;
   //width:320px;
-  background: $main_color;
+  background:$menuActiveColor;
 
                       }
 .circleButtonSpan     {
@@ -30,10 +34,10 @@ background: $hollowColor;
   left:285px;
   visibility: visible;
                       }
-.circleButtonSpanNone {
+ .circleButtonSpanNone {
   visibility: hidden;
 }
-.menuChannel          {
+ .menuChannel          {
   //@media only screen and (min-device-width: 480px) {
   //  height:200px;
   //                                                 }
@@ -50,7 +54,7 @@ background: $hollowColor;
                       }
 .menuChannelLeft      {
   @extend .menuChannel;
-  left:270px;
+  left:360px;
                       }
 .menuChannelNone      {
   @extend .menuChannel;
@@ -65,12 +69,27 @@ background: $hollowColor;
   text-align: center;
   width:50px;
   height:50px;
+  line-height:6.2em;
                       }
 .divSideBar:hover     {
   @extend .divSideBar;
   cursor: pointer;
+  //line-height:40em;
   border-radius: 40px;
   background: rgba(87, 87, 87, 0.6);
+                      }
+.divSideBar_StateChannel{
+  @extend  .divSideBar;
+  //margin-top: 1.5%;
+  //margin-left:30%;
+  right:10px;
+  line-height:5em;
+                      }
+.divSideBar_StateGroup{
+  @extend  .divSideBar;
+  right:10px;
+  margin-left:80%;
+  line-height:5em;
                       }
 .numberSpan           {
   //position: relative;
@@ -78,12 +97,12 @@ background: $hollowColor;
   margin-left: 10px;
   margin-right: 20px;
                       }
-.span                 {
-  display:block;
-  width:20px;
-  float: left;
-  margin-right: 15px;
-  margin-left: 15px;
-  font-size:15px;
-  letter-spacing: 1px;
-                      }
+//.span                 {
+//  display:block;
+//  width:20px;
+//  float: left;
+//  //margin-right: 15px;
+//  //margin-left: 15px;
+//  font-size:15px;
+//  letter-spacing: 1px;
+//                      }

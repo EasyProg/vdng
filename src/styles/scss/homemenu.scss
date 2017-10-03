@@ -1,11 +1,12 @@
 
 .homeButton       {
+  position:absolute;
   width:45px;
   height:45px;
-  margin-right:50px;
+  right:10px;
   text-align: center;
   line-height: 2.8em;
-margin-top: 20px;
+  margin-top: 20px;
                   }
 
 .homeButton:hover {
@@ -13,7 +14,7 @@ margin-top: 20px;
   cursor: pointer;
   border-radius: 50px;
   background: rgba(87, 87, 87, 0.6)
-}
+                  }
 .homeDiv          {
   text-align: center;
   color:white;
@@ -29,7 +30,7 @@ margin-top: 20px;
   background: $backMenuColor;
   transition: all 0.5s ease 100ms;
   opacity: 1;
-                   }
+                  }
 .homeDivLeft
 {
   @extend .homeDiv;
