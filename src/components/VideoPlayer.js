@@ -198,7 +198,7 @@ class VideoPlayer extends Component         {
                                             }
          this.props.dispatch(toggleFullScreen(false));
          this.setState({fullScreen:false});
-                                                   }}
+                                            }}
         //Component Functions
         render()                            {
         this.videoOnLoad();

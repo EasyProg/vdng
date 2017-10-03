@@ -73,6 +73,11 @@
     text-wrap: none;
     height: 60px;
                                                       }
+.menuBottom                                           {
+    width:$menuItemWidth;
+    height:5vh;
+    background: rgba(0,0,0,0.8);
+                                                      }
 .menuHeaderCat                                        {
   @extend .menuHeader;
   width:$menuChannelWidth;
@@ -104,13 +109,13 @@
     filter:progid:DXImageTransform.Microsoft.Blur(10px);
                                                       }
 .categoryItem:focus                                   {
-    background:$menuActiveColor;
+    //background:$menuHoverColor;
     filter:progid:DXImageTransform.Microsoft.Blur(10px);
                                                       }
 .categoryItemChosen                                   {
-    @extend .categoryItem;
-    color: $main_color;
-                                                      }
+    //@extend .categoryItem;
+    background:  $menuActiveColor;
+}
 
 .workMotherFucker                                     {
     @extend .categoryItem;

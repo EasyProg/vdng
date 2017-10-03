@@ -11,6 +11,12 @@
   height: 110px;
   line-height: 5.7em; }
 
+.menuBottom {
+  width: 360px;
+  height: 5vh;
+  background: rgba(0, 0, 0, 0.8);
+  bottom: 0; }
+
 .menuItemStyle:hover, .menuItemStylefocus:hover {
   background: #9677ff; }
 
@@ -29,7 +35,7 @@
   visibility: hidden; }
 
 .menuChannel, .menuChannelLeft, .menuChannelNone {
-  height: 101vh;
+  height: 96vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -390,7 +396,7 @@ hr {
   left: -500px;
   transition: left 0.5s ease 100ms; }
 
-.categoryItem, .categoryItemChosen, .workMotherFucker {
+.categoryItem, .workMotherFucker {
   display: block;
   cursor: pointer;
   width: 350px;
@@ -419,6 +425,11 @@ hr {
   text-wrap: none;
   height: 60px; }
 
+.menuBottom {
+  width: 360px;
+  height: 5vh;
+  background: rgba(0, 0, 0, 0.8); }
+
 .menuHeaderCat {
   width: 360px;
   max-width: 360px;
@@ -439,16 +450,15 @@ hr {
   line-height: 3.3em;
   text-align: center; }
 
-.categoryItem:hover, .categoryItemChosen:hover, .workMotherFucker:hover {
+.categoryItem:hover, .workMotherFucker:hover {
   background: #9677ff;
   filter: progid:DXImageTransform.Microsoft.Blur(10px); }
 
-.categoryItem:focus, .categoryItemChosen:focus, .workMotherFucker:focus {
-  background: #575757;
+.categoryItem:focus, .workMotherFucker:focus {
   filter: progid:DXImageTransform.Microsoft.Blur(10px); }
 
 .categoryItemChosen {
-  color: #9677ff; }
+  background: #575757; }
 
 .workMotherFucker {
   background: #575757; }
@@ -695,8 +705,8 @@ hr {
 
 .pnameFav {
   position: relative;
-  left: 200px;
-  top: -50%;
+  right: -160px;
+  top: -80px;
   z-index: 33; }
 
 .rateContainer {

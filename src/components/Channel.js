@@ -5,7 +5,7 @@ import nochannel from '../img/noimage.png';
 import 'semantic-ui-css/semantic.min.css';
 import book from '../img/bookmark-orange.svg';
 import Rating from '../components/ui/Rating';
-export default class Channel extends Component {
+export default class Channel extends Component  {
     constructor(props) {
         super(props);
                        }

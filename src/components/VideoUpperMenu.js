@@ -52,6 +52,7 @@ class VideoUpperMenu extends Component                         {
                 break;
             case 37:                                           {
                 if (!this.props.menus.channelsMenuVisible)     {
+                    //this.props.dispatch(getChannels(parse(hlsArray)));
                     this.props.dispatch(setMenusVisible(
                         {
                             channelsMenuVisible: true,
@@ -63,7 +64,7 @@ class VideoUpperMenu extends Component                         {
                 else if (this.props.menus.channelsMenuVisible) {
                     this.props.dispatch(setMenusVisible(
                         {
-                            channelsMenuVisible: false,
+                            channelsMenuVisible: true,
                             categoryMenuVisible: true,
                             settingsVisible:     false
                         }

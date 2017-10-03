@@ -14,7 +14,7 @@ toggleMenuState()                                   {
         var channelsState = this.props.menus.channelsMenuVisible;
         var settingsState = this.props.menus.settingsVisible;
         //Туггл кнопок если стейт изменился
-            this.props.dispatch(getChannels(parse(hlsArray)));
+            //this.props.dispatch(getChannels(parse(hlsArray)));
 
 
             this.props.dispatch(setMenusVisible

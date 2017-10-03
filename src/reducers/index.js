@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
-        import * as settings from '../settings.json';
-
+import * as settings from '../settings.json';
+import hlsArray from '../hls';
+import parse from '../components/Parsing';
 
 const initialState =   {
         video:       {link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/51/stream.m3u8',
@@ -16,7 +17,7 @@ const initialState =   {
                        };
 const   channelState = {
         chosenCategory   :'All channels',
-        channels:[]
+        channels:parse(hlsArray)
                        };
 const  menuState =     {
        menus:{

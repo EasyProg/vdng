@@ -88,7 +88,8 @@
 
                                                 }
 
-    render(){
+    render()  {
+        if (this.props.playList.length)
         return                                  (
         <div>
             <div className={this.props.channelsMenuVisible&&this.props.catMenuVisible?
@@ -120,9 +121,11 @@
                )
                }
                </PerfectScrollbar>
+               <div className="menuBottom"/>
                </div>
                </div>
-                                                )
+                                                );
+            else return (null)
             }
                                                 }
         const mapDispatchToProps = (dispatch) => bindActionCreators({

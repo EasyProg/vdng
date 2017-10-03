@@ -27,23 +27,23 @@ class Menu extends Component                {
      var channelsState = this.props.menus.channelsMenuVisible;
      var settingsState = this.props.menus.settingsVisible;
      //Туггл кнопок если стейт изменился
-        if (menuType === 'left')
-        {  this.props.dispatch(getChannels(parse(hlsArray)));
-
-
-           this.props.dispatch(setMenusVisible
-                                             ({
-               channelsMenuVisible:!channelsState,
-               categoryMenuVisible:false,
-               settingsVisible:false
-
-                                             }));
-        $('#channels').focus();
-        $("#vduppermenu").fadeOut(100);
-        //Unbind mousemove events
-        $('#video,#panelDiv').off('mousemove');
-        }
-        else
+        if (menuType !== 'left')
+        // {  this.props.dispatch(getChannels(parse(hlsArray)));
+        //
+        //
+        //    this.props.dispatch(setMenusVisible
+        //                                      ({
+        //        channelsMenuVisible:!channelsState,
+        //        categoryMenuVisible:false,
+        //        settingsVisible:false
+        //
+        //                                      }));
+        // $('#channels').focus();
+        // $("#vduppermenu").fadeOut(100);
+        // //Unbind mousemove events
+        // $('#video,#panelDiv').off('mousemove');
+        // }
+        // else
         {
             this.props.dispatch(setMenusVisible
                                             ({
