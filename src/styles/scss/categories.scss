@@ -6,7 +6,7 @@
   //@media only screen and (min-device-width: 1281px) {
   //  height:1200px;
   //                                                  }
-    height:96vh;
+    height:92vh;
     top:-20px;
     //display:block;
     width:$menuCatWidth;
@@ -58,12 +58,11 @@
 .menuHeader                                          {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     cursor: pointer;
     width:$menuItemWidth;
     max-width: $menuItemWidth;
     min-width: 170px;
-    //background: rgba(0,0,0,0.7);
     font-family: "ComfortaaRegular";
     font-weight: bold;
     letter-spacing: 1px;
@@ -71,11 +70,15 @@
     line-height: 2em;
     text-align: center;
     text-wrap: none;
-    height: 60px;
+    height: 90px;
+    margin-bottom: 10px;
                                                       }
 .menuBottom                                           {
+    position:absolute;
+    bottom:-9vh;
+    z-index:-1;
     width:$menuItemWidth;
-    height:5vh;
+    height:9vh;
     background: rgba(0,0,0,0.8);
                                                       }
 .menuHeaderCat                                        {
@@ -84,12 +87,13 @@
   max-width:$menuChannelWidth;
   font-size:1.2em;
   //height: 10px;
-}
+                                                      }
 .menuHeaderCh                                         {
   @extend .menuHeader;
   width:$menuChannelWidth;
   max-width:$menuChannelWidth;
   font-size:1.2em;
+  //line-height: 10em;
                                                       }
 .menuHeaderCircleDiv                                  {
     background: #4a4a4a;

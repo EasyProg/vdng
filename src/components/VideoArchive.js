@@ -70,10 +70,10 @@ var arch =
                             <span><div>{item.name}</div>{item.date}<span className="archViolet">{' | '}</span>{item.time}</span>
                         </div>
                         <span><img src={angle} width={15} height={15}/></span>
-                                            </div>)
-                                            }
-                                            </PerfectScrollbar>
-                </div>
+                                      </div>)
+            }
+         </PerfectScrollbar>
+    </div>
                 )
                 }
-    }
+                                                                    }

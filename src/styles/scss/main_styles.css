@@ -2,8 +2,8 @@
 .menuItemStyle, .menuItemStylefocus {
   text-wrap: none;
   cursor: pointer;
-  width: 360px;
-  min-width: 360px;
+  width: 400px;
+  min-width: 400px;
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
   letter-spacing: 1px;
@@ -12,7 +12,7 @@
   line-height: 5.7em; }
 
 .menuBottom {
-  width: 360px;
+  width: 400px;
   height: 5vh;
   background: rgba(0, 0, 0, 0.8);
   bottom: 0; }
@@ -35,7 +35,7 @@
   visibility: hidden; }
 
 .menuChannel, .menuChannelLeft, .menuChannelNone {
-  height: 96vh;
+  height: 92vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -43,7 +43,7 @@
   transition: left 0.5s ease 100ms; }
 
 .menuChannelLeft {
-  left: 360px; }
+  left: 400px; }
 
 .menuChannelNone {
   left: -500px; }
@@ -62,7 +62,6 @@
   background: rgba(87, 87, 87, 0.6); }
 
 .divSideBar_StateChannel {
-  right: 10px;
   line-height: 5em; }
 
 .divSideBar_StateGroup {
@@ -98,14 +97,6 @@ video::media-controls {
   float: left;
   padding-right: 25px;
   width: 30px; }
-
-.playerButtonsDiv > i:hover {
-  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.3), 0 0 1em white; }
-
-.playerButtonsDiv > img:hover {
-  box-shadow: inset 0px 2px 24px 40px rgba(255, 255, 255, 0.4), 0 0 2em white;
-  outline: 0;
-  border-radius: 25px; }
 
 .videoOnButtonsDiv {
   position: relative;
@@ -373,11 +364,11 @@ hr {
   background: #434343; }
 
 .categoryPanel, .categoryPanelNone {
-  height: 96vh;
+  height: 92vh;
   top: -20px;
-  width: 350px;
-  max-width: 360px;
-  min-width: 360px;
+  width: 400px;
+  max-width: 400px;
+  min-width: 400px;
   margin-top: 20px;
   position: absolute;
   left: 0;
@@ -399,7 +390,7 @@ hr {
 .categoryItem, .workMotherFucker {
   display: block;
   cursor: pointer;
-  width: 350px;
+  width: 400px;
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
   letter-spacing: 1px;
@@ -411,10 +402,10 @@ hr {
 .menuHeader, .menuHeaderCat, .menuHeaderCh {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
   cursor: pointer;
-  width: 360px;
-  max-width: 360px;
+  width: 400px;
+  max-width: 400px;
   min-width: 170px;
   font-family: "ComfortaaRegular";
   font-weight: bold;
@@ -423,21 +414,25 @@ hr {
   line-height: 2em;
   text-align: center;
   text-wrap: none;
-  height: 60px; }
+  height: 90px;
+  margin-bottom: 10px; }
 
 .menuBottom {
-  width: 360px;
-  height: 5vh;
+  position: absolute;
+  bottom: -9vh;
+  z-index: -1;
+  width: 400px;
+  height: 9vh;
   background: rgba(0, 0, 0, 0.8); }
 
 .menuHeaderCat {
-  width: 360px;
-  max-width: 360px;
+  width: 400px;
+  max-width: 400px;
   font-size: 1.2em; }
 
 .menuHeaderCh {
-  width: 360px;
-  max-width: 360px;
+  width: 400px;
+  max-width: 400px;
   font-size: 1.2em; }
 
 .menuHeaderCircleDiv {
@@ -526,6 +521,13 @@ hr {
   align-items: center;
   -webkit-align-items: center; }
 
+.playerButtonsDiv > i:hover {
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.3), 0 0 1em white; }
+
+.playerButtonsDiv > img:hover {
+  box-shadow: inset 0px 0px 20px 50px rgba(255, 255, 255, 0.6), 0 0 2em white;
+  outline: 0; }
+
 .videoTime {
   cursor: default;
   line-height: 2.5em;
@@ -572,7 +574,7 @@ hr {
   height: 3px;
   position: relative;
   top: -104px;
-  left: 150px;
+  left: 170px;
   background: #575757; }
 
 .progresses::-webkit-progress-bar {
@@ -580,6 +582,14 @@ hr {
 
 .progresses::-webkit-progress-value {
   background: #9677ff; }
+
+.backwardActiveButton, .backwardDisButton {
+  width: 25px;
+  height: 20px;
+  opacity: 0.3; }
+
+.backwardDisButton {
+  opacity: 0.3; }
 
 .divBottomPlayer, .divBottomPlayerFull {
   z-index: 2147483647;
@@ -687,8 +697,11 @@ hr {
   height: 60px;
   position: absolute;
   white-space: nowrap;
-  overflow: hidden;
-  width: 170px; }
+  width: 170px;
+  overflow: hidden; }
+
+.pname_hover {
+  position: absolute; }
 
 .pnameShadow, .divShadow {
   position: absolute;
@@ -712,7 +725,7 @@ hr {
 .rateContainer {
   position: relative;
   top: 45px;
-  left: 10px;
+  left: -5px;
   margin-right: 20px;
   float: right;
   display: flex;
@@ -821,7 +834,7 @@ hr {
 
 .divCateg {
   display: flex;
-  width: 270px;
+  width: 320px;
   align-items: center; }
 
 * {

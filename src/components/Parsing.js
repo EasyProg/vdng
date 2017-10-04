@@ -1,4 +1,4 @@
-    function parse(arr) {
+    function parse(arr)                    {
     var channels = [];
     var t = '';
     var link ='';
@@ -20,15 +20,22 @@
                         imgLink =  c.substring(c.indexOf('thumb=',1)+6,c.indexOf(';type',1))
                     }
                 }
-            }
+                                          }
             if (typeof e === 'string')    {
                 link = e;
-                channels.push({channelId:parseChannelID,channel: t, link: link, category:parseCategory,img:imgLink,});
+                channels.push({channelId:parseChannelID,
+                               channel: t,
+                               link: link,
+                               category:parseCategory,
+                               img:imgLink,
+                               favorite:false});
                                           }
-        });
+                           });
     }
+    var serialObj = JSON.stringify(channels);
+    localStorage.setItem("channels",serialObj);
     return(channels);
-                        }
+                                          }
 
 
     export default parse;

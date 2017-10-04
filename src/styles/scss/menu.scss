@@ -51,7 +51,7 @@ $menu-width:250px;
   //  height:1200px;
   //                                                 }
   //height:800px;
-  height: 96vh;
+  height: 92vh;
   position: absolute;
   top:0;
   left:0;
@@ -60,7 +60,7 @@ $menu-width:250px;
                       }
 .menuChannelLeft      {
   @extend .menuChannel;
-  left:360px;
+  left:400px;
                       }
 .menuChannelNone      {
   @extend .menuChannel;
@@ -89,7 +89,7 @@ $menu-width:250px;
   @extend  .divSideBar;
   //margin-top: 1.5%;
   //margin-left:30%;
-  right:10px;
+  //right:-500px;
   line-height:5em;
                       }
 .divSideBar_StateGroup{

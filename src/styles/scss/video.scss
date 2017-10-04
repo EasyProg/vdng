@@ -25,16 +25,6 @@ video::media-controls         {
    padding-right:25px;
    width:30px;
                               }
-.playerButtonsDiv>i:hover     {
-text-shadow: 2px 2px 3px
-rgba(255,255,255,0.3),0 0 1em white;
-                              }
-.playerButtonsDiv>img:hover   {
-  box-shadow: inset 0px 2px 24px 40px
-  rgba(255,255,255,0.4),0 0 2em white;
-  outline: 0;
-  border-radius: 25px;
-}
 .videoOnButtonsDiv            {
   position:relative;
   top:50%;

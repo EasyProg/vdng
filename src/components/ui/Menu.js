@@ -50,7 +50,7 @@ class Menu extends Component                {
                 channelsMenuVisible:false,
                 categoryMenuVisible:false,
                 settingsVisible:!settingsState
-                                            }));
+                                             }));
         }
                                              }
     render()   {
@@ -87,9 +87,9 @@ class Menu extends Component                {
                 }
 
                                         }
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const mapDispatchToProps = (dispatch) => bindActionCreators( {
 dispatch,setMenusVisible,getChannels
-                                                            }, dispatch);
+                                                             }, dispatch);
 export default connect (
     state => ({fullScreen:state.videoReducer.fullScreen,
                channel:   state.videoReducer.video.channel,

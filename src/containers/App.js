@@ -17,7 +17,7 @@ class App extends Component  {
     //     document.body.appendChild(script);
     //     <script src="http://localhost:8080/target/target-script-min.js#anonymous"/>
     // }
-    render() {
+    render()    {
     return (
                 <Provider store={store}>
                 <div>
@@ -26,7 +26,7 @@ class App extends Component  {
                 </div>
                 </Provider>
     );
-  }
+                }
                               }
 
 export default App;

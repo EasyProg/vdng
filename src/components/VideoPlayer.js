@@ -209,6 +209,7 @@ class VideoPlayer extends Component         {
                                          video=    {this.props.video}
                                          ref=      {(video)=>this.video=video}
                                          onClick = {e=>this.menuFullScreenAppears()}
+                                         onDblClick = {e=>this.changeSize()}
                          />
                         <div className="panelDiv" id="panelDiv"/>
                         <VideoUpperMenu  isPlaying={this.props.isPlaying}

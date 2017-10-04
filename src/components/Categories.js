@@ -65,17 +65,17 @@ class Categories extends Component              {
                                                 }));
                                                 }
     Menu =                                      [
+    {name:'Favorites',   src:star,      category:'Любимые'},
     {name:'All',         src:all,       category:'All channels'},
     {name:'Now watching',src:play,      category: 54},
-    {name:'Favorites',   src:star,      category:'Любимые'},
-    {name:'Blocked',     src:lock,      category:'Locked'},
     {name:'TV Shows',    src:scene,     category:'Shows'},
     {name:'Films',       src:film,      category:'Фильмы'},
     {name:'Music',       src:headphones,category:'Музыкальный'},
     {name:'Popular',     src:mask,      category:'Популярное'},
     {name:'3D / VR',     src:glasses,   category:'3D'},
     {name:'Travel',      src:caravan,   category:'Путешевствия'},
-    {name:'Comedy',      src:masks,     category:'Развлекательный'}
+    {name:'Comedy',      src:masks,     category:'Развлекательный'},
+    {name:'Blocked',     src:lock,      category:'Locked'},
                                                  ];
 filterChannels(channels,category)                {
 var cat = category?category.toString():'All channels';
@@ -136,7 +136,8 @@ if   (channels) {
 render()                                            {
     return                                          (
     <div className="hoverDiv">
-    <div className={this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories" onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
+    <div className={this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories"
+         onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
         <div className="menuHeaderCat">
             {/*<div className='divSideBar' onClick={(e) => this.props.toggleMenuStateContext()}>*/}
                 {/*<img src={menu} height={45} width={30}/>*/}
@@ -163,6 +164,7 @@ render()                                            {
                                                     )
     }
     </PerfectScrollbar>
+    <div className="menuBottom"/>
     </div>
         <div className="innerDiv">
             <ChannelList

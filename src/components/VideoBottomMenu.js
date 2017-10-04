@@ -81,7 +81,7 @@ resolutions = ['360р','480р','720р','1080р','1440р'];
         }
         }
     }
-}
+                                                }
 
 export default connect(
     state => ({fullScreen:state.videoReducer.fullScreen}),

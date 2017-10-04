@@ -17,6 +17,10 @@ export default class Video extends Component
     //this.video.play();
     this.video.muted = false;
                         }
+    handleDblClick(event) {
+       alert('Fuck!!!');
+    }
+
 
     render()            {
         if (this.props.video!=='none')
@@ -28,6 +32,7 @@ export default class Video extends Component
                        muted
                        playsInline
                        tabIndex={1}
+                       onDoubleClick={this.props.onDblClick}
                 />
             </div>
                         )}

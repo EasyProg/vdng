@@ -13,32 +13,32 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import underline from '../img/line.png';
 
 export default class HomeMenu extends Component {
-    constructor (props) {
+    constructor (props)     {
         super(props);
         this.state = {
             itemChosen:null
         };
         this.handleItem = this.handleItem.bind(this);
-                        };
-    handleItem(num)     {
+                            };
+    handleItem(num)         {
         let c = num;
         this.state.itemChosen===c?c = null: c = num;
-        this.setState (
+        this.setState       (
             {
                 itemChosen:c
             }
-                      )
-    };
+                            )
+                            };
     static propTypes =
-    {
+                            {
         isParentControl:PropTypes.bool.isRequired
-    };
+                            };
     componentWillReceiveProps() {
         this.setState({
             itemChosen:null
-        })
+                      })
 
-    }
+                                }
 
     ConditionalRendering (item) {
         switch (item)           {
@@ -54,7 +54,7 @@ export default class HomeMenu extends Component {
         <Settings key={item}/>
         );
         default: return <div/>
-    }
+                                }
                                 }
     VideoArchive = props =>
     (

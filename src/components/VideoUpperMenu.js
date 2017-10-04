@@ -3,6 +3,8 @@ import {Icon} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import pause from '../img/pause-button.gif';
 import play from '../img/play-button.gif';
+import backward from '../img/fast-backward-button.gif';
+import forward from '../img/fast-forward-button.gif';
 import '../styles/css/main_styles.css';
     import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -118,22 +120,24 @@ class VideoUpperMenu extends Component                         {
         }
                                                               }
 
-        render() {
-            return (<div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
+        render()
+            {
+            return (
+            <div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
             <progress id='progress-bar' min='0' max='100' value='0' className='displayNone'><div className="progressDiv"/></progress>
             <div  className="divPlayer">
-            {/*<Timer isWholeProgramTime={true}/>*/}
+            <Timer isWholeProgramTime={true}/>
             <div  className="playerButtonsDiv">
             <Icon className="large inverted step backward" onClick={(e)=>this.switchChannel('prev')}/>
-            {/*{this.props.isTimeShift?<Icon className="large inverted backward" onClick={(e)=>this.props.handleCurrentTimeContext(0)}/>:''}*/}
+            <img src={backward} onClick={(e)=>this.props.handleCurrentTimeContext(0)} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
             <img  onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
-            {/*{this.props.isTimeShift?<Icon className="large inverted forward" onClick={(e)=>this.props.handleCurrentTimeContext(1)}/>:''}*/}
+            <img src={forward}  onClick={(e)=>this.props.handleCurrentTimeContext(1)} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
             <Icon className="large inverted step forward" onClick={(e)=>this.switchChannel('next')}/>
             </div>
-            {/*<Timer isWholeProgramTime={false}/>*/}
+            <Timer isWholeProgramTime={false}/>
             </div>
             </div>
-            )
+                   )
             }
                                                             }
 const mapDispatchToProps = (dispatch) => bindActionCreators({

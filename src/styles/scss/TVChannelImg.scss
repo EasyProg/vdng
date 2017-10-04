@@ -8,15 +8,19 @@
   height: 60px;
   position: absolute;
   white-space:nowrap;
-  overflow: hidden;
   width:170px;
+  overflow: hidden;
+  //overflow: hidden;
+                }
+  .pname_hover  {
+  position: absolute;
                 }
 .pnameShadow    {
   position: absolute;
   left:90%;
   height: 110%;
-z-index: 30;
-}
+  z-index: 30;
+                }
 //.pgDiv       {
 //margin-left: 10px;
 //             }
@@ -39,7 +43,7 @@ z-index: 30;
 .rateContainer  {
   position: relative;
   top:45px;
-  left:10px;
+  left:-5px;
   margin-right: 20px;
   float: right;
   display:flex;

@@ -13,31 +13,31 @@
     import HomeButton from './ui/HomeButton';
     import CategoryName from './ui/CategoryName';
     class  ChannelList extends Component       {
-    constructor(props)                        {
+    constructor(props)                         {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.categVisible = this.categVisible.bind(this);
     this.menuFullScreenAppears = this.menuFullScreenAppears.bind(this);
     this.timer = '';
     this.menuTimer = '';
-                                              }
-    static propTypes =                        {
+                                               }
+    static propTypes    =                      {
     playList:   PropTypes.array.isRequired,
     category:   PropTypes.string.isRequired,
     visibleSetContext:PropTypes.func.isRequired
-                                              };
-    handleKey(elem,e)                         {
+                                               };
+    handleKey(elem,e)                          {
     if (e.keyCode===13)
     {
         this.handleClick (elem);
     }
-                                              }
-    handlePlay()                              {
+                                               }
+    handlePlay()                               {
             this.timer =
-                setTimeout(function()         {
+                setTimeout(function()          {
                     //Скрыть плей
                     $("#vduppermenu").fadeOut(1000);
-                },5000);
+                                                },5000);
             // this.menuTimer = setTimeout (
             //     function()              {
             //         //Скрыть плей
@@ -59,7 +59,7 @@
             //                                          {
             //appearsVideo();
             //                                          });
-                                               }
+                                                }
 
     handleClick (elem)                         {
     this.props.dispatch(changeVideo(elem));
@@ -104,7 +104,8 @@
                           reversed={false}
             />
             <HomeButton/>
-            </div>:''}
+            </div>:''
+            }
                <PerfectScrollbar>
                {this.props.playList.map((elem, i) =>
                             <Channel
@@ -121,9 +122,9 @@
                )
                }
                </PerfectScrollbar>
-               <div className="menuBottom"/>
-               </div>
-               </div>
+            <div className="menuBottom"/>
+            </div>
+            </div>
                                                 );
             else return (null)
             }
