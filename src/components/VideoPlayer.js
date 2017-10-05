@@ -8,7 +8,7 @@ import  Video from '../components/Video';
 import  Hls from 'hls.js';
 //import Event Listener
 import {bindActionCreators} from 'redux';
-import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible} from '../actions/actions';
+import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 //import css//
 //import 'semantic-ui-css/semantic.min.css'//;
@@ -41,6 +41,8 @@ class VideoPlayer extends Component         {
         this.handlePlay=this.handlePlay.bind(this);
         this.escFullScreen = this.escFullScreen.bind(this);
         this.videoOnLoad   = this.videoOnLoad.bind(this);
+        this.isFavorite    = this.isFavorite.bind(this);
+        this.setFavorite   = this.setFavorite.bind(this);
         this.state = {playerButtonsAppear:false};
         this.timer = '';
         this.state = {fullScreen:false};
@@ -48,31 +50,49 @@ class VideoPlayer extends Component         {
         //Component Functions
         componentDidMount()                 {
         var appearsVideo = this.menuFullScreenAppears;
-        $('body').keydown(function(event)   {
+        $('body').keydown   (function(event){
             if (event.keyCode===13)
             {
             appearsVideo();
             }
                                             });
-        $('#video,#panelDiv').click(function(event)
-                                            {
-            appearsVideo();
-                                            });
+        // $('#video,#panelDiv').click(function(event)
+        //                                     {
+        //     appearsVideo();
+        //                                     });
         $('#video,#panelDiv').mousemove(function(event)
                                             {
             appearsVideo();
                                             });
         //$('#video').muted = false;
         this.videoOnLoad();
+        this.isFavorite(this.props.video.channelId);
+                                            }
+        isFavorite(channelId)               {
+        var result = false;
+        this.props.channels.map((item,index)=>
+                                            {
+        if (item.channelId === channelId&&item.favorite)
+        {
+         result = true;
+        }
+        return result
+                                            });
+
+                                            }
+        setFavorite()                       {
+        this.props.dispatch(setFavor(this.props.channels,this.props.video.channelId));
                                             }
         toggle(isPlaying)                   {
         var  vd = this.video.video;
         //const vd = this.video;
         this.props.dispatch(togglePlay(isPlaying));
         if (isPlaying)                      {
-             vd.play();
+              vd.play();
+
                                             }
-        else vd.pause();
+        else  vd.pause();
+
                                             }
         changeRes(res)                      {
                                             }
@@ -95,17 +115,17 @@ class VideoPlayer extends Component         {
                 var funcCnt = this;
                 hls.on(Hls.Events.ERROR, function (event, data) {
                     {
-                        console.log(data.type);
-                        switch (data.type) {
+                        //console.log(data.type);
+                        switch (data.type)  {
                             case Hls.ErrorTypes.NETWORK_ERROR:
-                                console.log('This is a SHIT');
+                                //console.log('This is a SHIT');
                                 //funcCnt.props.dispatch
                                 //funcCnt.setState({video: 'none'});
                                 break;
                             default:
-                                console.log('Default');
+                                //console.log('Default');
                                 break;
-                        }
+                                            }
 
 
                     }
@@ -218,20 +238,23 @@ class VideoPlayer extends Component         {
                                          handleCurrentTimeContext={this.handleCurrTime}
                                          handleCurrPlaybackContext={this.handleCurrPlayback}/>
                         <VideoBottomMenu changeSizeContext={this.changeSize}
-                                         changeResContext= {this.changeRes}/>
+                                         changeResContext= {this.changeRes}
+                                         setFavoriteContext={this.setFavorite}
+                        />
                         </div>
                        )
                                             }
                                             }
                        const mapDispatchToProps = (dispatch) => bindActionCreators({
-                       dispatch,togglePlay,toggleButtons,toggleFullScreen,setMenusVisible
+                       dispatch,togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor
                        }, dispatch);
-                       export default connect(
+                       export default connect  (
                        state => ({
                        video:                state.videoReducer.video,
                        isPlaying:            state.videoReducer.isPlaying,
                        autoPlay:             state.videoReducer.autoPlay,
-                       fullScreen:           state.videoReducer.fullScreen
+                       fullScreen:           state.videoReducer.fullScreen,
+                       channels:             state.channelReducer.channels
                        }),
                        mapDispatchToProps
-                                             )(VideoPlayer);
+                                                )(VideoPlayer);

@@ -111,7 +111,7 @@
                             <Channel
                             key={i}
                             img={elem.img}
-                            channelId       =   {elem.channelId}
+                            channelId       =   {elem.channelNum}
                             hiddenChannel   =   {this.props.category==='Locked'}
                             programName     =   {elem.channel}
                             favorite        =   {this.props.category==='Любимые'}

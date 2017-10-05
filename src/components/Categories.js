@@ -83,9 +83,10 @@ let filteredChannels = [];
 if   (channels) {
      filteredChannels =  channels.filter(function(item)
      {
-     if (cat !=='All channels'&&cat !=='Любимые'&&cat !=='Locked'&&cat!=='undefined')
-     return item.category.toUpperCase() === cat.toUpperCase();
-     else return item.category
+     if (cat !== 'All channels'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
+     return       item.category.toUpperCase() === cat.toUpperCase();
+     else if      (cat ==='Любимые') return item.favorite;
+     else return  item.category
      })
                 }
     this.props.dispatch(getChannels(filteredChannels));
@@ -95,10 +96,9 @@ if   (channels) {
     var i = this.Menu.map(x => x.category).indexOf(cat);
     var items = document.getElementsByClassName('categoryItem');
     //
-    var nextElem = i + 1 >= this.Menu.length ? 0 : i + 1;
+    var nextElem = i + 1 >=    this.Menu.length ?  0 : i + 1;
     var prevElem = i - 1 < 0 ? this.Menu.length  - 1 : i - 1;
     switch (event.keyCode)  {
-
     case 40:
     {items[nextElem].focus();
     this.setState(
@@ -121,7 +121,7 @@ if   (channels) {
     break;}
     default:
     $('#video').focus();
-}
+                            }
                                                     }
     categVisible()                                  {
         this.props.dispatch(setMenusVisible     (

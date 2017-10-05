@@ -6,62 +6,51 @@ import 'semantic-ui-css/semantic.min.css';
 import book from '../img/bookmark-orange.svg';
 import Rating from '../components/ui/Rating';
 import * as $ from 'jquery';
-export default class Channel extends Component  {
-    constructor(props) {
-        super(props);
-                       }
+export default class Channel extends Component      {
 
-    static propTypes = {
+    constructor(props)  {
+        super(props);
+                        }
+
+    static propTypes =  {
         img:       PropTypes.string,
         channelId: PropTypes.number.isRequired,
         programName: PropTypes.string.isRequired,
         hiddenChannel: PropTypes.bool.isRequired,
         chosen: PropTypes.bool.isRequired,
         favorite: PropTypes.bool.isRequired,
-                       };
-    runningString(e)   {
-    //var str = $('.pname');
-        //var str = e.currentTarget.textContent||'';
-        var str = $('.pname_hover:hover');
-        var con_w   = str.css('left');
-        //
-        //var str_lef = parseInt(str.css("left"));
-        //var str_wdh = parseInt(str.width());
+                        };
+    runningString(e)    {
+        var str   = $('.pname_hover:hover');
+        var width = str.width();
+        var con_w = str.css('left');
 
         function run () {
-         var con_len = parseInt(con_w) - 150;
-         //var value = width +  5;
+         var con_len = parseInt(con_w) - width + 100;
 
-            //console.log ('Event');
             str.animate
                         (
-                        {
-                        left:con_len + 'px'
-                        },
-                        {
-                        duration: 5000,
-                        complete: function ()
-                        {
+                        {left:con_len + 'px'},
+                        {duration: 3000,
+                        complete: function () {
                         str.css('left',con_w);
                         //run();
-                        }
-                        }
+                                              }}
                         );
                         }
-        if (e.currentTarget.textContent.length>15)
+         if (e.currentTarget.textContent.length>15)
                         {
-            run();
+                        run();
                         }
 
                         }
-        stopRun ()      {
-        $('.pname_hover').stop(true,true);
-        console.log('Like a shit!!!');
+         stopRun ()     {
+         $('.pname_hover').stop(true,true);
                         }
 
         render()        {
         return          (
-        <div      className={this.props.chosen ? 'menuItemStylefocus' : 'menuItemStyle'} onClick={this.props.onClick} onKeyDown={this.props.onKeyDown}>
+            <div  className={this.props.chosen ? 'menuItemStylefocus' : 'menuItemStyle'} onClick={this.props.onClick} onKeyDown={this.props.onKeyDown}>
             <span className="spanChannelid">{this.props.channelId}</span>
             <img  width={100} height={100} src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
             <span className="pname" onMouseOver={(e)=>this.runningString(e)} onMouseLeave={(e)=>this.stopRun()}>
@@ -72,7 +61,7 @@ export default class Channel extends Component  {
             {this.props.favorite ? <span className="pnameFav"><img src={book} width={10} height={10}/></span> : ''}
             <Rating maxRate={5} rate={3} chosen={this.props.chosen}/>
             <progress className='progresses' value={50} max={100} min={0}/>
-        </div>
+            </div>
                         )
                         }
-                                                }
+                                                    }

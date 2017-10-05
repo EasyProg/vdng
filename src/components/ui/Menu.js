@@ -18,9 +18,6 @@ class Menu extends Component                {
         super(props);
         this.toggleMenuState = this.toggleMenuState.bind(this);
                                             }
-    // componentWillUnmount() {
-    // console.log('sdsdsdsd');
-    // }
      toggleMenuState(menuType = 'left')     {
      //e.stopPropagation();
      //console.log('Event Log');
@@ -28,22 +25,6 @@ class Menu extends Component                {
      var settingsState = this.props.menus.settingsVisible;
      //Туггл кнопок если стейт изменился
         if (menuType !== 'left')
-        // {  this.props.dispatch(getChannels(parse(hlsArray)));
-        //
-        //
-        //    this.props.dispatch(setMenusVisible
-        //                                      ({
-        //        channelsMenuVisible:!channelsState,
-        //        categoryMenuVisible:false,
-        //        settingsVisible:false
-        //
-        //                                      }));
-        // $('#channels').focus();
-        // $("#vduppermenu").fadeOut(100);
-        // //Unbind mousemove events
-        // $('#video,#panelDiv').off('mousemove');
-        // }
-        // else
         {
             this.props.dispatch(setMenusVisible
                                             ({

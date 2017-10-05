@@ -4,14 +4,14 @@ import eye from '../img/eye.png' ;
 import eye_close from '../img/eye_close.png';
 
 export default class ParentalControl extends Component      {
-    constructor(props) {
+    constructor(props){
         super(props);
         this.toggleType = this.toggleType.bind(this);
-        this.state = {
+        this.state =  {
             pass1:true,
             pass2:true
-        }
-                       }
+                      }
+                      }
 
 toggleType(num,state) {
         if (num===1)  {

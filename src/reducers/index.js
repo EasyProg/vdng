@@ -35,7 +35,7 @@ const   settingsState = {
                        };
 
 function videoReducer(state=initialState,action=null)       {
-    switch (action.type) {
+    switch (action.type)                                    {
         case 'CHANGE':
             return {...state, video: action.video || state.video};
         case 'TOGGLE_PLAY':
@@ -57,6 +57,8 @@ function channelReducer (state=channelState,action=null)    {
         return {...state,chosenCategory:action.category};
         case 'GET_CHANNELS':
         return {...state,channels:action.channelsArr};
+        case 'SET_FAVORITE':
+        return {...state,channels:action.channels};
         default:
         return state;
                                                             }

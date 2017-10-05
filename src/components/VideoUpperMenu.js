@@ -2,7 +2,7 @@ import React, { Component,PropTypes } from 'react';
 import {Icon} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import pause from '../img/pause-button.gif';
-import play from '../img/play-button.gif';
+import play from '../img/play-rounded-button.gif';
 import backward from '../img/fast-backward-button.gif';
 import forward from '../img/fast-forward-button.gif';
 import '../styles/css/main_styles.css';
@@ -30,18 +30,18 @@ class VideoUpperMenu extends Component                         {
         //event.preventDefault();
         func(event);
                                                                });
-    $('#video,.panelDiv').click                                (
-                function(event)                                {
-                event.stopPropagation();
-                t.props.dispatch(setMenusVisible(
-                    {
-                            channelsMenuVisible: false,
-                            categoryMenuVisible: false,
-                            settingsVisible:     false
-                    }));
-                    $('#video').focus();
-                                                               }
-                                                               );
+    // $('#video,.panelDiv').click                                (
+    //             function(event)                                {
+    //             event.stopPropagation();
+    //             t.props.dispatch(setMenusVisible(
+    //                 {
+    //                         channelsMenuVisible: false,
+    //                         categoryMenuVisible: false,
+    //                         settingsVisible:     false
+    //                 }));
+    //                 $('#video').focus();
+    //                                                            }
+    //                                                            );
                                                                }
     switchKeyPress(event)                                      {
         //event.stopPropagation();

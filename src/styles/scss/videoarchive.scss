@@ -1,4 +1,4 @@
-.archDiv {
+.archDiv    {
   top:0;
   text-align: center;
   color:white;
@@ -11,16 +11,16 @@
   max-height: 800px;
   background: $backMenuColor;
   transition: all 0.5s ease 100ms;
-}
+            }
 .archViolet {
   color:$main_color;
             }
-.searchVideoDiv {
+.searchVideoDiv   {
 width: 300px;
 height: 190px;
 line-height: 3em;
 margin-bottom: 20px;
-                }
+                  }
 
 .contentDiv {
   margin-top: 15px;
@@ -32,7 +32,7 @@ margin-bottom: 20px;
             }
 
 .backInput  {
-  letter-spacing: 2.5px;
+  letter-spacing: 0.5em;
   text-transform:uppercase;
   background:none;
   width:100%;
@@ -41,7 +41,7 @@ margin-bottom: 20px;
   text-align: center;
   color:$main_color;
   font-weight: 500;
-           }
+            }
 .buttonDiv {
   border-radius: 5px;
   border:2px solid grey;
@@ -75,12 +75,12 @@ line-height: 4em;
   top:-100px;
   width:100%;
   margin-top: 15px;
-}
-.archItemDiv:hover {
+            }
+.archItemDiv:hover  {
   @extend .archItemDiv;
   cursor: pointer;
   background: #545454;
-}
+                    }
 .ImagDiv {
   width:100px;
 }

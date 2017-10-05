@@ -102,11 +102,11 @@ video::media-controls {
   position: relative;
   top: 50%; }
 
-#video, .errorsDiv {
+#video, .errorsDiv, .nonPlayingDiv {
   align-self: center;
   width: 100%;
-  height: 99%;
-  top: 50%; }
+  height: 100%;
+  top: 0; }
 
 .errorsDiv {
   font: 30px Times New Roman bold;
@@ -166,7 +166,9 @@ video::media-controls {
   float: left;
   left: 10px;
   top: 30px;
-  margin-top: 15px;
+  width: 50px;
+  height: 50px;
+  margin-top: 20px;
   margin-left: 20px; }
 
 hr {
@@ -442,7 +444,8 @@ hr {
   height: 45px;
   margin-left: 20px;
   margin-right: 20px;
-  line-height: 3.3em;
+  margin-bottom: 5px;
+  line-height: 3em;
   text-align: center; }
 
 .categoryItem:hover, .workMotherFucker:hover {
@@ -784,7 +787,7 @@ hr {
   justify-content: space-around; }
 
 .backInput {
-  letter-spacing: 2.5px;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
   background: none;
   width: 100%;
@@ -836,6 +839,27 @@ hr {
   display: flex;
   width: 320px;
   align-items: center; }
+
+.nonPlayingDiv {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2147483647; }
+
+.playHoldImg, .playHoldImg:hover, .playHoldImg:target {
+  margin: 0 auto;
+  position: relative;
+  opacity: 0.5;
+  width: 20%;
+  height: 38%; }
+
+.playHoldImg:hover {
+  opacity: 0.9;
+  cursor: pointer; }
+
+.playHoldImg:target {
+  opacity: 0.9; }
 
 * {
   outline: 0;

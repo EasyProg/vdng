@@ -1,0 +1,29 @@
+.nonPlayingDiv
+{
+  @extend #video;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  background: rgba(0, 0, 0,0.5);
+  z-index:2147483647;
+}
+.playHoldImg
+{
+margin: 0 auto;
+position:relative;
+opacity:0.5;
+width: 20%;
+height: 38%;
+}
+
+.playHoldImg:hover
+{
+  @extend .playHoldImg;
+  opacity:0.9;
+  cursor: pointer;
+}
+.playHoldImg:target
+{
+  @extend .playHoldImg;
+  opacity:0.9;
+}

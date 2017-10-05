@@ -32,23 +32,25 @@ var arch =
     {name:'Martin Lawrence Life',date:'20.04.2017', time:'10:30'}
 ];
 
-    export default class VideoArchive extends  Component            {
+    export default class VideoArchive extends  Component
+                                                                {
     constructor(props)                  {
     super(props);
     this.searchVideo = this.searchVideo.bind(this);
     this.state = {videos:arch}
-}
-    searchVideo()                       {
+                                        }
+    searchVideo(videos)                 {
+    videos = videos.length === 0? arch:videos;
     var research = this.input.value.toUpperCase();
-    console.log(research);
     if (research!=='')
-                                    {
-    var result = this.state.videos.filter(function(item){
+                                        {
+    var result = videos.filter          (function(item)
+                                        {
     return item.name.toUpperCase().indexOf(research)!==-1
-    });
-    this.setState({videos:result}); }
+                                        });
+    this.setState({videos:result});     }
     else this.setState({videos:arch});  }
-    render()                        {
+    render()                            {
     return (
     <div className={this.props.visible?'archDiv':'displayNone'}>
     <div className="searchVideoDiv">
@@ -60,9 +62,9 @@ var arch =
                         <img src={underline} height={5} width={300}/>
                         <div className="contentDiv"></div>
                         <img src={underline} height={5} width={300}/>
-<input className="backInput" onChange={(e)=>this.searchVideo()} ref={(input)=>this.input=input}/>
+<input className="backInput" onChange={(e)=>this.searchVideo(this.state.videos)} ref={(input)=>this.input=input}/>
     </div>
-        <PerfectScrollbar>
+            <PerfectScrollbar>
             {
                 this.state.videos.map((item,i)=><div  className="archItemDiv" key={i}>
                         <img src={noimage}/>
@@ -72,8 +74,8 @@ var arch =
                         <span><img src={angle} width={15} height={15}/></span>
                                       </div>)
             }
-         </PerfectScrollbar>
+            </PerfectScrollbar>
     </div>
-                )
-                }
-                                                                    }
+                                        )
+                                        }
+                                                                }
