@@ -38,15 +38,15 @@ var timeFormat = function(seconds)          {
         this.handleCurrPlayback = this.handleCurrPlayback.bind(this);
         this.toggle        = this.toggle.bind(this);
         this.menuFullScreenAppears = this.menuFullScreenAppears.bind(this);
-        this.handlePlay=this.handlePlay.bind(this);
+        this.handlePlay    =    this.handlePlay.bind(this);
         this.escFullScreen = this.escFullScreen.bind(this);
         this.videoOnLoad   = this.videoOnLoad.bind(this);
         this.isFavorite    = this.isFavorite.bind(this);
-        //this.toggleFavorite   = this.toggleFavorite.bind(this);
+        this.toggleFavorite = this.toggleFavorite.bind(this);
         this.state = {playerButtonsAppear:false};
         this.timer = '';
         this.state = {fullScreen:false,
-                      //isFavorite:false
+                      isFavorite:false
                      };
                                             }
         //Component Functions
@@ -68,21 +68,22 @@ var timeFormat = function(seconds)          {
                                             });
         //$('#video').muted = false;
         this.videoOnLoad();
-        this.isFavorite(this.props.video.channelId);
+        //this.setState({isFavorite:this.isFavorite(this.props.video.channelId)});
                                             }
         isFavorite(channelId)               {
         if (localStorage.getItem(channelId)!==null)
         return true;
-        else return false
+        else
+        return false
 
                                             }
-        // toggleFavorite()                    {
-        // //this.props.dispatch(setFavor(this.props.channels,this.props.video.channelId));
-        // if (localStorage.getItem(this.props.video.channelId)===null)
-        // {localStorage.setItem(this.props.video.channelId,'true');}
-        // else localStorage.removeItem(this.props.video.channelId);
-        // console.log(localStorage.getItem(this.props.video.channelId));
-        //                                     }
+        toggleFavorite()                    {
+        //this.props.dispatch(setFavor(this.props.channels,this.props.video.channelId));
+        if (localStorage.getItem(this.props.video.channelId)===null)
+        localStorage.setItem(this.props.video.channelId,'true');
+        else localStorage.removeItem(this.props.video.channelId);
+        //console.log(localStorage.getItem(this.props.video.channelId);
+                                            }
         toggle(isPlaying)                   {
         var  vd = this.video.video;
         //const vd = this.video;
@@ -220,7 +221,7 @@ var timeFormat = function(seconds)          {
         //Component Functions
         render()                            {
         this.videoOnLoad();
-        return          (
+        return                              (
                             <div             ref=      {(dv)=>this.div=dv} className="centerDiv" id="centerDiv">
                             <Video           isPlaying={this.props.isPlaying}
                                              fullSize= {this.props.fullScreen}
@@ -238,10 +239,11 @@ var timeFormat = function(seconds)          {
                             <VideoBottomMenu changeSizeContext={this.changeSize}
                                              changeResContext= {this.changeRes}
                                              setFavoriteContext={this.toggleFavorite}
-                                             channelId =        {this.props.video.channelId}
+                                             //channelId =        {this.props.video.channelId}
+                                             isFavorite = {this.isFavorite(this.props.video.channelId)}
                         />
                         </div>
-                       )
+                                            )
                                             }
                                             }
                        const mapDispatchToProps = (dispatch) => bindActionCreators({

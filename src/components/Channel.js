@@ -44,11 +44,11 @@ export default class Channel extends Component      {
                         }
 
                         }
-         stopRun ()     {
+    stopRun ()     {
          $('.pname_hover').stop(true,true);
                         }
 
-        render()        {
+    render()        {
         return          (
             <div  className={this.props.chosen ? 'menuItemStylefocus' : 'menuItemStyle'} onClick={this.props.onClick} onKeyDown={this.props.onKeyDown}>
             <span className="spanChannelid">{this.props.channelId}</span>

@@ -85,7 +85,7 @@ if   (channels) {
      {
      if (cat !== 'All channels'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
      return       item.category.toUpperCase() === cat.toUpperCase();
-     else if      (cat ==='Любимые') return item.favorite;
+     else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
      else return  item.category
      })
                 }
