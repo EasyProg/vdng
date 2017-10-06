@@ -26,31 +26,33 @@ var timeFormat = function(seconds)          {
         else return  '00:00'
                                             };
 //window.$ = window.JQuery = JQuery;
-const hls = new Hls();
-class VideoPlayer extends Component         {
+        const hls = new Hls();
+        class VideoPlayer extends Component {
         //vd = this.video?this.video.video:'';
         constructor(props)                  {
         super(props);
         //Bind functions
-        this.changeSize = this.changeSize.bind(this);
-        this.changeRes = this.changeRes.bind(this);
-        this.handleCurrTime = this.handleCurrTime.bind(this);
+        this.changeSize    = this.changeSize.bind(this);
+        this.changeRes     = this.changeRes.bind(this);
+        this.handleCurrTime= this.handleCurrTime.bind(this);
         this.handleCurrPlayback = this.handleCurrPlayback.bind(this);
-        this.toggle = this.toggle.bind(this);
+        this.toggle        = this.toggle.bind(this);
         this.menuFullScreenAppears = this.menuFullScreenAppears.bind(this);
         this.handlePlay=this.handlePlay.bind(this);
         this.escFullScreen = this.escFullScreen.bind(this);
         this.videoOnLoad   = this.videoOnLoad.bind(this);
         this.isFavorite    = this.isFavorite.bind(this);
-        this.setFavorite   = this.setFavorite.bind(this);
+        //this.toggleFavorite   = this.toggleFavorite.bind(this);
         this.state = {playerButtonsAppear:false};
         this.timer = '';
-        this.state = {fullScreen:false};
+        this.state = {fullScreen:false,
+                      //isFavorite:false
+                     };
                                             }
         //Component Functions
         componentDidMount()                 {
         var appearsVideo = this.menuFullScreenAppears;
-        $('body').keydown   (function(event){
+        $('body').keydown (function(event)  {
             if (event.keyCode===13)
             {
             appearsVideo();
@@ -69,20 +71,18 @@ class VideoPlayer extends Component         {
         this.isFavorite(this.props.video.channelId);
                                             }
         isFavorite(channelId)               {
-        var result = false;
-        this.props.channels.map((item,index)=>
-                                            {
-        if (item.channelId === channelId&&item.favorite)
-        {
-         result = true;
-        }
-        return result
-                                            });
+        if (localStorage.getItem(channelId)!==null)
+        return true;
+        else return false
 
                                             }
-        setFavorite()                       {
-        this.props.dispatch(setFavor(this.props.channels,this.props.video.channelId));
-                                            }
+        // toggleFavorite()                    {
+        // //this.props.dispatch(setFavor(this.props.channels,this.props.video.channelId));
+        // if (localStorage.getItem(this.props.video.channelId)===null)
+        // {localStorage.setItem(this.props.video.channelId,'true');}
+        // else localStorage.removeItem(this.props.video.channelId);
+        // console.log(localStorage.getItem(this.props.video.channelId));
+        //                                     }
         toggle(isPlaying)                   {
         var  vd = this.video.video;
         //const vd = this.video;
@@ -154,11 +154,10 @@ class VideoPlayer extends Component         {
         setTimeout(function()               {
             //Скрыть плей
         $("#vduppermenu,#vdbottommenu").fadeOut(1000);
-        },5000);
+                                            },5000);
 
                                             }
-        menuFullScreenAppears()
-                                            {
+        menuFullScreenAppears()             {
         //Отобразить плей
         clearTimeout(this.timer);
         $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
@@ -173,7 +172,6 @@ class VideoPlayer extends Component         {
         this.props.dispatch(toggleFullScreen(false));
         this.setState({fullScreen:false})
                                             }
-
         changeSize()                        {
         var    vd = this.video.video;
         if (   !document.fullscreenElement
@@ -223,23 +221,24 @@ class VideoPlayer extends Component         {
         render()                            {
         this.videoOnLoad();
         return          (
-                        <div             ref=      {(dv)=>this.div=dv} className="centerDiv" id="centerDiv">
-                        <Video           isPlaying={this.props.isPlaying}
-                                         fullSize= {this.props.fullScreen}
-                                         video=    {this.props.video}
-                                         ref=      {(video)=>this.video=video}
-                                         onClick = {e=>this.menuFullScreenAppears()}
-                                         onDblClick = {e=>this.changeSize()}
+                            <div             ref=      {(dv)=>this.div=dv} className="centerDiv" id="centerDiv">
+                            <Video           isPlaying={this.props.isPlaying}
+                                             fullSize= {this.props.fullScreen}
+                                             video=    {this.props.video}
+                                             ref=      {(video)=>this.video=video}
+                                             onClick = {e=>this.menuFullScreenAppears()}
+                                             onDblClick = {e=>this.changeSize()}
                          />
                         <div className="panelDiv" id="panelDiv"/>
-                        <VideoUpperMenu  isPlaying={this.props.isPlaying}
-                                         toggleContext={this.toggle}
-                                         handleOnPlayContext={this.handleOnPlay}
-                                         handleCurrentTimeContext={this.handleCurrTime}
-                                         handleCurrPlaybackContext={this.handleCurrPlayback}/>
-                        <VideoBottomMenu changeSizeContext={this.changeSize}
-                                         changeResContext= {this.changeRes}
-                                         setFavoriteContext={this.setFavorite}
+                            <VideoUpperMenu  isPlaying={this.props.isPlaying}
+                                             toggleContext={this.toggle}
+                                             handleOnPlayContext={this.handleOnPlay}
+                                             handleCurrentTimeContext={this.handleCurrTime}
+                                             handleCurrPlaybackContext={this.handleCurrPlayback}/>
+                            <VideoBottomMenu changeSizeContext={this.changeSize}
+                                             changeResContext= {this.changeRes}
+                                             setFavoriteContext={this.toggleFavorite}
+                                             channelId =        {this.props.video.channelId}
                         />
                         </div>
                        )

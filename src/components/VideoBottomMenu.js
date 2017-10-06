@@ -9,32 +9,39 @@ import  'semantic-ui-css/semantic.min.css';
 import  '../styles/css/main_styles.css';
 
 class VideoBottomMenu extends Component
-                           {
+                            {
 static propTypes =
-{
+                            {
     // changeSizeContext:PropTypes.func.isRequred,
     // changeResContext:PropTypes.func.isRequred,
     //visible:PropTypes.bool.isRequired
-    setFavoriteContext:PropTypes.func.isRequired
-};
+    setFavoriteContext:PropTypes.func.isRequired,
+    channelId:PropTypes.number.isRequired
+                            };
 resolutions = ['360р','480р','720р','1080р','1440р'];
-    constructor(props)     {
+    constructor(props)      {
         super(props);
-        this.state =       {
+        this.state =        {
            showResolution:false,
            lock:false,
-           resolution:'1080р'
-                           }
-                           }
-    chooseResolution (res) {
-        this.setState({
+           resolution:'1080р',
+           Favorite:false
+                            }
+                            }
+    componentDidMount()     {
+    if (localStorage.getItem(this.props.channelId)!==null)
+    this.setState({Favorite:true});
+    console.log('Working'+localStorage.getItem(this.props.channelId));
+                            }
+    chooseResolution (res)  {
+        this.setState       ({
             showResolution:false,
             resolution:res
-        });
+                            });
         this.props.changeResContext(res.substr(0,res.length-1));
                             }
     changeSize(e)           {
-        e.stopPropagation();
+        //e.stopPropagation();
         this.props.changeSizeContext();
                             }
     setLock(vl) {
@@ -43,7 +50,16 @@ resolutions = ['360р','480р','720р','1080р','1440р'];
                 lock:!vl,
             }
                             )
-    }
+                }
+    toggleFavorite()
+                            {
+           if (localStorage.getItem(this.props.channelId)===null)
+           {localStorage.setItem(this.props.channelId,'true');}
+           else localStorage.removeItem(this.props.channelId);
+           console.log(localStorage.getItem(this.props.channelId));
+           this.setState({Favorite:!this.state.Favorite});
+
+                            }
     render () {
         {if (this.state.showResolution === false)  {
             return (
@@ -54,7 +70,7 @@ resolutions = ['360р','480р','720р','1080р','1440р'];
                         <Icon className={this.state.lock?"large inverted lock alternate":"large inverted unlock alternate"}/>
                         </div>
                         <div className="iconsDiv">
-                        <img src={nofavorite} width={20} height={25} onClick={this.props.setFavoriteContext}/>
+                        <img src={this.state.Favorite?favorite:nofavorite} width={20} height={25} onClick={(e)=>this.toggleFavorite()}/>
                         </div>
                         <div className="iconsDiv">
                         <img src={live}       width={40} height={30} className="imgLive"/>
@@ -79,7 +95,7 @@ resolutions = ['360р','480р','720р','1080р','1440р'];
                         {
                             this.resolutions.map((elem,i)=>
                             <div key={i} className="iconsDiv" onClick={(e)=>this.chooseResolution(elem)}>{elem}</div>
-                            )
+                                                 )
                         }
                     </div>
                 </div>
@@ -87,7 +103,7 @@ resolutions = ['360р','480р','720р','1080р','1440р'];
         }
         }
     }
-                           }
+                                }
 
 export default connect(
     state => ({fullScreen:state.videoReducer.fullScreen}),

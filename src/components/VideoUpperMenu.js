@@ -76,6 +76,28 @@ class VideoUpperMenu extends Component                         {
                 break;
                                                                }
             case 39:                                           {
+                if (this.props.menus.channelsMenuVisible&&
+                    this.props.menus.categoryMenuVisible)      {
+                this.props.dispatch(setMenusVisible(
+                        {
+                            channelsMenuVisible: false,
+                            categoryMenuVisible: true,
+                            settingsVisible:     false
+                        }
+                                                    ));
+                                                               }
+                else if (!this.props.menus.channelsMenuVisible&&
+                         this.props.menus.categoryMenuVisible) {
+                this.props.dispatch(setMenusVisible(
+                        {
+                            channelsMenuVisible: false,
+                            categoryMenuVisible: false,
+                            settingsVisible:     false
+                        }
+                    ));
+                                                               }
+                else if (!this.props.menus.channelsMenuVisible&&
+                         !this.props.menus.categoryMenuVisible)
                 this.props.dispatch(setMenusVisible(
                     {
                             channelsMenuVisible: false,
