@@ -46,7 +46,7 @@
 
                                               }
     menuFullScreenAppears()
-                                              {
+                                                {
             //Отобразить плей
             clearTimeout(this.timer);
             clearTimeout(this.menuTimer);
@@ -84,7 +84,8 @@
                 channelsMenuVisible:true,
                 categoryMenuVisible:true,
                 settingsVisible:false
-            }                                   ));
+            }
+                                                ));
 
                                                 }
 

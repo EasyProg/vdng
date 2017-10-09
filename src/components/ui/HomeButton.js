@@ -5,7 +5,7 @@ import {setMenusVisible,getChannels} from '../../actions/actions';
 import {bindActionCreators} from 'redux';
 import hlsArray from '../../hls';
 import parse from '../Parsing';
-
+import * as $ from 'jquery';
 class HomeButton extends Component                  {
 constructor(props)   {
     super(props);
@@ -24,6 +24,8 @@ toggleMenuState()                                   {
                 settingsVisible:false
 
             }));
+            //Set focus to menu
+            $('#video').focus();
                                                     }
 setPositionClass()                                  {
 if       (this.props.menus.channelsMenuVisible&&

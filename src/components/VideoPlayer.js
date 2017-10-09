@@ -41,13 +41,13 @@ var timeFormat = function(seconds)          {
         this.handlePlay    =    this.handlePlay.bind(this);
         this.escFullScreen = this.escFullScreen.bind(this);
         this.videoOnLoad   = this.videoOnLoad.bind(this);
-        this.isFavorite    = this.isFavorite.bind(this);
-        this.toggleFavorite = this.toggleFavorite.bind(this);
+        //this.isFavorite    = this.isFavorite.bind(this);
+        //this.toggleFavorite = this.toggleFavorite.bind(this);
         this.state = {playerButtonsAppear:false};
         this.timer = '';
-        this.state = {fullScreen:false,
+        this.state =  {fullScreen:false,
                       isFavorite:false
-                     };
+                      };
                                             }
         //Component Functions
         componentDidMount()                 {
@@ -69,20 +69,6 @@ var timeFormat = function(seconds)          {
         //$('#video').muted = false;
         this.videoOnLoad();
         //this.setState({isFavorite:this.isFavorite(this.props.video.channelId)});
-                                            }
-        isFavorite(channelId)               {
-        if (localStorage.getItem(channelId)!==null)
-        return true;
-        else
-        return false
-
-                                            }
-        toggleFavorite()                    {
-        //this.props.dispatch(setFavor(this.props.channels,this.props.video.channelId));
-        if (localStorage.getItem(this.props.video.channelId)===null)
-        localStorage.setItem(this.props.video.channelId,'true');
-        else localStorage.removeItem(this.props.video.channelId);
-        //console.log(localStorage.getItem(this.props.video.channelId);
                                             }
         toggle(isPlaying)                   {
         var  vd = this.video.video;
@@ -132,7 +118,7 @@ var timeFormat = function(seconds)          {
                     }
                 });
             }
-        }
+                    }
         handleCurrTime(param)               {
         var vd = this.video.video;
         if (param===1)
@@ -149,14 +135,14 @@ var timeFormat = function(seconds)          {
         handlePlay()                        {
         this.timer = this.state.fullScreen?
         setTimeout(function()               {
-            //Скрыть плей
+        //Скрыть плей
         $("#vduppermenu").fadeOut(1000);
         },5000):
         setTimeout(function()               {
-            //Скрыть плей
+        //Скрыть плей
+        $('#video').focus();
         $("#vduppermenu,#vdbottommenu").fadeOut(1000);
                                             },5000);
-
                                             }
         menuFullScreenAppears()             {
         //Отобразить плей
@@ -229,8 +215,8 @@ var timeFormat = function(seconds)          {
                                              ref=      {(video)=>this.video=video}
                                              onClick = {e=>this.menuFullScreenAppears()}
                                              onDblClick = {e=>this.changeSize()}
-                         />
-                        <div className="panelDiv" id="panelDiv"/>
+                            />
+                            <div className="panelDiv" id="panelDiv"/>
                             <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                              toggleContext={this.toggle}
                                              handleOnPlayContext={this.handleOnPlay}
@@ -238,11 +224,11 @@ var timeFormat = function(seconds)          {
                                              handleCurrPlaybackContext={this.handleCurrPlayback}/>
                             <VideoBottomMenu changeSizeContext={this.changeSize}
                                              changeResContext= {this.changeRes}
-                                             setFavoriteContext={this.toggleFavorite}
+                                             //setFavoriteContext={this.toggleFavorite}
                                              //channelId =        {this.props.video.channelId}
-                                             isFavorite = {this.isFavorite(this.props.video.channelId)}
-                        />
-                        </div>
+                                             //isFavorite = {this.isFavorite(this.props.video.channelId)}
+                            />
+                            </div>
                                             )
                                             }
                                             }

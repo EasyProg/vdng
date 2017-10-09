@@ -18,10 +18,10 @@ class VideoUpperMenu extends Component                         {
     static propTypes = {
     isPlaying:PropTypes.bool.isRequired
 };
-    constructor(props)     {
+    constructor(props)      {
     super(props);
     this.switchKeyPress = this.switchKeyPress.bind(this);
-}
+                            }
     componentDidMount()                                        {
         var func = this.switchKeyPress;
         var t = this;
@@ -30,6 +30,7 @@ class VideoUpperMenu extends Component                         {
         //event.preventDefault();
         func(event);
                                                                });
+
     // $('#video,.panelDiv').click                                (
     //             function(event)                                {
     //             event.stopPropagation();
@@ -43,6 +44,10 @@ class VideoUpperMenu extends Component                         {
     //                                                            }
     //                                                            );
                                                                }
+    // componentWillUnmount() {
+    // $('#video').focus();
+    // }
+
     switchKeyPress(event)                                      {
         //event.stopPropagation();
         switch (event.keyCode)                                 {
