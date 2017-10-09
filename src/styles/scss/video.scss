@@ -1,0 +1,75 @@
+video::-webkit-media-controls {
+   display:none;
+                              }
+video::-moz-media-controls    {
+  display:none;
+                              }
+video::media-controls         {
+  display:none;
+                              }
+.innerDiv                     {
+  float:left;
+  margin-left: 100px;
+  margin-top: 20px;
+                              }
+//Progress Bar
+//Bottom Invis Buttons
+.span                         {
+   float: left;
+   //margin-right:15px;
+   margin-left:15px;
+                              }
+.spanChannelid                {
+   margin-left: 10px;
+   float: left;
+   padding-right:25px;
+   width:30px;
+                              }
+.videoOnButtonsDiv            {
+  position:relative;
+  top:50%;
+                              }
+#video                        {
+  //@media only screen and (max-device-width: 340px) {
+  //  vertical-align: middle;
+  //}
+  //top:50%;
+  //overflow: hidden;
+  //vertical-align: middle;
+  align-self: center;
+  width:  100%;
+  height: 100%;
+  top:0;
+  //min-width:10%;
+  min-height:200px;
+  min-width:100px;
+
+
+                              }
+.errorsDiv                    {
+@extend  #video;
+font:30px Times New Roman bold;
+color:white;
+text-align: center;
+                              }
+
+
+
+
+.playBackDiv                  {
+  position: fixed;
+  top:80%;
+  z-index:2147483647;
+                              }
+.panelDiv                     {
+  position: absolute;
+  top:60%;
+  width:100%;
+  height:40%;
+                              }
+//.processDiv {
+//visibility: hidden;
+//width:100%;
+//height:100%;
+//z-index: 10;
+//}
