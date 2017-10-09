@@ -124,12 +124,12 @@ if   (channels) {
                             }
                                                     }
     categVisible()                                  {
-        this.props.dispatch(setMenusVisible     (
+            this.props.dispatch(setMenusVisible     (
             {
                 channelsMenuVisible:false,
                 categoryMenuVisible:true,
                 settingsVisible:false
-            }                                   ));
+            }                                       ));
 
                                                     }
 

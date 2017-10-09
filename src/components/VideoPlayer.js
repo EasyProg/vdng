@@ -45,7 +45,7 @@ var timeFormat = function(seconds)          {
         //this.toggleFavorite = this.toggleFavorite.bind(this);
         this.state = {playerButtonsAppear:false};
         this.timer = '';
-        this.state =  {fullScreen:false,
+        this.state = {fullScreen:false,
                       isFavorite:false
                       };
                                             }
@@ -140,7 +140,8 @@ var timeFormat = function(seconds)          {
         },5000):
         setTimeout(function()               {
         //Скрыть плей
-        $('#video').focus();
+        if ($('#channels').className==='menuChannel')
+        {$('#video').focus();}
         $("#vduppermenu,#vdbottommenu").fadeOut(1000);
                                             },5000);
                                             }
@@ -224,9 +225,6 @@ var timeFormat = function(seconds)          {
                                              handleCurrPlaybackContext={this.handleCurrPlayback}/>
                             <VideoBottomMenu changeSizeContext={this.changeSize}
                                              changeResContext= {this.changeRes}
-                                             //setFavoriteContext={this.toggleFavorite}
-                                             //channelId =        {this.props.video.channelId}
-                                             //isFavorite = {this.isFavorite(this.props.video.channelId)}
                             />
                             </div>
                                             )
@@ -235,7 +233,7 @@ var timeFormat = function(seconds)          {
                        const mapDispatchToProps = (dispatch) => bindActionCreators({
                        dispatch,togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor
                        }, dispatch);
-                       export default connect  (
+                       export default connect   (
                        state => ({
                        video:                state.videoReducer.video,
                        isPlaying:            state.videoReducer.isPlaying,

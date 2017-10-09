@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.menuItemStyle, .menuItemStylefocus {
+.menuItemStyle, .menuItemStyleChosen, .menuItemStylefocus {
   text-wrap: none;
   cursor: pointer;
   width: 400px;
@@ -17,7 +17,10 @@
   background: rgba(0, 0, 0, 0.8);
   bottom: 0; }
 
-.menuItemStyle:hover, .menuItemStylefocus:hover {
+.menuItemStyle:hover, .menuItemStyleChosen:hover, .menuItemStylefocus:hover {
+  background: #9677ff; }
+
+.menuItemStyleChosen {
   background: #9677ff; }
 
 .menuItemStylefocus {
@@ -870,6 +873,17 @@ hr {
   left: 700px;
   background: rgba(0, 0, 0, 0.8);
   transition: left 0.5s ease 100ms; }
+
+.programListItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 350px;
+  height: 30px;
+  position: relative;
+  color: white;
+  padding-left: 20px;
+  padding-right: 10px; }
 
 * {
   outline: 0;

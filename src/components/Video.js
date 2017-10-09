@@ -28,11 +28,11 @@ import HoldScreen from "./ui/HoldScreen";
 
                         }
     isVideoPlaying ()   {
-    console.log(this.video.paused);
+    var b = this;
     setTimeout(
      function () {if (this.video.paused)
      {
-        this.setState({playing:false});
+        b.setState({playing:false});
      }},2000)
                         }
 

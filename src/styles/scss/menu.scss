@@ -23,8 +23,12 @@ $menu-width:250px;
     background: rgba(0,0,0,0.8);
     bottom:0;
                       }
-  .menuItemStyle:hover{
-  background:$menuHoverColor;
+.menuItemStyle:hover  {
+background:$menuHoverColor;
+                      }
+.menuItemStyleChosen  {
+@extend .menuItemStyle;
+background:$menuHoverColor;
                       }
 .menuItemStylefocus   {
   @extend .menuItemStyle;

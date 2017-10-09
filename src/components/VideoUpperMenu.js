@@ -21,6 +21,7 @@ class VideoUpperMenu extends Component                         {
     constructor(props)      {
     super(props);
     this.switchKeyPress = this.switchKeyPress.bind(this);
+    this.switchChannel = this.switchChannel.bind(this);
                             }
     componentDidMount()                                        {
         var func = this.switchKeyPress;
@@ -31,22 +32,7 @@ class VideoUpperMenu extends Component                         {
         func(event);
                                                                });
 
-    // $('#video,.panelDiv').click                                (
-    //             function(event)                                {
-    //             event.stopPropagation();
-    //             t.props.dispatch(setMenusVisible(
-    //                 {
-    //                         channelsMenuVisible: false,
-    //                         categoryMenuVisible: false,
-    //                         settingsVisible:     false
-    //                 }));
-    //                 $('#video').focus();
-    //                                                            }
-    //                                                            );
                                                                }
-    // componentWillUnmount() {
-    // $('#video').focus();
-    // }
 
     switchKeyPress(event)                                      {
         //event.stopPropagation();
@@ -64,10 +50,13 @@ class VideoUpperMenu extends Component                         {
                         {
                             channelsMenuVisible: true,
                             categoryMenuVisible: false,
-                            settingsVisible:     false
+                            settingsVisible: false
                         }
                     ));
+                    $('#channels').focus();
+                    console.log('SHIT!@');
                                                                }
+
                 else if (this.props.menus.channelsMenuVisible) {
                     this.props.dispatch(setMenusVisible(
                         {
@@ -145,7 +134,7 @@ class VideoUpperMenu extends Component                         {
                 this.props.dispatch(changeVideo(prevElem));
             }
         }
-                                                              }
+    }
 
         render()
             {
