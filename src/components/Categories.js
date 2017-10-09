@@ -33,7 +33,7 @@ class Categories extends Component              {
     constructor(props) {
     super(props);
     this.state =                                {
-    itemChosen:0,
+    itemChosen:1,
     category:'All channels',
     //channels:this.props.channels
                                                 };
@@ -153,7 +153,7 @@ render()                                            {
         </div>
     <PerfectScrollbar>
     {
-                            this.Menu.map ((item,i)=>
+                            this.Menu.map           ((item,i)=>
                             <div key={i} className='categoryItem' onClick={e=>this.handleClick (i,item.category)} tabIndex={i}>
                             <div         className="categoryImage"><img src={item.src} width="40" height="40"/></div>
                             <div         className="categoryText">

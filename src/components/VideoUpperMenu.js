@@ -54,7 +54,7 @@ class VideoUpperMenu extends Component                         {
                         }
                     ));
                     $('#channels').focus();
-                    console.log('SHIT!@');
+                    //console.log('SHIT!@');
                                                                }
 
                 else if (this.props.menus.channelsMenuVisible) {
