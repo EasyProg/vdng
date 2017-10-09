@@ -2,11 +2,12 @@
 $menu-width:250px;
 .menuItemStyle        {
   //position: absolute;
-  //display: block;
+  display: block;
   text-wrap: none;
   cursor: pointer;
   width: $menuChannelWidth;
   min-width: $menuChannelWidth;
+  //max-width: $menuChannelWidth;
   //background: rgba(0,0,0,0.3);
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
@@ -15,6 +16,7 @@ $menu-width:250px;
   color: white;
   height: 110px;
   line-height: 5.7em;
+  //overflow: hidden;
   //text-align: center;
                       }
   .menuBottom         {
@@ -24,10 +26,18 @@ $menu-width:250px;
     bottom:0;
                       }
 .menuItemStyle:hover  {
+//position: absolute;
+//display: block;
+width:450px;
+//overflow: visible;
+//margin:auto;
+//min-width:450px;
 background:$menuHoverColor;
                       }
 .menuItemStyleChosen  {
 @extend .menuItemStyle;
+//width:420px;
+//min-width:420px;
 background:$menuHoverColor;
                       }
 .menuItemStylefocus   {
@@ -55,12 +65,14 @@ background:$menuHoverColor;
   //  height:1200px;
   //                                                 }
   //height:800px;
+  width:$menuItemWidth;
   height: 92vh;
   position: absolute;
   top:0;
   left:0;
   background: rgba(0,0,0,0.8);
   transition: left 0.5s ease 100ms;
+  //overflow: visible;
                       }
 .menuChannelLeft      {
   @extend .menuChannel;
