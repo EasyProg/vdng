@@ -67,6 +67,15 @@ top:15%;
   text-align: center;
   padding-top: 15px;
                               }
+.iconsLiveDiv                 {
+@extend .iconsDiv;
+line-height: 4.3em;
+                              }
+.iconsLockedDiv               {
+  @extend .iconsDiv;
+  //line-height: 4.3em;
+  margin-left:100px;
+                              }
 .iconsDiv:hover               {
   @extend .iconsDiv;
   cursor:pointer;
@@ -107,14 +116,14 @@ top:15%;
   font-size: 13px;
   font-family: "RobotoMedium";
   font-weight: bold;
-  line-height: 1.4em;
+  line-height: 1.8em;
   //vertical-align: middle;
                               }
 .upper_buttons_live           {
   @extend .upper_buttons_res;
   z-index:3;
   border:1px solid white;
-  //line-height: 3em;
+  line-height: 2em;
                               }
 
 .imgLive                      {

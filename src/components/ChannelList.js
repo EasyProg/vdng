@@ -96,7 +96,7 @@
 
                                                 }
     menuFullScreenAppears()
-                                                 {
+                                                {
             //Отобразить плей
             clearTimeout(this.timer);
             clearTimeout(this.menuTimer);
@@ -169,7 +169,7 @@
                }
             </Scrollbars>
             {/*<div className="menuBottom"/>*/}
-            {/*{this.props.video.channelId?<ProgramList programs={parseProgram(this.props.video.channelId)}/>:''}*/}
+            {this.props.video.channelId?<ProgramList programs={parseProgram(this.props.video.channelId)}/>:''}
             </div>
             </div>
                                                 );
@@ -194,7 +194,7 @@
         menus:state.menuReducer.menus
                  }),
         mapDispatchToProps
-        )(ChannelList);
+                              )(ChannelList);
 
 
 

@@ -74,13 +74,13 @@ class VideoBottomMenu extends Component
                 <div id='vdbottommenu' className="displayNone">
                     <div className="divBottomPlayer">
                         <div className="playerButtonsBottomDiv">
-                            <div className="iconsDiv" onClick={(e)=>this.setLock(this.state.lock)}>
-                                <Icon className={this.state.lock?"large inverted lock alternate":"large inverted unlock alternate"}/>
+                            <div className="iconsLockedDiv" onClick={(e)=>this.setLock(this.state.lock)}>
+                                <Icon className={this.state.lock?"big inverted lock alternate":"big inverted unlock alternate"}/>
                             </div>
                             <div className="iconsDiv">
                                 <img src={this.state.Favorite?favorite:nofavorite} width={20} height={25} onClick={(e)=>this.toggleFavorite()}/>
                             </div>
-                            <div className="iconsDiv">
+                            <div className="iconsLiveDiv">
                                 <img src={live} width={40} height={30} className="imgLive"/>
                             </div>
                             <div className="iconsDiv" onClick={(e) => this.setState({showResolution: true})}>

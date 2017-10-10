@@ -650,7 +650,7 @@ hr {
   left: 24%;
   top: 15%; }
 
-.iconsDiv, .iconsDiv:hover {
+.iconsDiv, .iconsLiveDiv, .iconsLockedDiv, .iconsDiv:hover {
   color: white;
   font-size: 13px;
   font-family: "RobotoMedium";
@@ -661,7 +661,13 @@ hr {
   text-align: center;
   padding-top: 15px; }
 
-.iconsDiv:hover {
+.iconsLiveDiv {
+  line-height: 4.3em; }
+
+.iconsLockedDiv {
+  margin-left: 100px; }
+
+.iconsDiv:hover, .iconsLiveDiv:hover, .iconsLockedDiv:hover {
   cursor: pointer;
   background: #9677ff;
   border-radius: 40px;
@@ -693,11 +699,12 @@ hr {
   font-size: 13px;
   font-family: "RobotoMedium";
   font-weight: bold;
-  line-height: 1.4em; }
+  line-height: 1.8em; }
 
 .upper_buttons_live {
   z-index: 3;
-  border: 1px solid white; }
+  border: 1px solid white;
+  line-height: 2em; }
 
 .imgLive {
   position: relative;
@@ -875,23 +882,64 @@ hr {
   opacity: 0.9; }
 
 .programList {
-  height: 92vh;
+  height: 101vh;
   position: absolute;
   top: 0;
   left: 700px;
   background: rgba(0, 0, 0, 0.8);
-  transition: left 0.5s ease 100ms; }
+  transition: left 0.5s ease 100ms;
+  padding-top: 11vh;
+  width: 350px; }
+
+.dayListItem {
+  margin-top: 50px;
+  display: block;
+  font-family: "ComfortaaRegular";
+  font-size: 1.3em;
+  letter-spacing: 2px;
+  margin-bottom: 50px; }
 
 .programListItem {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   width: 350px;
-  height: 30px;
+  height: auto;
   position: relative;
   color: white;
+  padding-bottom: 15px;
   padding-left: 20px;
-  padding-right: 10px; }
+  padding-right: 30px;
+  padding-top: 15px;
+  text-align: left; }
+
+.programListItem:hover {
+  background: #9677ff;
+  cursor: pointer; }
+
+.headerProgramDate {
+  color: white;
+  text-align: left;
+  margin-left: 20px; }
+
+.textSpan {
+  color: #9677ff; }
+
+.hrProgram {
+  background: #9677ff;
+  height: 2px;
+  width: 310px;
+  display: block;
+  position: relative;
+  left: 0; }
+
+.programName {
+  margin-left: 10px; }
+
+.programTime {
+  color: #696969; }
+
+.blockChainDiv {
+  font-family: "ComfortaaRegular";
+  font-size: 15px;
+  letter-spacing: 1px; }
 
 * {
   outline: 0;
