@@ -11,10 +11,11 @@
     import programs from '../program';
     import parseProgram from '../components/ParseProgramLight';
     import Channel from './Channel';
-    import PerfectScrollbar from 'react-perfect-scrollbar';
+    //import PerfectScrollbar from 'react-perfect-scrollbar';
     import 'react-perfect-scrollbar/dist/css/styles.css';
     import HomeButton from './ui/HomeButton';
     import CategoryName from './ui/CategoryName';
+    import {Scrollbars} from 'react-custom-scrollbars';
     class  ChannelList extends Component       {
     constructor(props)                         {
     super(props);
@@ -50,9 +51,9 @@
 
             }
                                                 }
-    handleKey(e,elem)       {
+    handleKey(e,elem)        {
         console.log(e.keyCode);
-        switch (e.keyCode)  {
+        switch (e.keyCode)   {
             case 40:
                 this.switchChannel('next', this.state.channelId);
                 break;
@@ -61,8 +62,31 @@
                 break;
             case 13:
             this.handleClick(this.props.playList[this.state.channelId]);
+            break;
+            case 37:        {
+                this.props.dispatch(setMenusVisible(
+                    {
+                        channelsMenuVisible: true,
+                        categoryMenuVisible: true,
+                        settingsVisible: false
+                    }
+                                                    ));
+                $('#categories').focus();
                             }
-                            }
+            break;
+            case 39:   {
+                this.props.dispatch(setMenusVisible(
+                    {
+                        channelsMenuVisible: false,
+                        categoryMenuVisible: false,
+                        settingsVisible: false
+                    }
+                ));
+                $('#video').focus();
+                        }
+            break;
+                             }
+                             }
     handlePlay()                                {
             this.timer =
                 setTimeout(function()           {
@@ -121,7 +145,11 @@
             <HomeButton/>
             </div>:''
             }
-            <PerfectScrollbar>
+            <Scrollbars //style={{overflow:'visible',position:'absolute',width:400}}
+                        autoHide
+
+
+            >
                {this.props.playList.map((elem, i) =>
                             <Channel
                             key={i}
@@ -139,8 +167,8 @@
                             />
                )
                }
-            </PerfectScrollbar>
-            <div className="menuBottom"/>
+            </Scrollbars>
+            {/*<div className="menuBottom"/>*/}
             {/*{this.props.video.channelId?<ProgramList programs={parseProgram(this.props.video.channelId)}/>:''}*/}
             </div>
             </div>

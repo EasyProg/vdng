@@ -19,6 +19,11 @@ $menu-width:250px;
   //overflow: hidden;
   //text-align: center;
                       }
+.staticItem           {
+//@extend .menuItemStyle;
+  width:$menuChannelWidth;
+  min-width: $menuChannelWidth;
+                      }
   .menuBottom         {
     width:$menuItemWidth;
     height:5vh;
@@ -28,7 +33,7 @@ $menu-width:250px;
 .menuItemStyle:hover  {
 //position: absolute;
 //display: block;
-width:450px;
+width:110%;
 //overflow: visible;
 //margin:auto;
 //min-width:450px;
@@ -66,13 +71,13 @@ background:$menuHoverColor;
   //                                                 }
   //height:800px;
   width:$menuItemWidth;
-  height: 92vh;
+  height: 101vh;
   position: absolute;
   top:0;
   left:0;
   background: rgba(0,0,0,0.8);
   transition: left 0.5s ease 100ms;
-  //overflow: visible;
+  overflow: visible;
                       }
 .menuChannelLeft      {
   @extend .menuChannel;

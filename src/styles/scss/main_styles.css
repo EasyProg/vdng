@@ -12,6 +12,10 @@
   height: 110px;
   line-height: 5.7em; }
 
+.staticItem {
+  width: 400px;
+  min-width: 400px; }
+
 .menuBottom {
   width: 400px;
   height: 5vh;
@@ -19,7 +23,7 @@
   bottom: 0; }
 
 .menuItemStyle:hover, .menuItemStyleChosen:hover, .menuItemStylefocus:hover {
-  width: 450px;
+  width: 110%;
   background: #9677ff; }
 
 .menuItemStyleChosen {
@@ -41,12 +45,13 @@
 
 .menuChannel, .menuChannelLeft, .menuChannelNone {
   width: 400px;
-  height: 92vh;
+  height: 101vh;
   position: absolute;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.8);
-  transition: left 0.5s ease 100ms; }
+  transition: left 0.5s ease 100ms;
+  overflow: visible; }
 
 .menuChannelLeft {
   left: 400px; }
@@ -474,7 +479,7 @@ hr {
   text-align: left; }
 
 .categoryImage {
-  margin-top: 5px;
+  margin-top: 10px;
   float: left;
   margin-left: 20px;
   margin-right: 40px;

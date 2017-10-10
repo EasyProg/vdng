@@ -54,6 +54,7 @@ export default class Channel extends Component      {
         return          (
             <div  className={this.props.chosen?'menuItemStylefocus':this.props.elemChosen?'menuItemStyleChosen':'menuItemStyle'}
                   onClick={this.props.onClick} onKeyDown={this.props.onKeyDown}>
+             <div className="staticItem">
             <span className="spanChannelid">{this.props.channelNum}</span>
             <img  width={100} height={100} src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
             <span className="pname" onMouseOver={(e)=>this.runningString(e)} onMouseLeave={(e)=>this.stopRun()}>
@@ -64,6 +65,7 @@ export default class Channel extends Component      {
             {this.props.favorite ? <span className="pnameFav"><img src={book} width={10} height={10}/></span> : ''}
             <Rating maxRate={5} rate={3} chosen={this.props.chosen}/>
             <progress className='progresses' value={50} max={100} min={0}/>
+             </div>
             </div>
                         )
                         }
