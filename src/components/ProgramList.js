@@ -2,6 +2,7 @@ import React, {Component,PropTypes} from 'react';
 import '../styles/css/main_styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {Scrollbars} from 'react-custom-scrollbars';
+import HomeButton from './ui/HomeButton';
 export default class ProgramList extends Component
                                                  {
 constructor(props)
@@ -9,7 +10,8 @@ constructor(props)
 super(props);
                             }
 static propTypes =          {
-    programs: PropTypes.array.isRequired
+    programs: PropTypes.array.isRequired,
+    visible:  PropTypes.bool.isRequired
 
                             };
 getDayOfWeek (dt)           {
@@ -37,18 +39,23 @@ getDayOfWeek (dt)           {
 
                             }
     render()                {
+    if (this.props.programs.length&&this.props.visible>0)
     return                  (
     <div className="programList">
+        <div className="menuHeaderCh">
+        <HomeButton/>
+        </div>
         <Scrollbars>
              {this.props.programs.map((e,i)=>
                  <div className="blockChainDiv">
                     <div className="headerProgramDate">
                         {e.date} <span className="textSpan">{this.getDayOfWeek(e.date)}</span>
+                        <hr className="hrProgram"/>
                     </div>
-                 <hr className="hrProgram"/>
                  <div className="dayListItem">
                             {
-                     this.props.programs[i]['data'].map(
+                     this.props.programs[i]['data'].map
+                            (
                      (e,i)=>
                      <div key={i} className="programListItem">
                      <span className="programTime">{e.start_time.substring(e.start_time.indexOf(':'),
@@ -62,6 +69,7 @@ getDayOfWeek (dt)           {
              )}
         </Scrollbars>
     </div>
-                            )
+                            );
+    else return null
                             }
                                                 }

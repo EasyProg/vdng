@@ -126,6 +126,12 @@ $plButtonsLeft:10%;
                                    {
 background:$main_color;
                                    }
+.progresses::-moz-progress-bar     {
+background-color:$main_color;
+//background: #575757;
+//color:$main_color;
+                                   }
+
 .backwardActiveButton              {
 width:25px;
 height:20px;

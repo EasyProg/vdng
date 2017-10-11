@@ -1,19 +1,20 @@
 import React, { Component,PropTypes } from 'react';
 import {Button,Icon} from 'semantic-ui-react'
-import  {connect} from 'react-redux';
-import  border     from '../img/switch_button.gif';
-import  live       from '../img/live-icon.gif';
-import  nofavorite from '../img/bookmark-white.gif';
-import  favorite   from   '../img/bookmark-black-shape.gif';
-import  'semantic-ui-css/semantic.min.css';
-import  '../styles/css/main_styles.css';
+import {connect} from 'react-redux';
+import border     from '../img/switch_button.gif';
+import live       from '../img/live-icon.gif';
+import nofavorite from '../img/bookmark-white.gif';
+import favorite   from   '../img/bookmark-black-shape.gif';
+import 'semantic-ui-css/semantic.min.css';
+import '../styles/css/main_styles.css';
+import aspectratio from '../img/aspect_ratio.gif';
 
-class VideoBottomMenu extends Component
+class   VideoBottomMenu extends Component
 {
     static propTypes =
-        {
-            //setFavoriteContext:PropTypes.func.isRequired,
-        };
+    {
+    //setFavoriteContext:PropTypes.func.isRequired,
+    };
     resolutions = ['360р','480р','720р','1080р','1440р'];
     constructor(props)      {
         super(props);
@@ -22,11 +23,15 @@ class VideoBottomMenu extends Component
             lock:false,
             resolution:'1080р',
             Favorite:false
-        };
+            //isFavorite()
+                            };
         this.toggleFavorite = this.toggleFavorite.bind(this);
         this.isFavorite=      this.isFavorite.bind(this);
                             }
     componentWillReceiveProps() {
+        this.setState({Favorite:this.isFavorite(this.props.channelId)});
+                            }
+    componentDidMount()     {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
                             }
 
@@ -60,9 +65,12 @@ class VideoBottomMenu extends Component
     }
     toggleFavorite()                    {
         //this.props.dispatch(setFavor(this.props.channels,this.props.video.channelId));
-        if (localStorage.getItem(this.props.channelId)===null)
-            localStorage.setItem(this.props.channelId,'true');
-        else localStorage.removeItem(this.props.channelId);
+        if   (localStorage.getItem(this.props.channelId)===null)
+        {   console.log('shit!!!');
+            localStorage.setItem(this.props.channelId, 'true');
+        }
+
+        else  localStorage.removeItem(this.props.channelId);
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         //this.forceUpdate();
         //this.isFavorite(this.props.video.channelId);
@@ -77,8 +85,8 @@ class VideoBottomMenu extends Component
                             <div className="iconsLockedDiv" onClick={(e)=>this.setLock(this.state.lock)}>
                                 <Icon className={this.state.lock?"big inverted lock alternate":"big inverted unlock alternate"}/>
                             </div>
-                            <div className="iconsDiv">
-                                <img src={this.state.Favorite?favorite:nofavorite} width={20} height={25} onClick={(e)=>this.toggleFavorite()}/>
+                            <div className="iconsDiv" onClick={(e)=>this.toggleFavorite()}>
+                                <img src={this.state.Favorite?favorite:nofavorite} width={20} height={25}/>
                             </div>
                             <div className="iconsLiveDiv">
                                 <img src={live} width={40} height={30} className="imgLive"/>
@@ -90,7 +98,7 @@ class VideoBottomMenu extends Component
                             </div>
                         </div>
                         <div className="iconResDiv" onClick={(e)=>this.changeSize(e)}>
-                            <img src={border} width={25} height={25}/>
+                            <img src={aspectratio} width={25} height={25}/>
                         </div>
                     </div>
                 </div>
@@ -114,8 +122,8 @@ class VideoBottomMenu extends Component
 }
 
 export default connect (
-    state => ({ fullScreen:state.videoReducer.fullScreen,
-                channelId:state.videoReducer.video.channelId
+    state => ({  fullScreen:state.videoReducer.fullScreen,
+                 channelId:state.videoReducer.video.channelId
     }),
     ({})
                        )(VideoBottomMenu);

@@ -25,10 +25,11 @@
     this.switchChannel = this.switchChannel.bind(this);
     this.timer = '';
     this.menuTimer = '';
-    this.state = {
-        itemChosen:0,
-        channelId: -1
-                 }
+    this.state =    {
+                    itemChosen:0,
+                    channelId:-1,
+                    isClicked:false
+                    }
                                                }
     static propTypes    =                      {
     playList:   PropTypes.array.isRequired,
@@ -40,7 +41,7 @@
 
             var items = document.getElementsByClassName('menuItemStyle');
             var nextElem = i + 1 >=    items.length ?  0 : i + 1;
-            var prevElem = i - 1 < 0 ? items.length  - 1 : i - 1;
+            var prevElem = i - 1 < 0 ? items.length - 1 : i - 1;
             if (param === 'next') {
                 items[nextElem].focus();
                 this.setState({channelId:nextElem});
@@ -61,8 +62,8 @@
                 this.switchChannel('prev', this.state.channelId);
                 break;
             case 13:
-            this.handleClick(this.props.playList[this.state.channelId]);
-            break;
+                this.handleClick(this.props.playList[this.state.channelId]);
+                break;
             case 37:        {
                 this.props.dispatch(setMenusVisible(
                     {
@@ -81,10 +82,29 @@
                         categoryMenuVisible: false,
                         settingsVisible: false
                     }
-                ));
+                    ));
                 $('#video').focus();
                         }
             break;
+            case 27: {
+                this.props.dispatch(setMenusVisible(
+                    {
+                        channelsMenuVisible: false,
+                        categoryMenuVisible: false,
+                        settingsVisible: false
+                    }));
+                $('#video').focus();
+                    }
+                break;
+            case 8: {
+                this.props.dispatch(setMenusVisible(
+                    {
+                        channelsMenuVisible: false,
+                        categoryMenuVisible: false,
+                        settingsVisible: false
+                    }));
+                $('#video').focus();
+                    }
                              }
                              }
     handlePlay()                                {
@@ -113,6 +133,15 @@
         $('#video,#panelDiv').mousemove(function(event) {
             appearsVideo();
                                                         });
+    //this.setState({isClicked:true});
+    this.props.dispatch(setMenusVisible         (
+            {
+                programsVisible:true,
+                channelsMenuVisible:true,
+                categoryMenuVisible:this.props.menus.categoryMenuVisible,
+                settingsVisible:false
+            }
+                                                ));
 
                                                 }
     categVisible()                              {
@@ -131,18 +160,18 @@
         return                                  (
         <div>
             <div className={this.props.channelsMenuVisible&&this.props.catMenuVisible?
-                        'menuChannelLeft':this.props.channelsMenuVisible&&
-                        !this.props.catMenuVisible?'menuChannel':'menuChannelNone'}
-                        onClick={this.props.onClick} id="channels" tabIndex={1}  onKeyDown={e=>this.handleKey(e)}
+                          'menuChannelLeft':this.props.channelsMenuVisible&&
+                          !this.props.catMenuVisible?'menuChannel':'menuChannelNone'}
+                          onClick={this.props.onClick} id="channels" tabIndex={1}  onKeyDown={e=>this.handleKey(e)}
             >
             {this.props.playList.length?
             <div className="menuHeaderCh">
-            <CategoryName visible ={this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible}
-                          categ   ={this.props.channelCategory}
+            <CategoryName visible = {this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible}
+                          categ   = {this.props.channelCategory}
                           categVisibleContext = {this.categVisible}
-                          reversed={false}
+                          reversed= {false}
             />
-            <HomeButton/>
+            <HomeButton  visible=   {this.props.menus.programsVisible}/>
             </div>:''
             }
             <Scrollbars //style={{overflow:'visible',position:'absolute',width:400}}
@@ -150,7 +179,7 @@
 
 
             >
-               {this.props.playList.map((elem, i) =>
+                            {this.props.playList.map((elem, i) =>
                             <Channel
                             key={i}
                             img={elem.img}
@@ -168,8 +197,10 @@
                )
                }
             </Scrollbars>
-            {/*<div className="menuBottom"/>*/}
-            {/*{this.props.video.channelId?<ProgramList programs={parseProgram(this.props.video.channelId)}/>:''}*/}
+            <div className="menuBottom"/>
+            {/*//this.state.isClicked&&this.props.menus.channelsMenuVisible?*/}
+            {/*//this.props.menus.programsVisible?*/}
+            <ProgramList visible={this.props.menus.programsVisible} programs={parseProgram(this.props.video.channelId)}/>
             </div>
             </div>
                                                 );
@@ -184,17 +215,18 @@
         getChannels,
         setMenusVisible
         }, dispatch);
-        export default connect(
-        state => ({
+        export default
+        connect             (
+        state =>            ({
         video:state.videoReducer.video,
         channelCategory:state.channelReducer.chosenCategory,
         autoPlay:state.videoReducer.autoPlay,
         channelsMenuVisible:state.menuReducer.menus.channelsMenuVisible,
         catMenuVisible:state.menuReducer.menus.categoryMenuVisible,
         menus:state.menuReducer.menus
-                 }),
+                            }),
         mapDispatchToProps
-                              )(ChannelList);
+                            )(ChannelList);
 
 
 

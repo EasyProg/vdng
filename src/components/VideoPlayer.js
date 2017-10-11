@@ -14,17 +14,17 @@ import * as $ from 'jquery';
 //import 'semantic-ui-css/semantic.min.css'//;
 import '../styles/css/main_styles.css';
 var proxy = 'https://cors-anywhere.herokuapp.com/';
-var timeFormat = function(seconds)          {
-        var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
-        var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
-        var h = Math.floor(m/60)<10 ? "0"+Math.floor(m/60) : Math.floor(m/60);
-        h = h ==='00'?'':h;
-        if (m&&s&&h)
-        return h+':'+m+":"+s;
-        else if (m&&s&&!h)
-        return  m+":"+s;
-        else return  '00:00'
-                                            };
+// var timeFormat = function(seconds)          {
+//         var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
+//         var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
+//         var h = Math.floor(m/60)<10 ? "0"+Math.floor(m/60) : Math.floor(m/60);
+//         h = h ==='00'?'':h;
+//         if (m&&s&&h)
+//         return h+':'+m+":"+s;
+//         else if (m&&s&&!h)
+//         return  m+":"+s;
+//         else return  '00:00'
+//                                             };
 //window.$ = window.JQuery = JQuery;
         const hls = new Hls();
         class VideoPlayer extends Component {

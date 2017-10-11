@@ -120,8 +120,38 @@ if   (channels) {
     {this.handleClick(this.state.itemChosen,this.state.category);
     $('#video').focus();
     break;}
+    case 39:        {
+        this.props.dispatch(setMenusVisible(
+            {
+                channelsMenuVisible: true,
+                categoryMenuVisible: false,
+                settingsVisible: false
+            }));
+        $('#channels').focus();
+    break;
+                    }
+    case 27: {
+        this.props.dispatch(setMenusVisible(
+            {
+                channelsMenuVisible: false,
+                categoryMenuVisible: false,
+                settingsVisible: false
+            }));
+        $('#video').focus();
+    }
+    break;
+    case 8: {
+        this.props.dispatch(setMenusVisible(
+            {
+                channelsMenuVisible: false,
+                categoryMenuVisible: false,
+                settingsVisible: false
+            }));
+        $('#video').focus();
+    }
+    break;
     default:
-    $('#video').focus();
+    //$('#video').focus();
                             }
                                                     }
     categVisible()                                  {

@@ -3,7 +3,7 @@ import * as settings from '../settings.json';
 import hlsArray from '../hls';
 import parse from '../components/Parsing';
 
-const initialState  = {
+const initialState  =  {
         video:         {link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/51/stream.m3u8',
         channelId:51,
         channel: '1+1',
@@ -24,6 +24,7 @@ const   menuState =    {
         menus:  {
         channelsMenuVisible:false,
         categoryMenuVisible:false,
+        programsVisible:false,
         settingsVisible:false,
         vdArchVisible:false
                 }

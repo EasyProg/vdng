@@ -28,11 +28,12 @@ toggleMenuState()                                   {
             $('#video').focus();
                                                     }
 setPositionClass()                                  {
-if       (this.props.menus.channelsMenuVisible&&
-         !this.props.menus.categoryMenuVisible) return 'divSideBar_StateChannel';
+if      (this.props.menus.channelsMenuVisible&&
+          !this.props.menus.categoryMenuVisible&&
+          !this.props.menus.programsVisible) return 'divSideBar_StateChannel';
 
-else if  (this.props.menus.categoryMenuVisible&&
-          this.props.menus.categoryMenuVisible) return 'divSideBar_StateGroup';
+else if  (this.props.menus.categoryMenuVisible||
+          this.props.menus.programsVisible) return 'divSideBar_StateGroup';
           return 'divSideBar';
                                                     }
 render()   {

@@ -17,9 +17,9 @@ import {changeVideo,
 import Timer from '../components/ui/Timer';
 import * as $ from 'jquery';
 class VideoUpperMenu extends Component                         {
-    static propTypes = {
+    static propTypes =                                         {
     isPlaying:PropTypes.bool.isRequired
-};
+                                                               };
     constructor(props)      {
     super(props);
     this.switchKeyPress = this.switchKeyPress.bind(this);
@@ -39,6 +39,10 @@ class VideoUpperMenu extends Component                         {
     switchKeyPress(event)                                      {
         //event.stopPropagation();
         switch (event.keyCode)                                 {
+            case 32:
+            $('#playerbuttonsdiv').focus();
+            this.props.toggleContext(this.props.isPlaying);
+            break;
             case 40:
                 this.switchChannel('next');
                 break;
@@ -145,7 +149,7 @@ class VideoUpperMenu extends Component                         {
             <progress id='progress-bar' min='0' max='100' value='0' className='displayNone'><div className="progressDiv"/></progress>
             <div  className="divPlayer">
             <Timer isWholeProgramTime={true}/>
-            <div  className="playerButtonsDiv">
+            <div  className="playerButtonsDiv" id="playerbuttonsdiv">
             <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')}/>
             <img src={backward} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
             <img  onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
@@ -167,6 +171,7 @@ export default connect      (
     video:state.videoReducer.video,
     menus:state.menuReducer.menus,
     isTimeShift:state.settingsReducer.timeShift
+
 }),
               mapDispatchToProps
                             )(VideoUpperMenu);

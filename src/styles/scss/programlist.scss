@@ -9,18 +9,19 @@
   height: 101vh;
   position: absolute;
   top:0;
-  left:700px;
+  left:400px;
+  //left:700px;
   background: rgba(0,0,0,0.8);
   transition: left 0.5s ease 100ms;
-  padding-top: 11vh;
+  //padding-top: 11vh;
   //padding-left: 20px;
-  width:350px;
+  width:400px;
                         }
 .dayListItem            {
   margin-top: 50px;
   display: block;
   font-family: "ComfortaaRegular";
-  font-size:1.3em;
+  font-size:1em;
   letter-spacing: 2px;
   margin-bottom: 50px;
                         }
@@ -58,7 +59,7 @@
   width: 310px;
   display: block;
   position: relative;
-  left:0;
+  left:-35px;
                         }
 .programName            {
   margin-left: 10px;
@@ -68,6 +69,6 @@
                         }
 .blockChainDiv          {
   font-family: "ComfortaaRegular";
-  font-size:15px;
+  font-size:20px;
   letter-spacing:1px;
-}
+                        }
