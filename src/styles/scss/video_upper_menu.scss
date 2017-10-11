@@ -26,9 +26,9 @@ $plButtonsLeft:10%;
   left:$plButtonsLeft;
   width: $divPlayerWidth;
   max-width:$divPlayerWidth;
-  min-width:$divPlayerWidth;
-  margin-bottom: 5vh;
-  height: 60px;
+  min-width:350px;
+  margin-bottom: 3vh;
+  height: 70px;
   background: #805EE0;
   display:flex;
   display:-webkit-flex;
@@ -44,32 +44,35 @@ $plButtonsLeft:10%;
   display:flex;
   display:-webkit-flex;
   margin: auto;
-  width: $divPlayerWidth/1.5;
+  width: $divPlayerWidth/3.7;
+  min-width:200px;
   height: 40px;
   justify-content: space-between;
   -webkit-justify-content:space-between;
   align-items: center;
   -webkit-align-items: center;
                                    }
-.playerButtonsDiv>i:hover     {
+.playerButtonsDiv>i:hover          {
   text-shadow: 2px 2px 3px
   rgba(255,255,255,0.3),0 0 1em white;
-}
-.playerButtonsDiv>img:hover   {
-  box-shadow: inset 0px 0px 20px 50px
-  rgba(255,255,255,0.6),0 0 2em white;
-  outline: 0;
-  //border-radius: 45px;
-}
+                                   }
+.playerButtonsDiv>img:hover        {
+  //box-shadow: inset 0px 0px 60px 50px
+  //rgba(255,255,255,0.6),0 0 2em white;
+  //outline: 0;
+  //filter:drop-shadow(12px,12px,7px,rgba(0,0,0,0.5));
+  //border-radius: 170px;
+                                   }
 .videoTime                         {
   cursor: default;
-  line-height: 2.5em;
+  line-height: 2.9em;
   margin-left: 20px;
-  margin-right: 40px;
+  margin-right: 20px;
   height: 60px;
   width:  50px;
-  font-size: 1.5em;
-  font-family: "RobotoRegular";
+  font-size: 1.4em;
+  font-family: "ComfortaaRegular";
+  letter-spacing:1px;
   color: white;
                                    }
 .progressBar                       {
@@ -111,8 +114,8 @@ $plButtonsLeft:10%;
   width:200px;
   height:3px;
   position: relative;
-  top:-104px;
-  left:170px;
+  top:0px;
+  left:10px;
   background: #575757;
                                    }
 
@@ -131,4 +134,5 @@ opacity:0.3;
 .backwardDisButton                 {
 @extend .backwardActiveButton;
 opacity:0.3;
+background:transparent;
                                    }

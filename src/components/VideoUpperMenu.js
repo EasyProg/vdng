@@ -5,6 +5,8 @@ import pause from '../img/pause-button.gif';
 import play from '../img/play-rounded-button.gif';
 import backward from '../img/fast-backward-button.gif';
 import forward from '../img/fast-forward-button.gif';
+import prev from '../img/play-prev.gif';
+import next from '../img/play-next.gif';
 import '../styles/css/main_styles.css';
     import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -135,7 +137,7 @@ class VideoUpperMenu extends Component                         {
             }
         }
     }
-
+//onClick={(e)=>this.props.handleCurrentTimeContext(0)}
         render()
             {
             return (
@@ -144,11 +146,11 @@ class VideoUpperMenu extends Component                         {
             <div  className="divPlayer">
             <Timer isWholeProgramTime={true}/>
             <div  className="playerButtonsDiv">
-            <Icon className="large inverted step backward" onClick={(e)=>this.switchChannel('prev')}/>
-            <img src={backward} onClick={(e)=>this.props.handleCurrentTimeContext(0)} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
+            <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')}/>
+            <img src={backward} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
             <img  onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
-            <img src={forward}  onClick={(e)=>this.props.handleCurrentTimeContext(1)} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
-            <Icon className="large inverted step forward" onClick={(e)=>this.switchChannel('next')}/>
+            <img src={forward}  className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
+            <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')}/>
             </div>
             <Timer isWholeProgramTime={false}/>
             </div>

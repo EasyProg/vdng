@@ -169,7 +169,7 @@
                }
             </Scrollbars>
             {/*<div className="menuBottom"/>*/}
-            {this.props.video.channelId?<ProgramList programs={parseProgram(this.props.video.channelId)}/>:''}
+            {/*{this.props.video.channelId?<ProgramList programs={parseProgram(this.props.video.channelId)}/>:''}*/}
             </div>
             </div>
                                                 );

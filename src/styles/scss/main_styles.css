@@ -139,11 +139,11 @@ video::media-controls {
 
 .homeButton, .homeButton:hover {
   position: absolute;
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   right: 10px;
   text-align: center;
-  line-height: 2.8em;
+  line-height: 5.5em;
   margin-top: 20px; }
 
 .homeButton:hover {
@@ -512,9 +512,9 @@ hr {
   left: 10%;
   width: 80%;
   max-width: 80%;
-  min-width: 80%;
-  margin-bottom: 5vh;
-  height: 60px;
+  min-width: 350px;
+  margin-bottom: 3vh;
+  height: 70px;
   background: #805EE0;
   display: flex;
   display: -webkit-flex;
@@ -530,7 +530,8 @@ hr {
   display: flex;
   display: -webkit-flex;
   margin: auto;
-  width: 53.3333333333%;
+  width: 21.6216216216%;
+  min-width: 200px;
   height: 40px;
   justify-content: space-between;
   -webkit-justify-content: space-between;
@@ -540,19 +541,16 @@ hr {
 .playerButtonsDiv > i:hover {
   text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.3), 0 0 1em white; }
 
-.playerButtonsDiv > img:hover {
-  box-shadow: inset 0px 0px 20px 50px rgba(255, 255, 255, 0.6), 0 0 2em white;
-  outline: 0; }
-
 .videoTime {
   cursor: default;
-  line-height: 2.5em;
+  line-height: 2.9em;
   margin-left: 20px;
-  margin-right: 40px;
+  margin-right: 20px;
   height: 60px;
   width: 50px;
-  font-size: 1.5em;
-  font-family: "RobotoRegular";
+  font-size: 1.4em;
+  font-family: "ComfortaaRegular";
+  letter-spacing: 1px;
   color: white; }
 
 .progressBar, .progressBarFull {
@@ -589,8 +587,8 @@ hr {
   width: 200px;
   height: 3px;
   position: relative;
-  top: -104px;
-  left: 170px;
+  top: 0px;
+  left: 10px;
   background: #575757; }
 
 .progresses::-webkit-progress-bar {
@@ -605,13 +603,14 @@ hr {
   opacity: 0.3; }
 
 .backwardDisButton {
-  opacity: 0.3; }
+  opacity: 0.3;
+  background: transparent; }
 
 .divBottomPlayer, .divBottomPlayerFull {
   z-index: 2147483647;
   position: absolute;
   bottom: 20px;
-  left: 18%;
+  left: 16%;
   align-self: center;
   -webkit-align-self: center;
   width: 80%;
@@ -622,8 +621,7 @@ hr {
   justify-content: space-between;
   -webkit-justify-content: center;
   align-items: center;
-  -webkit-align-items: center;
-  margin-top: 10px; }
+  -webkit-align-items: center; }
 
 .divBottomPlayerFull {
   z-index: 2147483647;
@@ -637,8 +635,8 @@ hr {
   display: flex;
   display: -webkit-flex;
   -webkit-align-self: center;
-  width: 100%;
-  max-width: 450px;
+  width: 600px;
+  max-width: 600px;
   min-width: 300px;
   height: 50px;
   justify-content: space-between;

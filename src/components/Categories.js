@@ -29,6 +29,7 @@ import * as $ from 'jquery';
 import ReactDOM from 'react-dom';
 import parse from './Parsing';
 import CategoryName from './ui/CategoryName';
+import {Scrollbars} from 'react-custom-scrollbars';
 class Categories extends Component              {
     constructor(props) {
     super(props);
@@ -151,7 +152,7 @@ render()                                            {
                           reversed={true}
             />
         </div>
-    <PerfectScrollbar>
+    <Scrollbars>
     {
                             this.Menu.map           ((item,i)=>
                             <div key={i} className='categoryItem' onClick={e=>this.handleClick (i,item.category)} tabIndex={i}>
@@ -163,7 +164,7 @@ render()                                            {
                             </div>
                                                     )
     }
-    </PerfectScrollbar>
+    </Scrollbars>
     <div className="menuBottom"/>
     </div>
         <div className="innerDiv">
