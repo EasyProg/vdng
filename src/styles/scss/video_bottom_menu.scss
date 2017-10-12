@@ -9,7 +9,7 @@
   //left:20%;
   width: 80%;
   max-width: 80%;
-  min-width: 150px;
+  min-width: 400px;
   height: 70px;
   //rgba(0,0,0,0.1);
   display: flex;
@@ -67,6 +67,10 @@ top:15%;
   text-align: center;
   padding-top: 15px;
                               }
+.iconsNewResDiv               {
+@extend  .iconsDiv;
+margin-left: 400px;
+                              }
 .iconsLiveDiv                 {
 @extend .iconsDiv;
 line-height: 4.3em;
@@ -89,11 +93,13 @@ line-height: 4.3em;
   padding-top: 15px;
   width:60px;
   height:55px;
-  position:inherit;
-  right:140px;
+  position:fixed;
+  right:12%;
+  margin:auto;
   //left:85%;
   //margin-left: 10px;
   min-width:60px;
+  display:block;
                               }
 .iconResDivFull               {
   @extend .iconResDiv;

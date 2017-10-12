@@ -10,22 +10,8 @@ import  Hls from 'hls.js';
 import {bindActionCreators} from 'redux';
 import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
-//import css//
-//import 'semantic-ui-css/semantic.min.css'//;
 import '../styles/css/main_styles.css';
 var proxy = 'https://cors-anywhere.herokuapp.com/';
-// var timeFormat = function(seconds)          {
-//         var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
-//         var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
-//         var h = Math.floor(m/60)<10 ? "0"+Math.floor(m/60) : Math.floor(m/60);
-//         h = h ==='00'?'':h;
-//         if (m&&s&&h)
-//         return h+':'+m+":"+s;
-//         else if (m&&s&&!h)
-//         return  m+":"+s;
-//         else return  '00:00'
-//                                             };
-//window.$ = window.JQuery = JQuery;
         const hls = new Hls();
         class VideoPlayer extends Component {
         //vd = this.video?this.video.video:'';
@@ -41,38 +27,26 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
         this.handlePlay    =    this.handlePlay.bind(this);
         this.escFullScreen = this.escFullScreen.bind(this);
         this.videoOnLoad   = this.videoOnLoad.bind(this);
-        //this.isFavorite    = this.isFavorite.bind(this);
-        //this.toggleFavorite = this.toggleFavorite.bind(this);
-        this.state = {playerButtonsAppear:false};
         this.timer = '';
-        this.state = {fullScreen:false,
-                      isFavorite:false
-                      };
+        this.state = {fullScreen:false};
                                             }
         //Component Functions
         componentDidMount()                 {
-        var appearsVideo = this.menuFullScreenAppears;
-        $('body').keydown (function(event)  {
-            if (event.keyCode===13)
-            {
-            appearsVideo();
-            }
-                                            });
-        // $('#video,#panelDiv').click(function(event)
+        //var appearsVideo = this.menuFullScreenAppears;
+        // $('body').keydown (function(event)  {
+        //     if (event.keyCode===13)
+        //     {
+        //     appearsVideo();
+        //     }
+        //                                     });
+        // $('#video,#panelDiv').mousemove(function(event)
         //                                     {
         //     appearsVideo();
         //                                     });
-        $('#video,#panelDiv').mousemove(function(event)
-                                            {
-            appearsVideo();
-                                            });
-        //$('#video').muted = false;
         this.videoOnLoad();
-        //this.setState({isFavorite:this.isFavorite(this.props.video.channelId)});
-                                            }
+                                             }
         toggle(isPlaying)                   {
         var  vd = this.video.video;
-        //const vd = this.video;
         this.props.dispatch(togglePlay(isPlaying));
         if (isPlaying)                      {
               vd.play();
@@ -83,7 +57,7 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
                                             }
         changeRes(res)                      {
                                             }
-        videoOnLoad() {
+        videoOnLoad()                       {
             if (this.props.video) {
                 var vd = document.getElementById('video');
                 if (navigator.userAgent.indexOf('WOW64') !== -1) {
@@ -100,25 +74,20 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
                         }
                     });
                 var funcCnt = this;
-                hls.on(Hls.Events.ERROR, function (event, data) {
-                    {
-                        //console.log(data.type);
+                //set funcat function t
+                hls.on(Hls.Events.ERROR, function (event, data)
+                                            {
+                                            {
                         switch (data.type)  {
                             case Hls.ErrorTypes.NETWORK_ERROR:
-                                //console.log('This is a SHIT');
-                                //funcCnt.props.dispatch
-                                //funcCnt.setState({video: 'none'});
                                 break;
                             default:
-                                //console.log('Default');
                                 break;
                                             }
-
-
-                    }
-                });
-            }
-                    }
+                                            }
+                                            });
+                                            }
+                                            }
         handleCurrTime(param)               {
         var vd = this.video.video;
         if (param===1)
@@ -205,16 +174,18 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
          this.props.dispatch(toggleFullScreen(false));
          this.setState({fullScreen:false});
                                             }}
-        //Component Functions
+        //Element render
         render()                            {
         this.videoOnLoad();
         return                              (
-                            <div             ref=      {(dv)=>this.div=dv} className="centerDiv" id="centerDiv">
-                            <Video           isPlaying={this.props.isPlaying}
-                                             fullSize= {this.props.fullScreen}
-                                             video=    {this.props.video}
-                                             ref=      {(video)=>this.video=video}
-                                             onClick = {e=>this.menuFullScreenAppears()}
+                            <div             ref=         {(dv)=>this.div=dv}
+                                                          className="centerDiv" id="centerDiv">
+                            <Video           isPlaying  = {this.props.isPlaying}
+                                             fullSize   = {this.props.fullScreen}
+                                             video      = {this.props.video}
+                                             ref        = {(video)=>this.video=video}
+                                             onClick    = {e=>this.menuFullScreenAppears()}
+                                             onMouseMove= {e=>this.menuFullScreenAppears()}
                                              onDblClick = {e=>this.changeSize()}
                             />
                             <div className="panelDiv" id="panelDiv"/>
@@ -239,7 +210,7 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
                        isPlaying:            state.videoReducer.isPlaying,
                        autoPlay:             state.videoReducer.autoPlay,
                        fullScreen:           state.videoReducer.fullScreen,
-                       channels:             state.channelReducer.channels
+                       //channels:             state.channelReducer.channels,
                        }),
                        mapDispatchToProps
                                                 )(VideoPlayer);

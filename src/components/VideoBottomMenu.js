@@ -1,5 +1,6 @@
 import React, { Component,PropTypes } from 'react';
-import {Button,Icon} from 'semantic-ui-react'
+import {Button,Icon} from 'semantic-ui-react';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import border     from '../img/switch_button.gif';
 import live       from '../img/live-icon.gif';
@@ -8,8 +9,11 @@ import favorite   from   '../img/bookmark-black-shape.gif';
 import 'semantic-ui-css/semantic.min.css';
 import '../styles/css/main_styles.css';
 import aspectratio from '../img/aspect_ratio.gif';
+import {setFavor,getChannels} from '../actions/actions';
 
-class   VideoBottomMenu extends Component
+
+
+class VideoBottomMenu extends Component
 {
     static propTypes =
     {
@@ -27,8 +31,10 @@ class   VideoBottomMenu extends Component
                             };
         this.toggleFavorite = this.toggleFavorite.bind(this);
         this.isFavorite=      this.isFavorite.bind(this);
+        this.filterChannels= this.filterChannels.bind(this);
                             }
-    componentWillReceiveProps() {
+    componentWillReceiveProps()
+                            {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
                             }
     componentDidMount()     {
@@ -39,12 +45,12 @@ class   VideoBottomMenu extends Component
         this.setState       ({
             showResolution:false,
             resolution:res
-        });
+                            });
         this.props.changeResContext(res.substr(0,res.length-1));
-    }
+                            }
     changeSize(e)           {
         this.props.changeSizeContext();
-    }
+                            }
     setLock(vl)             {
         this.setState       (
             {
@@ -53,29 +59,46 @@ class   VideoBottomMenu extends Component
                             )
                             }
     isFavorite(channelId)   {
+        console.log(channelId+'......'+localStorage.getItem(channelId));
         if (localStorage.getItem(channelId)!==null)
+        {
             return true;
+        }
         else
             return false
 
                             }
-    setFavor() {
-        this.props.setFavoriteContext();
-        //this.forceUpdate();
-    }
-    toggleFavorite()                    {
+        filterChannels(channels,category)  {
+        var cat = category?category.toString():'All channels';
+        let filteredChannels = [];
+        if   (channels)
+        {
+            filteredChannels =  channels.filter(function(item)
+            {
+                if (cat !==  'All channels'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
+                return       item.category.toUpperCase() === cat.toUpperCase();
+                else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
+                else return  item.category
+            })
+        }
+        this.props.dispatch(getChannels(filteredChannels));
+        //return filteredChannels;
+                                            };
+        toggleFavorite()                    {
         //this.props.dispatch(setFavor(this.props.channels,this.props.video.channelId));
         if   (localStorage.getItem(this.props.channelId)===null)
-        {   console.log('shit!!!');
+        {   //console.log('shit!!!');
             localStorage.setItem(this.props.channelId, 'true');
         }
 
-        else  localStorage.removeItem(this.props.channelId);
+        else localStorage.removeItem(this.props.channelId);
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
+        this.filterChannels(this.props.channels,this.props.channelCategory);
+        //this.props.dispatch(setFavor(this.isFavorite(this.props.channelId)));
         //this.forceUpdate();
         //this.isFavorite(this.props.video.channelId);
         //console.log(localStorage.getItem(this.props.video.channelId);
-    }
+                                            }
     render () {
         {if (this.state.showResolution  === false)    {
             return (
@@ -83,29 +106,29 @@ class   VideoBottomMenu extends Component
                     <div className="divBottomPlayer">
                         <div className="playerButtonsBottomDiv">
                             <div className="iconsLockedDiv" onClick={(e)=>this.setLock(this.state.lock)}>
-                                <Icon className={this.state.lock?"big inverted lock alternate":"big inverted unlock alternate"}/>
+                            <Icon className={this.state.lock?"big inverted lock alternate":"big inverted unlock alternate"}/>
                             </div>
                             <div className="iconsDiv" onClick={(e)=>this.toggleFavorite()}>
-                                <img src={this.state.Favorite?favorite:nofavorite} width={20} height={25}/>
+                            <img src={this.state.Favorite?favorite:nofavorite} width={20} height={25}/>
                             </div>
                             <div className="iconsLiveDiv">
-                                <img src={live} width={40} height={30} className="imgLive"/>
+                            <img src={live} width={40} height={30} className="imgLive"/>
                             </div>
                             <div className="iconsDiv" onClick={(e) => this.setState({showResolution: true})}>
-                                <div className="upper_buttons_res">
-                                    {this.state.resolution}
-                                </div>
+                            <div className="upper_buttons_res">
+                            {this.state.resolution}
                             </div>
-                        </div>
-                        <div className="iconResDiv" onClick={(e)=>this.changeSize(e)}>
+                            </div>
+                            <div className="iconResDiv" onClick={(e)=>this.changeSize(e)}>
                             <img src={aspectratio} width={25} height={25}/>
+                            </div>
                         </div>
                     </div>
                 </div>
             )
-        }
+                                                        }
         else {
-            return              (
+            return                                      (
                 <div id='vdbottommenu' className='divBottomPlayer'>
                     <div className="playerButtonsBottomDivRes">
                         {
@@ -115,15 +138,22 @@ class   VideoBottomMenu extends Component
                         }
                     </div>
                 </div>
-            )
+                                                        )
         }
         }
     }
 }
 
-export default connect (
-    state => ({  fullScreen:state.videoReducer.fullScreen,
-                 channelId:state.videoReducer.video.channelId
-    }),
-    ({})
-                       )(VideoBottomMenu);
+const mapDispatchToProps = (dispatch) => bindActionCreators
+({
+    dispatch,
+    setFavor,getChannels
+},  dispatch);
+export default connect  (
+    state =>            ({fullScreen:state.videoReducer.fullScreen,
+                          channelId: state.videoReducer.video.channelId,
+                          channelCategory:state.channelReducer.chosenCategory,
+                          channels:state.channelReducer.channels,
+                        }),
+    mapDispatchToProps
+                        )(VideoBottomMenu);

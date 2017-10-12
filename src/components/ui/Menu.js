@@ -35,11 +35,11 @@ class Menu extends Component                {
         }
                                              }
     render()   {
+        if (!this.props.fullScreen)
         return (
         <div id="menu" className="mainMenuDiv">
                 <div className="menuDives">
-                    <HomeButton visible={this.props.menus.categoryMenuVisible||
-                                         this.props.menus.channelsMenuVisible}/>
+                    <HomeButton visible={!this.props.menus.channelsMenuVisible}/>
                     <Categories visible={this.props.menus.categoryMenuVisible}
                                 channelVisible={this.props.menus.channelsMenuVisible}
                                 toggleMenuStateContext={this.toggleMenuState}
@@ -64,13 +64,14 @@ class Menu extends Component                {
                 <HomeMenu visible={this.props.menus.settingsVisible} isParentControl/>
                 </div>
         </div>
-                )
+                );
+        else return null
                 }
 
                                         }
-const mapDispatchToProps = (dispatch) => bindActionCreators( {
+const mapDispatchToProps = (dispatch) => bindActionCreators(  {
 dispatch,setMenusVisible,getChannels
-                                                             }, dispatch);
+                                                              }, dispatch);
 export default connect (
     state => ({fullScreen:state.videoReducer.fullScreen,
                channel:   state.videoReducer.video.channel,

@@ -56,21 +56,13 @@ export function setMenusVisible (visibility)
             }
 
                                             }
-export function setFavor (channels,channelId)
+export function setFavor (favorite)
                                             {
-var newChannels = channels.map ((item)=>    {
-  if    (item.channelId===channelId)        {
-         item.favorite = true;
-
-                                            }
-return item
-
-                                            });
-    return  {
-                type:'SET_FAVORITE',
-                channels:newChannels
+return      {
+        type:'SET_FAVORITE',
+        isFavor:favorite
             }
-                                             }
+                                            }
 
 
 

@@ -18,7 +18,8 @@ const initialState  =  {
                        };
 const   channelState = {
         chosenCategory   :'All channels',
-        channels:parse(hlsArray)
+        channels:parse(hlsArray),
+        isFavor:false
                        };
 const   menuState =    {
         menus:  {
@@ -29,11 +30,12 @@ const   menuState =    {
         vdArchVisible:false
                 }
                        };
-const   settingsState = {
+const   settingsState ={
         timeShift:       settings.timeshift.status,
         parentalControl: settings.parental_control.status,
         catchUp:         false,
         epgStatus:       false,
+        isFavorite:      false
                        };
 
 function videoReducer(state=initialState,action=null)       {
@@ -59,8 +61,10 @@ function channelReducer (state=channelState,action=null)    {
         return {...state,chosenCategory:action.category};
         case 'GET_CHANNELS':
         return {...state,channels:action.channelsArr};
-        case 'SET_FAVORITE':
-        return {...state,channels:action.channels};
+        // case 'SET_FAVORITE':
+        // return {...state,channels:action.channels};
+        case 'SET_FAVORITE' :
+        return {...state, isFavor:action.isFavor};
         default:
         return state;
                                                             }
@@ -75,7 +79,8 @@ function menuReducer (state=menuState,action=null)          {
                          }
                                                             }
 function settingsReducer(state=settingsState,action=null)   {
-        return  state;
+
+            return state;
                                                             }
 
 

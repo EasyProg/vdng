@@ -43,7 +43,7 @@ getDayOfWeek (dt)           {
     return                  (
     <div className="programList">
         <div className="menuHeaderCh">
-        <HomeButton/>
+        <HomeButton visible={true}/>
         </div>
         <Scrollbars>
              {this.props.programs.map((e,i)=>
@@ -52,7 +52,7 @@ getDayOfWeek (dt)           {
                         {e.date} <span className="textSpan">{this.getDayOfWeek(e.date)}</span>
                         <hr className="hrProgram"/>
                     </div>
-                 <div className="dayListItem">
+                    <div className="dayListItem">
                             {
                      this.props.programs[i]['data'].map
                             (

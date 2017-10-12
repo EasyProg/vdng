@@ -28,7 +28,8 @@
     this.state =    {
                     itemChosen:0,
                     channelId:-1,
-                    isClicked:false
+                    isClicked:false,
+                    programs:[]
                     }
                                                }
     static propTypes    =                      {
@@ -53,7 +54,6 @@
             }
                                                 }
     handleKey(e,elem)        {
-        console.log(e.keyCode);
         switch (e.keyCode)   {
             case 40:
                 this.switchChannel('next', this.state.channelId);
@@ -86,25 +86,25 @@
                 $('#video').focus();
                         }
             break;
-            case 27: {
+            case 27:    {
                 this.props.dispatch(setMenusVisible(
-                    {
+                        {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false
                     }));
-                $('#video').focus();
-                    }
+                    $('#video').focus();
+                        }
                 break;
-            case 8: {
+            case 8:     {
                 this.props.dispatch(setMenusVisible(
-                    {
+                        {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false
-                    }));
+                        }));
                 $('#video').focus();
-                    }
+                        }
                              }
                              }
     handlePlay()                                {
@@ -112,7 +112,8 @@
                 setTimeout(function()           {
                     //Скрыть плей
                     $("#vduppermenu").fadeOut(1000);
-                                                },5000);
+                                                }
+                                                ,5000);
 
                                                 }
     menuFullScreenAppears()
@@ -134,23 +135,37 @@
             appearsVideo();
                                                         });
     //this.setState({isClicked:true});
-    this.props.dispatch(setMenusVisible         (
+    //console.log(this.props.video.channelId);
+    var parseProgramsArr = parseProgram(elem.channelId);
+    if (parseProgramsArr.length>0)      {
+    this.props.dispatch(setMenusVisible(
             {
-                programsVisible:true,
-                channelsMenuVisible:true,
-                categoryMenuVisible:this.props.menus.categoryMenuVisible,
-                settingsVisible:false
+                programsVisible: true,
+                channelsMenuVisible: true,
+                categoryMenuVisible: this.props.menus.categoryMenuVisible,
+                settingsVisible: false
             }
-                                                ));
-
+                                        ));
+    this.setState({programs: parseProgram(elem.channelId)});
+                                        }
+    else this.props.dispatch(setMenusVisible
+            (
+            {
+            programsVisible: false,
+            channelsMenuVisible: true,
+            categoryMenuVisible: this.props.menus.categoryMenuVisible,
+            settingsVisible: false
+            }));
+    //Execute programm parsing
+    //this.setState({programs:parseProgram(this.props.video.channelId)})
                                                 }
     categVisible()                              {
-        this.props.dispatch(setMenusVisible     (
-            {
+    this.props.dispatch(setMenusVisible         (
+                                                {
                 channelsMenuVisible:true,
                 categoryMenuVisible:true,
                 settingsVisible:false
-            }
+                                                }
                                                 ));
 
                                                 }
@@ -162,7 +177,8 @@
             <div className={this.props.channelsMenuVisible&&this.props.catMenuVisible?
                           'menuChannelLeft':this.props.channelsMenuVisible&&
                           !this.props.catMenuVisible?'menuChannel':'menuChannelNone'}
-                          onClick={this.props.onClick} id="channels" tabIndex={1}  onKeyDown={e=>this.handleKey(e)}
+                          onClick={this.props.onClick} id="channels" tabIndex={1}
+                          onKeyDown={e=>this.handleKey(e)}
             >
             {this.props.playList.length?
             <div className="menuHeaderCh">
@@ -171,11 +187,11 @@
                           categVisibleContext = {this.categVisible}
                           reversed= {false}
             />
-            <HomeButton  visible=   {this.props.menus.programsVisible}/>
+            <HomeButton  visible  = {this.props.menus.channelsMenuVisible&&!this.props.menus.programsVisible}/>
             </div>:''
             }
             <Scrollbars //style={{overflow:'visible',position:'absolute',width:400}}
-                        autoHide
+                         autoHide
 
 
             >
@@ -200,7 +216,8 @@
             <div className="menuBottom"/>
             {/*//this.state.isClicked&&this.props.menus.channelsMenuVisible?*/}
             {/*//this.props.menus.programsVisible?*/}
-            <ProgramList visible={this.props.menus.programsVisible} programs={parseProgram(this.props.video.channelId)}/>
+            <ProgramList visible={this.props.menus.programsVisible}
+            programs={this.state.programs}/>
             </div>
             </div>
                                                 );
@@ -223,7 +240,10 @@
         autoPlay:state.videoReducer.autoPlay,
         channelsMenuVisible:state.menuReducer.menus.channelsMenuVisible,
         catMenuVisible:state.menuReducer.menus.categoryMenuVisible,
-        menus:state.menuReducer.menus
+        menus:state.menuReducer.menus,
+        channels:state.channelReducer.channels
+        //isFavor:state.channelReducer.isFavorite
+        //settings:state.settingsReducer
                             }),
         mapDispatchToProps
                             )(ChannelList);

@@ -9,7 +9,25 @@ import * as $ from 'jquery';
 class HomeButton extends Component                  {
 constructor(props)   {
     super(props);
+    //this.bindEvents = this.bindEvents.bind(this);
                      };
+
+// bindEvents()                                        {
+// console.log(this);
+// if (this.props.menus.settingsVisible||
+//     this.props.menus.categoryMenuVisible||
+//     this.props.menus.programsVisible||
+//     this.props.menus.channelsMenuVisible)
+// {
+//     $("#video").unbind('mousemove');
+//     $("#video").unbind('click');
+//     $("#panelDiv").unbind('mousemove');
+//     $("#panelDiv").unbind('click');
+// }
+//
+//
+//
+//                                                     }
 toggleMenuState()                                   {
         var channelsState = this.props.menus.channelsMenuVisible;
         var settingsState = this.props.menus.settingsVisible;
@@ -25,10 +43,15 @@ toggleMenuState()                                   {
 
             }));
             //Set focus to menu
+            $("#vduppermenu,#vdbottommenu").fadeOut(100);
+            //$("#video").unbind('mousemove');
+            //$("#video").unbind('click');
+            //$("#panelDiv").off('click','mousemove');
             $('#video').focus();
+            //this.bindEvents();
                                                     }
 setPositionClass()                                  {
-if      (this.props.menus.channelsMenuVisible&&
+if        (this.props.menus.channelsMenuVisible&&
           !this.props.menus.categoryMenuVisible&&
           !this.props.menus.programsVisible) return 'divSideBar_StateChannel';
 
@@ -37,7 +60,7 @@ else if  (this.props.menus.categoryMenuVisible||
           return 'divSideBar';
                                                     }
 render()   {
-    if (!this.props.visible)
+    if      (this.props.visible)
     return (<div
             className={this.setPositionClass()}
             onClick={(e) => this.toggleMenuState()}>
@@ -52,6 +75,6 @@ const mapDispatchToProps = (dispatch) =>
 },  dispatch);
 export default connect (
     state => ({ menus:state.menuReducer.menus
-             }),
+              }),
     mapDispatchToProps
 )(HomeButton);

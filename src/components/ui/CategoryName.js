@@ -10,7 +10,7 @@ export default class CategoryName extends Component {
   visible:PropTypes.bool.isRequired,
   reversed:PropTypes.bool.isRequired
                      };
-  render()  {
+    render(){
     return  (
             <div className={this.props.visible?'divCateg':'displayNone'}>
             <div className="menuHeaderCircleDiv" onClick={(e)=>this.props.categVisibleContext()}>

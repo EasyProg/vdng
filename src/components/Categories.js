@@ -12,8 +12,6 @@ import underline from '../img/Underline.png';
 import play from '../img/play-categ.png';
 import lock from '../img/lock.png';
 import all from '../img/crowd-of-users.png';
-import menu from '../img/main_menu.gif';
-import point from '../img/pointing-to-left.gif';
 //import elements
 import {Icon} from 'semantic-ui-react';
 import ChannelList from '../components/ChannelList';
@@ -30,13 +28,13 @@ import ReactDOM from 'react-dom';
 import parse from './Parsing';
 import CategoryName from './ui/CategoryName';
 import {Scrollbars} from 'react-custom-scrollbars';
-class Categories extends Component              {
+class  Categories extends Component             {
+
     constructor(props) {
     super(props);
     this.state =                                {
     itemChosen:1,
     category:'All channels',
-    //channels:this.props.channels
                                                 };
     this.filterChannels = this.filterChannels.bind(this);
     this.categVisible = this.categVisible.bind(this);
@@ -44,23 +42,26 @@ class Categories extends Component              {
     static propTypes =                          {
     visible:PropTypes.bool.isRequired,
     channelVisible:PropTypes.bool.isRequired,
-    //channels:PropTypes.array.isRequired
                                                 };
     handleClick (index,cat)                     {
     this.setState(
     {
     itemChosen:index,
     category:cat
-
-    //categoryId:0,
-    //channels:this.filterChannels(parse(hlsArray),cat)
     });
-    //this.props.dispatch();
     this.props.dispatch(toggleCategory(cat));
     this.props.dispatch(getChannels(this.filterChannels(parse(hlsArray),cat)));
+    if (this.filterChannels(parse(hlsArray),cat).length>0)
     this.props.dispatch(setMenusVisible         (
                                                 {
     channelsMenuVisible:true,
+    categoryMenuVisible:true,
+    settingsVisible:false
+                                                }));
+    else
+    this.props.dispatch(setMenusVisible(
+                                                {
+    channelsMenuVisible:false,
     categoryMenuVisible:true,
     settingsVisible:false
                                                 }));
@@ -78,27 +79,27 @@ class Categories extends Component              {
     {name:'Comedy',      src:masks,     category:'Развлекательный'},
     {name:'Blocked',     src:lock,      category:'Locked'},
                                                  ];
-filterChannels(channels,category)                {
-var cat = category?category.toString():'All channels';
-let filteredChannels = [];
-if   (channels) {
+    filterChannels(channels,category)           {
+    var cat = category?category.toString():'All channels';
+    let filteredChannels = [];
+    if   (channels)                             {
      filteredChannels =  channels.filter(function(item)
      {
-     if (cat !== 'All channels'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
-     return       item.category.toUpperCase() === cat.toUpperCase();
-     else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
-     else return  item.category
+         if (cat !== 'All channels'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
+         return       item.category.toUpperCase() === cat.toUpperCase();
+         else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
+         else return  item.category
      })
-                }
+                                                }
     this.props.dispatch(getChannels(filteredChannels));
     return filteredChannels;
-                                                  };
-    switchCateg(event,cat)                        {
+                                                };
+    switchCateg(event,cat)                      {
     var i = this.Menu.map(x => x.category).indexOf(cat);
     var items = document.getElementsByClassName('categoryItem');
     //
-    var nextElem = i + 1 >=    this.Menu.length ?  0 : i + 1;
-    var prevElem = i - 1 < 0 ? this.Menu.length  - 1 : i - 1;
+    var nextElem = i + 1>=    this.Menu.length ?  0 : i + 1;
+    var prevElem = i - 1<0 ? this.Menu.length  - 1 : i - 1;
     switch (event.keyCode)  {
     case 40:
     {items[nextElem].focus();
@@ -123,7 +124,7 @@ if   (channels) {
     case 39:        {
         this.props.dispatch(setMenusVisible(
             {
-                channelsMenuVisible: true,
+                channelsMenuVisible: this.props.channels.length>0,
                 categoryMenuVisible: false,
                 settingsVisible: false
             }));
@@ -151,31 +152,24 @@ if   (channels) {
     }
     break;
     default:
-    //$('#video').focus();
                             }
                                                     }
     categVisible()                                  {
+    if (this.props.channels.length>0)
             this.props.dispatch(setMenusVisible     (
             {
-                channelsMenuVisible:false,
-                categoryMenuVisible:true,
+                channelsMenuVisible:true,
+                categoryMenuVisible:false,
                 settingsVisible:false
             }                                       ));
 
                                                     }
-
-render()                                            {
+    render()                                        {
     return                                          (
     <div className="hoverDiv">
     <div className={this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories"
          onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
         <div className="menuHeaderCat">
-            {/*<div className='divSideBar' onClick={(e) => this.props.toggleMenuStateContext()}>*/}
-                {/*<img src={menu} height={45} width={30}/>*/}
-            {/*</div>*/}
-            {/*<div className="menuHeaderCircleDiv" onClick={(e)=>this.categVisible()}>*/}
-                {/*<img src={point} width={20} height={20}/>*/}
-            {/*</div>{this.state.category}*/}
             <CategoryName visible ={true}
                           categ   ={this.props.channelCategory}
                           categVisibleContext = {this.categVisible}
@@ -184,7 +178,7 @@ render()                                            {
         </div>
     <Scrollbars>
     {
-                            this.Menu.map           ((item,i)=>
+                            this.Menu.map        ((item,i)=>
                             <div key={i} className='categoryItem' onClick={e=>this.handleClick (i,item.category)} tabIndex={i}>
                             <div         className="categoryImage"><img src={item.src} width="40" height="40"/></div>
                             <div         className="categoryText">
@@ -192,7 +186,7 @@ render()                                            {
                             </div>
                             <img src={underline} height={5} width={300} className={this.state.itemChosen===i?'categoryLine':'categoryLineNone'}/>
                             </div>
-                                                    )
+                                                 )
     }
     </Scrollbars>
     <div className="menuBottom"/>
@@ -206,9 +200,9 @@ render()                                            {
             />
          </div>
     </div>
-                                                  )
-                                                  }
-}
+                                                    )
+                                                    }
+                                                    }
 const mapDispatchToProps = (dispatch) =>
 bindActionCreators({
 dispatch,setMenusVisible,getChannels,toggleCategory
@@ -216,6 +210,7 @@ dispatch,setMenusVisible,getChannels,toggleCategory
 export default connect(
     state => ({channels:state.channelReducer.channels,
                channelCategory:state.channelReducer.chosenCategory,
+               isFavor:state.channelReducer.isFavor
              }),
     mapDispatchToProps
 )(Categories);
