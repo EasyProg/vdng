@@ -57,14 +57,14 @@ class  Categories extends Component             {
     channelsMenuVisible:true,
     categoryMenuVisible:true,
     settingsVisible:false
-                                                }));
+                                                },true));
     else
     this.props.dispatch(setMenusVisible(
                                                 {
     channelsMenuVisible:false,
     categoryMenuVisible:true,
     settingsVisible:false
-                                                }));
+                                                },true));
                                                 }
     Menu =                                      [
     {name:'Favorites',   src:star,      category:'Любимые'},
@@ -119,15 +119,17 @@ class  Categories extends Component             {
     break;
     case 13:
     {this.handleClick(this.state.itemChosen,this.state.category);
-    $('#video').focus();
-    break;}
+    //$('#video').focus();
+    $('#channels').focus();
+    break;
+    }
     case 39:        {
         this.props.dispatch(setMenusVisible(
             {
                 channelsMenuVisible: this.props.channels.length>0,
                 categoryMenuVisible: false,
                 settingsVisible: false
-            }));
+            },this.props.channels.length>0));
         $('#channels').focus();
     break;
                     }
@@ -137,7 +139,7 @@ class  Categories extends Component             {
                 channelsMenuVisible: false,
                 categoryMenuVisible: false,
                 settingsVisible: false
-            }));
+            },false));
         $('#video').focus();
     }
     break;
@@ -161,7 +163,7 @@ class  Categories extends Component             {
                 channelsMenuVisible:true,
                 categoryMenuVisible:false,
                 settingsVisible:false
-            }                                       ));
+            }                                       ),true);
 
                                                     }
     render()                                        {

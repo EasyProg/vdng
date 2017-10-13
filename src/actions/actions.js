@@ -48,11 +48,12 @@ export function getChannels (channelsArr)   {
 
                                             }
 
-export function setMenusVisible (visibility)
+export function setMenusVisible (visibility,isOpened)
                                             {
     return  {
         type:'CHANNELS_MENU_VISIBLE',
-        menus:visibility
+        menus:visibility,
+        isOpened:isOpened
             }
 
                                             }

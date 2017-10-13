@@ -121,6 +121,13 @@ video::media-controls {
   min-height: 480px;
   min-width: 640px; }
 
+#scrollBarDiv {
+  width: 80%;
+  height: 80%;
+  display: none;
+  top: 0;
+  overflow: scroll; }
+
 .errorsDiv {
   font: 30px Times New Roman bold;
   color: white;
@@ -144,7 +151,7 @@ video::media-controls {
   right: 10px;
   text-align: center;
   line-height: 5.5em;
-  margin-top: 20px; }
+  margin-top: 10px; }
 
 .homeButton:hover {
   cursor: pointer;
@@ -618,7 +625,7 @@ hr {
   -webkit-align-self: center;
   width: 70%;
   max-width: 80%;
-  min-width: 400px;
+  min-width: 150px;
   height: 70px;
   display: flex;
   justify-content: space-between;
@@ -953,7 +960,9 @@ body {
   background: black;
   outline: 0;
   border: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  min-height: 480px;
+  min-width: 640px; }
 
 #root {
   height: 100%; }

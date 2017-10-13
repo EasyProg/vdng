@@ -2,7 +2,7 @@ import React, {Component,PropTypes} from 'react';
 import '../styles/css/main_styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {Scrollbars} from 'react-custom-scrollbars';
-import HomeButton from './ui/HomeButton';
+import HomeButton from './ui/MenuButton';
 export default class ProgramList extends Component
                                                  {
 constructor(props)

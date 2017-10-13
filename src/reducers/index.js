@@ -22,13 +22,14 @@ const   channelState = {
         isFavor:false
                        };
 const   menuState =    {
-        menus:  {
+        menus:         {
         channelsMenuVisible:false,
         categoryMenuVisible:false,
         programsVisible:false,
         settingsVisible:false,
         vdArchVisible:false
-                }
+                       },
+        isOpened:false
                        };
 const   settingsState ={
         timeShift:       settings.timeshift.status,
@@ -56,8 +57,8 @@ function videoReducer(state=initialState,action=null)       {
                                                             }
 //After adding all channels variables
 function channelReducer (state=channelState,action=null)    {
-    switch (action.type)                                    {
-    case     'TOGGLE_CATEGORY':
+    switch  (action.type)                                   {
+    case    'TOGGLE_CATEGORY':
         return {...state,chosenCategory:action.category};
         case 'GET_CHANNELS':
         return {...state,channels:action.channelsArr};
@@ -71,9 +72,10 @@ function channelReducer (state=channelState,action=null)    {
                                                             }
 //menu visible
 function menuReducer (state=menuState,action=null)          {
-    switch (action.type) {
+        switch (action.type)
+                        {
         case 'CHANNELS_MENU_VISIBLE' :
-        return {...state,menus:action.menus};
+        return {...state,menus:action.menus,isOpened:action.isOpened};
         default:
         return state;
                          }

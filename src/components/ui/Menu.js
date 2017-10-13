@@ -12,7 +12,7 @@ import prev_button from '../../img/play-previous-button.gif'
 import * as $ from 'jquery';
 import parse from '../Parsing';
 import hlsArray from '../../hls';
-import HomeButton from '../ui/HomeButton';
+import MenuButton from '../ui/MenuButton';
 class Menu extends Component                {
     constructor(props)                      {
         super(props);
@@ -39,7 +39,7 @@ class Menu extends Component                {
         return (
         <div id="menu" className="mainMenuDiv">
                 <div className="menuDives">
-                    <HomeButton visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
+                    <MenuButton visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
                     <Categories visible={this.props.menus.categoryMenuVisible}
                                 channelVisible={this.props.menus.channelsMenuVisible}
                                 toggleMenuStateContext={this.toggleMenuState}
@@ -73,15 +73,14 @@ const mapDispatchToProps = (dispatch) => bindActionCreators(  {
 dispatch,setMenusVisible,getChannels
                                                               }, dispatch);
 export default connect (
-    state => ({fullScreen:state.videoReducer.fullScreen,
-               channel:   state.videoReducer.video.channel,
-               channels:  state.channelReducer.channels,
-               channelId: state.videoReducer.video.channelId,
-               channelImg:state.videoReducer.video.img,
-               category:  state.channelReducer.chosenCategory,
-               menus:     state.menuReducer.menus,
-               isParentControl:
-                          state.settingsReducer.parentalControl
-          }),
+    state =>            ({ fullScreen:state.videoReducer.fullScreen,
+                           channel:   state.videoReducer.video.channel,
+                           channels:  state.channelReducer.channels,
+                           channelId: state.videoReducer.video.channelId,
+                           channelImg:state.videoReducer.video.img,
+                           category:  state.channelReducer.chosenCategory,
+                           menus:     state.menuReducer.menus,
+                           isParentControl: state.settingsReducer.parentalControl
+                       }),
                       mapDispatchToProps
                        )(Menu);

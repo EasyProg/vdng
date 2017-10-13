@@ -13,7 +13,7 @@
     import Channel from './Channel';
     //import PerfectScrollbar from 'react-perfect-scrollbar';
     import 'react-perfect-scrollbar/dist/css/styles.css';
-    import HomeButton from './ui/HomeButton';
+    import HomeButton from './ui/MenuButton';
     import CategoryName from './ui/CategoryName';
     import {Scrollbars} from 'react-custom-scrollbars';
     class  ChannelList extends Component       {
@@ -42,7 +42,7 @@
 
             var items = document.getElementsByClassName('menuItemStyle');
             var nextElem = i + 1 >=    items.length ?  0 : i + 1;
-            var prevElem = i - 1 < 0 ? items.length - 1 : i - 1;
+            var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
             if (param === 'next') {
                 items[nextElem].focus();
                 this.setState({channelId:nextElem});
@@ -53,7 +53,7 @@
 
             }
                                                 }
-    handleKey(e,elem)        {
+    handleKey(e,elem)                           {
         switch (e.keyCode)   {
             case 40:
                 this.switchChannel('next', this.state.channelId);
@@ -62,15 +62,34 @@
                 this.switchChannel('prev', this.state.channelId);
                 break;
             case 13:
+            this.handleClick(this.props.playList[this.state.channelId]);
+            this.props.dispatch(setMenusVisible (
+                {
+                        channelsMenuVisible: false,
+                        categoryMenuVisible: false,
+                        settingsVisible: false,
+                        programsVisible:false
+                }
+            ));
+            break;
+            case 32:
                 this.handleClick(this.props.playList[this.state.channelId]);
-                break;
-            case 37:        {
-                this.props.dispatch(setMenusVisible(
+                this.props.dispatch(setMenusVisible (
                     {
+                        channelsMenuVisible: false,
+                        categoryMenuVisible: false,
+                        settingsVisible: false,
+                        programsVisible:false
+                    }
+                ));
+            break;
+            case 37:        {
+                this.props.dispatch(setMenusVisible (
+                                                    {
                         channelsMenuVisible: true,
                         categoryMenuVisible: true,
                         settingsVisible: false
-                    }
+                                                    }
                                                     ));
                 $('#categories').focus();
                             }
@@ -106,7 +125,7 @@
                 $('#video').focus();
                         }
                              }
-                             }
+                                                }
     handlePlay()                                {
             this.timer =
                 setTimeout(function()           {
@@ -130,32 +149,36 @@
     this.props.dispatch(changeVideo(elem));
     this.props.dispatch(toggleCategory(elem.category));
     this.props.dispatch(togglePlay(!this.props.autoPlay));
-        var appearsVideo = this.menuFullScreenAppears;
-        $('#video,#panelDiv').mousemove(function(event) {
-            appearsVideo();
-                                                        });
+        // var appearsVideo = this.menuFullScreenAppears;
+        // $('#video,#panelDiv').mousemove(function(event) {
+        //     appearsVideo();
+        //                                                 });
     //this.setState({isClicked:true});
     //console.log(this.props.video.channelId);
     var parseProgramsArr = parseProgram(elem.channelId);
     if (parseProgramsArr.length>0)      {
-    this.props.dispatch(setMenusVisible(
-            {
-                programsVisible: true,
-                channelsMenuVisible: true,
-                categoryMenuVisible: this.props.menus.categoryMenuVisible,
-                settingsVisible: false
-            }
-                                        ));
+                this.props.dispatch(setMenusVisible
+                (
+                {
+                    programsVisible: true,
+                    channelsMenuVisible: true,
+                    categoryMenuVisible: this.props.menus.categoryMenuVisible,
+                    settingsVisible: false
+                }
+                ,
+                true));
     this.setState({programs: parseProgram(elem.channelId)});
                                         }
     else this.props.dispatch(setMenusVisible
-            (
-            {
-            programsVisible: false,
-            channelsMenuVisible: true,
-            categoryMenuVisible: this.props.menus.categoryMenuVisible,
-            settingsVisible: false
-            }));
+                (
+                {
+                programsVisible: false,
+                channelsMenuVisible: true,
+                categoryMenuVisible: this.props.menus.categoryMenuVisible,
+                settingsVisible: false
+                }
+                ,
+                true));
     //Execute programm parsing
     //this.setState({programs:parseProgram(this.props.video.channelId)})
                                                 }
@@ -166,7 +189,7 @@
                 categoryMenuVisible:true,
                 settingsVisible:false
                                                 }
-                                                ));
+        ,true));
 
                                                 }
 

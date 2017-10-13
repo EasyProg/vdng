@@ -11,7 +11,7 @@ import {bindActionCreators} from 'redux';
 import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
-var proxy = 'https://cors-anywhere.herokuapp.com/';
+var     proxy = 'https://cors-anywhere.herokuapp.com/';
         const hls = new Hls();
         class VideoPlayer extends Component {
         //vd = this.video?this.video.video:'';
@@ -32,19 +32,7 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
                                             }
         //Component Functions
         componentDidMount()                 {
-        //var appearsVideo = this.menuFullScreenAppears;
-        // $('body').keydown (function(event)  {
-        //     if (event.keyCode===13)
-        //     {
-        //     appearsVideo();
-        //     }
-        //                                     });
-        // $('#video,#panelDiv').mousemove(function(event)
-        //                                     {
-        //     appearsVideo();
-        //                                     });
-        this.videoOnLoad();
-                                             }
+        this.videoOnLoad();                 }
         toggle(isPlaying)                   {
         var  vd = this.video.video;
         this.props.dispatch(togglePlay(isPlaying));
@@ -114,13 +102,31 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
         $("#vduppermenu,#vdbottommenu").fadeOut(1000);
                                             },5000);
                                             }
-        menuFullScreenAppears()             {
+        menuFullScreenAppears(param)        {
+        //console.log(this.props.isOpened);
         //Отобразить плей
-        clearTimeout(this.timer);
-        $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
-        //Запустить скрытие
-        this.handlePlay();
+        if (!this.props.isOpened)
+        {
+            clearTimeout(this.timer);
+            $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
+            //Запустить скрытие
+            this.handlePlay();
+        }
+        else if (param)                     {
+            this.props.dispatch(setMenusVisible
+            (
+                {
+                    programsVisible: false,
+                    channelsMenuVisible: false,
+                    categoryMenuVisible: false,
+                    settingsVisible: false,
+                    vdArchVisible: false
+                }
+                ,
+                false));
                                             }
+                                            }
+
         escFullScreen()                     {
         if (   !document.fullscreenElement
             && !document.mozFullScreenElement
@@ -174,19 +180,27 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
          this.props.dispatch(toggleFullScreen(false));
          this.setState({fullScreen:false});
                                             }}
+        shouldComponentUpdate(nextProps,nextState)
+                                            {
+        if (nextProps.isOpened!==this.props.isOpened)
+            return false;
+        else return true
+                                            }
         //Element render
         render()                            {
         this.videoOnLoad();
         return                              (
                             <div             ref=         {(dv)=>this.div=dv}
-                                                          className="centerDiv" id="centerDiv">
+                                             className="centerDiv" id="centerDiv">
                             <Video           isPlaying  = {this.props.isPlaying}
                                              fullSize   = {this.props.fullScreen}
                                              video      = {this.props.video}
                                              ref        = {(video)=>this.video=video}
-                                             onClick    = {e=>this.menuFullScreenAppears()}
+                                             onClick    = {e=>this.menuFullScreenAppears(true)}
                                              onMouseMove= {e=>this.menuFullScreenAppears()}
                                              onDblClick = {e=>this.changeSize()}
+                                             isOpened   = {this.props.isOpened}
+
                             />
                             <div className="panelDiv" id="panelDiv"/>
                             <VideoUpperMenu  isPlaying={this.props.isPlaying}
@@ -201,16 +215,18 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
                                             )
                                             }
                                             }
-                       const mapDispatchToProps = (dispatch) => bindActionCreators({
-                       dispatch,togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor
+                       const mapDispatchToProps = (dispatch) =>
+                       bindActionCreators({
+                       dispatch,togglePlay,toggleButtons,
+                        toggleFullScreen,setMenusVisible,setFavor
                        }, dispatch);
-                       export default connect   (
+                       export default connect     (
                        state => ({
                        video:                state.videoReducer.video,
                        isPlaying:            state.videoReducer.isPlaying,
                        autoPlay:             state.videoReducer.autoPlay,
                        fullScreen:           state.videoReducer.fullScreen,
-                       //channels:             state.channelReducer.channels,
+                       isOpened:             state.menuReducer.isOpened
                        }),
                        mapDispatchToProps
-                                                )(VideoPlayer);
+                                                  )(VideoPlayer);

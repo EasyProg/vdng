@@ -3,7 +3,7 @@ import  '../styles/css/main_styles.css';
 import '../components/ui/HoldScreen';
 import HoldScreen from "./ui/HoldScreen";
 
-    export default class Video extends Component
+export default class Video extends Component
     {
     constructor(props)  {
         super(props);
@@ -44,7 +44,8 @@ import HoldScreen from "./ui/HoldScreen";
                 >
                 {   this.state.playing?
                     <HoldScreen onClick={(e)=>this.handleClick()} onKeyDown={(e)=>this.handleClick()}/>
-                :null}
+                :null
+                }
                 <video id="video" ref={(video) => this.video = video}
                        autoPlay={this.props.isPlaying}
                        //loop
@@ -54,6 +55,7 @@ import HoldScreen from "./ui/HoldScreen";
                        onClick={this.props.onClick}
                        onMouseMove={this.props.onMouseMove}
                 />
+                {/*<div id="scrollBarDiv"/>*/}
                 </div>
                                      )}
         else return     (
