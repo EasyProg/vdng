@@ -61,7 +61,7 @@ class Menu extends Component                {
                          onClick={(e) => this.toggleMenuState('right')}>
                          <img src={home} width={40} height={40}/>
                     </div>
-                <HomeMenu visible={this.props.menus.settingsVisible} isParentControl/>
+                {/*<HomeMenu visible={this.props.menus.settingsVisible} isParentControl/>*/}
                 </div>
         </div>
                 );

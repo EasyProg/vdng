@@ -59,6 +59,20 @@ top:15%;
   text-align: center;
   padding-top: 15px;
                               }
+.iconsDisabledDiv             {
+  color: white;
+  font-size: 13px;
+  font-family: "RobotoMedium";
+  font-weight: bold;
+  margin: auto;
+  //margin-left: 40px;
+  //margin-top: 70px;
+  width:55px;
+  height:55px;
+  text-align: center;
+  padding-top: 15px;
+  opacity:0.6;
+                              }
 .iconsNewResDiv               {
 @extend  .iconsDiv;
 margin-left: 400px;

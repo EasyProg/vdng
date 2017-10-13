@@ -48,33 +48,33 @@ var     proxy = 'https://cors-anywhere.herokuapp.com/';
         videoOnLoad()                       {
             if (this.props.video) {
                 var vd = document.getElementById('video');
-                if (navigator.userAgent.indexOf('WOW64') !== -1) {
+                if (navigator.userAgent.indexOf('WOW64') !== -1)
+                                  {
                     hls.loadSource(this.props.video.link);
-                }
-                else {
+                                  }
+                else              {
                     hls.loadSource(this.props.video.link);
-                }
-                hls.attachMedia(vd);
-                hls.on(Hls.Events.MANIFEST_PARSED,
-                    function () {
-                        {
-                            vd.play();
-                        }
-                    });
-                var funcCnt = this;
-                //set funcat function t
-                hls.on(Hls.Events.ERROR, function (event, data)
-                                            {
-                                            {
+                                  }
+                    hls.attachMedia(vd);
+                    hls.on(Hls.Events.MANIFEST_PARSED,
+                    function ()   {
+                                  {
+                                vd.play();
+                                  }
+                                  });
+                    var funcCnt = this;
+                    hls.on(Hls.Events.ERROR, function (event, data)
+                                {
+                                {
                         switch (data.type)  {
                             case Hls.ErrorTypes.NETWORK_ERROR:
                                 break;
                             default:
                                 break;
-                                            }
-                                            }
-                                            });
-                                            }
+                                 }
+                                 }
+                                 });
+                                 }
                                             }
         handleCurrTime(param)               {
         var vd = this.video.video;
@@ -126,7 +126,6 @@ var     proxy = 'https://cors-anywhere.herokuapp.com/';
                 false));
                                             }
                                             }
-
         escFullScreen()                     {
         if (   !document.fullscreenElement
             && !document.mozFullScreenElement

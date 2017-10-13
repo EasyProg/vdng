@@ -409,7 +409,7 @@ hr {
   left: -500px;
   transition: left 0.5s ease 100ms; }
 
-.categoryItem, .workMotherFucker {
+.categoryItem, .categoryItemChosen, .workMotherFucker {
   display: block;
   cursor: pointer;
   width: 400px;
@@ -420,6 +420,9 @@ hr {
   height: 110px;
   line-height: 6em;
   text-align: center; }
+
+.categoryItemChosen {
+  background: #9677ff; }
 
 .menuHeader, .menuHeaderCat, .menuHeaderCh {
   display: flex;
@@ -468,11 +471,12 @@ hr {
   line-height: 3em;
   text-align: center; }
 
-.categoryItem:hover, .workMotherFucker:hover {
+.categoryItem:hover, .categoryItemChosen:hover, .workMotherFucker:hover {
   background: #9677ff;
   filter: progid:DXImageTransform.Microsoft.Blur(10px); }
 
-.categoryItem:focus, .workMotherFucker:focus {
+.categoryItem:focus, .categoryItemChosen:focus, .workMotherFucker:focus {
+  background: #9677ff;
   filter: progid:DXImageTransform.Microsoft.Blur(10px); }
 
 .categoryItemChosen {
@@ -519,7 +523,7 @@ hr {
   left: 10%;
   width: 80%;
   max-width: 80%;
-  min-width: 400px;
+  min-width: 0px;
   margin-bottom: 3vh;
   height: 70px;
   background: #805EE0;
@@ -562,7 +566,7 @@ hr {
 
 .progressBar, .progressBarFull {
   position: absolute;
-  top: 84%;
+  top: 80.5%;
   left: 10%;
   align-self: center;
   -webkit-align-self: center;
@@ -668,6 +672,18 @@ hr {
   height: 55px;
   text-align: center;
   padding-top: 15px; }
+
+.iconsDisabledDiv {
+  color: white;
+  font-size: 13px;
+  font-family: "RobotoMedium";
+  font-weight: bold;
+  margin: auto;
+  width: 55px;
+  height: 55px;
+  text-align: center;
+  padding-top: 15px;
+  opacity: 0.6; }
 
 .iconsNewResDiv {
   margin-left: 400px; }
@@ -882,7 +898,6 @@ hr {
 .playHoldImg, .playHoldImg:hover, .playHoldImg:target {
   margin: 0 auto;
   position: relative;
-  opacity: 0.5;
   width: 20%;
   height: 38%; }
 

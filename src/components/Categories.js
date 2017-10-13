@@ -96,9 +96,9 @@ class  Categories extends Component             {
                                                 };
     switchCateg(event,cat)                      {
     var i = this.Menu.map(x => x.category).indexOf(cat);
-    var items = document.getElementsByClassName('categoryItem');
+    var items = document.getElementsByClassName('classSelector');
     //
-    var nextElem = i + 1>=    this.Menu.length ?  0 : i + 1;
+    var nextElem = i + 1>=   this.Menu.length ?  0 : i + 1;
     var prevElem = i - 1<0 ? this.Menu.length  - 1 : i - 1;
     switch (event.keyCode)  {
     case 40:
@@ -181,12 +181,13 @@ class  Categories extends Component             {
     <Scrollbars>
     {
                             this.Menu.map        ((item,i)=>
-                            <div key={i} className='categoryItem' onClick={e=>this.handleClick (i,item.category)} tabIndex={i}>
+                            <div key={i} className={this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
+                            onClick={e=>this.handleClick (i,item.category)} tabIndex={i}>
                             <div         className="categoryImage"><img src={item.src} width="40" height="40"/></div>
                             <div         className="categoryText">
                             {item.name}
                             </div>
-                            <img src={underline} height={5} width={300} className={this.state.itemChosen===i?'categoryLine':'categoryLineNone'}/>
+                            {i===0?<img src={underline} height={5} width={300} className={'categoryLine'}/>:null}
                             </div>
                                                  )
     }

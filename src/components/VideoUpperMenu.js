@@ -146,7 +146,7 @@ class VideoUpperMenu extends Component                         {
             {
             return (
             <div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
-            <progress id='progress-bar' min='0' max='100' value='0' className='displayNone'><div className="progressDiv"/></progress>
+            <progress id='progress-bar' min='0' max='100' value='0' className='progressBar'/>
             <div  className="divPlayer">
             <Timer isWholeProgramTime={true}/>
             <div  className="playerButtonsDiv" id="playerbuttonsdiv">

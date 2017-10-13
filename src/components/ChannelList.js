@@ -38,8 +38,6 @@
     visibleSetContext:PropTypes.func.isRequired
                                                };
     switchChannel(param='next',i=0)            {
-            console.log(i);
-
             var items = document.getElementsByClassName('menuItemStyle');
             var nextElem = i + 1 >=    items.length ?  0 : i + 1;
             var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
@@ -226,7 +224,7 @@
                             channelId       =   {elem.channelId}
                             hiddenChannel   =   {this.props.category==='Locked'}
                             programName     =   {elem.channel}
-                            favorite        =   {this.props.category==='Любимые'}
+                            favorite        =   {this.props.channelCategory==='Любимые'}
                             chosen          =   {elem.channelId===this.props.video.channelId&&elem.category===this.props.video.category}
                             onClick         =   {e=>this.handleClick(elem)}
                             tabIndex        =   {i}

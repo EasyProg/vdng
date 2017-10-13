@@ -35,24 +35,14 @@ class VideoBottomMenu extends Component
                             }
     shouldComponentUpdate (nextProps,nextState)
                             {
-        //console.log(this.props.channelId+'OOOO'+nextProps.channelId);
         if (this.props.channelId!==nextProps.channelId||this.state.Favorite!==nextState.Favorite)
         {   console.log(nextProps.channelId);
             this.setState({Favorite:this.isFavorite(this.props.channelId)});
-            //
-            //this.setState({Favorite:this.isFavorite(this.props.channelId)});
+
             return true;
         }
         else return false
                             }
-    componentWillUpdate()   {
-//        this.setState({Favorite:this.isFavorite(this.props.channelId)});
-                            }
-    componentDidMount()     {
-          //this.setState({Favorite:this.isFavorite(this.props.channelId)});
-                            }
-
-    //componentDidReceiveProps
 
     chooseResolution (res)  {
         this.setState       ({
@@ -94,22 +84,16 @@ class VideoBottomMenu extends Component
             })
         }
         this.props.dispatch(getChannels(filteredChannels));
-        //return filteredChannels;
                                             };
         toggleFavorite()                    {
-        //this.props.dispatch(setFavor(this.props.channels,this.props.video.channelId));
         if   (localStorage.getItem(this.props.channelId)===null)
-        {   //console.log('shit!!!');
+        {
             localStorage.setItem(this.props.channelId, 'true');
         }
 
         else localStorage.removeItem(this.props.channelId);
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         this.filterChannels(this.props.channels,this.props.channelCategory);
-        //this.props.dispatch(setFavor(this.isFavorite(this.props.channelId)));
-        //this.forceUpdate();
-        //this.isFavorite(this.props.video.channelId);
-        //console.log(localStorage.getItem(this.props.video.channelId);
                                             }
     render () {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
@@ -118,16 +102,16 @@ class VideoBottomMenu extends Component
                 <div id='vdbottommenu' className="displayNone">
                     <div className="divBottomPlayer">
                         <div className="playerButtonsBottomDiv">
-                            <div className="iconsLockedDiv" onClick={(e)=>this.setLock(this.state.lock)}>
+                            <div className="iconsDisabledDiv">
                             <Icon className={this.state.lock?"big inverted lock alternate":"big inverted unlock alternate"}/>
                             </div>
                             <div className="iconsDiv" onClick={(e)=>this.toggleFavorite()}>
                             <img src={this.state.Favorite?favorite:nofavorite} width={20} height={25}/>
                             </div>
-                            <div className="iconsLiveDiv">
+                            <div className="iconsDisabledDiv">
                             <img src={live} width={40} height={30} className="imgLive"/>
                             </div>
-                            <div className="iconsDiv" onClick={(e) => this.setState({showResolution: true})}>
+                            <div className="iconsDisabledDiv">
                             <div className="upper_buttons_res">
                             {this.state.resolution}
                             </div>

@@ -1,5 +1,5 @@
 import React, {Component,PropTypes} from 'react';
-import play from '../../img/play-button-hold.gif';
+import play from '../../img/play-button-play.svg';
 import '../../styles/css/main_styles.css';
 import * as $ from 'jquery';
 

@@ -8,7 +8,7 @@ export default class Video extends Component
     constructor(props)  {
         super(props);
         this.state = {
-            playing:false
+            playing:true
                      };
         this.isVideoPlaying = this.isVideoPlaying.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -42,7 +42,7 @@ export default class Video extends Component
                         {return      (
                 <div id="videoDiv"
                 >
-                {   this.state.playing?
+                {   !this.state.playing?
                     <HoldScreen onClick={(e)=>this.handleClick()} onKeyDown={(e)=>this.handleClick()}/>
                 :null
                 }
