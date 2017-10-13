@@ -33,22 +33,26 @@ toggleMenuState()                                   {
         var settingsState = this.props.menus.settingsVisible;
         //Туггл кнопок если стейт изменился
             //this.props.dispatch(getChannels(parse(hlsArray)));
+    if (this.props.channels.length>0) {
+        this.props.dispatch(setMenusVisible
+        ({
+            channelsMenuVisible: !channelsState,
+            categoryMenuVisible: false,
+            settingsVisible: false
 
+        }));
+        //Set focus to menu
+        $("#vduppermenu,#vdbottommenu").fadeOut(100);
+        $('#video').focus();
+    }
+    else
+        this.props.dispatch(setMenusVisible
+        ({
+            channelsMenuVisible: false,
+            categoryMenuVisible: true,
+            settingsVisible: false
 
-            this.props.dispatch(setMenusVisible
-            ({
-                channelsMenuVisible:!channelsState,
-                categoryMenuVisible:false,
-                settingsVisible:false
-
-            }));
-            //Set focus to menu
-            $("#vduppermenu,#vdbottommenu").fadeOut(100);
-            //$("#video").unbind('mousemove');
-            //$("#video").unbind('click');
-            //$("#panelDiv").off('click','mousemove');
-            $('#video').focus();
-            //this.bindEvents();
+        }));
                                                     }
 setPositionClass()                                  {
 if        (this.props.menus.channelsMenuVisible&&
@@ -74,7 +78,8 @@ const mapDispatchToProps = (dispatch) =>
     dispatch,setMenusVisible,getChannels
 },  dispatch);
 export default connect (
-    state => ({ menus:state.menuReducer.menus
+    state => ({ menus:state.menuReducer.menus,
+                channels:state.channelReducer.channels,
               }),
     mapDispatchToProps
 )(HomeButton);

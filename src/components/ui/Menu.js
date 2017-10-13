@@ -39,7 +39,7 @@ class Menu extends Component                {
         return (
         <div id="menu" className="mainMenuDiv">
                 <div className="menuDives">
-                    <HomeButton visible={!this.props.menus.channelsMenuVisible}/>
+                    <HomeButton visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
                     <Categories visible={this.props.menus.categoryMenuVisible}
                                 channelVisible={this.props.menus.channelsMenuVisible}
                                 toggleMenuStateContext={this.toggleMenuState}

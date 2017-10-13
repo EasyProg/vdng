@@ -2,12 +2,12 @@
   z-index:  2147483647;
   position: absolute;
   bottom: 20px;
-  left:16%;
+  left:20%;
   //position: relative;
   align-self: center;
   -webkit-align-self: center;
   //left:20%;
-  width: 80%;
+  width: 70%;
   max-width: 80%;
   min-width: 400px;
   height: 70px;
@@ -18,14 +18,6 @@
   -webkit-justify-content: center;
   align-items: center;
   -webkit-align-items: center;
-  //margin-top: 10px;
-  //@media (max-width:600px)    {
-  //        bottom:-1vh;
-  //                            }
-  //@media (min-width:1200px)   {
-  //        bottom:8vh;
-  //                            }
-  //                            }
                               }
 .divBottomPlayerFull          {
   @extend .divBottomPlayer;
@@ -42,7 +34,7 @@
   -webkit-align-self: center;
   width: 600px;
   max-width: 600px;
-  min-width: 300px;
+  min-width: 200px;
   height: 50px;
   justify-content: space-between;
   -webkit-justify-content:space-between;
@@ -94,11 +86,8 @@ line-height: 4.3em;
   width:60px;
   height:55px;
   position:fixed;
-  right:12%;
+  right:10%;
   margin:auto;
-  //left:85%;
-  //margin-left: 10px;
-  min-width:60px;
   display:block;
                               }
 .iconResDivFull               {

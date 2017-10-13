@@ -26,20 +26,33 @@ class VideoBottomMenu extends Component
             showResolution:false,
             lock:false,
             resolution:'1080р',
-            Favorite:false
+            Favorite:this.isFavorite(this.props.channelId),
             //isFavorite()
                             };
         this.toggleFavorite = this.toggleFavorite.bind(this);
         this.isFavorite=      this.isFavorite.bind(this);
         this.filterChannels= this.filterChannels.bind(this);
                             }
-    componentWillReceiveProps()
+    shouldComponentUpdate (nextProps,nextState)
                             {
-        this.setState({Favorite:this.isFavorite(this.props.channelId)});
+        //console.log(this.props.channelId+'OOOO'+nextProps.channelId);
+        if (this.props.channelId!==nextProps.channelId||this.state.Favorite!==nextState.Favorite)
+        {   console.log(nextProps.channelId);
+            this.setState({Favorite:this.isFavorite(this.props.channelId)});
+            //
+            //this.setState({Favorite:this.isFavorite(this.props.channelId)});
+            return true;
+        }
+        else return false
+                            }
+    componentWillUpdate()   {
+//        this.setState({Favorite:this.isFavorite(this.props.channelId)});
                             }
     componentDidMount()     {
-        this.setState({Favorite:this.isFavorite(this.props.channelId)});
+          //this.setState({Favorite:this.isFavorite(this.props.channelId)});
                             }
+
+    //componentDidReceiveProps
 
     chooseResolution (res)  {
         this.setState       ({
@@ -59,7 +72,6 @@ class VideoBottomMenu extends Component
                             )
                             }
     isFavorite(channelId)   {
-        console.log(channelId+'......'+localStorage.getItem(channelId));
         if (localStorage.getItem(channelId)!==null)
         {
             return true;
@@ -100,6 +112,7 @@ class VideoBottomMenu extends Component
         //console.log(localStorage.getItem(this.props.video.channelId);
                                             }
     render () {
+        this.setState({Favorite:this.isFavorite(this.props.channelId)});
         {if (this.state.showResolution  === false)    {
             return (
                 <div id='vdbottommenu' className="displayNone">
