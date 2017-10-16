@@ -25,8 +25,11 @@ toggleMenuState()                                   {
 
         },!channelsState));
         //Set focus to menu
+
         $("#vduppermenu,#vdbottommenu").fadeOut(100);
         $('#video').focus();
+        //set hoverDiv
+        $('.hoverDiv').animate({'width':'400'},100);
                                                     }
     else
             this.props.dispatch(setMenusVisible
@@ -44,6 +47,7 @@ if        (this.props.menus.channelsMenuVisible&&
 
 else if   (this.props.menus.categoryMenuVisible||
           this.props.menus.programsVisible) return 'divSideBar_StateGroup';
+          $('.hoverDiv').animate({'width':'0'},200);
           return 'divSideBar';
                                                     }
 render()   {

@@ -45,7 +45,7 @@ var     proxy = 'https://cors-anywhere.herokuapp.com/';
                                             }
         changeRes(res)                      {
                                             }
-        videoOnLoad()                       {
+        videoOnLoad()                        {
             if (this.props.video) {
                 var vd = document.getElementById('video');
                 if (navigator.userAgent.indexOf('WOW64') !== -1)

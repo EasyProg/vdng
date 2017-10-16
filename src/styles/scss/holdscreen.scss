@@ -4,8 +4,13 @@
   display: flex;
   position: absolute;
   align-items: center;
-  background: rgba(0, 0, 0,0.5);
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0,1);
   z-index:2147483647;
+  font-family: "ComfortaaRegular";
+  font-size:3em;
+  color:white;
 }
 .playHoldImg
 {
@@ -13,7 +18,7 @@ margin: 0 auto;
 position:relative;
 //opacity:0.5;
 width: 20%;
-height: 38%;
+height: 35%;
 }
 
 .playHoldImg:hover
@@ -26,4 +31,8 @@ height: 38%;
 {
   @extend .playHoldImg;
   opacity:0.9;
+}
+.bottomText {
+  margin-top: 5vh;
+  letter-spacing: 1px;
 }

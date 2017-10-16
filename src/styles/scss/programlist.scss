@@ -12,7 +12,7 @@
   left:400px;
   //left:700px;
   background: rgba(0,0,0,0.8);
-  transition: left 0.5s ease 100ms;
+  //transition: left 0.5s ease 100ms;
   //padding-top: 11vh;
   //padding-left: 20px;
   width:400px;
@@ -30,7 +30,8 @@
   //flex-direction: row;
   //justify-content:space-between;
   width:350px;
-  height:auto;
+  //height:auto;
+  height:50px;
   position:relative;
   color:white;
   padding-bottom:15px;
@@ -62,7 +63,18 @@
   left:-35px;
                         }
 .programName            {
+  height: 40px;
   margin-left: 10px;
+  overflow:hidden;
+  white-space:nowrap;
+  //display: block;
+  width:200px;
+  position: absolute;
+                        }
+.programName_hover      {
+  //@extend .programName;
+
+  position: absolute;
                         }
 .programTime            {
   color: #696969;

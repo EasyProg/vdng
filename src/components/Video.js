@@ -26,12 +26,18 @@ export default class Video extends Component
     isVideoPlaying ()   {
     var b = this;
     setTimeout(
-     function () {if (this.video.paused)
+     function ()
+     {
+    console.log(this.video);
+    if (this.video.paused)
      {
      b.setState({playing:false});
-     }},2000)
+     }},2000  )
                         }
-
+    handleKey(e)        {
+    if (e.keyCode === 13)
+    this.handleClick();
+                        }
     handleClick ()      {
     this.video.play();
     this.setState({playing:true});
@@ -42,10 +48,6 @@ export default class Video extends Component
                         {return      (
                 <div id="videoDiv"
                 >
-                {   !this.state.playing?
-                    <HoldScreen onClick={(e)=>this.handleClick()} onKeyDown={(e)=>this.handleClick()}/>
-                :null
-                }
                 <video id="video" ref={(video) => this.video = video}
                        autoPlay={this.props.isPlaying}
                        //loop
@@ -55,6 +57,10 @@ export default class Video extends Component
                        onClick={this.props.onClick}
                        onMouseMove={this.props.onMouseMove}
                 />
+                    {   !this.state.playing?
+                        <HoldScreen onClick={(e)=>this.handleClick()} onKeyDown={(e)=>this.handleKey(e)}/>
+                        :null
+                    }
                 {/*<div id="scrollBarDiv"/>*/}
                 </div>
                                      )}

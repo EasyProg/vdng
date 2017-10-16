@@ -60,6 +60,7 @@ class VideoUpperMenu extends Component                         {
                         }
                     ));
                     $('#channels').focus();
+                    $('.hoverDiv').animate({'width':'400'},250);
                     //console.log('SHIT!@');
                                                                }
 

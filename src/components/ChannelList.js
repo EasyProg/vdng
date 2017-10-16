@@ -13,7 +13,7 @@
     import Channel from './Channel';
     //import PerfectScrollbar from 'react-perfect-scrollbar';
     import 'react-perfect-scrollbar/dist/css/styles.css';
-    import HomeButton from './ui/MenuButton';
+    import MenuButton from './ui/MenuButton';
     import CategoryName from './ui/CategoryName';
     import {Scrollbars} from 'react-custom-scrollbars';
     class  ChannelList extends Component       {
@@ -31,14 +31,14 @@
                     isClicked:false,
                     programs:[]
                     }
-                                               }
-    static propTypes    =                      {
+                                                }
+    static propTypes    =                       {
     playList:   PropTypes.array.isRequired,
     category:   PropTypes.string.isRequired,
     visibleSetContext:PropTypes.func.isRequired
-                                               };
+                                                };
     switchChannel(param='next',i=0)            {
-            var items = document.getElementsByClassName('menuItemStyle');
+            var items = $('.menuItemStyle,.menuItemStyleChosen,.menuItemStylefocus');
             var nextElem = i + 1 >=    items.length ?  0 : i + 1;
             var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
             if (param === 'next') {
@@ -49,7 +49,7 @@
                 items[prevElem].focus();
                 this.setState({channelId:prevElem});
 
-            }
+                                    }
                                                 }
     handleKey(e,elem)                           {
         switch (e.keyCode)   {
@@ -89,7 +89,8 @@
                         settingsVisible: false
                                                     }
                                                     ));
-                $('#categories').focus();
+                    $('#categories').focus()
+                    $('.hoverDiv').animate({'width':'800'},250);
                             }
             break;
             case 39:   {
@@ -100,7 +101,7 @@
                         settingsVisible: false
                     }
                     ));
-                $('#video').focus();
+                    $('#video').focus();
                         }
             break;
             case 27:    {
@@ -120,7 +121,7 @@
                         categoryMenuVisible: false,
                         settingsVisible: false
                         }));
-                $('#video').focus();
+                    $('#video').focus();
                         }
                              }
                                                 }
@@ -133,26 +134,19 @@
                                                 ,5000);
 
                                                 }
-    menuFullScreenAppears()
-                                                {
-            //Отобразить плей
+    menuFullScreenAppears()                     {
             clearTimeout(this.timer);
             clearTimeout(this.menuTimer);
             $("#vduppermenu,#vdbottommenu").fadeIn(1);
             //Запустить скрытие
             this.handlePlay();
                                                 }
-
     handleClick (elem)                          {
     this.props.dispatch(changeVideo(elem));
     this.props.dispatch(toggleCategory(elem.category));
     this.props.dispatch(togglePlay(!this.props.autoPlay));
-        // var appearsVideo = this.menuFullScreenAppears;
-        // $('#video,#panelDiv').mousemove(function(event) {
-        //     appearsVideo();
-        //                                                 });
-    //this.setState({isClicked:true});
-    //console.log(this.props.video.channelId);
+
+    //console.log('Ssdsd');
     var parseProgramsArr = parseProgram(elem.channelId);
     if (parseProgramsArr.length>0)      {
                 this.props.dispatch(setMenusVisible
@@ -166,6 +160,9 @@
                 ,
                 true));
     this.setState({programs: parseProgram(elem.channelId)});
+
+    //$('.programList').animate({'width':'1400'},200);
+    //console.log('MEMO!!!');
                                         }
     else this.props.dispatch(setMenusVisible
                 (
@@ -177,8 +174,6 @@
                 }
                 ,
                 true));
-    //Execute programm parsing
-    //this.setState({programs:parseProgram(this.props.video.channelId)})
                                                 }
     categVisible()                              {
     this.props.dispatch(setMenusVisible         (
@@ -186,11 +181,11 @@
                 channelsMenuVisible:true,
                 categoryMenuVisible:true,
                 settingsVisible:false
-                                                }
-        ,true));
+                                                }));
+    //
+    $('.hoverDiv').animate({'width':'800'},100);
 
                                                 }
-
     render()  {
         if (this.props.playList.length)
         return                                  (
@@ -208,21 +203,20 @@
                           categVisibleContext = {this.categVisible}
                           reversed= {false}
             />
-            <HomeButton  visible  = {this.props.menus.channelsMenuVisible&&!this.props.menus.programsVisible}/>
+            <MenuButton  visible  = {this.props.menus.channelsMenuVisible&&!this.props.menus.programsVisible}/>
             </div>:''
             }
             <Scrollbars //style={{overflow:'visible',position:'absolute',width:400}}
-                         autoHide
 
 
             >
-                            {this.props.playList.map((elem, i) =>
+            {this.props.playList.map((elem, i) =>
                             <Channel
                             key={i}
                             img={elem.img}
                             channelNum      =   {elem.channelNum}
                             channelId       =   {elem.channelId}
-                            hiddenChannel   =   {this.props.category==='Locked'}
+                            hiddenChannel   =   {this.props.channelCategory==='Locked'}
                             programName     =   {elem.channel}
                             favorite        =   {this.props.channelCategory==='Любимые'}
                             chosen          =   {elem.channelId===this.props.video.channelId&&elem.category===this.props.video.category}
@@ -231,8 +225,8 @@
                             elemChosen      =   {i === this.state.channelId}
                             onKeyDown       =   {e=>this.handleKey(e,elem)}
                             />
-               )
-               }
+            )
+            }
             </Scrollbars>
             <div className="menuBottom"/>
             {/*//this.state.isClicked&&this.props.menus.channelsMenuVisible?*/}
@@ -263,8 +257,6 @@
         catMenuVisible:state.menuReducer.menus.categoryMenuVisible,
         menus:state.menuReducer.menus,
         channels:state.channelReducer.channels
-        //isFavor:state.channelReducer.isFavorite
-        //settings:state.settingsReducer
                             }),
         mapDispatchToProps
                             )(ChannelList);

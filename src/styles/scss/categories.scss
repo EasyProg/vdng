@@ -6,17 +6,19 @@
   //@media only screen and (min-device-width: 1281px) {
   //  height:1200px;
   //                                                  }
-    height:92vh;
+    height:87.3vh;
     top:-20px;
     //display:block;
+    //width:$menuCatWidth;
     width:$menuCatWidth;
     max-width:$menuItemWidth;
     min-width:$menuItemWidth;
     margin-top: 20px;
     position: absolute;
     left:0;
-    background: rgba(0,0,0,0.8);
-    transition: left 0.5s ease 100ms;
+    //top:0;
+    //background: rgba(0,0,0,0.8);
+    transition: left 0.2s ease 10ms;
                                                      }
 .categoryLine                                        {
     position: absolute;
@@ -35,8 +37,8 @@
 //}
 .categoryPanelNone                                   {
     @extend .categoryPanel;
-    left:-500px;
-    transition: left 0.5s ease 100ms;
+    left:-600px;
+    transition: left 0.2s ease 10ms;
                                                      }
 .categoryItem                                        {
     display: block;
@@ -57,7 +59,7 @@
                                                      }
 .categoryItemChosen                                  {
     @extend .categoryItem;
-    background:$menuHoverColor;
+    background:$menuActiveColor;
                                                      }
 .menuHeader                                          {
     display: flex;
@@ -83,7 +85,7 @@
     z-index:-1;
     width:$menuItemWidth;
     height:9vh;
-    background: rgba(0,0,0,0.8);
+    //background: rgba(0,0,0,0.8);
                                                       }
 .menuHeaderCat                                        {
   @extend .menuHeader;
@@ -109,7 +111,7 @@
     margin-left: 20px;
     margin-right:20px;
     margin-bottom:5px;
-    line-height: 3em;
+    line-height: 2.5em;
     text-align: center;
     //margin-top: 20px;
                                                       }
@@ -148,5 +150,9 @@
 //  background: #636363;
 //}
 .hoverDiv                                             {
-  width:5px;
+  position: absolute;
+  width:0;
+  left:0;
+  height:101vh;
+  background: rgba(0,0,0,0.8);
                                                       }

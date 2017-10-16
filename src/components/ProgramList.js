@@ -3,6 +3,7 @@ import '../styles/css/main_styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {Scrollbars} from 'react-custom-scrollbars';
 import HomeButton from './ui/MenuButton';
+import * as $ from 'jquery';
 export default class ProgramList extends Component
                                                  {
 constructor(props)
@@ -38,6 +39,32 @@ getDayOfWeek (dt)           {
     //return date_parse.getDay();
 
                             }
+runningString(e)            {
+ var str   = $('.programName_hover:hover');
+ var width = str.width();
+ var con_w = str.css('left');
+
+ function run ()            {
+ var con_len = parseInt(con_w) - width + 150;
+
+ str.animate
+ ({left:con_len + 'px'},
+ {duration: 3000,
+ complete: function ()
+                            {
+  str.css('left',con_w);
+                                                                         //run();
+                            }});}
+   if (e.currentTarget.textContent.length>15)
+                            {
+   run();
+                            }}
+   stopRun ()               {
+   $('.programName_hover').stop(true,true);
+                            }
+// componentDidMount()         {
+// $('.programList').animate({'width':'400'},100);
+//                             }
     render()                {
     if (this.props.programs.length&&this.props.visible>0)
     return                  (
@@ -47,7 +74,7 @@ getDayOfWeek (dt)           {
         </div>
         <Scrollbars>
              {this.props.programs.map((e,i)=>
-                 <div className="blockChainDiv">
+                 <div className="blockChainDiv" key={i}>
                     <div className="headerProgramDate">
                         {e.date} <span className="textSpan">{this.getDayOfWeek(e.date)}</span>
                         <hr className="hrProgram"/>
@@ -60,7 +87,12 @@ getDayOfWeek (dt)           {
                      <div key={i} className="programListItem">
                      <span className="programTime">{e.start_time.substring(e.start_time.indexOf(':'),
                      e.start_time.length-1).length===1?e.start_time+'0':e.start_time}
-                     </span><span className="programName">{e.title}</span>
+                     </span>
+                         <span className="programName"
+                               onMouseOver={(e)=>this.runningString(e)}
+                               onMouseLeave={(e)=>this.stopRun()}>
+                         <span className="programName_hover">{e.title}</span>
+                         </span>
                      </div>
                             )
                             }

@@ -28,7 +28,7 @@ import ReactDOM from 'react-dom';
 import parse from './Parsing';
 import CategoryName from './ui/CategoryName';
 import {Scrollbars} from 'react-custom-scrollbars';
-class  Categories extends Component             {
+class  Categories extends Component                 {
 
     constructor(props) {
     super(props);
@@ -51,33 +51,37 @@ class  Categories extends Component             {
     });
     this.props.dispatch(toggleCategory(cat));
     this.props.dispatch(getChannels(this.filterChannels(parse(hlsArray),cat)));
-    if (this.filterChannels(parse(hlsArray),cat).length>0)
-    this.props.dispatch(setMenusVisible         (
-                                                {
-    channelsMenuVisible:true,
-    categoryMenuVisible:true,
-    settingsVisible:false
-                                                },true));
-    else
-    this.props.dispatch(setMenusVisible(
-                                                {
-    channelsMenuVisible:false,
-    categoryMenuVisible:true,
-    settingsVisible:false
-                                                },true));
+    if (this.filterChannels(parse(hlsArray),cat).length>0) {
+        this.props.dispatch(setMenusVisible(
+            {
+                channelsMenuVisible: true,
+                categoryMenuVisible: true,
+                settingsVisible: false
+            }, true));
+    $('.hoverDiv').animate({'width':'800'},250);
+    }
+    else    {
+        this.props.dispatch(setMenusVisible(
+            {
+                channelsMenuVisible: false,
+                categoryMenuVisible: true,
+                settingsVisible: false
+            }, true));
+    $('.hoverDiv').animate({'width':'400'},250);
+            }
                                                 }
     Menu =                                      [
-    {name:'Favorites',   src:star,      category:'Любимые'},
-    {name:'All',         src:all,       category:'All channels'},
-    {name:'Now watching',src:play,      category: 54},
-    {name:'TV Shows',    src:scene,     category:'Shows'},
-    {name:'Films',       src:film,      category:'Фильмы'},
-    {name:'Music',       src:headphones,category:'Музыкальный'},
-    {name:'Popular',     src:mask,      category:'Популярное'},
-    {name:'3D / VR',     src:glasses,   category:'3D'},
-    {name:'Travel',      src:caravan,   category:'Путешевствия'},
-    {name:'Comedy',      src:masks,     category:'Развлекательный'},
-    {name:'Blocked',     src:lock,      category:'Locked'},
+    {name:'Любимые',       src:star,        category:'Любимые'},
+    {name:'All genres',    src:all,         category:'All genres'},
+    {name:'Сейчас смотрят',src:play,        category: 54},
+    {name:'Шоу',         src:scene,         category:'Шоу'},
+    {name:'Фильмы',      src:film,          category:'Фильмы'},
+    {name:'Музыка',       src:headphones,   category:'Музыкальный'},
+    {name:'Популярное',     src:mask,       category:'Популярное'},
+    {name:'3D / VR',     src:glasses,       category:'3D'},
+    {name:'Путешествия',      src:caravan,  category:'Путешевствия'},
+    {name:'Развлекательные',      src:masks,category:'Развлекательный'},
+    {name:'Заблокированные',     src:lock,  category:'Locked'},
                                                  ];
     filterChannels(channels,category)           {
     var cat = category?category.toString():'All channels';
@@ -85,7 +89,7 @@ class  Categories extends Component             {
     if   (channels)                             {
      filteredChannels =  channels.filter(function(item)
      {
-         if (cat !== 'All channels'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
+         if (cat !== 'All genres'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
          return       item.category.toUpperCase() === cat.toUpperCase();
          else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
          else return  item.category
@@ -94,9 +98,9 @@ class  Categories extends Component             {
     this.props.dispatch(getChannels(filteredChannels));
     return filteredChannels;
                                                 };
-    switchCateg(event,cat)                      {
+    switchCateg(event,cat)                          {
     var i = this.Menu.map(x => x.category).indexOf(cat);
-    var items = document.getElementsByClassName('classSelector');
+    var items = $('.categoryItem,.categoryItemChosen');
     //
     var nextElem = i + 1>=   this.Menu.length ?  0 : i + 1;
     var prevElem = i - 1<0 ? this.Menu.length  - 1 : i - 1;
@@ -118,8 +122,11 @@ class  Categories extends Component             {
     });
     break;
     case 13:
-    {this.handleClick(this.state.itemChosen,this.state.category);
+    {
+    this.handleClick(this.state.itemChosen,this.state.category);
     //$('#video').focus();
+    console.log(this.props.channels.length);
+    if (this.filterChannels(parse(hlsArray),cat).length>0)
     $('#channels').focus();
     break;
     }
@@ -131,6 +138,7 @@ class  Categories extends Component             {
                 settingsVisible: false
             },this.props.channels.length>0));
         $('#channels').focus();
+        $('.hoverDiv').animate({'width':'400'},250);
     break;
                     }
     case 27: {
@@ -141,7 +149,7 @@ class  Categories extends Component             {
                 settingsVisible: false
             },false));
         $('#video').focus();
-    }
+            }
     break;
     case 8: {
         this.props.dispatch(setMenusVisible(
@@ -164,7 +172,7 @@ class  Categories extends Component             {
                 categoryMenuVisible:false,
                 settingsVisible:false
             }                                       ),true);
-
+    $('.hoverDiv').animate({'width':'400'},250);
                                                     }
     render()                                        {
     return                                          (
@@ -178,7 +186,9 @@ class  Categories extends Component             {
                           reversed={true}
             />
         </div>
-    <Scrollbars>
+    <Scrollbars //renderTrackHorizontal={false}
+    >
+    {/*style={{color:'grey',opacity:1}}>*/}
     {
                             this.Menu.map        ((item,i)=>
                             <div key={i} className={this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
@@ -192,7 +202,7 @@ class  Categories extends Component             {
                                                  )
     }
     </Scrollbars>
-    <div className="menuBottom"/>
+    {/*<div className="menuBottom"/>*/}
     </div>
         <div className="innerDiv">
             <ChannelList
