@@ -3,10 +3,11 @@ import VideoPlayer from '../components/VideoPlayer';
 //import Categories from '../components/Categories';
 //import HomeMenu from '../components/HomeMenu';
 import Menu from '../components/ui/Menu';
+import ContainerMenu from '../containers/ContainerMenu';
 import configureStore from '../store/configureStore';
 import {Provider} from 'react-redux';
 import '../styles/css/main_styles.css';
-    import * as settings from '../settings.json';
+import * as settings from '../settings.json';
 const  store = configureStore();
 //var proxy = 'https://cors-anywhere.herokuapp.com/';
 class App extends Component  {
@@ -21,8 +22,9 @@ class App extends Component  {
     return (
                 <Provider store={store}>
                 <div>
-                    <VideoPlayer/>
-                    <Menu/>
+                    <ContainerMenu/>
+                    {/*<VideoPlayer/>*/}
+                    {/*<Menu/>*/}
                 </div>
                 </Provider>
     );

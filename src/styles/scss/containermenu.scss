@@ -1,0 +1,14 @@
+.smKindOfMenu
+{
+position:absolute;
+height:101vh;
+background: rgba(0,0,0,0.8);
+width:200px;
+transition: width 0.5s ease 100ms;
+}
+
+.smKindOfMenu_state1
+{
+@extend .smKindOfMenu;
+width:0;
+}
