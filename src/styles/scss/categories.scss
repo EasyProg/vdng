@@ -1,0 +1,158 @@
+@import 'variables';
+.categoryPanel                                        {
+  //@media only screen and (min-device-width: 480px)  {
+  //  height:200px;
+  //                                                  }
+  //@media only screen and (min-device-width: 1281px) {
+  //  height:1200px;
+  //                                                  }
+    height:87.5vh;
+    top:-20px;
+    //display:block;
+    //width:$menuCatWidth;
+    width:$menuCatWidth;
+    max-width:$menuItemWidth;
+    min-width:$menuItemWidth;
+    margin-top: 20px;
+    position: absolute;
+    left:0;
+    //top:0;
+    //background: rgba(0,0,0,0.8);
+    transition: left 0.2s ease 10ms;
+                                                     }
+.categoryLine                                        {
+    position: absolute;
+    left:7%;
+    vertical-align: bottom;
+                                                     }
+.categoryLineNone                                    {
+    @extend .categoryLine;
+    display:none;
+                                                     }
+//.categoryPanelNone {
+//  margin-top: 20px;
+//  position: absolute;
+//  left:-500px;
+//  transition: left 0.5s ease 100ms;
+//}
+.categoryPanelNone                                   {
+    @extend .categoryPanel;
+    left:-600px;
+    transition: left 0.2s ease 10ms;
+                                                     }
+.categoryItem                                        {
+    display: block;
+    cursor: pointer;
+    width:$menuCatWidth;
+    //max-width:$menuItemWidth;
+    //min-width: 170px;
+    //background: rgba(0,0,0,0.7);
+    font-family: "ComfortaaRegular";
+    font-size:1.3em;
+    //font-weight: bold;
+    letter-spacing: 1px;
+    //letter-spacing: 0.6px;
+    color:white;
+    height: 110px;
+    line-height: 6em;
+    text-align: center;
+                                                     }
+.categoryItemChosen                                  {
+    @extend .categoryItem;
+    background:$menuActiveColor;
+                                                     }
+.menuHeader                                          {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    cursor: pointer;
+    width:$menuItemWidth;
+    max-width: $menuItemWidth;
+    min-width: 170px;
+    font-family: "ComfortaaRegular";
+    font-weight: bold;
+    letter-spacing: 1px;
+    color:white;
+    line-height: 2em;
+    text-align: center;
+    text-wrap: none;
+    height: 90px;
+    margin-bottom: 10px;
+                                                      }
+.menuBottom                                           {
+    position:absolute;
+    bottom:-9vh;
+    z-index:-1;
+    width:$menuItemWidth;
+    height:9vh;
+    //background: rgba(0,0,0,0.8);
+                                                      }
+.menuHeaderCat                                        {
+  @extend .menuHeader;
+  width:$menuChannelWidth;
+  max-width:$menuChannelWidth;
+  font-size:1.2em;
+  //height: 10px;
+                                                      }
+.menuHeaderCh                                         {
+  @extend .menuHeader;
+  width:$menuChannelWidth;
+  max-width:$menuChannelWidth;
+  font-size:1.2em;
+  //line-height: 10em;
+                                                      }
+.menuHeaderCircleDiv                                  {
+    background: #4a4a4a;
+    border-radius: 45px;
+    //display: block;
+    //position: relative;
+    width: 45px;
+    height: 45px;
+    margin-left: 20px;
+    margin-right:20px;
+    margin-bottom:5px;
+    line-height: 2.5em;
+    text-align: center;
+    //margin-top: 20px;
+                                                      }
+.categoryItem:hover                                   {
+    background:$menuHoverColor;
+    filter:progid:DXImageTransform.Microsoft.Blur(10px);
+                                                      }
+.categoryItem:focus                                   {
+    background:$menuHoverColor;
+    filter:progid:DXImageTransform.Microsoft.Blur(10px);
+                                                      }
+.categoryItemChosen                                   {
+    //@extend .categoryItem;
+    background:  $menuActiveColor;
+}
+
+.workMotherFucker                                     {
+    @extend .categoryItem;
+    background: $menuActiveColor;
+                                                      }
+.categoryText                                         {
+    align-self: center;
+    text-align: left;
+                                                      }
+.categoryImage                                        {
+    margin-top:10px;
+    float:left;
+    margin-left: 20px;
+    margin-right: 40px;
+    text-align: center;
+    height:40px;
+    width:40px;
+  //line-height:5em;
+                                                      }
+//.categoryImage:hover {
+//  background: #636363;
+//}
+.hoverDiv                                             {
+  position: absolute;
+  width:0;
+  left:0;
+  height:101vh;
+  background: rgba(0,0,0,0.8);
+                                                      }
