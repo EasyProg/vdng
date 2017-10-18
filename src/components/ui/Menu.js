@@ -1,7 +1,7 @@
 import React, {Component,PropTypes} from 'react';
 import {Icon} from 'semantic-ui-react';
 import {bindActionCreators} from 'redux';
-import {setMenusVisible,getChannels,receiveData} from '../../actions/actions';
+import {setMenusVisible,getChannels,receiveData,setProgram} from '../../actions/actions';
 import {connect} from 'react-redux';
 import 'semantic-ui-css/semantic.min.css';
 import '../../styles/css/main_styles.css';
@@ -24,7 +24,6 @@ import masks from '../../img/theater.png';
 import play from '../../img/play-categ.png';
 import lock from '../../img/lock.png';
 import all from '../../img/crowd-of-users.png';
-var _ = require('lodash');
 //import images
 class  Menu extends Component               {
     constructor(props)                      {
@@ -44,19 +43,26 @@ class  Menu extends Component               {
                 response.json().then(function(data)
                 {
                     let f = [];
-                    c.props.channels.forEach(
+                    c.props.channels.forEach
+                    (
                         (e,i)=>
                         {
-                            f = data.filter((elem)=>Number(elem['channel_id'])===e['channelId']);
+                        data.forEach(function (elem) {
+                                if (Number(elem['channel_id']) === e['channelId'])
+                                 f.push(elem);
+                                                     }
+                        )
                         }
                     );
-                    c.props.dispatch(receiveData(data));
+                    c.props.dispatch(setProgram(c.props.channels,f));
+
+                    //c.props.dispatch(receiveData(f));
                 });
-            });
-    }
+                                            });
+                                            }
     componentDidMount()                     {
         this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2");
-    }
+                                            }
     firstToUpperCase( str )                 {
         return str.substr(0, 1).toUpperCase() + str.substr(1);
     }
@@ -137,7 +143,7 @@ class  Menu extends Component               {
 
 }
 const mapDispatchToProps = (dispatch) => bindActionCreators(  {
-    dispatch,setMenusVisible,getChannels,receiveData
+    dispatch,setMenusVisible,getChannels,receiveData,setProgram
 }, dispatch);
 export default connect (
     state =>            ({ fullScreen:state.videoReducer.fullScreen,

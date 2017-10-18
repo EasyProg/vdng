@@ -1,21 +1,15 @@
-export default
-function getCurrentProgram (arr)
+export default function getCurrentProgram (arr)
 {
-    var delta = Date.now();
-    //var c = new Date();
+    var delta = Date.now()/1000;
+    console.log(delta);
     var currentObj = {};
-    currentObj = arr.filter                 ((item,i)=>
-        {
-            var start_date = item['start_date'];
-            var stop_date =  item['stop_date'];
-            //Определяем дельту
-            return item['start_at']<delta<item['stop_at'];
+    if (arr)                                    {
+        currentObj = arr.filter((item, i) =>    {
+                //Определяем дельту
+        return item['start_at'] < delta&&item['stop_at'] > delta;
 
-        }
-    );
-
-    return currentObj.title;
-
-
+                                                }
+        );
+                                                }
+    return currentObj[0].title;
 }
-//getCurrentProgram

@@ -47,6 +47,29 @@ export function getChannels (channelsArr)   {
     }
 
 }
+export function setProgram (channelsArr,programArr)
+{
+    let newChannels = channelsArr;
+    for (var i=0;i<newChannels.length;i++)
+    {  //console.log('Shit!!!');
+        programArr.forEach(
+        function(item,j){
+            //console.log(item);
+            if (newChannels[i]['channelId']===Number(item['channel_id']))
+            {
+                newChannels[i]['program'] =   item['list'];
+            }
+                        }
+
+                        );
+                        }
+    //newChannels.forEach((item)=>item['channelId']===id?item['programs']=programObj:'');
+    return  {
+        type:'SET_PROGRAM',
+        channelsArr:newChannels
+            }
+
+}
 
 export function setMenusVisible (visibility,isOpened)
 {

@@ -13,8 +13,7 @@ import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 var     proxy = 'https://cors-anywhere.herokuapp.com/';
 const hls = new Hls();
-class VideoPlayer extends Component {
-    //vd = this.video?this.video.video:'';
+class VideoPlayer extends Component     {
     constructor(props)                  {
         super(props);
         //Bind functions
@@ -32,55 +31,57 @@ class VideoPlayer extends Component {
     }
     //Component Functions
     componentDidMount()                 {
-        this.videoOnLoad();                 }
+        this.videoOnLoad();
+                                         }
     toggle(isPlaying)                   {
         var  vd = this.video.video;
         this.props.dispatch(togglePlay(isPlaying));
-        if (isPlaying)                      {
+        if (isPlaying)                   {
             vd.play();
 
-        }
+                                         }
         else  vd.pause();
 
-    }
+                                         }
     changeRes(res)                      {
-    }
-    videoOnLoad()                        {
-        if (this.props.video) {
+                                         }
+    videoOnLoad()                       {
+        if  (this.props.video)           {
             var vd = document.getElementById('video');
             if (navigator.userAgent.indexOf('WOW64') !== -1)
-            {
+                                         {
                 hls.loadSource(this.props.video.link);
-            }
-            else              {
+                                         }
+            else                         {
                 hls.loadSource(this.props.video.link);
-            }
+                                         }
             hls.attachMedia(vd);
             hls.on(Hls.Events.MANIFEST_PARSED,
-                function ()   {
+                function ()              {
                     {
                         vd.play();
                     }
-                });
+                                         });
             var funcCnt = this;
             hls.on(Hls.Events.ERROR, function (event, data)
-            {
-                {
+                                        {
+                                        {
                     switch (data.type)  {
                         case Hls.ErrorTypes.NETWORK_ERROR:
+                            console.log(Hls.ErrorTypes.NETWORK_ERROR);
                             break;
                         default:
                             break;
                     }
-                }
-            });
-        }
-    }
+                                        }
+                                        });
+                                        }
+                                        }
     handleCurrTime(param)               {
         var vd = this.video.video;
         if (param===1)
-        {
-            vd.currentTime+=10;                 }
+                                        {
+            vd.currentTime+=10;         }
         else vd.currentTime-=10;
     }
     handleCurrPlayback (param)          {
@@ -181,16 +182,18 @@ class VideoPlayer extends Component {
         }}
     shouldComponentUpdate(nextProps,nextState)
     {
-        if (nextProps.isOpened!==this.props.isOpened)
-            return false;
+        if  (nextProps.isOpened!==this.props.isOpened)  {
+            //console.log(nextProps.isOpened !== this.props.isOpened);
+            return false
+                                                        }
         else return true
     }
     //Element render
     render()                            {
         this.videoOnLoad();
-        return                              (
-            <div             ref=         {(dv)=>this.div=dv}
-                             className="centerDiv" id="centerDiv">
+        return                          (
+            <div                 ref=         {(dv)=>this.div=dv}
+                                 className="centerDiv" id="centerDiv">
                 <Video           isPlaying  = {this.props.isPlaying}
                                  fullSize   = {this.props.fullScreen}
                                  video      = {this.props.video}
@@ -211,15 +214,15 @@ class VideoPlayer extends Component {
                                  changeResContext= {this.changeRes}
                 />
             </div>
-        )
-    }
-}
+                                        )
+                                        }
+                                        }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,togglePlay,toggleButtons,
         toggleFullScreen,setMenusVisible,setFavor
     }, dispatch);
-export default connect     (
+export default connect      (
     state => ({
         video:                state.videoReducer.video,
         isPlaying:            state.videoReducer.isPlaying,
@@ -228,4 +231,4 @@ export default connect     (
         isOpened:             state.menuReducer.isOpened
     }),
     mapDispatchToProps
-)(VideoPlayer);
+                            )(VideoPlayer);

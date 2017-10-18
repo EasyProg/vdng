@@ -6,6 +6,7 @@ import {Button} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import '../styles/css/main_styles.css';
 import * as $ from 'jquery';
+import getCurrentProgram from '../components/workingDate'
 //import '../components/Channel';
 import ProgramList from '../components/ProgramList';
 import programs from '../program';
@@ -16,7 +17,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import MenuButton from './ui/MenuButton';
 import CategoryName from './ui/CategoryName';
 import CustomScroll from './ui/CustomScroll';
-class  ChannelList extends Component        {
+class  ChannelList extends Component            {
     constructor(props)                          {
         super(props);
         this.handleClick = this.handleClick.bind(this);
@@ -31,29 +32,29 @@ class  ChannelList extends Component        {
             isClicked:false,
             programs:[],
             currentProgram:''
-        }
-    }
+                        }
+                        }
     static propTypes  =                         {
         playList:   PropTypes.array.isRequired,
         category:   PropTypes.string.isRequired,
         visibleSetContext:PropTypes.func.isRequired
-    };
+                                                };
     switchChannel(param='next',i=0)             {
         var items = $('.menuItemStyle,.menuItemStyleChosen,.menuItemStylefocus');
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
         var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
-        if (param === 'next') {
+        if (param === 'next'&&items[nextElem])  {
             items[nextElem].focus();
             this.setState({channelId:nextElem});
-        }
-        if (param === 'prev') {
+                                                }
+        if (param === 'prev'&&items[prevElem])  {
             items[prevElem].focus();
             this.setState({channelId:prevElem});
 
-        }
-    }
+                                                }
+                                                }
     handleKey(e,elem)                           {
-        switch (e.keyCode)   {
+        switch (e.keyCode)                      {
             case 40:
                 this.switchChannel('next', this.state.channelId);
                 break;
@@ -61,20 +62,19 @@ class  ChannelList extends Component        {
                 this.switchChannel('prev', this.state.channelId);
                 break;
             case 13: {
-                console.log(this.props.playList[this.state.channelId]);
-                this.handleClick(this.props.playList[this.state.channelId]);
+                this.handleClick(this.props.playList[this.state.channelId],e);
                 this.props.dispatch(setMenusVisible(
-                    {
+                     {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false,
                         programsVisible: false
-                    }
-                ));
-            }
+                     },false
+                     ));
+                     }
                 break;
             case 32:
-                this.handleClick(this.props.playList[this.state.channelId]);
+                this.handleClick(this.props.playList[this.state.channelId],e);
                 this.props.dispatch(setMenusVisible (
                     {
                         channelsMenuVisible: false,
@@ -92,7 +92,7 @@ class  ChannelList extends Component        {
                         settingsVisible: false
                     }
                 ));
-                $('#categories').focus()
+                $('#categories').focus();
                 $('.hoverDiv').animate({'width':'800'},250);
             }
                 break;
@@ -144,7 +144,10 @@ class  ChannelList extends Component        {
         //Запустить скрытие
         this.handlePlay();
     }
-    handleClick (elem)                          {
+    handleClick (elem,e)                          {
+        e.stopPropagation();
+        e.preventDefault();
+        //console.log(elem);
         this.props.dispatch(changeVideo(elem));
         this.props.dispatch(toggleCategory(elem.category));
         this.props.dispatch(togglePlay(!this.props.autoPlay));
@@ -164,9 +167,9 @@ class  ChannelList extends Component        {
             this.setState({programs: parseProgram(elem.channelId)});
             //$('.programList').animate({'width':'1400'},200);
             //console.log('MEMO!!!');
-        }
+            }
         else this.props.dispatch(setMenusVisible
-        (
+            (
             {
                 programsVisible: false,
                 channelsMenuVisible: true,
@@ -174,8 +177,9 @@ class  ChannelList extends Component        {
                 settingsVisible: false
             }
             ,
-            true));
-    }
+            true
+            ));
+                                                }
     categVisible()                              {
         this.props.dispatch(    setMenusVisible     (
             {
@@ -187,9 +191,13 @@ class  ChannelList extends Component        {
         $('.hoverDiv').animate({'width':'800'},100);
 
     }
+    componentDidMount()                         {
+    //console.log(this.props.playList);
+                                                }
     render()  {
-        if (this.props.playList.length)
-            return                                  (
+        //console.log(this.props.playList);
+            if (this.props.playList.length)
+            return                              (
                 <div>
                     <div className={this.props.channelsMenuVisible&&this.props.catMenuVisible?
                         'menuChannelLeft':this.props.channelsMenuVisible&&
@@ -215,10 +223,10 @@ class  ChannelList extends Component        {
                                     channelNum      =   {elem.channelNum}
                                     channelId       =   {elem.channelId}
                                     hiddenChannel   =   {this.props.channelCategory==='Locked'}
-                                    programName     =   {elem.channel}
+                                    programName     =   {elem.program?getCurrentProgram(elem.program):elem.channel}
                                     favorite        =   {this.props.channelCategory==='Любимые'}
                                     chosen          =   {elem.channelId===this.props.video.channelId&&elem.category===this.props.video.category}
-                                    onClick         =   {e=>this.handleClick(elem)}
+                                    onClick         =   {e=>this.handleClick(elem,e)}
                                     tabIndex        =   {i}
                                     elemChosen      =   {i === this.state.channelId}
                                     onKeyDown       =   {e=>this.handleKey(e,elem)}
@@ -232,7 +240,7 @@ class  ChannelList extends Component        {
                 </div>
             );
         else return (null)
-    }
+            }
 }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     dispatch,
@@ -243,7 +251,7 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
     setMenusVisible
 }, dispatch);
 export default
-connect             (
+connect                 (
     state =>            ({
         video:state.videoReducer.video,
         channelCategory:state.channelReducer.chosenCategory,
@@ -254,7 +262,7 @@ connect             (
         channels:state.channelReducer.channels
     }),
     mapDispatchToProps
-)(ChannelList);
+                        )(ChannelList);
 
 
 

@@ -36,16 +36,16 @@ const playList = [{ EXTINF:
   'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/3303/stream.m3u8',
   { EXTINF: 
      { 'aspect-ratio': '4:3;id=310;category=фильмы;keycode=10;thumb=https://admin.hls.tv/cdn/logo/31d547df6a5643a37a6d45eb14dcaad8.jpg;type=hls',
-       'TV1000 Comedy HD Bla bla bla': undefined } },
+       'TV1000 Comedy HD': undefined } },
   'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/310/stream.m3u8',
   { EXTINF: 
      { 'aspect-ratio': '4:3;id=315;category=фильмы;keycode=11;thumb=https://admin.hls.tv/cdn/logo/7883183b35d97eb30c65fcdab8c57222.jpg;type=hls',
        'TV1000 Premium HD': undefined } },
   'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/315/stream.m3u8',
   { EXTINF: 
-     { 'aspect-ratio': '4:3;id=145;category=информационный;keycode=12;thumb=https://admin.hls.tv/cdn/logo/1237737579d2abb4584a20dc380120ea.jpg;type=hls',
+     { 'aspect-ratio': '4:3;id=85;category=информационный;keycode=12;thumb=https://admin.hls.tv/cdn/logo/1237737579d2abb4584a20dc380120ea.jpg;type=hls',
        'СТБ': undefined } },
   'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/145/stream.m3u8' ];
-
+//id СТБ =145
 
 export default playList;

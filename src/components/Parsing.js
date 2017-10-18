@@ -22,23 +22,23 @@ function parse(arr)                        {
                         imgLink =  c.substring(c.indexOf('thumb=',1)+6,c.indexOf(';type',1));
                     }
                 }
-            }
+                                          }
             if (typeof e === 'string')    {
                 link = e;
-                channels.push( {    channelNum:parseChannelNum,
+                channels.push( {channelNum:parseChannelNum,
                     channelId :parseChannelID,
                     channel: t,
                     link: link,
                     category:parseCategory,
                     img:imgLink,
                     favorite:false});
-            }
+                                          }
         });
     }
     var serialObj = JSON.stringify(channels);
     localStorage.setItem("channels",serialObj);
     return(channels);
-}
+                                          }
 
 
 export default parse;
