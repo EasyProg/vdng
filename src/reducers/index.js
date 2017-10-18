@@ -3,41 +3,44 @@ import * as settings from '../settings.json';
 import hlsArray from '../hls';
 import parse from '../components/Parsing';
 
-const initialState  =  {
-        video:         {link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/51/stream.m3u8',
+const   initialState  =  {
+    video:         {link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/51/stream.m3u8',
         channelId:51,
         channel: '1+1',
         img:'https://admin.hls.tv/cdn/logo/746d07c80571189d7d991e6810c9d34d.jpg',
         itemChosen:null,
         category:"информационный"
-                       },
+    },
 //Global state variables
-        isPlaying:true,
-        autoPlay:true,
-        fullScreen:false
-                       };
+    isPlaying:true,
+    autoPlay:true,
+    fullScreen:false
+};
 const   channelState = {
-        chosenCategory   :'All channels',
-        channels:parse(hlsArray),
-        isFavor:false
-                       };
+    chosenCategory   :'All channels',
+    channels:parse(hlsArray),
+    isFavor:false
+};
 const   menuState =    {
-        menus:         {
+    menus:         {
         channelsMenuVisible:false,
         categoryMenuVisible:false,
         programsVisible:false,
         settingsVisible:false,
         vdArchVisible:false
-                       },
-        isOpened:false
-                       };
+    },
+    isOpened:false
+};
 const   settingsState ={
-        timeShift:       settings.timeshift.status,
-        parentalControl: settings.parental_control.status,
-        catchUp:         false,
-        epgStatus:       false,
-        isFavorite:      false
-                       };
+    timeShift:       settings.timeshift.status,
+    parentalControl: settings.parental_control.status,
+    catchUp:         false,
+    epgStatus:       false,
+    isFavorite:      false
+};
+const   epgState = {
+    programs:[]
+};
 
 function videoReducer(state=initialState,action=null)       {
     switch (action.type)                                    {
@@ -53,44 +56,52 @@ function videoReducer(state=initialState,action=null)       {
             return {...state, fullScreen: action.fullScreen};
         default:
             return state;
-                                                            }
-                                                            }
+    }
+}
 //After adding all channels variables
 function channelReducer (state=channelState,action=null)    {
     switch  (action.type)                                   {
-    case    'TOGGLE_CATEGORY':
-        return {...state,chosenCategory:action.category};
+        case    'TOGGLE_CATEGORY':
+            return {...state,chosenCategory:action.category};
         case 'GET_CHANNELS':
-        return {...state,channels:action.channelsArr};
+            return {...state,channels:action.channelsArr};
         // case 'SET_FAVORITE':
         // return {...state,channels:action.channels};
         case 'SET_FAVORITE' :
-        return {...state, isFavor:action.isFavor};
+            return {...state, isFavor:action.isFavor};
         default:
-        return state;
-                                                            }
-                                                            }
+            return state;
+    }
+}
 //menu visible
 function menuReducer (state=menuState,action=null)          {
-        switch (action.type)
-                        {
+    switch (action.type)
+    {
         case 'CHANNELS_MENU_VISIBLE' :
-        return {...state,menus:action.menus,isOpened:action.isOpened};
+            return {...state,menus:action.menus,isOpened:action.isOpened};
         default:
-        return state;
-                         }
-                                                            }
+            return state;
+    }
+}
 function settingsReducer(state=settingsState,action=null)   {
 
+    return state;
+}
+function epgReducer (state=epgState,action=null)            {
+    switch (action.type) {
+        case 'GET_DATA':
+            return {...state,programs:action.data}    ;
+        default:
             return state;
-                                                            }
-
+    }
+}
 
 //Combine reducers
 const videoApp = combineReducers({
     videoReducer,
     channelReducer,
     menuReducer,
-    settingsReducer
-                                 });
+    settingsReducer,
+    epgReducer
+});
 export default videoApp;

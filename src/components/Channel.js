@@ -13,7 +13,7 @@ export default class Channel extends Component      {
 
     constructor(props)  {
         super(props);
-                        }
+    }
 
     static propTypes =  {
         img:            PropTypes.string,
@@ -23,7 +23,7 @@ export default class Channel extends Component      {
         hiddenChannel:  PropTypes.bool.isRequired,
         chosen:         PropTypes.bool.isRequired,
         favorite:       PropTypes.bool.isRequired,
-                        };
+    };
 
 
     runningString(e)        {
@@ -32,41 +32,45 @@ export default class Channel extends Component      {
         var con_w = str.css('left');
 
         function run ()     {
-         var con_len = parseInt(con_w) - width + 100;
+            var con_len = parseInt(con_w) - width + 100;
 
             str.animate
-                        ({left:con_len + 'px'},
-                        {duration: 3000,
-                        complete: function ()
-                        {
+            ({left:con_len + 'px'},
+                {duration: 3000,
+                    complete: function ()
+                    {
                         str.css('left',con_w);
                         //run();
-                        }});}
-         if (e.currentTarget.textContent.length>15)
-                        {
-                        run();
-                        }}
+                    }});}
+        if (e.currentTarget.textContent.length>15)
+        {
+            run();
+        }}
     stopRun ()          {
-         $('.pname_hover').stop(true,true);
-                        }
+        $('.pname_hover').stop(true,true);
+    }
 
     render()            {
         return          (
             <div  className={this.props.chosen?'menuItemStylefocus':this.props.elemChosen?'menuItemStyleChosen':'menuItemStyle'}
-                  onClick={this.props.onClick} onKeyDown={this.props.onKeyDown}>
-             <div className="staticItem">
-            <span className="spanChannelid">{this.props.channelNum}</span>
-            <img  width={100} height={100} src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
-            <span className="pname" onMouseOver={(e)=>this.runningString(e)} onMouseLeave={(e)=>this.stopRun()}>
+                  onClick={this.props.onClick}
+                  onKeyDown={this.props.onKeyDown}
+                  key={this.props.key}
+                  tabIndex={this.props.tabIndex}
+            >
+                <div className="staticItem">
+                    <span className="spanChannelid">{this.props.channelNum}</span>
+                    <img  width={100} height={100} src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
+                    <span className="pname" onMouseOver={(e)=>this.runningString(e)} onMouseLeave={(e)=>this.stopRun()}>
             <span className="pname_hover">
             {this.props.programName}
             </span>
             </span>
-            {this.props.favorite ? <span className="pnameFav"><img src={book} width={10} height={10}/></span> : ''}
-            {/*<Rating maxRate={5} rate={3} chosen={this.props.chosen}/>*/}
-            <progress className='progresses' value={50} max={100} min={0}/>
-             </div>
+                    {this.props.favorite ? <span className="pnameFav"><img src={book} width={10} height={10}/></span> : ''}
+                    {/*<Rating maxRate={5} rate={3} chosen={this.props.chosen}/>*/}
+                    <progress className='progresses' value={50} max={100} min={0}/>
+                </div>
             </div>
-                        )
-                        }
-                                                    }
+        )
+    }
+}

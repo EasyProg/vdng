@@ -19,7 +19,7 @@ export default class HomeMenu extends Component {
             itemChosen:null
         };
         this.handleItem = this.handleItem.bind(this);
-                            };
+    };
     handleItem(num)         {
         let c = num;
         this.state.itemChosen===c?c = null: c = num;
@@ -27,43 +27,43 @@ export default class HomeMenu extends Component {
             {
                 itemChosen:c
             }
-                            )
-                            };
+        )
+    };
     static propTypes =
-                            {
-        isParentControl:PropTypes.bool.isRequired
-                            };
+        {
+            isParentControl:PropTypes.bool.isRequired
+        };
     componentWillReceiveProps() {
         this.setState({
             itemChosen:null
-                      })
+        })
 
-                                }
+    }
 
     ConditionalRendering (item) {
         switch (item)           {
-        case 1:
-        return   (
-        <VideoArchive key={item} visible={this.props.visible}/>
-        );
-        case 2:
-        return   (
-        <ParentalControl key={item}/>
-        );
-        case 3:    return   (
-        <Settings key={item}/>
-        );
-        default: return <div/>
-                                }
-                                }
+            case 1:
+                return   (
+                    <VideoArchive key={item} visible={this.props.visible}/>
+                );
+            case 2:
+                return   (
+                    <ParentalControl key={item}/>
+                );
+            case 3:    return   (
+                <Settings key={item}/>
+            );
+            default: return <div/>
+        }
+    }
     VideoArchive = props =>
-    (
-        <div>
-            {(this.state.itemChosen===1)?this.ConditionalRendering(this.state.itemChosen):''}
-            <div className={this.state.itemChosen!==1?"menuItemStyle":"menuItemStylefocus"} onClick={(e)=>this.handleItem(1)}>
-                <span><img src={arch} className="imgStyle"/></span>Video archive</div>
-        </div>
-    );
+        (
+            <div>
+                {(this.state.itemChosen===1)?this.ConditionalRendering(this.state.itemChosen):''}
+                <div className={this.state.itemChosen!==1?"menuItemStyle":"menuItemStylefocus"} onClick={(e)=>this.handleItem(1)}>
+                    <span><img src={arch} className="imgStyle"/></span>Video archive</div>
+            </div>
+        );
     Parental = props => (
         <div>
             <div className={this.state.itemChosen!==2?"menuItemStyle":"menuItemStylefocus"} onClick={(e)=>this.handleItem(2)}>
@@ -72,7 +72,7 @@ export default class HomeMenu extends Component {
                 {this.state.itemChosen===2?this.ConditionalRendering(this.state.itemChosen):''}
             </ReactCSSTransitionGroup>
         </div>
-                        );
+    );
     Settings = props => (
         <div>
             <div className={this.state.itemChosen!==3?"menuItemStyle":"menuItemStylefocus"} onClick={(e)=>this.handleItem(3)}>
@@ -81,23 +81,23 @@ export default class HomeMenu extends Component {
                 {(this.state.itemChosen===3)?this.ConditionalRendering(this.state.itemChosen):''}
             </ReactCSSTransitionGroup>
         </div>
-                        );
+    );
 
     render(){
         return  (
-        <div className={this.props.visible?'homeDiv':'homeDivNone'}>
-        <LoginDiv userName="Hatori Hanzo"/>
-        <img src={underline} height={5} width={300} className='categoryLine'/>
-        {
-            this.VideoArchive()
-        }
-        {
-            this.props.isParentControl?this.Parental:''
-        }
-        {
-            this.Settings()
-        }
-        </div>
+            <div className={this.props.visible?'homeDiv':'homeDivNone'}>
+                <LoginDiv userName="Hatori Hanzo"/>
+                <img src={underline} height={5} width={300} className='categoryLine'/>
+                {
+                    this.VideoArchive()
+                }
+                {
+                    this.props.isParentControl?this.Parental:''
+                }
+                {
+                    this.Settings()
+                }
+            </div>
         )
     }
 }

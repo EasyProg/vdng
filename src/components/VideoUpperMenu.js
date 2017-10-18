@@ -8,41 +8,41 @@ import forward from '../img/fast-forward-button.gif';
 import prev from '../img/play-prev.gif';
 import next from '../img/play-next.gif';
 import '../styles/css/main_styles.css';
-    import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {changeVideo,
-        toggleCategory,
-        setMenusVisible,
-        toggleFullScreen} from '../actions/actions';
+    toggleCategory,
+    setMenusVisible,
+    toggleFullScreen} from '../actions/actions';
 import Timer from '../components/ui/Timer';
 import * as $ from 'jquery';
 class VideoUpperMenu extends Component                         {
     static propTypes =                                         {
-    isPlaying:PropTypes.bool.isRequired
-                                                               };
+        isPlaying:PropTypes.bool.isRequired
+    };
     constructor(props)      {
-    super(props);
-    this.switchKeyPress = this.switchKeyPress.bind(this);
-    this.switchChannel = this.switchChannel.bind(this);
-                            }
+        super(props);
+        this.switchKeyPress = this.switchKeyPress.bind(this);
+        this.switchChannel = this.switchChannel.bind(this);
+    }
     componentDidMount()                                        {
         var func = this.switchKeyPress;
         var t = this;
         $('#video').focus();
         $('#video').keydown(function(event)                    {
-        //event.preventDefault();
-        func(event);
-                                                               });
+            //event.preventDefault();
+            func(event);
+        });
 
-                                                               }
+    }
 
     switchKeyPress(event)                                      {
         //event.stopPropagation();
         switch (event.keyCode)                                 {
             case 32:
-            $('#playerbuttonsdiv').focus();
-            this.props.toggleContext(this.props.isPlaying);
-            break;
+                $('#playerbuttonsdiv').focus();
+                this.props.toggleContext(this.props.isPlaying);
+                break;
             case 40:
                 this.switchChannel('next');
                 break;
@@ -62,7 +62,7 @@ class VideoUpperMenu extends Component                         {
                     $('#channels').focus();
                     $('.hoverDiv').animate({'width':'400'},250);
                     //console.log('SHIT!@');
-                                                               }
+                }
 
                 else if (this.props.menus.channelsMenuVisible) {
                     this.props.dispatch(setMenusVisible(
@@ -73,55 +73,55 @@ class VideoUpperMenu extends Component                         {
                         }
                     ));
                     $('#categories').focus();
-                                                               }
+                }
                 break;
-                                                               }
+            }
             case 39:                                           {
                 if (this.props.menus.channelsMenuVisible&&
                     this.props.menus.categoryMenuVisible)      {
-                this.props.dispatch(setMenusVisible(
+                    this.props.dispatch(setMenusVisible(
                         {
                             channelsMenuVisible: false,
                             categoryMenuVisible: true,
                             settingsVisible:     false
                         }
-                                                    ));
-                                                               }
+                    ));
+                }
                 else if (!this.props.menus.channelsMenuVisible&&
-                         this.props.menus.categoryMenuVisible) {
-                this.props.dispatch(setMenusVisible(
+                    this.props.menus.categoryMenuVisible) {
+                    this.props.dispatch(setMenusVisible(
                         {
                             channelsMenuVisible: false,
                             categoryMenuVisible: false,
                             settingsVisible:     false
                         }
                     ));
-                                                               }
+                }
                 else if (!this.props.menus.channelsMenuVisible&&
-                         !this.props.menus.categoryMenuVisible)
-                this.props.dispatch(setMenusVisible(
-                    {
+                    !this.props.menus.categoryMenuVisible)
+                    this.props.dispatch(setMenusVisible(
+                        {
                             channelsMenuVisible: false,
                             categoryMenuVisible: false,
                             settingsVisible:     true
-                    }
-                ));
+                        }
+                    ));
                 break;
-                                                               }
+            }
             case 13:                                           {
                 if (this.props.menus.channelsMenuVisible)
-                this.props.dispatch(setMenusVisible(
-            {
-                channelsMenuVisible: false,
-                categoryMenuVisible: false,
-                settingsVisible:     false
-            }
-                ));
+                    this.props.dispatch(setMenusVisible(
+                        {
+                            channelsMenuVisible: false,
+                            categoryMenuVisible: false,
+                            settingsVisible:     false
+                        }
+                    ));
                 break;
-                                                               }
+            }
             default:break;
-                                                               }
-                                                               }
+        }
+    }
     switchChannel(param='next')                                {
         var i = this.props.channels.map(x =>
             x.channelId).indexOf(this.props.video.channelId);
@@ -143,36 +143,36 @@ class VideoUpperMenu extends Component                         {
         }
     }
 //onClick={(e)=>this.props.handleCurrentTimeContext(0)}
-        render()
-            {
-            return (
+    render()
+    {
+        return (
             <div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
-            <progress id='progress-bar' min='0' max='100' value='0' className='progressBar'/>
-            <div  className="divPlayer">
-            <Timer isWholeProgramTime={true}/>
-            <div  className="playerButtonsDiv" id="playerbuttonsdiv">
-            <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')}/>
-            <img src={backward} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
-            <img  onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
-            <img src={forward}  className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
-            <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')}/>
+                <progress id='progress-bar' min='0' max='100' value='0' className={this.props.fullScreen?'progressBarFull':'progressBar'}/>
+                <div  className="divPlayer">
+                    <Timer isWholeProgramTime={true}/>
+                    <div  className="playerButtonsDiv" id="playerbuttonsdiv">
+                        <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')}/>
+                        <img src={backward} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
+                        <img  onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
+                        <img src={forward}  className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
+                        <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')}/>
+                    </div>
+                    <Timer isWholeProgramTime={false}/>
+                </div>
             </div>
-            <Timer isWholeProgramTime={false}/>
-            </div>
-            </div>
-                   )
-            }
-                                                            }
+        )
+    }
+}
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
+    dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);
 export default connect      (
     state =>        ({ fullScreen:state.videoReducer.fullScreen,
-    channels:state.channelReducer.channels,
-    video:state.videoReducer.video,
-    menus:state.menuReducer.menus,
-    isTimeShift:state.settingsReducer.timeShift
+        channels:state.channelReducer.channels,
+        video:state.videoReducer.video,
+        menus:state.menuReducer.menus,
+        isTimeShift:state.settingsReducer.timeShift
 
-}),
-              mapDispatchToProps
-                            )(VideoUpperMenu);
+    }),
+    mapDispatchToProps
+)(VideoUpperMenu);

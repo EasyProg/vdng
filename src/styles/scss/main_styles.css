@@ -43,7 +43,7 @@
 
 .menuChannel, .menuChannelLeft, .menuChannelNone {
   width: 400px;
-  height: 88vh;
+  height: 92vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -521,7 +521,7 @@ hr {
   left: 10%;
   width: 80%;
   max-width: 80%;
-  min-width: 0px;
+  min-width: 0;
   margin-bottom: 3vh;
   height: 70px;
   background: #805EE0;
@@ -564,7 +564,7 @@ hr {
 
 .progressBar, .progressBarFull {
   position: absolute;
-  top: 80.5%;
+  bottom: 165px;
   left: 10%;
   align-self: center;
   -webkit-align-self: center;
@@ -573,9 +573,6 @@ hr {
   max-width: 80%;
   min-width: 350px;
   background: white; }
-
-.progressBarFull {
-  top: 84.3%; }
 
 #progress-bar::-webkit-progress-bar {
   background: #9677ff; }
@@ -968,7 +965,7 @@ hr {
   margin-left: 10px;
   overflow: hidden;
   white-space: nowrap;
-  width: 200px;
+  width: 240px;
   position: absolute; }
 
 .programName_hover {
@@ -982,15 +979,41 @@ hr {
   font-size: 20px;
   letter-spacing: 1px; }
 
+.smKindOfMenu_Channels, .smKindOfMenu_Group {
+  position: absolute;
+  height: 101vh;
+  background: rgba(0, 0, 0, 0.8);
+  width: 250px;
+  transition: width 0.5s ease 100ms; }
+
+.smKindOfMenu_Group {
+  width: 500px; }
+
+.menu_header {
+  width: 100%;
+  color: white;
+  top: 0;
+  background: yellow; }
+
+.track-vertical {
+  position: absolute;
+  width: 1px;
+  display: block !important;
+  right: 2px;
+  bottom: 2px;
+  top: 2px;
+  border-radius: 3px;
+  background-color: yellowgreen; }
+
 * {
   outline: 0;
   border: 0; }
 
 body {
-  background: yellow;
+  background: black;
   outline: 0;
   border: 0;
-  overflow: hidden;
+  overflow: auto;
   min-height: 480px;
   min-width: 640px; }
 

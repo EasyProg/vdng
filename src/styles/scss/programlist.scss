@@ -16,7 +16,7 @@
   //padding-top: 11vh;
   //padding-left: 20px;
   width:400px;
-                        }
+}
 .dayListItem            {
   margin-top: 50px;
   display: block;
@@ -24,7 +24,7 @@
   font-size:1em;
   letter-spacing: 2px;
   margin-bottom: 50px;
-                        }
+}
 .programListItem        {
   //display:flex;
   //flex-direction: row;
@@ -39,20 +39,20 @@
   padding-right:30px;
   padding-top: 15px;
   text-align: left;
-                        }
+}
 .programListItem:hover  {
   background:$main_color;
   cursor:pointer;
-                        }
+}
 .headerProgramDate      {
- color:white;
- text-align: left;
- margin-left: 20px;
-                        }
+  color:white;
+  text-align: left;
+  margin-left: 20px;
+}
 .textSpan               {
   color:$main_color;
   //text-align: left;
-                        }
+}
 .hrProgram              {
   background:$main_color;
   //color:$main_color;
@@ -61,26 +61,26 @@
   display: block;
   position: relative;
   left:-35px;
-                        }
+}
 .programName            {
   height: 40px;
   margin-left: 10px;
   overflow:hidden;
   white-space:nowrap;
   //display: block;
-  width:200px;
+  width:240px;
   position: absolute;
-                        }
+}
 .programName_hover      {
   //@extend .programName;
 
   position: absolute;
-                        }
+}
 .programTime            {
   color: #696969;
-                        }
+}
 .blockChainDiv          {
   font-family: "ComfortaaRegular";
   font-size:20px;
   letter-spacing:1px;
-                        }
+}

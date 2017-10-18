@@ -18,14 +18,14 @@
   -webkit-justify-content: center;
   align-items: center;
   -webkit-align-items: center;
-                              }
+}
 .divBottomPlayerFull          {
   @extend .divBottomPlayer;
-    z-index:2147483647;
-    position: absolute;
-    bottom:5%;
-    left:40%;
-                              }
+  z-index:2147483647;
+  position: absolute;
+  bottom:5%;
+  left:40%;
+}
 .playerButtonsBottomDiv       {
   left:-10%;
   position:relative;
@@ -40,12 +40,12 @@
   -webkit-justify-content:space-between;
   align-items: center;
   -webkit-align-items: center;
-                              }
+}
 .playerButtonsBottomDivRes    {
-@extend .playerButtonsBottomDiv;
-left:24%;
-top:15%;
-                              }
+  @extend .playerButtonsBottomDiv;
+  left:24%;
+  top:15%;
+}
 .iconsDiv                     {
   color: white;
   font-size: 13px;
@@ -58,7 +58,7 @@ top:15%;
   height:55px;
   text-align: center;
   padding-top: 15px;
-                              }
+}
 .iconsDisabledDiv             {
   color: white;
   font-size: 13px;
@@ -72,27 +72,27 @@ top:15%;
   text-align: center;
   padding-top: 15px;
   opacity:0.6;
-                              }
+}
 .iconsNewResDiv               {
-@extend  .iconsDiv;
-margin-left: 400px;
-                              }
+  @extend  .iconsDiv;
+  margin-left: 400px;
+}
 .iconsLiveDiv                 {
-@extend .iconsDiv;
-line-height: 4.3em;
-                              }
+  @extend .iconsDiv;
+  line-height: 4.3em;
+}
 .iconsLockedDiv               {
   @extend .iconsDiv;
   //line-height: 4.3em;
   margin-left:100px;
-                              }
+}
 .iconsDiv:hover               {
   @extend .iconsDiv;
   cursor:pointer;
   background:$main_color;
   border-radius:40px;
   position: inherit;
-                              }
+}
 //Resolution Div
 .iconResDiv                   {
   text-align: center;
@@ -106,18 +106,18 @@ line-height: 4.3em;
   //margin-left: 10px;
   //min-width:60px;
   display:block;
-                              }
+}
 .iconResDivFull               {
   @extend .iconResDiv;
   left:110%;
-                              }
+}
 .iconResDiv:hover             {
   @extend .iconResDiv;
   cursor:pointer;
   background:$main_color;
   border-radius:40px;
   //position: inherit;
-                              }
+}
 //
 .upper_buttons_res            {
   margin: auto;
@@ -130,15 +130,15 @@ line-height: 4.3em;
   font-weight: bold;
   line-height: 1.8em;
   //vertical-align: middle;
-                              }
+}
 .upper_buttons_live           {
   @extend .upper_buttons_res;
   z-index:3;
   border:1px solid white;
   line-height: 2em;
-                              }
+}
 
 .imgLive                      {
   position:relative;
   top:-5px;
-                              }
+}

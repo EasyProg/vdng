@@ -1,34 +1,34 @@
 video::-webkit-media-controls {
-   display:none;
-                              }
+  display:none;
+}
 video::-moz-media-controls    {
   display:none;
-                              }
+}
 video::media-controls         {
   display:none;
-                              }
+}
 .innerDiv                     {
   float:left;
   margin-left: 100px;
   margin-top: 20px;
-                              }
+}
 //Progress Bar
 //Bottom Invis Buttons
 .span                         {
-   float: left;
-   //margin-right:15px;
-   margin-left:15px;
-                              }
+  float: left;
+  //margin-right:15px;
+  margin-left:15px;
+}
 .spanChannelid                {
-   margin-left: 10px;
-   float: left;
-   padding-right:25px;
-   width:30px;
-                              }
+  margin-left: 10px;
+  float: left;
+  padding-right:25px;
+  width:30px;
+}
 .videoOnButtonsDiv            {
   position:relative;
   top:50%;
-                              }
+}
 #video                        {
   align-self: center;
   width:  100%;
@@ -36,7 +36,7 @@ video::media-controls         {
   top:0;
   min-height:480px;
   min-width:640px;
-                              }
+}
 #scrollBarDiv                 {
   width:  80%;
   height: 80%;
@@ -46,13 +46,13 @@ video::media-controls         {
   //min-width:640px;
   overflow:scroll;
 
-                              }
+}
 .errorsDiv                    {
-@extend  #video;
-font:30px Times New Roman bold;
-color:white;
-text-align: center;
-                              }
+  @extend  #video;
+  font:30px Times New Roman bold;
+  color:white;
+  text-align: center;
+}
 
 
 
@@ -61,13 +61,13 @@ text-align: center;
   position: fixed;
   top:80%;
   z-index:2147483647;
-                              }
+}
 .panelDiv                     {
   position: absolute;
   top:60%;
   width:100%;
   height:40%;
-                              }
+}
 //.processDiv {
 //visibility: hidden;
 //width:100%;
