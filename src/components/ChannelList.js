@@ -33,7 +33,7 @@ class  ChannelList extends Component            {
             programs:[],
             currentProgram:''
                         }
-                        }
+                                                }
     static propTypes  =                         {
         playList:   PropTypes.array.isRequired,
         category:   PropTypes.string.isRequired,
@@ -218,7 +218,7 @@ class  ChannelList extends Component            {
                             </div>:''
                         }
                         <CustomScroll>
-                            {this.props.playList.map((elem, i) =>
+                                {this.props.playList.map((elem, i) =>
                                 <Channel
                                     key={i}
                                     img={elem.img}
@@ -234,8 +234,8 @@ class  ChannelList extends Component            {
                                     onKeyDown       =   {e=>this.handleKey(e,elem)}
                                     progress        =   {elem.program?getCurrentProgram(elem.program).progressValue:0}
                                 />
-                            )
-                            }
+                                )
+                                }
                         </CustomScroll>
                         <ProgramList  visible={this.props.menus.programsVisible}
                                       programs={this.state.programs}/>

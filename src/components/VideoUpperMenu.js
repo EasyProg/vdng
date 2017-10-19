@@ -11,10 +11,7 @@ import next from '../img/play-next.gif';
 import '../styles/css/main_styles.css';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {changeVideo,
-    toggleCategory,
-    setMenusVisible,
-    toggleFullScreen} from '../actions/actions';
+import {changeVideo, toggleCategory, setMenusVisible, toggleFullScreen} from '../actions/actions';
 import Timer from '../components/ui/Timer';
 import * as $ from 'jquery';
 class VideoUpperMenu extends Component                         {
@@ -36,7 +33,6 @@ class VideoUpperMenu extends Component                         {
         });
 
     }
-
     switchKeyPress(event)                                      {
         //event.stopPropagation();
         switch (event.keyCode)                                 {

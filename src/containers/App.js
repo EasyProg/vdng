@@ -5,6 +5,7 @@ import configureStore from '../store/configureStore';
 import {Provider} from 'react-redux';
 import '../styles/css/main_styles.css';
 const  store = configureStore();
+require('events').EventEmitter.defaultMaxListeners = Infinity;
 class App extends Component  {
     render()                 {
     return                   (
