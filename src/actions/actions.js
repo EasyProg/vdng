@@ -51,7 +51,7 @@ export function setProgram (channelsArr,programArr)
 {
     let newChannels = channelsArr;
     for (var i=0;i<newChannels.length;i++)
-    {  //console.log('Shit!!!');
+                        {  //console.log('Shit!!!');
         programArr.forEach(
         function(item,j){
             //console.log(item);

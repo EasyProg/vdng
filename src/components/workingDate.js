@@ -1,7 +1,6 @@
 export default function getCurrentProgram (arr)
     {
     var delta = Date.now()/1000;
-    console.log(delta);
     var currentObj = {};
     var timeAfter = 0;
     var timeLeft = 0;
@@ -14,9 +13,7 @@ export default function getCurrentProgram (arr)
                                 );
         timeAfter = delta - currentObj[0]['start_at'];
         timeLeft =  currentObj[0]['stop_at'] - delta;
-        //console.log(timeAfter   + '   ' + timeLeft);
         var position = (timeAfter/(timeLeft+timeAfter))*100;
-        //console.log(position);
                                                 }
     return {
             title:currentObj[0].title,

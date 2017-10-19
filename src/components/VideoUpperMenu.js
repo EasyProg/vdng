@@ -22,7 +22,11 @@ class VideoUpperMenu extends Component                         {
         super(props);
         this.switchKeyPress = this.switchKeyPress.bind(this);
         this.switchChannel = this.switchChannel.bind(this);
-    }
+        this.state =
+        {
+         currentTime: 0,
+        }
+                            }
     componentDidMount()                                        {
         var func = this.switchKeyPress;
         var t = this;
@@ -159,7 +163,7 @@ class VideoUpperMenu extends Component                         {
             </div>
         )
     }
-}
+                                                              }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);
