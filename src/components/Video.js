@@ -5,6 +5,7 @@ import HoldScreen from "./ui/HoldScreen";
 import {bindActionCreators} from 'redux';
 import {toggleAutoPlay} from '../actions/actions';
 import  {connect} from 'react-redux';
+import * as $ from 'jquery';
 class Video extends Component
 {
     constructor(props)  {
@@ -24,16 +25,17 @@ class Video extends Component
 
     componentDidMount() {
         this.isVideoPlaying();
-    }
+                        }
     isVideoPlaying ()   {
         var b = this;
-        setTimeout(
-            function ()
-            {
-                if (this.video.paused)
+        setTimeout      (
+            function    ()
+                        {
+                if      (!$('#video').attr('autoplay'))
                 {
                     b.setState({playing:false});
-                }},2000  )
+                }},2000 )
+//console.log(this.video.prop('autoPlay'));
                         }
     handleKey(e)        {
         if (e.keyCode === 13)
@@ -44,13 +46,14 @@ class Video extends Component
         this.setState({playing:true});
         this.props.dispatch(toggleAutoPlay(true));
         this.video.focus();
-    }
+                        }
     render()            {
         if (this.props.video!=='none')
         {return      (
             <div id="videoDiv"
             >
-                <video id="video" ref={(video) => this.video = video}
+                <video id="video"
+                       ref={(video) => this.video = video}
                        autoPlay={this.props.isPlaying}
                     //loop
                        playsInline

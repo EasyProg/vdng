@@ -33,13 +33,16 @@ class VideoPlayer extends Component     {
         this.videoOnLoad();
                                          }
     toggle(isPlaying)                   {
-        var  vd = this.video.video;
+        var  vd = document.getElementById('video');
+            //this.video.video;
+            //console.log(vd);
         this.props.dispatch(togglePlay(isPlaying));
         if (isPlaying)                   {
             vd.play();
 
                                          }
-        else  vd.pause();
+        else
+            vd.pause();
 
                                          }
     changeRes(res)                      {
@@ -133,7 +136,7 @@ class VideoPlayer extends Component     {
         this.setState({fullScreen:false})
     }
     changeSize()                        {
-        var    vd = this.video.video;
+        var vd = document.getElementById('video');
         if (   !document.fullscreenElement
             && !document.mozFullScreenElement
             && !document.webkitFullscreenElement
