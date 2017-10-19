@@ -7,6 +7,7 @@ import backward from '../img/fast-backward-button.gif';
 import forward from '../img/fast-forward-button.gif';
 import prev from '../img/play-prev.gif';
 import next from '../img/play-next.gif';
+//import next from '../img/fast-forward.svg';
 import '../styles/css/main_styles.css';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';

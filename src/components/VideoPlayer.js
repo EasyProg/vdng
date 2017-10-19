@@ -11,7 +11,6 @@ import {bindActionCreators} from 'redux';
 import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
-var     proxy = 'https://cors-anywhere.herokuapp.com/';
 const hls = new Hls();
 class VideoPlayer extends Component     {
     constructor(props)                  {
@@ -46,24 +45,20 @@ class VideoPlayer extends Component     {
     changeRes(res)                      {
                                          }
     videoOnLoad()                       {
-        if  (this.props.video)           {
-            var vd = document.getElementById('video');
-            if (navigator.userAgent.indexOf('WOW64') !== -1)
+        var vd = document.getElementById('video');
+        //console.log(vd);
+        if  (this.props.video&&navigator.userAgent.indexOf('WOW64') === -1)
                                          {
                 hls.loadSource(this.props.video.link);
-                                         }
-            else                         {
-                hls.loadSource(this.props.video.link);
-                                         }
-            hls.attachMedia(vd);
-            hls.on(Hls.Events.MANIFEST_PARSED,
-                function ()              {
+                hls.attachMedia(vd);
+                hls.on(Hls.Events.MANIFEST_PARSED,
+                function ()             {
                     {
                         vd.play();
                     }
-                                         });
-            var funcCnt = this;
-            hls.on(Hls.Events.ERROR, function (event, data)
+                                        });
+                var funcCnt = this;
+                hls.on(Hls.Events.ERROR, function (event, data)
                                         {
                                         {
                     switch (data.type)  {
@@ -72,10 +67,12 @@ class VideoPlayer extends Component     {
                             break;
                         default:
                             break;
-                    }
+                                        }
                                         }
                                         });
                                         }
+        //else vd.src = this.props.video.link;
+        //vd.play();
                                         }
     handleCurrTime(param)               {
         var vd = this.video.video;
@@ -106,7 +103,7 @@ class VideoPlayer extends Component     {
     menuFullScreenAppears(param)        {
         //console.log(this.props.isOpened);
         //Отобразить плей
-        if (!this.props.isOpened)
+        if (!this.props.isOpened&&this.props.autoPlay)
         {
             clearTimeout(this.timer);
             $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
@@ -182,8 +179,8 @@ class VideoPlayer extends Component     {
         }}
     shouldComponentUpdate(nextProps,nextState)
     {
-        if  (nextProps.isOpened!==this.props.isOpened)  {
-            //console.log(nextProps.isOpened !== this.props.isOpened);
+    //&& nextProps.isOpened!==false
+        if  (nextProps.isOpened!==this.props.isOpened&& nextProps.isOpened!==false)  {
             return false
                                                         }
         else return true
@@ -213,8 +210,8 @@ class VideoPlayer extends Component     {
                 <VideoBottomMenu changeSizeContext={this.changeSize}
                                  changeResContext= {this.changeRes}
                 />
-            </div>
-                                        )
+            </div>                      )
+
                                         }
                                         }
 const mapDispatchToProps = (dispatch) =>
@@ -228,7 +225,7 @@ export default connect      (
         isPlaying:            state.videoReducer.isPlaying,
         autoPlay:             state.videoReducer.autoPlay,
         fullScreen:           state.videoReducer.fullScreen,
-        isOpened:             state.menuReducer.isOpened
+        isOpened:             state.menuReducer.isOpened,
     }),
     mapDispatchToProps
                             )(VideoPlayer);

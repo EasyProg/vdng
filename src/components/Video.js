@@ -2,8 +2,10 @@ import  React, {Component,PropTypes} from 'react';
 import  '../styles/css/main_styles.css';
 import '../components/ui/HoldScreen';
 import HoldScreen from "./ui/HoldScreen";
-
-export default class Video extends Component
+import {bindActionCreators} from 'redux';
+import {toggleAutoPlay} from '../actions/actions';
+import  {connect} from 'react-redux';
+class Video extends Component
 {
     constructor(props)  {
         super(props);
@@ -12,7 +14,7 @@ export default class Video extends Component
         };
         this.isVideoPlaying = this.isVideoPlaying.bind(this);
         this.handleClick = this.handleClick.bind(this);
-    }
+                        }
 
     static propTypes =  {
         fullSize: PropTypes.bool.isRequired,
@@ -28,12 +30,11 @@ export default class Video extends Component
         setTimeout(
             function ()
             {
-                console.log(this.video);
                 if (this.video.paused)
                 {
                     b.setState({playing:false});
                 }},2000  )
-    }
+                        }
     handleKey(e)        {
         if (e.keyCode === 13)
             this.handleClick();
@@ -41,6 +42,7 @@ export default class Video extends Component
     handleClick ()      {
         this.video.play();
         this.setState({playing:true});
+        this.props.dispatch(toggleAutoPlay(true));
         this.video.focus();
     }
     render()            {
@@ -56,9 +58,11 @@ export default class Video extends Component
                        onDoubleClick={this.props.onDblClick}
                        onClick={this.props.onClick}
                        onMouseMove={this.props.onMouseMove}
+                       //src={navigator.userAgent.indexOf('WOW64') !== -1?this.props.video.link:''}
                 />
                 {   !this.state.playing?
-                    <HoldScreen onClick={(e)=>this.handleClick()} onKeyDown={(e)=>this.handleKey(e)}/>
+                    <HoldScreen onClick={(e)=>this.handleClick()}
+                                onKeyDown={(e)=>this.handleKey(e)}/>
                     :null
                 }
                 {/*<div id="scrollBarDiv"/>*/}
@@ -67,7 +71,15 @@ export default class Video extends Component
         else return     (
             <div   className="errorsDiv">Network error</div>
         )
-    }
+                        }
 }
-
+const mapDispatchToProps = (dispatch) =>
+    bindActionCreators({
+        dispatch,toggleAutoPlay
+    }, dispatch);
+export default connect      (
+    state => ({
+    }),
+    mapDispatchToProps
+)(Video);
 //Merge request to master project

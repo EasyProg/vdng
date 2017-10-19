@@ -149,7 +149,9 @@ class  ChannelList extends Component            {
         e.preventDefault();
         //console.log(elem);
         this.props.dispatch(changeVideo(elem));
-        this.props.dispatch(toggleCategory(elem.category));
+        if (this.props.channelCategory!=='Любимые')
+
+        {this.props.dispatch(toggleCategory(elem.category));}
         this.props.dispatch(togglePlay(!this.props.autoPlay));
         var parseProgramsArr = parseProgram(elem.channelId);
         if (parseProgramsArr.length>0)      {
@@ -223,19 +225,20 @@ class  ChannelList extends Component            {
                                     channelNum      =   {elem.channelNum}
                                     channelId       =   {elem.channelId}
                                     hiddenChannel   =   {this.props.channelCategory==='Locked'}
-                                    programName     =   {elem.program?getCurrentProgram(elem.program):elem.channel}
+                                    programName     =   {elem.program?getCurrentProgram(elem.program).title:elem.channel}
                                     favorite        =   {this.props.channelCategory==='Любимые'}
                                     chosen          =   {elem.channelId===this.props.video.channelId&&elem.category===this.props.video.category}
                                     onClick         =   {e=>this.handleClick(elem,e)}
                                     tabIndex        =   {i}
                                     elemChosen      =   {i === this.state.channelId}
                                     onKeyDown       =   {e=>this.handleKey(e,elem)}
+                                    progress        =   {elem.program?getCurrentProgram(elem.program).progressValue:0}
                                 />
                             )
                             }
                         </CustomScroll>
-                        <ProgramList visible={this.props.menus.programsVisible}
-                                     programs={this.state.programs}/>
+                        <ProgramList  visible={this.props.menus.programsVisible}
+                                      programs={this.state.programs}/>
                     </div>
                 </div>
             );

@@ -61,7 +61,7 @@ class  Menu extends Component               {
                                             });
                                             }
     componentDidMount()                     {
-        this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2");
+     var repeat =setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
                                             }
     firstToUpperCase( str )                 {
         return str.substr(0, 1).toUpperCase() + str.substr(1);
@@ -91,10 +91,12 @@ class  Menu extends Component               {
             grpArr.push({name:this.firstToUpperCase(Object.keys(obj)[key]),
                 src:this.chooseSrc(this.firstToUpperCase(Object.keys(obj)[key]))});
         }
-        grpArr.unshift({name:'Любимые',  src:star});
+        if  (localStorage.length>1)         {
+            grpArr.unshift({name: 'Любимые', src: star});
+                                            }
         grpArr.unshift({name:'Все жанры',src:all});
         return grpArr;
-    }
+                                            }
     toggleMenuState(menuType = 'left')      {
         //e.stopPropagation();
         //console.log('Event Log');
@@ -112,7 +114,7 @@ class  Menu extends Component               {
         }
     }
     render()   {
-        if (!this.props.fullScreen)
+        if (!this.props.fullScreen&&this.props.autoPlay)
             return (
                 <div id="menu" className="mainMenuDiv">
                     <div className="menuDives">
@@ -146,14 +148,17 @@ const mapDispatchToProps = (dispatch) => bindActionCreators(  {
     dispatch,setMenusVisible,getChannels,receiveData,setProgram
 }, dispatch);
 export default connect (
-    state =>            ({ fullScreen:state.videoReducer.fullScreen,
+    state =>            ({
+        fullScreen:state.videoReducer.fullScreen,
         channel:   state.videoReducer.video.channel,
         channels:  state.channelReducer.channels,
         channelId: state.videoReducer.video.channelId,
         channelImg:state.videoReducer.video.img,
         category:  state.channelReducer.chosenCategory,
         menus:     state.menuReducer.menus,
-        isParentControl: state.settingsReducer.parentalControl
+        isParentControl: state.settingsReducer.parentalControl,
+        autoPlay:state.videoReducer.autoPlay
+        //isPlaying: state.videoReducer.isPlaying,
     }),
     mapDispatchToProps
 )(Menu);

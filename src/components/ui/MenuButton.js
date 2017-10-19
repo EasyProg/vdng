@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import hlsArray from '../../hls';
 import parse from '../Parsing';
 import * as $ from 'jquery';
-class MenuButton extends Component                  {
+class MenuButton extends Component                      {
     constructor(props)   {
         super(props);
     };
@@ -30,29 +30,33 @@ class MenuButton extends Component                  {
             $('#video').focus();
             $('.hoverDiv').animate({'width':'400'},200);
             //set hoverDi
-        }
+                                                        }
         else                                            {
 
-            this.props.dispatch(setMenusVisible
-            ({
-                channelsMenuVisible: false,
-                categoryMenuVisible: true,
-                settingsVisible: false
+            {
+                this.props.dispatch(setMenusVisible
+                ({
+                    channelsMenuVisible: false,
+                    categoryMenuVisible: true,
+                    settingsVisible: false
 
-            }, true));
+                }, true));
+                $('.hoverDiv').animate({'width':'400'},200);
+            }
             //$('.hoverDiv').animate({'width':'400'},100);
-        }
-    }
+                                                        }
+                                                        }
     setPositionClass()                                  {
-        if        (this.props.menus.channelsMenuVisible&&
+        if  (this.props.menus.channelsMenuVisible&&
             !this.props.menus.categoryMenuVisible&&
             !this.props.menus.programsVisible) return 'divSideBar_StateChannel';
 
-        else if   (this.props.menus.categoryMenuVisible||
+        else if
+            (this.props.menus.categoryMenuVisible||
             this.props.menus.programsVisible) return 'divSideBar_StateGroup';
-        $('.hoverDiv').animate({'width':'0'},200);
-        return 'divSideBar';
-    }
+            $('.hoverDiv').animate({'width':'0'},200);
+            return 'divSideBar';
+                                                         }
     render()   {
         if      (this.props.visible)
             return (<div

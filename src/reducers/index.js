@@ -31,7 +31,7 @@ const   menuState =    {
     },
     isOpened:false
 };
-const   settingsState ={
+const settingsState ={
     timeShift:       settings.timeshift.status,
     parentalControl: settings.parental_control.status,
     catchUp:         false,

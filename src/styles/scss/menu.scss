@@ -6,6 +6,8 @@ $menu-width:250px;
   cursor: pointer;
   width: $menuChannelWidth;
   min-width: $menuChannelWidth;
+  //width: $menuChannelWidth;
+  //min-width: $menuChannelWidth;
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
   letter-spacing: 1px;
@@ -26,9 +28,13 @@ $menu-width:250px;
 .menuItemStyle:hover  {
   width:110%;
   background:$menuHoverColor;
+                      }
+.menuItemStyle:target  {
+  background:$menuHoverColor;
 }
 .menuItemStyleChosen  {
   @extend .menuItemStyle;
+  width:110%;
   background:$menuHoverColor;
 }
 .menuItemStylefocus   {

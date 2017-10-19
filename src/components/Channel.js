@@ -16,6 +16,7 @@ export default class Channel extends Component      {
     }
 
     static propTypes =  {
+        progress:       PropTypes.number,
         img:            PropTypes.string,
         channelId:      PropTypes.number.isRequired,
         channelNum:     PropTypes.number.isRequired,
@@ -23,7 +24,7 @@ export default class Channel extends Component      {
         hiddenChannel:  PropTypes.bool.isRequired,
         chosen:         PropTypes.bool.isRequired,
         favorite:       PropTypes.bool.isRequired,
-    };
+                        };
 
 
     runningString(e)        {
@@ -68,7 +69,7 @@ export default class Channel extends Component      {
             </span>
                     {this.props.favorite ? <span className="pnameFav"><img src={book} width={10} height={10}/></span> : ''}
                     {/*<Rating maxRate={5} rate={3} chosen={this.props.chosen}/>*/}
-                    <progress className='progresses' value={50} max={100} min={0}/>
+                    <progress className='progresses' value={this.props.progress} max={100} min={0}/>
                 </div>
             </div>
         )

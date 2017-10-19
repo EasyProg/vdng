@@ -26,7 +26,7 @@ export default class CustomScrollbars extends Component
                                         }
     render()                            {
         return (
-            <Scrollbars
+            <Scrollbars style={{overflowX:'visible'}}
                 renderThumbVertical={this.renderThumb}>
                 {this.props.children}
             </Scrollbars>

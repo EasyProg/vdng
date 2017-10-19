@@ -13,7 +13,7 @@ export function togglePlay(isPlaying)       {
 }
 
 export function toggleAutoPlay(isPlaying)   {
-    var result = !isPlaying;
+    var result = isPlaying;
     return  {
         type:'TOGGLE_AUTO_PLAY',
         autoPlay:result

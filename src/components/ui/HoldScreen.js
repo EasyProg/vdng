@@ -2,8 +2,11 @@ import React, {Component,PropTypes} from 'react';
 import play from '../../img/play-button-play.svg';
 import '../../styles/css/main_styles.css';
 import * as $ from 'jquery';
+import {bindActionCreators} from 'redux'
+import  {connect} from 'react-redux';
+import {toggleAutoPlay} from '../../actions/actions';
 //default Component
-export default class HoldScreen extends Component
+class HoldScreen extends Component
             {
 constructor(props)
             {
@@ -12,6 +15,7 @@ constructor(props)
 componentDidMount()
 {
 $('.playHoldImg').focus();
+this.props.dispatch(toggleAutoPlay(false));
 }
 render()    {
     return  (
@@ -24,3 +28,13 @@ render()    {
             )
             }
             }
+
+const mapDispatchToProps = (dispatch) =>
+    bindActionCreators({
+        dispatch,toggleAutoPlay
+    }, dispatch);
+export default connect      (
+    state => ({
+    }),
+    mapDispatchToProps
+)(HoldScreen);
