@@ -21,7 +21,7 @@ class Video extends Component
         fullSize: PropTypes.bool.isRequired,
         isPlaying: PropTypes.bool.isRequired,
         video: PropTypes.object.isRequired
-    };
+                        };
 
     componentDidMount() {
         this.isVideoPlaying();
@@ -40,7 +40,7 @@ class Video extends Component
     handleKey(e)        {
         if (e.keyCode === 13)
             this.handleClick();
-    }
+                        }
     handleClick ()      {
         this.video.play();
         this.setState({playing:true});
@@ -61,7 +61,8 @@ class Video extends Component
                        onDoubleClick={this.props.onDblClick}
                        onClick={this.props.onClick}
                        onMouseMove={this.props.onMouseMove}
-                       //src={navigator.userAgent.indexOf('WOW64') !== -1?this.props.video.link:''}
+                       src={navigator.userAgent.search(/iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i)!== -1?this.props.video.link:''}
+
                 />
                 {   !this.state.playing?
                     <HoldScreen onClick={(e)=>this.handleClick()}

@@ -49,10 +49,10 @@ class VideoPlayer extends Component     {
                                          }
     videoOnLoad()                       {
         var vd = document.getElementById('video');
-        console.log(vd);
         var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
         //console.log(vd);
         if  (this.props.video&&navigator.userAgent.search(reg)===-1)
+            //false)
                                         {
                 hls.loadSource(this.props.video.link);
                 hls.attachMedia(vd);
@@ -70,19 +70,12 @@ class VideoPlayer extends Component     {
                         case Hls.ErrorTypes.NETWORK_ERROR:
                             console.log(Hls.ErrorTypes.NETWORK_ERROR);
                             break;
-                        default:
+                            default:
                             break;
                                         }
                                         }
                                         });
                                         }
-        else if (this.props.video&&navigator.userAgent.search(reg)!==-1)
-             {
-            alert('this is SPARTAAA!!!');
-            vd.src = this.props.video.link;
-            vd.type="application/x-mpegURL";
-            vd.play();
-             }
                                         }
     handleCurrTime(param)               {
         var vd = this.video.video;
