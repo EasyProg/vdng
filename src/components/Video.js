@@ -32,7 +32,7 @@ class Video extends Component
             function    ()
                 {
                 let vd = document.getElementById('video');
-                if      (!vd.autoplay)
+                if      (vd.paused)
                 {
                     b.setState({playing:false});
                 }},1500 )
