@@ -30,11 +30,12 @@ class Video extends Component
         var b = this;
         setTimeout      (
             function    ()
-                        {
-                if      (!$('#video').attr('autoplay'))
+                {
+                let vd = document.getElementById('video');
+                if      (!vd.autoplay)
                 {
                     b.setState({playing:false});
-                }},2000 )
+                }},1500 )
 //console.log(this.video.prop('autoPlay'));
                         }
     handleKey(e)        {
