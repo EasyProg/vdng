@@ -80,6 +80,7 @@ class VideoPlayer extends Component     {
              {
             alert('this is SPARTAAA!!!');
             vd.src = this.props.video.link;
+            vd.type="application/x-mpegURL";
             vd.play();
              }
                                         }

@@ -101,7 +101,6 @@ const videoApp = combineReducers({
     videoReducer,
     channelReducer,
     menuReducer,
-    settingsReducer,
-    epgReducer
+    settingsReducer
 });
 export default videoApp;

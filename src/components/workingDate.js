@@ -1,9 +1,10 @@
 export default function getCurrentProgram (arr)
     {
-    var delta = Date.now()/1000;
-    var currentObj = {};
-    var timeAfter = 0;
-    var timeLeft = 0;
+    let delta = Date.now()/1000;
+    let currentObj = {};
+    let timeAfter = 0;
+    let timeLeft = 0;
+    let programTime = 0;
     if (arr)                                    {
         currentObj = arr.filter((item, i) =>    {
         //
@@ -13,10 +14,12 @@ export default function getCurrentProgram (arr)
                                 );
         timeAfter = delta - currentObj[0]['start_at'];
         timeLeft =  currentObj[0]['stop_at'] - delta;
+        programTime = currentObj[0]['stop_at'] - currentObj[0]['start_at'];
         var position = (timeAfter/(timeLeft+timeAfter))*100;
                                                 }
-    return {
-            title:currentObj[0].title,
-            progressValue:position
-           }
+    return   {startTime:currentObj[0]['start_at'],
+              prTime:programTime,
+              current:currentObj[0],
+              progressValue:position
+            }
     };

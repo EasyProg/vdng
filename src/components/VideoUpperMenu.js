@@ -12,7 +12,9 @@ import '../styles/css/main_styles.css';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {changeVideo, toggleCategory, setMenusVisible, toggleFullScreen} from '../actions/actions';
-import Timer from '../components/ui/Timer';
+import ProgramTime from '../components/ui/ProgramTime';
+import CurrentTime from '../components/ui/CurrentTime';
+import getCurrentProgram from '../components/workingDate';
 import * as $ from 'jquery';
 class VideoUpperMenu extends Component                         {
     static propTypes =                                         {
@@ -22,6 +24,8 @@ class VideoUpperMenu extends Component                         {
         super(props);
         this.switchKeyPress = this.switchKeyPress.bind(this);
         this.switchChannel = this.switchChannel.bind(this);
+        this.currentProgram = this.currentProgram.bind(this);
+        this.currentTime = this.currentTime.bind(this);
         this.state =
         {
          currentTime: 0,
@@ -143,14 +147,32 @@ class VideoUpperMenu extends Component                         {
             }
         }
     }
+    currentProgram ()
+    {
+        if (this.props.video.program)
+        {
+          return  getCurrentProgram(this.props.video.program).prTime;
+        }
+        else return 0;
+    }
+    currentTime ()
+    {
+        if (this.props.video.program)
+        {
+            return  getCurrentProgram(this.props.video.program).startTime;
+        }
+        else return 0;
+    }
+
 //onClick={(e)=>this.props.handleCurrentTimeContext(0)}
     render()
     {
         return (
             <div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
-                <progress id='progress-bar' min='0' max='100' value='0' className={this.props.fullScreen?'progressBarFull':'progressBar'}/>
+                <progress id='progress-bar' min='0' max='100' value={this.props.video.program?getCurrentProgram(this.props.video.program).progressValue:0} className={this.props.fullScreen?'progressBarFull':'progressBar'}/>
                 <div  className="divPlayer">
-                    <Timer isWholeProgramTime={true}/>
+                    {/*<Timer isWholeProgramTime={true}/>*/}
+                    <CurrentTime startTime={this.currentTime()}/>
                     <div  className="playerButtonsDiv" id="playerbuttonsdiv">
                         <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')}/>
                         <img src={backward} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
@@ -158,7 +180,7 @@ class VideoUpperMenu extends Component                         {
                         <img src={forward}  className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
                         <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')}/>
                     </div>
-                    <Timer isWholeProgramTime={false}/>
+                    <ProgramTime time={this.currentProgram()}/>
                 </div>
             </div>
         )

@@ -39,13 +39,14 @@ const playList = [{ EXTINF:
        'TV1000 Comedy HD': undefined } },
   'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/310/stream.m3u8',
   { EXTINF: 
-     { 'aspect-ratio': '4:3;id=315;category=фильмы;keycode=11;thumb=https://admin.hls.tv/cdn/logo/7883183b35d97eb30c65fcdab8c57222.jpg;type=hls',
+     { 'aspect-ratio': '4:3;id=110;category=фильмы;keycode=11;thumb=https://admin.hls.tv/cdn/logo/7883183b35d97eb30c65fcdab8c57222.jpg;type=hls',
        'TV1000 Premium HD': undefined } },
   'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/315/stream.m3u8',
   { EXTINF: 
      { 'aspect-ratio': '4:3;id=85;category=информационный;keycode=12;thumb=https://admin.hls.tv/cdn/logo/1237737579d2abb4584a20dc380120ea.jpg;type=hls',
        'СТБ': undefined } },
   'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/145/stream.m3u8' ];
+//TV1000 id = 315
 //id СТБ =145
 
 export default playList;

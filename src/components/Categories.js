@@ -216,8 +216,7 @@ export default connect(
     state =>
     ({ channels:state.channelReducer.channels,
        channelCategory:state.channelReducer.chosenCategory,
-       isFavor:state.channelReducer.isFavor,
-       programs:state.epgReducer.programs
+       isFavor:state.channelReducer.isFavor
     }),
     mapDispatchToProps
 )(Categories);

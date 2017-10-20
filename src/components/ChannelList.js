@@ -225,7 +225,7 @@ class  ChannelList extends Component            {
                                     channelNum      =   {elem.channelNum}
                                     channelId       =   {elem.channelId}
                                     hiddenChannel   =   {this.props.channelCategory==='Locked'}
-                                    programName     =   {elem.program?getCurrentProgram(elem.program).title:elem.channel}
+                                    programName     =   {elem.program?getCurrentProgram(elem.program).current.title:elem.channel}
                                     favorite        =   {this.props.channelCategory==='Любимые'}
                                     chosen          =   {elem.channelId===this.props.video.channelId&&elem.category===this.props.video.category}
                                     onClick         =   {e=>this.handleClick(elem,e)}
