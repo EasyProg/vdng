@@ -228,7 +228,6 @@ export default connect      (
         isPlaying:            state.videoReducer.isPlaying,
         autoPlay:             state.videoReducer.autoPlay,
         fullScreen:           state.videoReducer.fullScreen,
-        isOpened:             state.menuReducer.isOpened,
     }),
     mapDispatchToProps
                             )(VideoPlayer);

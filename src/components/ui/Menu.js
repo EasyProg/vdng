@@ -114,7 +114,7 @@ class  Menu extends Component               {
         }
     }
     render()   {
-        if (!this.props.fullScreen&&this.props.autoPlay)
+        if  (!this.props.fullScreen&&this.props.autoPlay)
             return (
                 <div id="menu" className="mainMenuDiv">
                     <div className="menuDives">
@@ -146,9 +146,9 @@ class  Menu extends Component               {
 }
 const mapDispatchToProps = (dispatch) => bindActionCreators(  {
     dispatch,setMenusVisible,getChannels,receiveData,setProgram
-}, dispatch);
+                                                              }, dispatch);
 export default connect (
-    state =>            ({
+    state =>           ({
         fullScreen:state.videoReducer.fullScreen,
         channel:   state.videoReducer.video.channel,
         channels:  state.channelReducer.channels,

@@ -43,7 +43,6 @@ class MenuButton extends Component                      {
                 }, true));
                 $('.hoverDiv').animate({'width':'400'},200);
             }
-            //$('.hoverDiv').animate({'width':'400'},100);
                                                         }
                                                         }
     setPositionClass()                                  {

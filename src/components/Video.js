@@ -10,9 +10,9 @@ class Video extends Component
 {
     constructor(props)  {
         super(props);
-        this.state = {
+        this.state =    {
             playing:true
-        };
+                        };
         this.isVideoPlaying = this.isVideoPlaying.bind(this);
         this.handleClick = this.handleClick.bind(this);
                         }
@@ -50,7 +50,7 @@ class Video extends Component
                         }
     render()            {
         if (this.props.video!=='none')
-        {return      (
+        {return(
             <div id="videoDiv"
             >
                 <video id="video"
@@ -70,7 +70,6 @@ class Video extends Component
                                 onKeyDown={(e)=>this.handleKey(e)}/>
                     :null
                 }
-                {/*<div id="scrollBarDiv"/>*/}
             </div>
         )}
         else return     (
@@ -82,9 +81,9 @@ const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,toggleAutoPlay
     }, dispatch);
-export default connect      (
+export default connect  (
     state => ({
     }),
     mapDispatchToProps
-)(Video);
+                        )(Video);
 //Merge request to master project

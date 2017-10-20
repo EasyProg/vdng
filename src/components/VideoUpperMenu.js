@@ -19,8 +19,8 @@ import * as $ from 'jquery';
 class VideoUpperMenu extends Component                         {
     static propTypes =                                         {
         isPlaying:PropTypes.bool.isRequired
-    };
-    constructor(props)      {
+                                                               };
+    constructor(props)                                         {
         super(props);
         this.switchKeyPress = this.switchKeyPress.bind(this);
         this.switchChannel = this.switchChannel.bind(this);
@@ -30,7 +30,7 @@ class VideoUpperMenu extends Component                         {
         {
          currentTime: 0,
         }
-                            }
+                                                               }
     componentDidMount()                                        {
         var func = this.switchKeyPress;
         var t = this;
@@ -62,12 +62,13 @@ class VideoUpperMenu extends Component                         {
                             channelsMenuVisible: true,
                             categoryMenuVisible: false,
                             settingsVisible: false
-                        }
+                        },true
                     ));
                     $('#channels').focus();
+                    $("#vduppermenu,#vdbottommenu").fadeOut(100);
                     $('.hoverDiv').animate({'width':'400'},250);
                     //console.log('SHIT!@');
-                }
+                                                               }
 
                 else if (this.props.menus.channelsMenuVisible) {
                     this.props.dispatch(setMenusVisible(
@@ -75,7 +76,7 @@ class VideoUpperMenu extends Component                         {
                             channelsMenuVisible: true,
                             categoryMenuVisible: true,
                             settingsVisible:     false
-                        }
+                        },true
                     ));
                     $('#categories').focus();
                 }
@@ -122,6 +123,9 @@ class VideoUpperMenu extends Component                         {
                             settingsVisible:     false
                         }
                     ));
+                else if (!this.state.isOpened) {
+                $("#vduppermenu,#vdbottommenu").fadeIn(100);
+                }
                 break;
             }
             default:break;
@@ -147,24 +151,20 @@ class VideoUpperMenu extends Component                         {
             }
         }
     }
-    currentProgram ()
-    {
+    currentProgram ()                                          {
         if (this.props.video.program)
         {
           return  getCurrentProgram(this.props.video.program).prTime;
         }
         else return 0;
     }
-    currentTime ()
-    {
+    currentTime ()                                             {
         if (this.props.video.program)
         {
             return  getCurrentProgram(this.props.video.program).startTime;
         }
         else return 0;
     }
-
-//onClick={(e)=>this.props.handleCurrentTimeContext(0)}
     render()
     {
         return (
@@ -187,14 +187,15 @@ class VideoUpperMenu extends Component                         {
     }
                                                               }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-    dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
+dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);
 export default connect      (
     state =>        ({ fullScreen:state.videoReducer.fullScreen,
         channels:state.channelReducer.channels,
         video:state.videoReducer.video,
         menus:state.menuReducer.menus,
-        isTimeShift:state.settingsReducer.timeShift
+        isTimeShift:state.settingsReducer.timeShift,
+        isOpened:  state.menuReducer.isOpened,
 
     }),
     mapDispatchToProps

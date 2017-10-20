@@ -526,7 +526,7 @@ hr {
   width: 80%;
   max-width: 80%;
   min-width: 0;
-  margin-bottom: 3vh;
+  margin-bottom: 5vh;
   height: 70px;
   background: #805EE0;
   display: flex;
@@ -626,7 +626,7 @@ hr {
 .divBottomPlayer, .divBottomPlayerFull {
   z-index: 2147483647;
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
   left: 22%;
   align-self: center;
   -webkit-align-self: center;
@@ -1021,7 +1021,7 @@ body {
   background: black;
   outline: 0;
   border: 0;
-  overflow: auto;
+  overflow: hidden;
   min-height: 400px;
   min-width: 600px;
   height: 100vh; }

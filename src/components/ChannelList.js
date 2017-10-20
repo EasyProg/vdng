@@ -71,6 +71,7 @@ class  ChannelList extends Component            {
                         programsVisible: false
                      },false
                      ));
+                $('#video').focus();
                      }
                 break;
             case 32:
@@ -90,7 +91,7 @@ class  ChannelList extends Component            {
                         channelsMenuVisible: true,
                         categoryMenuVisible: true,
                         settingsVisible: false
-                    }
+                    },true
                 ));
                 $('#categories').focus();
                 $('.hoverDiv').animate({'width':'800'},250);
@@ -102,7 +103,7 @@ class  ChannelList extends Component            {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false
-                    }
+                    },false
                 ));
                 $('#video').focus();
             }
