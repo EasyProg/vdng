@@ -49,8 +49,10 @@ class VideoPlayer extends Component     {
                                          }
     videoOnLoad()                       {
         var vd = document.getElementById('video');
+        console.log(vd);
+        var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
         //console.log(vd);
-        if  (this.props.video&&navigator.userAgent.indexOf('WOW64') === -1)
+        if  (this.props.video&&navigator.userAgent.search(reg)===-1)
                                         {
                 hls.loadSource(this.props.video.link);
                 hls.attachMedia(vd);
@@ -74,7 +76,9 @@ class VideoPlayer extends Component     {
                                         }
                                         });
                                         }
-        else {
+        else if (this.props.video&&navigator.userAgent.search(reg)!==-1)
+             {
+            alert('this is SPARTAAA!!!');
             vd.src = this.props.video.link;
             vd.play();
              }
