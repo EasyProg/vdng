@@ -51,7 +51,7 @@ class VideoPlayer extends Component     {
         var vd = document.getElementById('video');
         //console.log(vd);
         if  (this.props.video&&navigator.userAgent.indexOf('WOW64') === -1)
-                                         {
+                                        {
                 hls.loadSource(this.props.video.link);
                 hls.attachMedia(vd);
                 hls.on(Hls.Events.MANIFEST_PARSED,
@@ -74,8 +74,10 @@ class VideoPlayer extends Component     {
                                         }
                                         });
                                         }
-        //else vd.src = this.props.video.link;
-        //vd.play();
+        else {
+            vd.src = this.props.video.link;
+            vd.play();
+             }
                                         }
     handleCurrTime(param)               {
         var vd = this.video.video;
