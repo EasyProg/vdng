@@ -572,7 +572,7 @@ hr {
 
 .progressBar, .progressBarFull {
   position: absolute;
-  bottom: 165px;
+  bottom: 185px;
   left: 10%;
   align-self: center;
   -webkit-align-self: center;

@@ -1,7 +1,7 @@
 export default function getCurrentProgram (arr,channelName)
     {
     let delta = Date.now()/1000;
-    let currentObj = {};
+    let currentObj = [];
     let timeAfter = 0;
     let timeLeft = 0;
     let programTime = 0;
@@ -12,7 +12,6 @@ export default function getCurrentProgram (arr,channelName)
                 return item['start_at'] < delta && item['stop_at'] > delta;
                                              }
         );
-        console.log(arr);
         if (currentObj[0])  {
             timeAfter = delta - currentObj[0]['start_at'];
             timeLeft = currentObj[0]['stop_at'] - delta;

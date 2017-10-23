@@ -56,6 +56,7 @@ class Video extends Component
                 <video id="video"
                        ref={(video) => this.video = video}
                        autoPlay={this.props.isPlaying}
+                       controls={false}
                     //loop
                        playsInline
                        tabIndex={1}

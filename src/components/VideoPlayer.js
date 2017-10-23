@@ -108,7 +108,6 @@ class VideoPlayer extends Component     {
         //Отобразить плей
         if (this.props.isOpened===false&&this.props.autoPlay)
         {
-            console.log('sdsdsdsds');
             clearTimeout(this.timer);
             $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
             //Запустить скрытие

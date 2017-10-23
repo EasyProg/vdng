@@ -10,7 +10,7 @@ export default class ProgramTime extends Component {
     timeParser(time) {
         let minutes = '00';
         let seconds = '00';
-        let hours = '';
+        let hours = 0;
         var t = 0;
         if (time) {
             //t = (date2 - date1);
@@ -20,6 +20,7 @@ export default class ProgramTime extends Component {
             //hours   =
             seconds = '00';
             minutes = minutes.toString().length === 1 ? '0' + minutes : minutes;
+            hours = hours.toString().length === 1 ? '0' + hours : hours;
         }
         //return t
         return ( hours + minutes + ':' + seconds);
