@@ -23,24 +23,26 @@ import * as $ from 'jquery';
 //return b;
 //                                                        }
 
-export default function parseProgram (channelId,arr)    {
+export default function parseProgram (arr)   {
     var program = {};
     var newArr = [];
     var lstArr = [];
     var obj = {};
-    if (arr) {
+    console.log(arr);
+    // if (arr) {
+    //
+    //     program = arr.filter((e, i) =>  {
+    //         return Number(e['channel_id']) === channelId
+    //     });
+    // }
 
-        program = arr.filter((e, i) =>                  {
-            return Number(e['channel_id']) === channelId
-        });
-    }
-
-    if (program[0])                                 {
-        newArr = program[0]['list'].map((e, i) =>   {
+    if (arr)                                 {
+        console.log(arr);
+        newArr = arr.map((e, i) =>           {
                 var parseDt = new Date(e['start_at'] * 1000);
                 var startDt = parseDt.getDate() + '.' + (Number(parseDt.getMonth()) + 1).toString() + '.' + parseDt.getFullYear();
                 var startTime = parseDt.getHours() + ':' + parseDt.getMinutes();
-                return                              {
+                return                       {
                     id: e['id'],
                     title: e['title'],
                     description: e['description'],
@@ -48,27 +50,30 @@ export default function parseProgram (channelId,arr)    {
                     start_time_show: startTime,
                     start_time:e['start_at'],
                     stop_time:e['stop_at']
-                }
-            }
-        );
+                                             }
+                                             }
+                                             );
 
 
-        newArr.forEach(function (item, i)           {
+        newArr.forEach(function (item, i)    {
             var str = item['start_date'];
             obj[str] = true;
-        });
+                                             });
 
-        for (var key in Object.keys(obj)) {
+        for (var key in Object.keys(obj))    {
             lstArr.push({date: Object.keys(obj)[key], data: []});
-        }
-        newArr.forEach(function (item, i) {
-            for (var j = 0; j < lstArr.length; j++) {
-                if (item['start_date'] === lstArr[j]['date']) {
+                                             }
+        newArr.forEach(function (item, i)    {
+            for (var j = 0; j < lstArr.length; j++)
+                                             {
+                if (item['start_date'] === lstArr[j]['date'])
+                                             {
                     lstArr[j]['data'].push(item);
-                }
-            }
+                                             }
+                                             }
 
-        });
-    }
+                                             });
+                                             }
+    console.log(lstArr);
     return lstArr
-}
+                                                            }

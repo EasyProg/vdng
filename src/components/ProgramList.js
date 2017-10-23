@@ -10,15 +10,15 @@ export default class ProgramList extends Component
     {
         super(props);
     }
-    static propTypes =          {
+    static propTypes =               {
         programs: PropTypes.array.isRequired,
         visible:  PropTypes.bool.isRequired
 
-    };
-    getDayOfWeek (dt)           {
-        var date_parse = new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,dt.substr(0,1));
-        //console.log(date_parse);
-        console.log(dt.substr(5,4),dt.substr(2,2),dt.substr(0,1));
+                                     };
+    getDayOfWeek (dt)                {
+        var date_parse = new Date(dt.substr(6,4),Number(dt.substr(3,2))-1,dt.substr(0,2));
+        console.log(date_parse);
+        //console.log(dt.substr(5,4),dt.substr(2,2),dt.substr(0,1));
         switch (date_parse.getDay()) {
             case 0 : return 'Sunday';
                 break;
@@ -35,11 +35,11 @@ export default class ProgramList extends Component
             case 6 : return 'Saturday';
                 break;
 
-        }
+                                    }
         //return date_parse.getDay();
 
-    }
-    runningString(e)            {
+                                    }
+    runningString(e)                {
         var str   = $('.programName_hover:hover');
         var width = str.width();
         var con_w = str.css('left');
@@ -56,24 +56,24 @@ export default class ProgramList extends Component
                         //run();
                     }});}
         if (e.currentTarget.textContent.length>25)
-        {
+                                  {
             run();
-        }}
-    stopRun ()               {
+                                  }}
+    stopRun ()                    {
         $('.programName_hover').stop(true,true);
-    }
+                                  }
 // componentDidMount()         {
 // $('.programList').animate({'width':'400'},100);
 //                             }
-    render()                {
+    render()                      {
         if (this.props.programs.length&&this.props.visible>0)
-            return                  (
+            return                (
                 <div className="programList">
                     <div className="menuHeaderCh">
                         <HomeButton visible={true}/>
                     </div>
                     <Scrollbars>
-                        {this.props.programs.map((e,i)=>
+                                {this.props.programs.map((e,i)=>
                                 <div className="blockChainDiv" key={i}>
                                     <div className="headerProgramDate">
                                         {e.date} <span className="textSpan">{this.getDayOfWeek(e.date)}</span>
@@ -87,10 +87,10 @@ export default class ProgramList extends Component
                                                     <div key={i} className="programListItem"
                                                          onMouseOver={(e)=>this.runningString(e)}
                                                          onMouseLeave={(e)=>this.stopRun()}>
-                     <span className="programTime">{e.start_time.substring(e.start_time.indexOf(':'),
-                         e.start_time.length-1).length===1?e.start_time+'0':e.start_time}
+                     <span className="programTime">{e.start_time_show.substring(e.start_time_show.indexOf(':'),
+                         e.start_time_show.length-1).length===1?e.start_time_show+'0':e.start_time_show}
                      </span>
-                                                        <span className="programName">
+                                                    <span className="programName">
                          <span className="programName_hover">{e.title}</span>
                          </span>
                                                     </div>
@@ -101,7 +101,7 @@ export default class ProgramList extends Component
                         )}
                     </Scrollbars>
                 </div>
-            );
+                                    );
         else return null
     }
 }

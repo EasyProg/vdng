@@ -145,17 +145,17 @@ class  ChannelList extends Component            {
         //Запустить скрытие
         this.handlePlay();
     }
-    handleClick (elem,e)                          {
+    handleClick (elem,e)                        {
         e.stopPropagation();
         e.preventDefault();
         //console.log(elem);
         this.props.dispatch(changeVideo(elem));
         if (this.props.channelCategory!=='Любимые')
-
         {this.props.dispatch(toggleCategory(elem.category));}
-        this.props.dispatch(togglePlay(!this.props.autoPlay));
-        var parseProgramsArr = parseProgram(elem.channelId);
-        if (parseProgramsArr.length>0)      {
+         this.props.dispatch(togglePlay(!this.props.autoPlay));
+        console.log(elem.program);
+        var parseProgramsArr = parseProgram(elem.program);
+        if (parseProgramsArr.length>0)          {
             this.props.dispatch(setMenusVisible
             (
                 {
@@ -167,10 +167,10 @@ class  ChannelList extends Component            {
                 ,
                 true));
 
-            this.setState({programs: parseProgram(elem.channelId)});
+            this.setState({programs:parseProgramsArr});
             //$('.programList').animate({'width':'1400'},200);
             //console.log('MEMO!!!');
-            }
+                                             }
         else this.props.dispatch(setMenusVisible
             (
             {
@@ -238,7 +238,7 @@ class  ChannelList extends Component            {
                                 )
                                 }
                         </CustomScroll>
-                        <ProgramList  visible={this.props.menus.programsVisible}
+                        <ProgramList  visible= {this.props.menus.programsVisible}
                                       programs={this.state.programs}/>
                     </div>
                 </div>

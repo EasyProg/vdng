@@ -20,8 +20,8 @@ export default class ProgramTime extends Component {
             //hours   =
             seconds = '00';
             minutes = minutes.toString().length === 1 ? '0' + minutes : minutes;
-            hours = hours.toString().length === 1 ? '0' + hours : hours;
-        }
+            hours = hours.toString().length === 1 ? hours : hours;
+                }
         //return t
         return ( hours + minutes + ':' + seconds);
     }
