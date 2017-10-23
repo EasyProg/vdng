@@ -106,14 +106,15 @@ class VideoPlayer extends Component     {
     menuFullScreenAppears(param)        {
         //console.log(this.props.isOpened);
         //Отобразить плей
-        if (!this.props.isOpened&&this.props.autoPlay)
+        if (this.props.isOpened===false&&this.props.autoPlay)
         {
+            console.log('sdsdsdsds');
             clearTimeout(this.timer);
             $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
             //Запустить скрытие
             this.handlePlay();
         }
-        else if (param)                     {
+        else if (param)                 {
             this.props.dispatch(setMenusVisible
             (
                 {
@@ -125,8 +126,8 @@ class VideoPlayer extends Component     {
                 }
                 ,
                 false));
-        }
-    }
+                                        }
+                                        }
     escFullScreen()                     {
         if (   !document.fullscreenElement
             && !document.mozFullScreenElement
@@ -228,6 +229,7 @@ export default connect      (
         isPlaying:            state.videoReducer.isPlaying,
         autoPlay:             state.videoReducer.autoPlay,
         fullScreen:           state.videoReducer.fullScreen,
+        isOpened:             state.menuReducer.isOpened
     }),
     mapDispatchToProps
                             )(VideoPlayer);

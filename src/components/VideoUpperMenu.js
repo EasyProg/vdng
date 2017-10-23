@@ -19,7 +19,7 @@ import * as $ from 'jquery';
 class VideoUpperMenu extends Component                         {
     static propTypes =                                         {
         isPlaying:PropTypes.bool.isRequired
-                                                               };
+    };
     constructor(props)                                         {
         super(props);
         this.switchKeyPress = this.switchKeyPress.bind(this);
@@ -27,10 +27,10 @@ class VideoUpperMenu extends Component                         {
         this.currentProgram = this.currentProgram.bind(this);
         this.currentTime = this.currentTime.bind(this);
         this.state =
-        {
-         currentTime: 0,
-        }
-                                                               }
+            {
+                currentTime: 0,
+            }
+    }
     componentDidMount()                                        {
         var func = this.switchKeyPress;
         var t = this;
@@ -68,7 +68,7 @@ class VideoUpperMenu extends Component                         {
                     $("#vduppermenu,#vdbottommenu").fadeOut(100);
                     $('.hoverDiv').animate({'width':'400'},250);
                     //console.log('SHIT!@');
-                                                               }
+                }
 
                 else if (this.props.menus.channelsMenuVisible) {
                     this.props.dispatch(setMenusVisible(
@@ -124,7 +124,7 @@ class VideoUpperMenu extends Component                         {
                         }
                     ));
                 else if (!this.state.isOpened) {
-                $("#vduppermenu,#vdbottommenu").fadeIn(100);
+                    $("#vduppermenu,#vdbottommenu").fadeIn(100);
                 }
                 break;
             }
@@ -154,7 +154,7 @@ class VideoUpperMenu extends Component                         {
     currentProgram ()                                          {
         if (this.props.video.program)
         {
-          return  getCurrentProgram(this.props.video.program).prTime;
+            return  getCurrentProgram(this.props.video.program).prTime;
         }
         else return 0;
     }
@@ -185,9 +185,9 @@ class VideoUpperMenu extends Component                         {
             </div>
         )
     }
-                                                              }
+}
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
+    dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);
 export default connect      (
     state =>        ({ fullScreen:state.videoReducer.fullScreen,

@@ -64,15 +64,15 @@ class  ChannelList extends Component            {
             case 13: {
                 this.handleClick(this.props.playList[this.state.channelId],e);
                 this.props.dispatch(setMenusVisible(
-                     {
+                    {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false,
                         programsVisible: false
-                     },false
-                     ));
+                    },false
+                ));
                 $('#video').focus();
-                     }
+            }
                 break;
             case 32:
                 this.handleClick(this.props.playList[this.state.channelId],e);
@@ -226,7 +226,7 @@ class  ChannelList extends Component            {
                                     channelNum      =   {elem.channelNum}
                                     channelId       =   {elem.channelId}
                                     hiddenChannel   =   {this.props.channelCategory==='Locked'}
-                                    programName     =   {elem.program?getCurrentProgram(elem.program).current.title:elem.channel}
+                                    programName     =   {getCurrentProgram(elem.program,elem.channel).title}
                                     favorite        =   {this.props.channelCategory==='Любимые'}
                                     chosen          =   {elem.channelId===this.props.video.channelId&&elem.category===this.props.video.category}
                                     onClick         =   {e=>this.handleClick(elem,e)}

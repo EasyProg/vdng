@@ -139,7 +139,7 @@ class  Menu extends Component               {
                     <div className="menuDives">
                     </div>
                 </div>
-            );
+                );
         else return null
     }
 
