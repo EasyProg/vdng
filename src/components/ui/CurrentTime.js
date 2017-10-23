@@ -17,6 +17,7 @@ export default class CurrentTime extends Component  {
                         {
     clearInterval(this.int);
                         }
+    //Allowed new
     getTimeNow(time=1000000000)     {
     var dt = new Date;
     let min = 0;
