@@ -1,0 +1,19 @@
+.settings_transition-enter {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.settings_transition-enter-active {
+  max-height: 230px;
+  transition: max-height 0.3s ease-in;
+}
+
+.settings_transition-leave {
+  max-height: 230px;
+  overflow: hidden;
+}
+
+.settings_transition-leave-active {
+  max-height: 0;
+  transition: max-height 0.3s ease-in;
+}

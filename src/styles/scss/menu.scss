@@ -1,0 +1,104 @@
+@import 'variables';
+$menu-width:250px;
+.menuItemStyle        {
+  display: block;
+  //text-wrap: none;
+  cursor: pointer;
+  width: $menuChannelWidth;
+  min-width: $menuChannelWidth;
+  //width: $menuChannelWidth;
+  //min-width: $menuChannelWidth;
+  font-family: "ComfortaaRegular";
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  color: white;
+  height: 110px;
+  line-height: 5.7em;
+}
+.staticItem           {
+  width:$menuChannelWidth;
+  min-width: $menuChannelWidth;
+}
+.menuBottom         {
+  width:$menuItemWidth;
+  height:5vh;
+  //background: rgba(0,0,0,0.8);
+  bottom:0;
+}
+.menuItemStyle:hover  {
+  width:110%;
+  background:$menuHoverColor;
+                      }
+.menuItemStyle:target  {
+  background:$menuHoverColor;
+}
+.menuItemStyleChosen  {
+  @extend .menuItemStyle;
+  width:110%;
+  background:$menuHoverColor;
+}
+.menuItemStylefocus   {
+  @extend .menuItemStyle;
+  background:$menuActiveColor;
+
+}
+.circleButtonSpan     {
+  width:40px;
+  height:40px;
+  position: relative;
+  top:-53px;
+  left:285px;
+  visibility: visible;
+}
+.circleButtonSpanNone {
+  visibility: hidden;
+}
+.menuChannel          {
+  //width:900px;
+  width:$menuItemWidth;
+  height: 92vh;
+  position: absolute;
+  top:0;
+  left:0;
+  //background: rgba(0,0,0,0.8);
+  transition: left 0.3s ease 50ms;
+  //overflow: visible;
+}
+.menuChannelLeft      {
+  @extend .menuChannel;
+  left:400px;
+}
+.menuChannelNone      {
+  @extend .menuChannel;
+  left:-600px;
+}
+.divSideBar           {
+  margin-top: 1.5%;
+  margin-left:1.5%;
+  text-align: center;
+  width:50px;
+  height:50px;
+  line-height:6.2em;
+}
+.divSideBar:hover     {
+  @extend .divSideBar;
+  cursor: pointer;
+  border-radius: 40px;
+  background: rgba(87, 87, 87, 0.6);
+}
+.divSideBar_StateChannel
+{
+  @extend  .divSideBar;
+  line-height:5em;
+}
+.divSideBar_StateGroup{
+  @extend  .divSideBar;
+  right:10px;
+  margin-left:81%;
+  line-height:5em;
+}
+.numberSpan           {
+  width:20px;
+  margin-left: 10px;
+  margin-right: 20px;
+}

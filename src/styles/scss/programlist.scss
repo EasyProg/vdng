@@ -1,0 +1,86 @@
+.programList            {
+  //@media only screen and (min-device-width: 480px) {
+  //  height:200px;
+  //                                                 }
+  //@media only screen and (min-device-width: 1282px){
+  //  height:1200px;
+  //                                                 }
+  //height:800px;
+  height: 101vh;
+  position: absolute;
+  top:0;
+  left:400px;
+  //left:700px;
+  background: rgba(0,0,0,0.8);
+  //transition: left 0.5s ease 100ms;
+  //padding-top: 11vh;
+  //padding-left: 20px;
+  width:400px;
+}
+.dayListItem            {
+  margin-top: 50px;
+  display: block;
+  font-family: "ComfortaaRegular";
+  font-size:1em;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+}
+.programListItem        {
+  //display:flex;
+  //flex-direction: row;
+  //justify-content:space-between;
+  width:350px;
+  //height:auto;
+  height:50px;
+  position:relative;
+  color:white;
+  padding-bottom:15px;
+  padding-left:20px;
+  padding-right:30px;
+  padding-top: 15px;
+  text-align: left;
+}
+.programListItem:hover  {
+  background:$main_color;
+  cursor:pointer;
+}
+.headerProgramDate      {
+  color:white;
+  text-align: left;
+  margin-left: 20px;
+}
+.textSpan               {
+  color:$main_color;
+  //text-align: left;
+}
+.hrProgram              {
+  background:$main_color;
+  //color:$main_color;
+  height: 2px;
+  width: 310px;
+  display: block;
+  position: relative;
+  left:-35px;
+}
+.programName            {
+  height: 40px;
+  margin-left: 10px;
+  overflow:hidden;
+  white-space:nowrap;
+  //display: block;
+  width:240px;
+  position: absolute;
+}
+.programName_hover      {
+  //@extend .programName;
+
+  position: absolute;
+}
+.programTime            {
+  color: #696969;
+}
+.blockChainDiv          {
+  font-family: "ComfortaaRegular";
+  font-size:20px;
+  letter-spacing:1px;
+}
