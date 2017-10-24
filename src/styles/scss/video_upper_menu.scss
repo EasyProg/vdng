@@ -37,7 +37,7 @@ $plButtonsLeft:10%;
   -webkit-align-items: center;
   justify-content: space-between;
   -webkit-justify-content:space-between;
-  z-index:2147483647;
+  z-index:2147483646;
                                    }
 .playerButtonsDiv                  {
   cursor:pointer;
@@ -79,18 +79,36 @@ $plButtonsLeft:10%;
   color: white;
                                     }
 .progressBar                        {
-  position: absolute;
-  bottom:185px;
+  position: relative;
+  //bottom:0;
   //margin-bottom:20vh;
   //margin-bottom: 20vh;
-  left:$plButtonsLeft;
-  align-self: center;
-  -webkit-align-self: center;
-  height: 10px;
-  width:$divPlayerWidth;
-  max-width:$divPlayerWidth;
+  height: 30px;
+  width:100%;
+  max-width:100%;
   min-width:350px;
   background:white;
+                                   }
+.divForProgress                    {
+  position: absolute;
+  align-self: center;
+  -webkit-align-self: center;
+  //@extend .progressBar;
+  height:20px;
+  //background-color: green;
+  bottom:185px;
+  left:10%;
+  width:80%;
+                                   }
+.circleProgressDiv                 {
+  position: relative;
+  //left:$plButtonsLeft;
+  bottom:-10px;
+  width:15px;
+  height:15px;
+  background:white;
+  border-radius: 10px;
+  z-index:2147483647;
                                    }
 
 .progressBarFull                   {

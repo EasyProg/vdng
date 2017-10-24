@@ -69,4 +69,4 @@ export default function parseProgram (arr)   {
                                              }
     console.log(lstArr);
     return lstArr
-                                                            }
+                                             }

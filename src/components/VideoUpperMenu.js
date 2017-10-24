@@ -14,23 +14,26 @@ import {bindActionCreators} from 'redux';
 import {changeVideo, toggleCategory, setMenusVisible, toggleFullScreen} from '../actions/actions';
 import ProgramTime from '../components/ui/ProgramTime';
 import CurrentTime from '../components/ui/CurrentTime';
+import CustomProgress from '../components/ui/CustomProgress';
 import getCurrentProgram from '../components/workingDate';
 import * as $ from 'jquery';
 class VideoUpperMenu extends Component                         {
     static propTypes =                                         {
-        isPlaying:PropTypes.bool.isRequired
-    };
+    isPlaying:PropTypes.bool.isRequired
+                                                               };
     constructor(props)                                         {
         super(props);
         this.switchKeyPress = this.switchKeyPress.bind(this);
         this.switchChannel = this.switchChannel.bind(this);
         this.currentProgram = this.currentProgram.bind(this);
         this.currentTime = this.currentTime.bind(this);
+        this.setProgressValue =this.setProgressValue.bind(this);
         this.state =
             {
                 currentTime: 0,
+                progressValue:0
             }
-    }
+                                                               }
     componentDidMount()                                        {
         var func = this.switchKeyPress;
         var t = this;
@@ -164,28 +167,49 @@ class VideoUpperMenu extends Component                         {
             return  getCurrentProgram(this.props.video.program).startTime;
         }
         else return 0;
+                                                               }
+    setProgressValue(now,all)                                  {
+    //get the current value of progress
+    if (now&&all!==0)
+
+    {   //let delta = Date.now()/1000;
+        //console.log(now+'   =.....'+all);
+        //let timeAfter = delta - now;
+        //let timeLeft =  all - delta;
+        var position = (now / all) * 100;
+
+
+
+        //let result = (now / (all + now)) * 100;
+        this.setState({progressValue:position});
     }
+    else return 0
+                                                               }
     render()
     {
         return (
             <div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
-                <progress id='progress-bar' min='0' max='100' value={this.props.video.program?getCurrentProgram(this.props.video.program).progressValue:0} className={this.props.fullScreen?'progressBarFull':'progressBar'}/>
+                <CustomProgress value={this.state.progressValue} fullScreen={this.props.fullScreen}/>
+                {/*<div className="circleProgressDiv"/>*/}
+                {/*<progress id='progress-bar' min='0' max='100'*/}
+                {/*value={this.state.progressValue}*/}
+                {/*className={this.props.fullScreen?'progressBarFull':'progressBar'}/>*/}
                 <div  className="divPlayer">
                     {/*<Timer isWholeProgramTime={true}/>*/}
-                    <CurrentTime startTime={this.currentTime()}/>
+                    <CurrentTime startTime={this.currentTime()} wholeTime={this.currentProgram()} setProgressValueContext={this.setProgressValue}/>
                     <div  className="playerButtonsDiv" id="playerbuttonsdiv">
                         <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')}/>
                         <img src={backward} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
-                        <img  onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
+                        <img onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
                         <img src={forward}  className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
                         <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')}/>
                     </div>
                     <ProgramTime time={this.currentProgram()}/>
                 </div>
             </div>
-        )
+                )
     }
-}
+                                                                }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);

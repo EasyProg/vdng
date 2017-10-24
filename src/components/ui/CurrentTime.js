@@ -1,22 +1,23 @@
 import React,  { Component,PropTypes } from 'react';
+import '../../styles/css/main_styles.css';
 export default class CurrentTime extends Component {
-    constructor(props) {
+    constructor(props)           {
         super(props);
         this.state = {
             programTime: '00:00'
         };
         this.getTimeNow = this.getTimeNow.bind(this);
         this.tick = this.tick.bind(this);
-    };
+                                 };
 
-    componentWillReceiveProps() {
+    componentWillReceiveProps()  {
         clearInterval(this.int);
         this.int = setInterval(this.tick, 1000)
-    }
+                                 }
 
-    componentWillUnmount() {
+    componentWillUnmount()       {
         clearInterval(this.int);
-    }
+                                 }
 
     //Allowed new
     getTimeNow(time)             {
@@ -28,16 +29,21 @@ export default class CurrentTime extends Component {
         dt.setTime(time * 1000);
         var dt2 = Date.now();
         var timeNow = dt2 - dt;
-        hour = Math.floor(timeNow / 1000 / 60 / 60);
-        min = hour === 0 ? Math.round(timeNow / 1000 / 60) : Math.floor(timeNow / 1000 / 60 % 60);
-        hour = hour.toString().length === 1 ? '0' + hour : hour;
-        min = min.toString().length === 1 ? '0' + min : min;
-        timeNow = hour + ':' + min;
-        return timeNow;           }
-        else return '00:00'
-                                  }
+        this.props.setProgressValueContext(timeNow/1000,this.props.wholeTime);
+        //Set view to normal data
+        hour= Math.floor(timeNow / 1000 / 60 / 60);
+        min =  hour === 0 ? Math.round(timeNow / 1000 / 60) : Math.floor(timeNow / 1000 / 60 % 60);
+        hour= hour.toString().length === 1 ? '0' + hour : hour;
+        min = min.toString().length === 1 ? '0'  + min :  min;
+        sec = sec.toString().length === 1 ? '0'  + sec :  sec;
+        hour= hour === '00'?'':hour+':';
+        timeNow = hour + min +':'+ sec;
+        return timeNow;          }
+        else return '00:00'      }
 
-    tick() {
+
+    tick()
+    {
         this.setState({programTime: this.getTimeNow(this.props.startTime)})
     }
 
@@ -49,6 +55,6 @@ export default class CurrentTime extends Component {
     render() {
         return (
             <div className="videoTime">{this.state.programTime}</div>
-        )
+               )
     }
 }
