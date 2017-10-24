@@ -27,7 +27,7 @@ class VideoPlayer extends Component     {
         this.videoOnLoad   = this.videoOnLoad.bind(this);
         this.timer = '';
         this.state = {fullScreen:false};
-    }
+                                        }
     //Component Functions
     componentDidMount()                 {
         this.videoOnLoad();
@@ -164,7 +164,7 @@ class VideoPlayer extends Component     {
             this.setState({fullScreen:true});
         }
         //from fullScreen to Normal
-        else                                {
+        else                                    {
             if        (document.cancelFullScreen)
             {
                 document.cancelFullScreen();
@@ -179,11 +179,11 @@ class VideoPlayer extends Component     {
             }
             this.props.dispatch(toggleFullScreen(false));
             this.setState({fullScreen:false});
-        }}
+                                                 }}
     shouldComponentUpdate(nextProps,nextState)
     {
     //&& nextProps.isOpened!==false
-        if  (nextProps.isOpened!==this.props.isOpened&& nextProps.isOpened!==false)  {
+        if  (nextProps.isOpened!==this.props.isOpened&& (nextProps.isOpened!==false||nextProps.isOpened!==true))  {
             return false
                                                         }
         else return true
