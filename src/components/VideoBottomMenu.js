@@ -86,7 +86,7 @@ class VideoBottomMenu extends Component
         this.props.dispatch(getChannels(filteredChannels));
     };
     toggleFavorite()                    {
-        if   (localStorage.getItem(this.props.channelId)===null)
+        if  (localStorage.getItem(this.props.channelId)===null)
         {
             localStorage.setItem(this.props.channelId, 'true');
         }
@@ -94,7 +94,13 @@ class VideoBottomMenu extends Component
         else localStorage.removeItem(this.props.channelId);
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         this.filterChannels(this.props.channels,this.props.channelCategory);
-    }
+        if (this.state.Favorite){
+
+                                }
+        // if (!this.isFavorite(this.props.channelId)) {
+        // this.filterChannels(this.props.channels,'All channels');
+        //                                             }
+                                        }
     render () {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         {if (this.state.showResolution  === false)
