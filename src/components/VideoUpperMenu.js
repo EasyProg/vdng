@@ -34,6 +34,7 @@ class VideoUpperMenu extends Component                         {
                 progressValue:0
             }
                                                                }
+
     componentDidMount()                                        {
         var func = this.switchKeyPress;
         var t = this;
@@ -42,8 +43,7 @@ class VideoUpperMenu extends Component                         {
             //event.preventDefault();
             func(event);
         });
-
-    }
+                                                               }
     switchKeyPress(event)                                      {
         //event.stopPropagation();
         switch (event.keyCode)                                 {
@@ -183,13 +183,13 @@ class VideoUpperMenu extends Component                         {
         //let result = (now / (all + now)) * 100;
         this.setState({progressValue:position});
     }
-    else return 0
+    //else this.setState({progressValue:0});
                                                                }
     render()
     {
         return (
             <div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
-                <CustomProgress value={this.state.progressValue} fullScreen={this.props.fullScreen}/>
+                <CustomProgress value={this.props.video.program?this.state.progressValue:0} fullScreen={this.props.fullScreen}/>
                 {/*<div className="circleProgressDiv"/>*/}
                 {/*<progress id='progress-bar' min='0' max='100'*/}
                 {/*value={this.state.progressValue}*/}
