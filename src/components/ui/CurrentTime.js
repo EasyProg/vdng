@@ -19,7 +19,8 @@ export default class CurrentTime extends Component {
     }
 
     //Allowed new
-    getTimeNow(time = 1000000000) {
+    getTimeNow(time)             {
+        if (time)                {
         var dt = new Date;
         let min = 0;
         let sec = 0;
@@ -32,8 +33,9 @@ export default class CurrentTime extends Component {
         hour = hour.toString().length === 1 ? '0' + hour : hour;
         min = min.toString().length === 1 ? '0' + min : min;
         timeNow = hour + ':' + min;
-        return timeNow;
-    }
+        return timeNow;           }
+        else return '00:00'
+                                  }
 
     tick() {
         this.setState({programTime: this.getTimeNow(this.props.startTime)})

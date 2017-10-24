@@ -22,12 +22,12 @@ $plButtonsLeft:10%;
 .divPlayer                         {
   align-self: center;
   position: absolute;
-  bottom:70px;
+  bottom:115px;
   left:$plButtonsLeft;
   width: $divPlayerWidth;
   max-width:$divPlayerWidth;
   min-width:0;
-  margin-bottom: 5vh;
+  //margin-bottom: 5vh;
   height: 70px;
   background: #805EE0;
   display:flex;
@@ -78,9 +78,10 @@ $plButtonsLeft:10%;
   letter-spacing:1px;
   color: white;
                                     }
-.progressBar                       {
+.progressBar                        {
   position: absolute;
   bottom:185px;
+  //margin-bottom:20vh;
   //margin-bottom: 20vh;
   left:$plButtonsLeft;
   align-self: center;
@@ -90,7 +91,7 @@ $plButtonsLeft:10%;
   max-width:$divPlayerWidth;
   min-width:350px;
   background:white;
-}
+                                   }
 
 .progressBarFull                   {
   @extend .progressBar;

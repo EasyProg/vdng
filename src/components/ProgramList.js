@@ -1,9 +1,9 @@
 import React, {Component,PropTypes} from 'react';
 import '../styles/css/main_styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import {Scrollbars} from 'react-custom-scrollbars';
 import HomeButton from './ui/MenuButton';
 import * as $ from 'jquery';
+import CustomScroll from './ui/CustomScroll';
 export default class ProgramList extends Component
 {
     constructor(props)
@@ -44,17 +44,17 @@ export default class ProgramList extends Component
         var width = str.width();
         var con_w = str.css('left');
 
-        function run ()            {
+        function run ()           {
             var con_len = parseInt(con_w) - width + 150;
 
             str.animate
             ({left:con_len + 'px'},
-                {duration: 3000,
+                    {duration: 3000,
                     complete: function ()
                     {
                         str.css('left',con_w);
                         //run();
-                    }});}
+                    }});          }
         if (e.currentTarget.textContent.length>25)
                                   {
             run();
@@ -72,7 +72,7 @@ export default class ProgramList extends Component
                     <div className="menuHeaderCh">
                         <HomeButton visible={true}/>
                     </div>
-                    <Scrollbars>
+                    <CustomScroll>
                                 {this.props.programs.map((e,i)=>
                                 <div className="blockChainDiv" key={i}>
                                     <div className="headerProgramDate">
@@ -80,26 +80,28 @@ export default class ProgramList extends Component
                                         <hr className="hrProgram"/>
                                     </div>
                                     <div className="dayListItem">
-                                        {
+                                                    {
                                             this.props.programs[i]['data'].map
-                                            (
-                                                (e,i)=>
-                                                    <div key={i} className="programListItem"
+                                                    (
+                                                    (e,i)=>
+                                                    <div key={i}
+                                                         className={e.id===this.props.currentProgramId?"programListItemChosen":"programListItem"}
                                                          onMouseOver={(e)=>this.runningString(e)}
                                                          onMouseLeave={(e)=>this.stopRun()}>
-                     <span className="programTime">{e.start_time_show.substring(e.start_time_show.indexOf(':'),
-                         e.start_time_show.length-1).length===1?e.start_time_show+'0':e.start_time_show}
-                     </span>
+                                                        <span className="programTime">{e.start_time_show.substring(e.start_time_show.indexOf(':'),
+                                                        e.start_time_show.length-1).length===1?e.start_time_show+'0':e.start_time_show}
+                                                        </span>
                                                     <span className="programName">
-                         <span className="programName_hover">{e.title}</span>
-                         </span>
+                                                    <span className="programName_hover">{e.title}</span>
+                                                    </span>
                                                     </div>
-                                            )
-                                        }
+                                                    )
+                                                    }
                                     </div>
                                 </div>
                         )}
-                    </Scrollbars>
+                    </CustomScroll>
+                    <div className="menuBottom"/>
                 </div>
                                     );
         else return null

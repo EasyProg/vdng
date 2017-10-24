@@ -39,9 +39,9 @@ class  Menu extends Component               {
                 if (response.status!==200)  {
                     console.log('Looks like it was some error ' + response.status);
                     return;
-                }
+                                            }
                 response.json().then(function(data)
-                {
+                                            {
                     let f = [];
                     c.props.channels.forEach
                     (
@@ -57,7 +57,7 @@ class  Menu extends Component               {
                     c.props.dispatch(setProgram(c.props.channels,f));
 
                     //c.props.dispatch(receiveData(f));
-                });
+                                            });
                                             });
                                             }
     componentDidMount()                     {

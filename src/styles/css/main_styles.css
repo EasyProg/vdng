@@ -446,7 +446,8 @@ hr {
   bottom: -9vh;
   z-index: -1;
   width: 400px;
-  height: 9vh; }
+  height: 9vh;
+  background: rgba(0, 0, 0, 0.8); }
 
 .menuHeaderCat {
   width: 400px;
@@ -521,12 +522,11 @@ hr {
 .divPlayer {
   align-self: center;
   position: absolute;
-  bottom: 70px;
+  bottom: 115px;
   left: 10%;
   width: 80%;
   max-width: 80%;
   min-width: 0;
-  margin-bottom: 5vh;
   height: 70px;
   background: #805EE0;
   display: flex;
@@ -922,7 +922,7 @@ hr {
   letter-spacing: 1px; }
 
 .programList {
-  height: 101vh;
+  height: 92vh;
   position: absolute;
   top: 0;
   left: 400px;
@@ -930,16 +930,16 @@ hr {
   width: 400px; }
 
 .dayListItem {
-  margin-top: 50px;
+  margin-top: 40px;
   display: block;
   font-family: "ComfortaaRegular";
   font-size: 1em;
   letter-spacing: 2px;
   margin-bottom: 50px; }
 
-.programListItem {
-  width: 350px;
-  height: 50px;
+.programListItem, .programListItemChosen {
+  width: 100%;
+  height: 55px;
   position: relative;
   color: white;
   padding-bottom: 15px;
@@ -948,7 +948,10 @@ hr {
   padding-top: 15px;
   text-align: left; }
 
-.programListItem:hover {
+.programListItemChosen {
+  background: #575757; }
+
+.programListItem:hover, .programListItemChosen:hover {
   background: #9677ff;
   cursor: pointer; }
 
@@ -963,17 +966,17 @@ hr {
 .hrProgram {
   background: #9677ff;
   height: 2px;
-  width: 310px;
+  width: 100%;
   display: block;
   position: relative;
-  left: -35px; }
+  left: -5px; }
 
 .programName {
   height: 40px;
   margin-left: 10px;
   overflow: hidden;
   white-space: nowrap;
-  width: 240px;
+  width: 70%;
   position: absolute; }
 
 .programName_hover {

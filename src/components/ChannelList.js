@@ -148,14 +148,12 @@ class  ChannelList extends Component            {
     handleClick (elem,e)                        {
         e.stopPropagation();
         e.preventDefault();
-        //console.log(elem);
         this.props.dispatch(changeVideo(elem));
         if (this.props.channelCategory!=='Любимые')
         {this.props.dispatch(toggleCategory(elem.category));}
-         this.props.dispatch(togglePlay(!this.props.autoPlay));
-        console.log(elem.program);
+        this.props.dispatch(togglePlay(!this.props.autoPlay));
         var parseProgramsArr = parseProgram(elem.program);
-        if (parseProgramsArr.length>0)          {
+        if (parseProgramsArr.length>0)        {
             this.props.dispatch(setMenusVisible
             (
                 {
@@ -168,8 +166,7 @@ class  ChannelList extends Component            {
                 true));
 
             this.setState({programs:parseProgramsArr});
-            //$('.programList').animate({'width':'1400'},200);
-            //console.log('MEMO!!!');
+
                                              }
         else this.props.dispatch(setMenusVisible
             (
@@ -194,10 +191,7 @@ class  ChannelList extends Component            {
         $('.hoverDiv').animate({'width':'800'},100);
 
     }
-    componentDidMount()                         {
-    //console.log(this.props.playList);
-                                                }
-    render()  {
+    render()                                    {
         //console.log(this.props.playList);
             if (this.props.playList.length)
             return                              (
@@ -239,7 +233,9 @@ class  ChannelList extends Component            {
                                 }
                         </CustomScroll>
                         <ProgramList  visible= {this.props.menus.programsVisible}
-                                      programs={this.state.programs}/>
+                                      programs={this.state.programs}
+                                      currentProgramId={this.props.video.program?getCurrentProgram(this.props.video.program).current.id:''}
+                        />
                     </div>
                 </div>
             );

@@ -85,7 +85,7 @@
   z-index:-1;
   width:$menuItemWidth;
   height:9vh;
-  //background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.8);
 }
 .menuHeaderCat                                        {
   @extend .menuHeader;
@@ -93,7 +93,7 @@
   max-width:$menuChannelWidth;
   font-size:1.2em;
   //height: 10px;
-}
+                                                      }
 .menuHeaderCh                                         {
   @extend .menuHeader;
   width:$menuChannelWidth;

@@ -12,7 +12,7 @@ export default class ProgramTime extends Component {
         let seconds = '00';
         let hours = 0;
         var t = 0;
-        if (time) {
+        if (time)       {
             //t = (date2 - date1);
             minutes = Math.round(time / 60);
             hours = Math.floor(minutes / 60) === 0 ? '' : Math.floor(minutes / 60) + ':';
@@ -21,10 +21,10 @@ export default class ProgramTime extends Component {
             seconds = '00';
             minutes = minutes.toString().length === 1 ? '0' + minutes : minutes;
             hours = hours.toString().length === 1 ? hours : hours;
-                }
-        //return t
-        return ( hours + minutes + ':' + seconds);
-    }
+            return ( hours + minutes + ':' + seconds);
+                       }
+        else return '00:00'
+                       }
 
     static propTypes = {
         time: PropTypes.number.isRequired

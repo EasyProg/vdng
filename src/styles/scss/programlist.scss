@@ -6,7 +6,7 @@
   //  height:1200px;
   //                                                 }
   //height:800px;
-  height: 101vh;
+  height: 92vh;
   position: absolute;
   top:0;
   left:400px;
@@ -18,7 +18,7 @@
   width:400px;
 }
 .dayListItem            {
-  margin-top: 50px;
+  margin-top: 40px;
   display: block;
   font-family: "ComfortaaRegular";
   font-size:1em;
@@ -29,9 +29,9 @@
   //display:flex;
   //flex-direction: row;
   //justify-content:space-between;
-  width:350px;
+  width:100%;
   //height:auto;
-  height:50px;
+  height:55px;
   position:relative;
   color:white;
   padding-bottom:15px;
@@ -40,6 +40,11 @@
   padding-top: 15px;
   text-align: left;
 }
+.programListItemChosen   {
+  @extend .programListItem;
+  background:$menuActiveColor;
+}
+
 .programListItem:hover  {
   background:$main_color;
   cursor:pointer;
@@ -56,11 +61,12 @@
 .hrProgram              {
   background:$main_color;
   //color:$main_color;
+  //left: 15px;
   height: 2px;
-  width: 310px;
+  width: 100%;
   display: block;
   position: relative;
-  left:-35px;
+  left:-5px;
 }
 .programName            {
   height: 40px;
@@ -68,7 +74,7 @@
   overflow:hidden;
   white-space:nowrap;
   //display: block;
-  width:240px;
+  width:70%;
   position: absolute;
 }
 .programName_hover      {
@@ -76,6 +82,7 @@
 
   position: absolute;
 }
+
 .programTime            {
   color: #696969;
 }

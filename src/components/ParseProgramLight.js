@@ -28,13 +28,6 @@ export default function parseProgram (arr)   {
     var newArr = [];
     var lstArr = [];
     var obj = {};
-    console.log(arr);
-    // if (arr) {
-    //
-    //     program = arr.filter((e, i) =>  {
-    //         return Number(e['channel_id']) === channelId
-    //     });
-    // }
 
     if (arr)                                 {
         console.log(arr);
