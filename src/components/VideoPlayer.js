@@ -183,9 +183,11 @@ class VideoPlayer extends Component     {
     shouldComponentUpdate(nextProps,nextState)
     {
     //&& nextProps.isOpened!==false
-        if  (nextProps.isOpened!==this.props.isOpened&& (nextProps.isOpened!==false||nextProps.isOpened!==true))  {
+        if  (nextProps.isOpened!==this.props.isOpened&& (nextProps.isOpened!==false||nextProps.isOpened!==true))
+        {
             return false
-                                                        }
+        }
+
         else return true
     }
     //Element render

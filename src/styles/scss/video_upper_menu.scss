@@ -79,11 +79,13 @@ $plButtonsLeft:10%;
   color: white;
                                     }
 .progressBar                        {
-  position: relative;
+  position: absolute;
   //bottom:0;
+  //top:20px;
   //margin-bottom:20vh;
   //margin-bottom: 20vh;
-  height: 30px;
+  height: 10px;
+  top:50%;
   width:100%;
   max-width:100%;
   min-width:350px;
@@ -92,9 +94,12 @@ $plButtonsLeft:10%;
 .divForProgress                    {
   position: absolute;
   align-self: center;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
   -webkit-align-self: center;
   //@extend .progressBar;
-  height:20px;
+  height:10px;
   //background-color: green;
   bottom:185px;
   left:10%;
@@ -103,7 +108,7 @@ $plButtonsLeft:10%;
 .circleProgressDiv                 {
   position: relative;
   //left:$plButtonsLeft;
-  bottom:-10px;
+  //bottom:0;
   width:15px;
   height:15px;
   background:white;
@@ -134,7 +139,7 @@ $plButtonsLeft:10%;
 }
 
 .progresses                        {
-  width:200px;
+  width:220px;
   height:3px;
   position: relative;
   top:0px;

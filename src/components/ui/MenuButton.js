@@ -9,6 +9,7 @@ import * as $ from 'jquery';
 class MenuButton extends Component                      {
     constructor(props)   {
         super(props);
+        this.toggleMenuState = this.toggleMenuState.bind(this);
     };
 
     toggleMenuState()                                   {
@@ -16,7 +17,7 @@ class MenuButton extends Component                      {
         var settingsState = this.props.menus.settingsVisible;
         //Туггл кнопок если стейт изменился
         //this.props.dispatch(getChannels(parse(hlsArray)));
-        if (    this.props.channels.length>0)           {
+        if (this.props.channels.length>0)               {
             this.props.dispatch(setMenusVisible
             ({
                 channelsMenuVisible: !channelsState,
@@ -28,7 +29,9 @@ class MenuButton extends Component                      {
 
             $("#vduppermenu,#vdbottommenu").fadeOut(100);
             $('#video').focus();
-            $('.hoverDiv').animate({'width':'400'},200);
+            $('.hoverDiv').animate({'width':'30vw'},200);
+            if (!channelsState===false)
+            $('.hoverDiv').animate({'width':'0'},150);
             //set hoverDi
                                                         }
         else                                            {
@@ -41,30 +44,26 @@ class MenuButton extends Component                      {
                     settingsVisible: false
 
                 }, true));
-                $('.hoverDiv').animate({'width':'400'},200);
+                $('.hoverDiv').animate({'width':'30vw'},200);
             }
                                                         }
                                                         }
     setPositionClass()                                  {
-        if  (this.props.menus.channelsMenuVisible&&
-            !this.props.menus.categoryMenuVisible&&
-            !this.props.menus.programsVisible) return 'divSideBar_StateChannel';
-
-        else if
-            (this.props.menus.categoryMenuVisible||
-            this.props.menus.programsVisible) return 'divSideBar_StateGroup';
-            $('.hoverDiv').animate({'width':'0'},200);
-            return 'divSideBar';
-                                                         }
-    render()   {
+    if (this.props.isOpened!==true)
+    {
+     return "divSideBar"
+    }
+    else return "divSideBar_menu"
+                                                        }
+    render()    {
         if      (this.props.visible)
             return (<div
                 className={this.setPositionClass()}
                 onClick={(e) => this.toggleMenuState()}>
                 <img src={menu} height={45} width={30}/>
-            </div>);
+                </div>);
         else return null
-    }
+                }
 }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
@@ -72,7 +71,8 @@ const mapDispatchToProps = (dispatch) =>
     },  dispatch);
 export default connect (
     state => ({ menus:state.menuReducer.menus,
-        channels:state.channelReducer.channels,
+                isOpened:state.menuReducer.isOpened,
+                channels:state.channelReducer.channels,
     }),
     mapDispatchToProps
 )(MenuButton);

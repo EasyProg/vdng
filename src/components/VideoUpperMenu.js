@@ -69,7 +69,7 @@ class VideoUpperMenu extends Component                         {
                     ));
                     $('#channels').focus();
                     $("#vduppermenu,#vdbottommenu").fadeOut(100);
-                    $('.hoverDiv').animate({'width':'400'},250);
+                    $('.hoverDiv').animate({'width':'30vw'},250);
                     //console.log('SHIT!@');
                 }
 
@@ -85,38 +85,38 @@ class VideoUpperMenu extends Component                         {
                 }
                 break;
             }
-            case 39:                                           {
-                if (this.props.menus.channelsMenuVisible&&
-                    this.props.menus.categoryMenuVisible)      {
-                    this.props.dispatch(setMenusVisible(
-                        {
-                            channelsMenuVisible: false,
-                            categoryMenuVisible: true,
-                            settingsVisible:     false
-                        }
-                    ));
-                }
-                else if (!this.props.menus.channelsMenuVisible&&
-                    this.props.menus.categoryMenuVisible) {
-                    this.props.dispatch(setMenusVisible(
-                        {
-                            channelsMenuVisible: false,
-                            categoryMenuVisible: false,
-                            settingsVisible:     false
-                        }
-                    ));
-                }
-                else if (!this.props.menus.channelsMenuVisible&&
-                    !this.props.menus.categoryMenuVisible)
-                    this.props.dispatch(setMenusVisible(
-                        {
-                            channelsMenuVisible: false,
-                            categoryMenuVisible: false,
-                            settingsVisible:     true
-                        }
-                    ));
-                break;
-            }
+            // case 39:                                           {
+            //     if (this.props.menus.channelsMenuVisible&&
+            //         this.props.menus.categoryMenuVisible)      {
+            //         this.props.dispatch(setMenusVisible(
+            //             {
+            //                 channelsMenuVisible: false,
+            //                 categoryMenuVisible: true,
+            //                 settingsVisible:     false
+            //             }
+            //         ));
+            //     }
+            //     else if (!this.props.menus.channelsMenuVisible&&
+            //         this.props.menus.categoryMenuVisible) {
+            //         this.props.dispatch(setMenusVisible(
+            //             {
+            //                 channelsMenuVisible: false,
+            //                 categoryMenuVisible: false,
+            //                 settingsVisible:     false
+            //             }
+            //         ));
+            //     }
+            //     else if (!this.props.menus.channelsMenuVisible&&
+            //         !this.props.menus.categoryMenuVisible)
+            //         this.props.dispatch(setMenusVisible(
+            //             {
+            //                 channelsMenuVisible: false,
+            //                 categoryMenuVisible: false,
+            //                 settingsVisible:     true
+            //             }
+            //         ));
+            //     break;
+            // }
             case 13:                                           {
                 if (this.props.menus.channelsMenuVisible)
                     this.props.dispatch(setMenusVisible(

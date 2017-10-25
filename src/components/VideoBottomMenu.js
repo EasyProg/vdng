@@ -70,7 +70,7 @@ class VideoBottomMenu extends Component
             return false
 
     }
-    filterChannels(channels,category)  {
+    filterChannels(channels,category)   {
         var cat = category?category.toString():'All channels';
         let filteredChannels = [];
         if   (channels)
@@ -84,22 +84,16 @@ class VideoBottomMenu extends Component
             })
         }
         this.props.dispatch(getChannels(filteredChannels));
-    };
+                                        };
     toggleFavorite()                    {
         if  (localStorage.getItem(this.props.channelId)===null)
         {
-            localStorage.setItem(this.props.channelId, 'true');
+             localStorage.setItem(this.props.channelId, 'true');
         }
 
         else localStorage.removeItem(this.props.channelId);
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         this.filterChannels(this.props.channels,this.props.channelCategory);
-        if (this.state.Favorite){
-
-                                }
-        // if (!this.isFavorite(this.props.channelId)) {
-        // this.filterChannels(this.props.channels,'All channels');
-        //                                             }
                                         }
     render () {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});

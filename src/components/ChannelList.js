@@ -24,6 +24,7 @@ class  ChannelList extends Component            {
         this.categVisible = this.categVisible.bind(this);
         this.menuFullScreenAppears = this.menuFullScreenAppears.bind(this);
         this.switchChannel = this.switchChannel.bind(this);
+        this.setMenusVisibleFalse = this.setMenusVisibleFalse.bind(this);
         this.timer = '';
         this.menuTimer = '';
         this.state =    {
@@ -39,6 +40,18 @@ class  ChannelList extends Component            {
         category:   PropTypes.string.isRequired,
         visibleSetContext:PropTypes.func.isRequired
                                                 };
+    setMenusVisibleFalse()                      {
+        this.props.dispatch(setMenusVisible(
+            {
+                channelsMenuVisible: false,
+                categoryMenuVisible: false,
+                settingsVisible: false,
+                programsVisible: false
+            },false
+        ));
+        $('#video').focus();
+        $('.hoverDiv').animate({'width':'0'},250);
+                                                 }
     switchChannel(param='next',i=0)             {
         var items = $('.menuItemStyle,.menuItemStyleChosen,.menuItemStylefocus');
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
@@ -53,26 +66,21 @@ class  ChannelList extends Component            {
 
                                                 }
                                                 }
-    handleKey(e,elem)                           {
-        switch (e.keyCode)                      {
+    handleKey(e,elem)                            {
+        switch (e.keyCode)                       {
             case 40:
                 this.switchChannel('next', this.state.channelId);
                 break;
             case 38:
                 this.switchChannel('prev', this.state.channelId);
                 break;
-            case 13: {
+            case 13:                              {
+                //let promise = new Promise((resolve,reject)=>
                 this.handleClick(this.props.playList[this.state.channelId],e);
-                this.props.dispatch(setMenusVisible(
-                    {
-                        channelsMenuVisible: false,
-                        categoryMenuVisible: false,
-                        settingsVisible: false,
-                        programsVisible: false
-                    },false
-                ));
-                $('#video').focus();
-            }
+                //this.handleClick(this.props.playList[this.state.channelId],e);
+                setTimeout(this.setMenusVisibleFalse,300);
+
+                                                  }
                 break;
             case 32:
                 this.handleClick(this.props.playList[this.state.channelId],e);
@@ -94,19 +102,19 @@ class  ChannelList extends Component            {
                     },true
                 ));
                 $('#categories').focus();
-                $('.hoverDiv').animate({'width':'800'},250);
+                $('.hoverDiv').animate({'width':'60vw'},250);
             }
                 break;
-            case 39:   {
-                this.props.dispatch(setMenusVisible(
-                    {
-                        channelsMenuVisible: false,
-                        categoryMenuVisible: false,
-                        settingsVisible: false
-                    },false
-                ));
-                $('#video').focus();
-            }
+            // case 39:   {
+            //     this.props.dispatch(setMenusVisible(
+            //         {
+            //             channelsMenuVisible: false,
+            //             categoryMenuVisible: false,
+            //             settingsVisible: false
+            //         },false
+            //     ));
+            //     $('#video').focus();
+            // }
                 break;
             case 27:    {
                 this.props.dispatch(setMenusVisible(
@@ -126,6 +134,7 @@ class  ChannelList extends Component            {
                         settingsVisible: false
                     }));
                 $('#video').focus();
+                $('.hoverDiv').animate({'width':'0'},200);
             }
         }
     }
@@ -159,16 +168,16 @@ class  ChannelList extends Component            {
                 {
                     programsVisible: true,
                     channelsMenuVisible: true,
-                    categoryMenuVisible: this.props.menus.categoryMenuVisible,
+                    categoryMenuVisible: false,
                     settingsVisible: false
                 }
                 ,
                 true));
-
+            $('.hoverDiv').animate({'width':'60vw'},200);
             this.setState({programs:parseProgramsArr});
 
                                              }
-        else this.props.dispatch(setMenusVisible
+        else {this.props.dispatch(setMenusVisible
             (
             {
                 programsVisible: false,
@@ -179,6 +188,9 @@ class  ChannelList extends Component            {
             ,
             true
             ));
+            if (!this.props.menus.categoryMenuVisible)
+            $('.hoverDiv').animate({'width':'30vw'},200);
+            }
                                                 }
     categVisible()                              {
         this.props.dispatch(    setMenusVisible     (
@@ -186,9 +198,9 @@ class  ChannelList extends Component            {
                 channelsMenuVisible:true,
                 categoryMenuVisible:true,
                 settingsVisible:false
-            }));
+            },true));
         //
-        $('.hoverDiv').animate({'width':'800'},100);
+        $('.hoverDiv').animate({'width':'60vw'},100);
 
     }
     render()                                    {

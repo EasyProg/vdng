@@ -53,7 +53,7 @@ class  Categories extends Component                     {
                     categoryMenuVisible: true,
                     settingsVisible: false
                 }, true));
-            $('.hoverDiv').animate({'width':'800'},250);
+            $('.hoverDiv').animate({'width':'60vw'},250);
         }
         else
         {
@@ -63,25 +63,37 @@ class  Categories extends Component                     {
                     categoryMenuVisible: true,
                     settingsVisible: false
                 }, true));
-            $('.hoverDiv').animate({'width':'400'},250);
+            $('.hoverDiv').animate({'width':'30vw'},250);
         }
                                                          };
-    filterChannels(channels,category)                    {
+    filterChannels(channels,category)                   {
         var cat = category?category.toString():'All channels';
         let filteredChannels = [];
-        if   (channels)                                  {
+        if   (channels)                                 {
             filteredChannels =  channels.filter(function(item)
             {
                 if (cat !== 'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
-                    return       item.category.toUpperCase() === cat.toUpperCase();
+                return       item.category.toUpperCase() === cat.toUpperCase();
                 else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
                 else return  item.category
             })
-                                                         }
+                                                        }
         this.props.dispatch(getChannels(filteredChannels));
+        // if (filteredChannels.length===0)
+        // {
+        //     this.setState(
+        //         {
+        //             itemChosen: 0,
+        //             category: 'Все жанры',
+        //         });
+        // }
         return filteredChannels;
-                                                        };
-    switchCateg(event,cat)                      {
+                                                    };
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.channels.length===0)
+        this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
+                                         }
+    switchCateg(event,cat)                              {
         let elems = this.props.categories;
         var i = elems.map(x => x.name).indexOf(cat);
         var items = $('.categoryItem,.categoryItemChosen');
@@ -113,25 +125,25 @@ class  Categories extends Component                     {
                     $('#channels').focus();
                 break;
             }
-            case 39:                               {
-                this.props.dispatch(setMenusVisible(
-                    {
-                        channelsMenuVisible: this.props.channels.length>0,
-                        categoryMenuVisible: false,
-                        settingsVisible: false
-                    },this.props.channels.length>0));
-                console.log(this.props.channels.length);
-                if (this.filterChannels(parse(hlsArray),cat).length>0)
-                {
-                    $('#channels').focus();
-                    $('.hoverDiv').animate({'width':'400'},250);
-                }
-                else
-                {
-                    $('#vduppermenu').focus();
-                }
-                break;
-                                                    }
+            // case 39:                               {
+            //     this.props.dispatch(setMenusVisible(
+            //         {
+            //             channelsMenuVisible: this.props.channels.length>0,
+            //             categoryMenuVisible: false,
+            //             settingsVisible: false
+            //         },this.props.channels.length>0));
+            //     console.log(this.props.channels.length);
+            //     if (this.filterChannels(parse(hlsArray),cat).length>0)
+            //     {
+            //         $('#channels').focus();
+            //         $('.hoverDiv').animate({'width':'30vw'},250);
+            //     }
+            //     else
+            //     {
+            //         $('#vduppermenu').focus();
+            //     }
+            //     break;
+            //                                         }
             case 27: {
                 this.props.dispatch(setMenusVisible(
                     {
@@ -150,7 +162,8 @@ class  Categories extends Component                     {
                         settingsVisible: false
                     }));
                 $('#video').focus();
-            }
+                $('.hoverDiv').animate({'width':'0'},200);
+                    }
                 break;
             default:
         }
@@ -162,14 +175,11 @@ class  Categories extends Component                     {
                     channelsMenuVisible:true,
                     categoryMenuVisible:false,
                     settingsVisible:false
-                }                                       ),true);
-        $('.hoverDiv').animate({'width':'400'},250);
-    }
-    componentDidMount()                                 {
-
-                                                        }
-    render()                                            {
-        return                                          (
+                },true                              ));
+        $('.hoverDiv').animate({'width':'30vw'},250);
+                                                     }
+    render()                                         {
+        return                                       (
             <div className="hoverDiv">
                 <div className={this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories"
                      onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
@@ -207,7 +217,7 @@ class  Categories extends Component                     {
             </div>
         )
     }
-                                                        }
+                                                     }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,setMenusVisible,getChannels,toggleCategory

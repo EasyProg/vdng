@@ -2,7 +2,7 @@
 .menuItemStyle, .menuItemStyleChosen, .menuItemStylefocus {
   display: block;
   cursor: pointer;
-  width: 400px;
+  width: 100%;
   min-width: 400px;
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
@@ -12,11 +12,11 @@
   line-height: 5.7em; }
 
 .staticItem {
-  width: 400px;
-  min-width: 400px; }
+  width: 30vw;
+  min-width: 30vw; }
 
 .menuBottom {
-  width: 400px;
+  width: 30vw;
   height: 5vh;
   bottom: 0; }
 
@@ -46,7 +46,8 @@
   visibility: hidden; }
 
 .menuChannel, .menuChannelLeft, .menuChannelNone {
-  width: 400px;
+  width: 30vw;
+  min-width: 300px;
   height: 92vh;
   position: absolute;
   top: 0;
@@ -54,12 +55,12 @@
   transition: left 0.3s ease 50ms; }
 
 .menuChannelLeft {
-  left: 400px; }
+  left: 30vw; }
 
 .menuChannelNone {
   left: -600px; }
 
-.divSideBar, .divSideBar:hover, .divSideBar_StateChannel, .divSideBar_StateGroup {
+.divSideBar, .divSideBar:hover {
   margin-top: 1.5%;
   margin-left: 1.5%;
   text-align: center;
@@ -67,18 +68,23 @@
   height: 50px;
   line-height: 6.2em; }
 
-.divSideBar:hover, .divSideBar_StateChannel:hover, .divSideBar_StateGroup:hover {
+.divSideBar:hover {
   cursor: pointer;
   border-radius: 40px;
   background: rgba(87, 87, 87, 0.6); }
 
-.divSideBar_StateChannel {
-  line-height: 5em; }
+.divSideBar_menu, .divSideBar_menu:hover {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  line-height: 5em;
+  right: 20px;
+  position: absolute; }
 
-.divSideBar_StateGroup {
-  right: 10px;
-  margin-left: 81%;
-  line-height: 5em; }
+.divSideBar_menu:hover {
+  cursor: pointer;
+  border-radius: 40px;
+  background: rgba(87, 87, 87, 0.6); }
 
 .numberSpan {
   width: 20px;
@@ -388,9 +394,9 @@ hr {
 .categoryPanel, .categoryPanelNone {
   height: 87.3vh;
   top: -20px;
-  width: 400px;
-  max-width: 400px;
-  min-width: 400px;
+  width: 30vw;
+  max-width: 30vw;
+  min-width: 300px;
   margin-top: 20px;
   position: absolute;
   left: 0;
@@ -411,7 +417,8 @@ hr {
 .categoryItem, .categoryItemChosen, .workMotherFucker {
   display: block;
   cursor: pointer;
-  width: 400px;
+  width: 30vw;
+  min-width: 300px;
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
   letter-spacing: 1px;
@@ -428,9 +435,9 @@ hr {
   flex-direction: row;
   align-items: flex-end;
   cursor: pointer;
-  width: 400px;
-  max-width: 400px;
-  min-width: 170px;
+  width: 30vw;
+  max-width: 30vw;
+  min-width: 30vw;
   font-family: "ComfortaaRegular";
   font-weight: bold;
   letter-spacing: 1px;
@@ -445,18 +452,17 @@ hr {
   position: absolute;
   bottom: -9vh;
   z-index: -1;
-  width: 400px;
-  height: 9vh;
-  background: rgba(0, 0, 0, 0.8); }
+  width: 30vw;
+  height: 9vh; }
 
 .menuHeaderCat {
-  width: 400px;
-  max-width: 400px;
+  width: 30vw;
+  max-width: 30vw;
   font-size: 1.2em; }
 
 .menuHeaderCh {
-  width: 400px;
-  max-width: 400px;
+  width: 30vw;
+  max-width: 30vw;
   font-size: 1.2em; }
 
 .menuHeaderCircleDiv {
@@ -571,8 +577,9 @@ hr {
   color: white; }
 
 .progressBar, .progressBarFull {
-  position: relative;
-  height: 30px;
+  position: absolute;
+  height: 10px;
+  top: 50%;
   width: 100%;
   max-width: 100%;
   min-width: 350px;
@@ -582,14 +589,13 @@ hr {
   position: absolute;
   align-self: center;
   -webkit-align-self: center;
-  height: 20px;
+  height: 10px;
   bottom: 185px;
   left: 10%;
   width: 80%; }
 
 .circleProgressDiv {
   position: relative;
-  bottom: -10px;
   width: 15px;
   height: 15px;
   background: white;
@@ -612,7 +618,7 @@ hr {
   background: white; }
 
 .progresses {
-  width: 200px;
+  width: 220px;
   height: 3px;
   position: relative;
   top: 0px;
@@ -765,24 +771,9 @@ hr {
   height: 60px;
   position: absolute;
   white-space: nowrap;
-  width: 170px;
+  width: 210px;
   overflow: hidden;
   z-index: 100; }
-
-.pname::after {
-  content: '';
-  position: absolute;
-  width: 50px;
-  height: 100%;
-  z-index: 101;
-  right: 0;
-  top: 0;
-  background: -moz-linear-gradient(to right, rgba(0, 0, 0, 0), black 200%);
-  background: -webkit-linear-gradient(to right, rgba(0, 0, 0, 0), black 200%);
-  background: -o-linear-gradient(to right, rgba(0, 0, 0, 0), black 200%);
-  background: -ms-linear-gradient(to right, rgba(0, 0, 0, 0), black 200%);
-  background: linear-gradient(to right, rgba(0, 0, 0, 0), black 200%);
-  z-index: 101; }
 
 .pname_hover {
   position: absolute; }
@@ -917,10 +908,12 @@ hr {
   width: 100px; }
 
 .divCateg {
+  position: relative;
   font-size: 1.2em;
   display: flex;
-  width: 320px;
-  align-items: center; }
+  width: 100%;
+  align-items: center;
+  height: 50px; }
 
 .nonPlayingDiv {
   display: flex;
@@ -952,12 +945,11 @@ hr {
   letter-spacing: 1px; }
 
 .programList {
-  height: 92vh;
+  height: 100vh;
   position: absolute;
   top: 0;
-  left: 400px;
-  background: rgba(0, 0, 0, 0.8);
-  width: 400px; }
+  left: 30vw;
+  width: 30vw; }
 
 .dayListItem {
   margin-top: 40px;

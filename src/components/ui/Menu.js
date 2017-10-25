@@ -92,7 +92,7 @@ class  Menu extends Component               {
                 src:this.chooseSrc(this.firstToUpperCase(Object.keys(obj)[key]))});
         }
         if  (localStorage.length>1)         {
-            grpArr.unshift({name: 'Любимые', src: star});
+             grpArr.unshift({name: 'Любимые', src: star});
                                             }
         grpArr.unshift({name:'Все жанры',src:all});
         return grpArr;
@@ -158,7 +158,6 @@ export default connect (
         menus:     state.menuReducer.menus,
         isParentControl: state.settingsReducer.parentalControl,
         autoPlay:state.videoReducer.autoPlay
-        //isPlaying: state.videoReducer.isPlaying,
     }),
     mapDispatchToProps
 )(Menu);

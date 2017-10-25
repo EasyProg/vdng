@@ -6,16 +6,16 @@
   //  height:1200px;
   //                                                 }
   //height:800px;
-  height: 92vh;
+  height: 100vh;
   position: absolute;
   top:0;
-  left:400px;
+  left:$menuItemWidth;
   //left:700px;
-  background: rgba(0,0,0,0.8);
+  //background: rgba(0,0,0,0.7);
   //transition: left 0.5s ease 100ms;
   //padding-top: 11vh;
   //padding-left: 20px;
-  width:400px;
+  width:$menuItemWidth;
 }
 .dayListItem            {
   margin-top: 40px;
