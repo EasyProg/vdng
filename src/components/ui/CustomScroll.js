@@ -24,10 +24,24 @@ export default class CustomScrollbars extends Component
                 {...props}/>
                 );
                                         }
-    render()                            {
+        renderView({style,...props})    {
+        const viewStyle =   {
+            msOverflowX:'visible',
+            //backgroundColor:'yellow'
+                            };
+            return (
+                <div
+                    style={{ ...style, ...viewStyle }}
+                    {...props}/>
+                    );
+                                        }
+
+        render()                        {
         return (
-            <Scrollbars style={{overflowX:'visible'}}
-                renderThumbVertical={this.renderThumb}>
+            <Scrollbars
+                renderThumbVertical={this.renderThumb}
+                renderView={this.renderView}
+            >
                 {this.props.children}
             </Scrollbars>
                 );

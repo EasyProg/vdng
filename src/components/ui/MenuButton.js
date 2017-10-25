@@ -32,7 +32,6 @@ class MenuButton extends Component                      {
             $('.hoverDiv').animate({'width':'30vw'},200);
             if (!channelsState===false)
             $('.hoverDiv').animate({'width':'0'},150);
-            //set hoverDi
                                                         }
         else                                            {
 
@@ -64,15 +63,15 @@ class MenuButton extends Component                      {
                 </div>);
         else return null
                 }
-}
+                                                        }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,setMenusVisible,getChannels
     },  dispatch);
-export default connect (
-    state => ({ menus:state.menuReducer.menus,
-                isOpened:state.menuReducer.isOpened,
-                channels:state.channelReducer.channels,
+export default   connect (
+    state => ({  menus:state.menuReducer.menus,
+                 isOpened:state.menuReducer.isOpened,
+                 channels:state.channelReducer.channels,
     }),
     mapDispatchToProps
 )(MenuButton);

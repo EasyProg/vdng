@@ -2,7 +2,7 @@
 .menuItemStyle, .menuItemStyleChosen, .menuItemStylefocus {
   display: block;
   cursor: pointer;
-  width: 100%;
+  width: 110%;
   min-width: 400px;
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
@@ -618,10 +618,10 @@ hr {
   background: white; }
 
 .progresses {
-  width: 220px;
+  width: 240px;
   height: 3px;
   position: relative;
-  top: 0px;
+  top: 0;
   left: 10px;
   background: #575757; }
 
@@ -771,7 +771,7 @@ hr {
   height: 60px;
   position: absolute;
   white-space: nowrap;
-  width: 210px;
+  width: 250px;
   overflow: hidden;
   z-index: 100; }
 
@@ -945,7 +945,7 @@ hr {
   letter-spacing: 1px; }
 
 .programList {
-  height: 100vh;
+  height: 92vh;
   position: absolute;
   top: 0;
   left: 30vw;

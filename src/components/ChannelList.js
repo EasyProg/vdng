@@ -246,7 +246,8 @@ class  ChannelList extends Component            {
                         </CustomScroll>
                         <ProgramList  visible= {this.props.menus.programsVisible}
                                       programs={this.state.programs}
-                                      currentProgramId={this.props.video.program?getCurrentProgram(this.props.video.program).current.id:''}
+                                      currentProgramId={this.props.video.program?
+                                      getCurrentProgram(this.props.video.program).current.id:''}
                         />
                     </div>
                 </div>

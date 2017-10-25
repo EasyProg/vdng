@@ -69,7 +69,7 @@ class  Categories extends Component                     {
     filterChannels(channels,category)                   {
         var cat = category?category.toString():'All channels';
         let filteredChannels = [];
-        if   (channels)                                 {
+        if  (channels)                                 {
             filteredChannels =  channels.filter(function(item)
             {
                 if (cat !== 'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
@@ -79,16 +79,8 @@ class  Categories extends Component                     {
             })
                                                         }
         this.props.dispatch(getChannels(filteredChannels));
-        // if (filteredChannels.length===0)
-        // {
-        //     this.setState(
-        //         {
-        //             itemChosen: 0,
-        //             category: 'Все жанры',
-        //         });
-        // }
         return filteredChannels;
-                                                    };
+                                                        };
     componentWillReceiveProps(nextProps) {
         if (nextProps.channels.length===0)
         this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});

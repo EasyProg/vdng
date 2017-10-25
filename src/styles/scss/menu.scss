@@ -4,9 +4,10 @@ $menu-width:250px;
   display: block;
   //text-wrap: none;
   cursor: pointer;
+  ///position: absolute;
   //width: $menuChannelWidth;
   //min-width: $menuChannelWidth;
-  width:100%;
+  width:110%;
   min-width:400px;
   //width: $menuChannelWidth;
   //min-width: $menuChannelWidth;
@@ -51,7 +52,7 @@ $menu-width:250px;
   top:-53px;
   left:285px;
   visibility: visible;
-}
+                      }
 .circleButtonSpanNone {
   visibility: hidden;
 }

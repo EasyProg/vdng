@@ -33,6 +33,7 @@ export default class CurrentTime extends Component {
         //Set view to normal data
         hour= Math.floor(timeNow / 1000 / 60 / 60);
         min =  hour === 0 ? Math.round(timeNow / 1000 / 60) : Math.floor(timeNow / 1000 / 60 % 60);
+        sec =  min  === 0 ? Math.round(timeNow / 1000) : Math.floor(timeNow / 1000%60);
         hour= hour.toString().length === 1 ? '0' + hour : hour;
         min = min.toString().length === 1 ? '0'  + min :  min;
         sec = sec.toString().length === 1 ? '0'  + sec :  sec;
