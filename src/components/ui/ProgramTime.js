@@ -1,11 +1,11 @@
 import React,  { Component,PropTypes } from 'react';
 export default class ProgramTime extends Component {
-    constructor(props) {
+    constructor(props)  {
         super(props);
-        this.state = {
-            programTime: 0
-        };
-    };
+        this.state =    {
+            programTime:0
+                        };
+                        };
 
     timeParser(time) {
         let minutes = '00';
@@ -30,9 +30,9 @@ export default class ProgramTime extends Component {
         time: PropTypes.number.isRequired
     };
 
-    render() {
-        return (
+    render()    {
+        return  (
             <div className="videoTime">{this.timeParser(this.props.time)}</div>
-        )
-    }
-                                                   }
+                )
+                }
+                }

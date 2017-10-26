@@ -53,7 +53,6 @@ class  Categories extends Component                     {
                     categoryMenuVisible: true,
                     settingsVisible: false
                 }, true));
-            $('.hoverDiv').animate({'width':'60vw'},250);
         }
         else
         {
@@ -63,7 +62,6 @@ class  Categories extends Component                     {
                     categoryMenuVisible: true,
                     settingsVisible: false
                 }, true));
-            $('.hoverDiv').animate({'width':'30vw'},250);
         }
                                                          };
     filterChannels(channels,category)                   {
@@ -117,25 +115,6 @@ class  Categories extends Component                     {
                     $('#channels').focus();
                 break;
             }
-            // case 39:                               {
-            //     this.props.dispatch(setMenusVisible(
-            //         {
-            //             channelsMenuVisible: this.props.channels.length>0,
-            //             categoryMenuVisible: false,
-            //             settingsVisible: false
-            //         },this.props.channels.length>0));
-            //     console.log(this.props.channels.length);
-            //     if (this.filterChannels(parse(hlsArray),cat).length>0)
-            //     {
-            //         $('#channels').focus();
-            //         $('.hoverDiv').animate({'width':'30vw'},250);
-            //     }
-            //     else
-            //     {
-            //         $('#vduppermenu').focus();
-            //     }
-            //     break;
-            //                                         }
             case 27: {
                 this.props.dispatch(setMenusVisible(
                     {
@@ -154,7 +133,6 @@ class  Categories extends Component                     {
                         settingsVisible: false
                     }));
                 $('#video').focus();
-                $('.hoverDiv').animate({'width':'0'},200);
                     }
                 break;
             default:
@@ -168,7 +146,6 @@ class  Categories extends Component                     {
                     categoryMenuVisible:false,
                     settingsVisible:false
                 },true                              ));
-        $('.hoverDiv').animate({'width':'30vw'},250);
                                                      }
     render()                                         {
         return                                       (

@@ -139,9 +139,11 @@ $plButtonsLeft:10%;
 }
 
 .progresses                        {
+  display: inline;
   width:240px;
+  min-width: 100px;
   height:3px;
-  position: relative;
+  //position: absolute;
   top:0;
   left:10px;
   background: #575757;

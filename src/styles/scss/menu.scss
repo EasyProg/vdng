@@ -1,16 +1,9 @@
 @import 'variables';
-$menu-width:250px;
 .menuItemStyle        {
   display: block;
-  //text-wrap: none;
   cursor: pointer;
-  ///position: absolute;
-  //width: $menuChannelWidth;
-  //min-width: $menuChannelWidth;
-  width:110%;
-  min-width:400px;
-  //width: $menuChannelWidth;
-  //min-width: $menuChannelWidth;
+  width:30vw;
+  min-width:500px;
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
   letter-spacing: 1px;
@@ -20,8 +13,8 @@ $menu-width:250px;
                       }
 .staticItem           {
   width:$menuChannelWidth;
-  min-width: $menuChannelWidth;
-}
+  min-width: 400px;
+                      }
 .menuBottom           {
   width:$menuItemWidth;
   height:5vh;
@@ -32,9 +25,9 @@ $menu-width:250px;
   width:110%;
   background:$menuHoverColor;
                       }
-.menuItemStyle:target  {
+.menuItemStyle:target {
   background:$menuHoverColor;
-}
+                      }
 .menuItemStyleChosen  {
   @extend .menuItemStyle;
   width:110%;
@@ -58,8 +51,9 @@ $menu-width:250px;
 }
 .menuChannel          {
   //width:900px;
+  display: block;
   width:30vw;
-  min-width: 300px;
+  min-width:450px;
   height: 92vh;
   position: absolute;
   top:0;

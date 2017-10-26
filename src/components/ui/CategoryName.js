@@ -18,10 +18,6 @@ export default class CategoryName extends Component {
             <img src={this.props.reversed?point_right:point} width={20} height={20}/>
             </div>
             {this.props.categ}
-                {/*<div className="divSideBar_menu"*/}
-                    {/*onClick={(e) => this.toggleMenuState()}>*/}
-                    {/*<img src={menu} height={45} width={30}/>*/}
-                {/*</div>*/}
             </div>
             )
             }

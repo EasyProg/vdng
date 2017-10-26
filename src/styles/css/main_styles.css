@@ -2,8 +2,8 @@
 .menuItemStyle, .menuItemStyleChosen, .menuItemStylefocus {
   display: block;
   cursor: pointer;
-  width: 110%;
-  min-width: 400px;
+  width: 30vw;
+  min-width: 500px;
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
   letter-spacing: 1px;
@@ -13,7 +13,7 @@
 
 .staticItem {
   width: 30vw;
-  min-width: 30vw; }
+  min-width: 400px; }
 
 .menuBottom {
   width: 30vw;
@@ -46,8 +46,9 @@
   visibility: hidden; }
 
 .menuChannel, .menuChannelLeft, .menuChannelNone {
+  display: block;
   width: 30vw;
-  min-width: 300px;
+  min-width: 450px;
   height: 92vh;
   position: absolute;
   top: 0;
@@ -108,12 +109,6 @@ video::media-controls {
 .span {
   float: left;
   margin-left: 15px; }
-
-.spanChannelid {
-  margin-left: 10px;
-  float: left;
-  padding-right: 25px;
-  width: 30px; }
 
 .videoOnButtonsDiv {
   position: relative;
@@ -448,6 +443,11 @@ hr {
   height: 90px;
   margin-bottom: 10px; }
 
+.spanChannelid {
+  position: relative;
+  display: inline-block;
+  top: -50px; }
+
 .menuBottom {
   position: absolute;
   bottom: -9vh;
@@ -504,8 +504,10 @@ hr {
   width: 40px; }
 
 .hoverDiv {
+  display: block;
   position: absolute;
   width: 0;
+  max-width: 60vw;
   left: 0;
   height: 101vh;
   background: rgba(0, 0, 0, 0.8); }
@@ -618,9 +620,10 @@ hr {
   background: white; }
 
 .progresses {
+  display: inline;
   width: 240px;
+  min-width: 100px;
   height: 3px;
-  position: relative;
   top: 0;
   left: 10px;
   background: #575757; }
@@ -1038,6 +1041,32 @@ hr {
   border-radius: 3px;
   background-color: yellowgreen; }
 
+.oneMenuOpen {
+  display: block;
+  position: absolute;
+  width: 30vw;
+  left: 0;
+  height: 101vh;
+  background: rgba(0, 0, 0, 0.8); }
+
+.twoMenuOpen {
+  display: block;
+  position: absolute;
+  width: 60vw;
+  max-width: 60vw;
+  left: 0;
+  height: 101vh;
+  background: rgba(0, 0, 0, 0.8); }
+
+.threeMenuOpen {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  max-width: 60vw;
+  left: 0;
+  height: 101vh;
+  background: rgba(0, 0, 0, 0.8); }
+
 * {
   outline: 0;
   border: 0; }
@@ -1083,7 +1112,6 @@ div [data-reactroot] {
   top: -20px;
   margin-top: 15px;
   position: fixed;
-  width: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

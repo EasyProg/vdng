@@ -33,6 +33,7 @@ class  ChannelList extends Component            {
             isClicked:false,
             programs:[],
             currentProgram:''
+
                         }
                                                 }
     static propTypes  =                         {
@@ -50,22 +51,21 @@ class  ChannelList extends Component            {
             },false
         ));
         $('#video').focus();
-        $('.hoverDiv').animate({'width':'0'},250);
                                                  }
-    switchChannel(param='next',i=0)             {
+    switchChannel(param='next',i=0)              {
         var items = $('.menuItemStyle,.menuItemStyleChosen,.menuItemStylefocus');
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
         var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
-        if (param === 'next'&&items[nextElem])  {
+        if (param === 'next'&&items[nextElem])   {
             items[nextElem].focus();
             this.setState({channelId:nextElem});
-                                                }
-        if (param === 'prev'&&items[prevElem])  {
+                                                 }
+        if (param === 'prev'&&items[prevElem])   {
             items[prevElem].focus();
             this.setState({channelId:prevElem});
 
-                                                }
-                                                }
+                                                 }
+                                                 }
     handleKey(e,elem)                            {
         switch (e.keyCode)                       {
             case 40:
@@ -74,13 +74,13 @@ class  ChannelList extends Component            {
             case 38:
                 this.switchChannel('prev', this.state.channelId);
                 break;
-            case 13:                              {
+            case 13:                            {
                 //let promise = new Promise((resolve,reject)=>
                 this.handleClick(this.props.playList[this.state.channelId],e);
                 //this.handleClick(this.props.playList[this.state.channelId],e);
                 setTimeout(this.setMenusVisibleFalse,300);
 
-                                                  }
+                                                }
                 break;
             case 32:
                 this.handleClick(this.props.playList[this.state.channelId],e);
@@ -102,19 +102,8 @@ class  ChannelList extends Component            {
                     },true
                 ));
                 $('#categories').focus();
-                $('.hoverDiv').animate({'width':'60vw'},250);
             }
                 break;
-            // case 39:   {
-            //     this.props.dispatch(setMenusVisible(
-            //         {
-            //             channelsMenuVisible: false,
-            //             categoryMenuVisible: false,
-            //             settingsVisible: false
-            //         },false
-            //     ));
-            //     $('#video').focus();
-            // }
                 break;
             case 27:    {
                 this.props.dispatch(setMenusVisible(
@@ -134,7 +123,6 @@ class  ChannelList extends Component            {
                         settingsVisible: false
                     }));
                 $('#video').focus();
-                $('.hoverDiv').animate({'width':'0'},200);
             }
         }
     }
@@ -154,17 +142,18 @@ class  ChannelList extends Component            {
         //Запустить скрытие
         this.handlePlay();
     }
-    handleClick (elem,e)                        {
+    handleClick (elem,e) {
         e.stopPropagation();
         e.preventDefault();
         this.props.dispatch(changeVideo(elem));
-        if (this.props.channelCategory!=='Любимые')
-        {this.props.dispatch(toggleCategory(elem.category));}
+        if (this.props.channelCategory !== 'Любимые') {
+            this.props.dispatch(toggleCategory(elem.category));
+        }
         this.props.dispatch(togglePlay(!this.props.autoPlay));
         var parseProgramsArr = parseProgram(elem.program);
-        if (parseProgramsArr.length>0)        {
+        if (parseProgramsArr.length > 0) {
             this.props.dispatch(setMenusVisible
-            (
+                (
                 {
                     programsVisible: true,
                     channelsMenuVisible: true,
@@ -173,38 +162,33 @@ class  ChannelList extends Component            {
                 }
                 ,
                 true));
-            $('.hoverDiv').animate({'width':'60vw'},200);
-            this.setState({programs:parseProgramsArr});
+            this.setState({programs: parseProgramsArr});
 
-                                             }
-        else {this.props.dispatch(setMenusVisible
+        }
+        else {
+            this.props.dispatch(setMenusVisible
             (
-            {
-                programsVisible: false,
-                channelsMenuVisible: true,
-                categoryMenuVisible: this.props.menus.categoryMenuVisible,
-                settingsVisible: false
-            }
-            ,
-            true
+                {
+                    programsVisible: false,
+                    channelsMenuVisible: true,
+                    categoryMenuVisible: this.props.menus.categoryMenuVisible,
+                    settingsVisible: false
+                }
+                ,
+                true
             ));
-            if (!this.props.menus.categoryMenuVisible)
-            $('.hoverDiv').animate({'width':'30vw'},200);
             }
-                                                }
+            }
     categVisible()                              {
-        this.props.dispatch(    setMenusVisible     (
+        this.props.dispatch(    setMenusVisible (
             {
                 channelsMenuVisible:true,
                 categoryMenuVisible:true,
                 settingsVisible:false
             },true));
-        //
-        $('.hoverDiv').animate({'width':'60vw'},100);
 
-    }
+                                                }
     render()                                    {
-        //console.log(this.props.playList);
             if (this.props.playList.length)
             return                              (
                 <div>
@@ -255,7 +239,8 @@ class  ChannelList extends Component            {
         else return (null)
             }
 }
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const mapDispatchToProps = (dispatch) => bindActionCreators
+({
     dispatch,
     changeVideo,
     toggleCategory,
@@ -273,7 +258,7 @@ connect                 (
         catMenuVisible:state.menuReducer.menus.categoryMenuVisible,
         menus:state.menuReducer.menus,
         channels:state.channelReducer.channels
-    }),
+                        }),
     mapDispatchToProps
                         )(ChannelList);
 

@@ -69,7 +69,6 @@ class VideoUpperMenu extends Component                         {
                     ));
                     $('#channels').focus();
                     $("#vduppermenu,#vdbottommenu").fadeOut(100);
-                    $('.hoverDiv').animate({'width':'30vw'},250);
                     //console.log('SHIT!@');
                 }
 
@@ -85,38 +84,6 @@ class VideoUpperMenu extends Component                         {
                 }
                 break;
             }
-            // case 39:                                           {
-            //     if (this.props.menus.channelsMenuVisible&&
-            //         this.props.menus.categoryMenuVisible)      {
-            //         this.props.dispatch(setMenusVisible(
-            //             {
-            //                 channelsMenuVisible: false,
-            //                 categoryMenuVisible: true,
-            //                 settingsVisible:     false
-            //             }
-            //         ));
-            //     }
-            //     else if (!this.props.menus.channelsMenuVisible&&
-            //         this.props.menus.categoryMenuVisible) {
-            //         this.props.dispatch(setMenusVisible(
-            //             {
-            //                 channelsMenuVisible: false,
-            //                 categoryMenuVisible: false,
-            //                 settingsVisible:     false
-            //             }
-            //         ));
-            //     }
-            //     else if (!this.props.menus.channelsMenuVisible&&
-            //         !this.props.menus.categoryMenuVisible)
-            //         this.props.dispatch(setMenusVisible(
-            //             {
-            //                 channelsMenuVisible: false,
-            //                 categoryMenuVisible: false,
-            //                 settingsVisible:     true
-            //             }
-            //         ));
-            //     break;
-            // }
             case 13:                                           {
                 if (this.props.menus.channelsMenuVisible)
                     this.props.dispatch(setMenusVisible(
@@ -172,18 +139,13 @@ class VideoUpperMenu extends Component                         {
     //get the current value of progress
     if (now&&all!==0)
 
-    {   //let delta = Date.now()/1000;
-        //console.log(now+'   =.....'+all);
-        //let timeAfter = delta - now;
-        //let timeLeft =  all - delta;
+    {
         var position = (now / all) * 100;
 
 
 
-        //let result = (now / (all + now)) * 100;
         this.setState({progressValue:position});
     }
-    //else this.setState({progressValue:0});
                                                                }
     render()
     { if (this.props.video.program)

@@ -1,0 +1,30 @@
+.oneMenuOpen   {
+  display: block;
+  position: absolute;
+  width:30vw;
+  //max-width:60vw;
+  //min-width:450px;
+  left:0;
+  height:101vh;
+  background: rgba(0,0,0,0.8);
+                }
+.twoMenuOpen    {
+  display: block;
+  position: absolute;
+  width:60vw;
+  max-width:60vw;
+  //min-width:450px;
+  left:0;
+  height:101vh;
+  background: rgba(0,0,0,0.8);
+                 }
+.threeMenuOpen   {
+  display: block;
+  position: absolute;
+  width:100vw;
+  max-width:60vw;
+  //min-width:450px;
+  left:0;
+  height:101vh;
+  background: rgba(0,0,0,0.8);
+                  }

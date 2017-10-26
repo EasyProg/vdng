@@ -125,7 +125,6 @@ class VideoPlayer extends Component     {
                 }
                 ,
                 false));
-        $('.hoverDiv').animate({'width':'0'},200);
                                         }
                                         }
     escFullScreen()                     {

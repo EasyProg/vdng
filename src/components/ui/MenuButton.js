@@ -29,9 +29,6 @@ class MenuButton extends Component                      {
 
             $("#vduppermenu,#vdbottommenu").fadeOut(100);
             $('#video').focus();
-            $('.hoverDiv').animate({'width':'30vw'},200);
-            if (!channelsState===false)
-            $('.hoverDiv').animate({'width':'0'},150);
                                                         }
         else                                            {
 
@@ -43,7 +40,6 @@ class MenuButton extends Component                      {
                     settingsVisible: false
 
                 }, true));
-                $('.hoverDiv').animate({'width':'30vw'},200);
             }
                                                         }
                                                         }
