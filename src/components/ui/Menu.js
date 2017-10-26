@@ -31,7 +31,7 @@ class  Menu extends Component               {
         this.toggleMenuState = this.toggleMenuState.bind(this);
         this.parseCategories = this.parseCategories.bind(this);
         this.getPrograms = this.getPrograms.bind(this);
-    }
+                                            }
     getPrograms (url)                       {
         var c = this;
         fetch(url)
@@ -49,7 +49,7 @@ class  Menu extends Component               {
                         {
                         data.forEach(function (elem) {
                                 if (Number(elem['channel_id']) === e['channelId'])
-                                 f.push(elem);
+                                f.push(elem);
                                                      }
                         )
                         }

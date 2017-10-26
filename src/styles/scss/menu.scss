@@ -17,17 +17,17 @@ $menu-width:250px;
   color: white;
   height: 110px;
   line-height: 5.7em;
-}
+                      }
 .staticItem           {
   width:$menuChannelWidth;
   min-width: $menuChannelWidth;
 }
-.menuBottom         {
+.menuBottom           {
   width:$menuItemWidth;
   height:5vh;
   //background: rgba(0,0,0,0.8);
   bottom:0;
-}
+                      }
 .menuItemStyle:hover  {
   width:110%;
   background:$menuHoverColor;

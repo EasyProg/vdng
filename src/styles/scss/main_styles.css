@@ -421,7 +421,7 @@ hr {
   min-width: 300px;
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
-  letter-spacing: 1px;
+  letter-spacing: 3px !important;
   color: white;
   height: 110px;
   line-height: 6em;
