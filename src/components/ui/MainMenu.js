@@ -10,29 +10,29 @@ class  MainMenu extends Component
         this.returnState = this.returnState.bind(this);
 // this.state = {opened:0}
     }
-    returnState()    {
+    returnState(){
         if (this.props.isOpened===false)
             return null;
-        else if  (this.props.menus.channelsMenuVisible&&
+        else if   (this.props.menus.channelsMenuVisible&&
             !this.props.menus.categoryMenuVisible&&
             !this.props.menus.programsVisible
-        )
+                  )
             return  (<div className="oneMenuOpen">
             </div>);
-        else if (
+        else if  (
             this.props.menus.channelsMenuVisible&&
             (this.props.menus.categoryMenuVisible||
                 this.props.menus.programsVisible)
-        )
+                 )
             return  (<div className="twoMenuOpen">
             </div>);
-    }
-    render()         {
+                 }
+    render()     {
         if           (this.props.isOpened===false)
             return null;
         else     return    (<div>{this.returnState()}</div>)
 
-    }
+                }
 
 }
 export default connect  (

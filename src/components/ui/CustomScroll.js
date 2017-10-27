@@ -1,6 +1,5 @@
 import { Scrollbars } from 'react-custom-scrollbars';
 import React, {Component,PropTypes} from 'react';
-
 export default class CustomScrollbars extends Component
                                         {
     constructor(props) {
@@ -27,10 +26,11 @@ export default class CustomScrollbars extends Component
         renderView({style,...props})    {
         const viewStyle =   {
             msOverflowX:'visible',
-            //backgroundColor:'yellow'
+            overflowX:'visible'
                             };
-            return (
+            return  (
                 <div
+
                     style={{ ...style, ...viewStyle }}
                     {...props}/>
                     );
@@ -40,6 +40,7 @@ export default class CustomScrollbars extends Component
         return (
             <Scrollbars
                 renderThumbVertical={this.renderThumb}
+                // renderThumbHorizontal={()=>false}
                 renderView={this.renderView}
             >
                 {this.props.children}

@@ -150,7 +150,12 @@ class VideoUpperMenu extends Component                         {
     render()
     { if (this.props.video.program)
         return (
-            <div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
+            <div id="vduppermenu"
+                 onKeyDown={(e)=>this.switchKeyPress(e)}
+                 tabIndex={1}
+                 className="displayNone"
+                 onMouseLeave={this.props.onMouseLeave}
+                 onMouseEnter={this.props.onMouseEnter}>
                 <CustomProgress value={this.state.progressValue} fullScreen={this.props.fullScreen}/>
                 {/*<div className="circleProgressDiv"/>*/}
                 {/*<progress id='progress-bar' min='0' max='100'*/}
@@ -170,17 +175,22 @@ class VideoUpperMenu extends Component                         {
                 </div>
             </div>
                 );
-        else return (<div id="vduppermenu" onKeyDown={(e)=>this.switchKeyPress(e)} tabIndex={1} className="displayNone">
-            <div  className="divPlayer">
-                <div  className="playerButtonsDiv" id="playerbuttonsdiv">
+        else return (<div id="vduppermenu"
+                          onKeyDown={(e)=>this.switchKeyPress(e)}
+                          tabIndex={1} className="displayNone"
+                          onMouseEnter={this.props.onMouseEnter}
+                          onMouseLeave={this.props.onMouseLeave}
+                                            >
+                    <div  className="divPlayer">
+                    <div  className="playerButtonsDiv" id="playerbuttonsdiv">
                     <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')}/>
                     <img src={backward} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
                     <img onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
                     <img src={forward}  className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
                     <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')}/>
-                </div>
-            </div>
-        </div>)
+                    </div>
+                    </div>
+                    </div>)
     }
                                                                 }
 const mapDispatchToProps = (dispatch) => bindActionCreators({

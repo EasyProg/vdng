@@ -17,6 +17,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import MenuButton from './ui/MenuButton';
 import CategoryName from './ui/CategoryName';
 import CustomScroll from './ui/CustomScroll';
+var    ScrollbarWrapper = require('react-scrollbar');
 class  ChannelList extends Component            {
     constructor(props)                          {
         super(props);
@@ -52,7 +53,7 @@ class  ChannelList extends Component            {
         ));
         $('#video').focus();
                                                  }
-    switchChannel(param='next',i=0)              {
+    switchChannel(param='next',i=0)             {
         var items = $('.menuItemStyle,.menuItemStyleChosen,.menuItemStylefocus');
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
         var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
@@ -66,7 +67,7 @@ class  ChannelList extends Component            {
 
                                                  }
                                                  }
-    handleKey(e,elem)                            {
+    handleKey(e,elem)                           {
         switch (e.keyCode)                       {
             case 40:
                 this.switchChannel('next', this.state.channelId);
@@ -142,16 +143,14 @@ class  ChannelList extends Component            {
         //Запустить скрытие
         this.handlePlay();
     }
-    handleClick (elem,e) {
+    handleClick (elem,e)                        {
         e.stopPropagation();
         e.preventDefault();
         this.props.dispatch(changeVideo(elem));
-        if (this.props.channelCategory !== 'Любимые') {
-            this.props.dispatch(toggleCategory(elem.category));
-        }
         this.props.dispatch(togglePlay(!this.props.autoPlay));
         var parseProgramsArr = parseProgram(elem.program);
-        if (parseProgramsArr.length > 0) {
+        if (parseProgramsArr.length > 0)
+        {
             this.props.dispatch(setMenusVisible
                 (
                 {
@@ -178,7 +177,7 @@ class  ChannelList extends Component            {
                 true
             ));
             }
-            }
+                                                }
     categVisible()                              {
         this.props.dispatch(    setMenusVisible (
             {
@@ -188,7 +187,21 @@ class  ChannelList extends Component            {
             },true));
 
                                                 }
+    isFavorite(channelId)                       {
+        if (localStorage.getItem(channelId)!==null)
+        {
+            return true;
+        }
+        else
+            return false
+
+                                                }
+    // componentWillUpdate()                       {
+    // this.switchChannel();
+    //                                             }
+
     render()                                    {
+            //this.switchChannel();
             if (this.props.playList.length)
             return                              (
                 <div>
@@ -217,7 +230,7 @@ class  ChannelList extends Component            {
                                     channelId       =   {elem.channelId}
                                     hiddenChannel   =   {this.props.channelCategory==='Locked'}
                                     programName     =   {getCurrentProgram(elem.program,elem.channel).title}
-                                    favorite        =   {this.props.channelCategory==='Любимые'}
+                                    favorite        =   {this.isFavorite(elem.channelId)}
                                     chosen          =   {elem.channelId===this.props.video.channelId&&elem.category===this.props.video.category}
                                     onClick         =   {e=>this.handleClick(elem,e)}
                                     tabIndex        =   {i}
@@ -238,7 +251,7 @@ class  ChannelList extends Component            {
             );
         else return (null)
             }
-}
+                                                }
 const mapDispatchToProps = (dispatch) => bindActionCreators
 ({
     dispatch,
@@ -259,7 +272,7 @@ connect                 (
         menus:state.menuReducer.menus,
         channels:state.channelReducer.channels
                         }),
-    mapDispatchToProps
+        mapDispatchToProps
                         )(ChannelList);
 
 

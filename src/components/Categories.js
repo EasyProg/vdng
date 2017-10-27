@@ -67,7 +67,7 @@ class  Categories extends Component                     {
     filterChannels(channels,category)                   {
         var cat = category?category.toString():'All channels';
         let filteredChannels = [];
-        if  (channels)                                 {
+        if  (channels)                                  {
             filteredChannels =  channels.filter(function(item)
             {
                 if (cat !== 'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
@@ -117,6 +117,7 @@ class  Categories extends Component                     {
             }
             case 27: {
                 this.props.dispatch(setMenusVisible(
+
                     {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
@@ -186,7 +187,7 @@ class  Categories extends Component                     {
             </div>
         )
     }
-                                                     }
+                                                        }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,setMenusVisible,getChannels,toggleCategory

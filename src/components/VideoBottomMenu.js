@@ -100,7 +100,10 @@ class VideoBottomMenu extends Component
         {if (this.state.showResolution  === false)
         {
             return (
-                <div id='vdbottommenu' className="displayNone">
+                <div id='vdbottommenu'
+                     className="displayNone"
+                     onMouseEnter={this.props.onMouseEnter}
+                     onMouseLeave={this.props.onMouseLeave}>
                     <div className="divBottomPlayer">
                         <div className="playerButtonsBottomDiv">
                             <div className="iconsDisabledDiv">
@@ -127,7 +130,10 @@ class VideoBottomMenu extends Component
         }
         else {
             return                                      (
-                <div id='vdbottommenu' className='divBottomPlayer'>
+                <div id='vdbottommenu'
+                     className='divBottomPlayer'
+                     onMouseEnter={this.props.onMouseEnter}
+                     onMouseLeave={this.props.onMouseLeave}>
                     <div className="playerButtonsBottomDivRes">
                         {
                             this.resolutions.map ((elem,i)=>

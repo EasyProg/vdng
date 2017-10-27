@@ -91,7 +91,7 @@ class VideoPlayer extends Component     {
         else vd.playbackRate-=0.1;
     }
     handlePlay()                        {
-        this.timer = this.state.fullScreen?
+            this.timer = this.state.fullScreen?
             setTimeout(function()               {
                 //Скрыть плей
                 $("#vduppermenu").fadeOut(1000);
@@ -100,20 +100,24 @@ class VideoPlayer extends Component     {
                 //Скрыть плей
                 if ($('#channels').className==='menuChannel')
                 {$('#video').focus();}
-                $("#vduppermenu,#vdbottommenu").fadeOut(1000);
+                $("#vduppermenu,#vdbottommenu,.divSideBar,.menuCenterText").fadeOut(1000);
             },5000);
-    }
+                                        }
     menuFullScreenAppears(param)        {
-        //console.log(this.props.isOpened);
+        if (param==='mouseEnter')
+        {
+            clearTimeout(this.timer);
+            return
+        }
         //Отобразить плей
         if (this.props.isOpened===false&&this.props.autoPlay)
         {
             clearTimeout(this.timer);
-            $("#vduppermenu,#menu,#vdbottommenu").fadeIn(1);
+            $("#vduppermenu,.divSideBar,#vdbottommenu,.menuCenterText").fadeIn(1);
             //Запустить скрытие
             this.handlePlay();
         }
-        else if (param)                 {
+        else if (param===true)          {
             this.props.dispatch(setMenusVisible
             (
                 {
@@ -126,6 +130,10 @@ class VideoPlayer extends Component     {
                 ,
                 false));
                                         }
+        else if (param==='visible')     {
+            clearTimeout(this.timer);
+            console.log('asasas');
+        }
                                         }
     escFullScreen()                     {
         if (   !document.fullscreenElement
@@ -205,15 +213,20 @@ class VideoPlayer extends Component     {
                                  onDblClick = {e=>this.changeSize()}
                                  isOpened   = {this.props.isOpened}
 
-                />
-                <div className="panelDiv" id="panelDiv"/>
+                />\
+                {/*<div className="panelDiv" id="panelDiv"/>*/}
                 <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                  toggleContext={this.toggle}
                                  handleOnPlayContext={this.handleOnPlay}
                                  handleCurrentTimeContext={this.handleCurrTime}
-                                 handleCurrPlaybackContext={this.handleCurrPlayback}/>
+                                 handleCurrPlaybackContext={this.handleCurrPlayback}
+                                 onMouseEnter={e=>this.menuFullScreenAppears('mouseEnter')}
+                                 onMouseLeave={e=>this.menuFullScreenAppears()}
+                />
                 <VideoBottomMenu changeSizeContext={this.changeSize}
                                  changeResContext= {this.changeRes}
+                                 onMouseEnter={e=>this.menuFullScreenAppears('mouseEnter')}
+                                 onMouseLeave={e=>this.menuFullScreenAppears()}
                 />
             </div>                      )
 
@@ -226,11 +239,11 @@ const mapDispatchToProps = (dispatch) =>
     }, dispatch);
 export default connect      (
     state => ({
-        video:                state.videoReducer.video,
-        isPlaying:            state.videoReducer.isPlaying,
-        autoPlay:             state.videoReducer.autoPlay,
-        fullScreen:           state.videoReducer.fullScreen,
-        isOpened:             state.menuReducer.isOpened
+    video:                state.videoReducer.video,
+    isPlaying:            state.videoReducer.isPlaying,
+    autoPlay:             state.videoReducer.autoPlay,
+    fullScreen:           state.videoReducer.fullScreen,
+    isOpened:             state.menuReducer.isOpened
     }),
     mapDispatchToProps
                             )(VideoPlayer);

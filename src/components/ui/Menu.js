@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import 'semantic-ui-css/semantic.min.css';
 import '../../styles/css/main_styles.css';
 import Categories from '../Categories';
-import prev_button from '../../img/play-previous-button.gif'
+import prev_button from '../../img/left-arrow-menu.svg'
 import parse from '../Parsing';
 import hlsArray from '../../hls';
 import MenuButton from '../ui/MenuButton';
@@ -114,7 +114,7 @@ class  Menu extends Component               {
         }
     }
     render()   {
-        if  (!this.props.fullScreen&&this.props.autoPlay)
+        if  (this.props.autoPlay)
             return (
                 <div id="menu" className="mainMenuDiv">
                     <div className="menuDives">
@@ -126,18 +126,23 @@ class  Menu extends Component               {
                                     categories={this.parseCategories()}
 
                         />
-                        <div className={this.props.fullScreen&&!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":'displayNone'}>
-                            <div className="menuCenterTextBig">
-                                <img src={this.props.channelImg} width={50} height={50} className="imgChannelStyle"/>
+                        <div className={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":'displayNone'}>
+                            <img src={this.props.channelImg} width={50} height={50} className="imgChannelStyle"/>
+                            <div className="textBlock">
+                            <div className="upperText">
                                 {this.props.category}
-                                <img src={prev_button} width={30} height={30}/>
-                                <span className="menuCenterTextBigBold">{this.props.channelId}{'. '}{this.props.channel}
+                                <img src={prev_button} width={20} height={20} className="arrowImg"/>
+                                <span>{this.props.channelId}{'. '}{this.props.channel}
                                 </span>
+                            </div>
+                            <div className="lowerText">
+                            Гра престолов. 6 сезон мать его!!!
+                            </div>
                             </div>
                         </div>
                     </div>
-                    <div className="menuDives">
-                    </div>
+                    {/*<div className="menuDives">*/}
+                    {/*</div>*/}
                 </div>
                 );
         else return null

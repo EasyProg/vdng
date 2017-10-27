@@ -63,8 +63,8 @@
   left: -600px; }
 
 .divSideBar, .divSideBar:hover {
-  margin-top: 70px;
-  margin-left: 100px;
+  margin-top: 30px;
+  margin-left: 30px;
   text-align: center;
   width: 60px;
   height: 60px;
@@ -79,7 +79,7 @@
   text-align: center;
   width: 60px;
   height: 60px;
-  line-height: 5.8em;
+  line-height: 5.7em;
   right: 20px;
   position: absolute; }
 
@@ -622,7 +622,8 @@ hr {
 
 .progresses {
   display: inline;
-  width: 240px;
+  max-width: 300px;
+  width: 300px;
   min-width: 100px;
   height: 3px;
   position: relative;
@@ -651,7 +652,7 @@ hr {
 .divBottomPlayer, .divBottomPlayerFull {
   z-index: 2147483647;
   position: absolute;
-  bottom: 50px;
+  bottom: 30px;
   left: 22%;
   align-self: center;
   -webkit-align-self: center;
@@ -798,9 +799,8 @@ hr {
 
 .pnameFav {
   position: relative;
-  right: -200px;
   top: -80px;
-  z-index: 33; }
+  left: -10px; }
 
 .rateContainer {
   position: relative;
@@ -1058,6 +1058,7 @@ hr {
   position: absolute;
   width: 60vw;
   max-width: 60vw;
+  min-width: 800px;
   left: 0;
   height: 101vh;
   background: rgba(0, 0, 0, 0.8);
@@ -1116,12 +1117,14 @@ div [data-reactroot] {
 .mainMenuDiv, .mainMenuDivFull {
   top: -20px;
   margin-top: 15px;
-  position: fixed;
+  position: absolute;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  z-index: 2147483647; }
+  z-index: 2147483647;
+  background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0)); }
 
 .mainMenuDivFull {
   height: 120px;
@@ -1129,27 +1132,46 @@ div [data-reactroot] {
   background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0)); }
 
 .menuDives {
-  height: 50px;
+  height: 150px;
   width: 100%;
   display: flex; }
 
-.menuCenterText, .menuCenterTextBig, .menuCenterTextBigBold {
+.menuCenterText {
+  margin-left: 150px;
+  position: absolute;
+  width: 100%;
+  line-height: 2em;
   display: flex;
   flex-direction: row;
   align-items: center;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-family: "ComfortaaRegular";
-  font-size: 20px;
   color: white;
   margin-top: 20px; }
 
-.menuCenterTextBig, .menuCenterTextBigBold {
-  font-size: 1.5rem; }
+.upperText {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  letter-spacing: 1px;
+  font-family: "ComfortaaRegular";
+  font-size: 2em; }
 
-.menuCenterTextBigBold {
-  position: relative;
-  font-weight: bold;
-  top: -8px; }
+.lowerText {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  letter-spacing: 1px;
+  font-family: "ComfortaaRegular";
+  font-size: 1.5em; }
+
+.textBlock {
+  display: flex;
+  margin-left: 10px;
+  flex-direction: column;
+  width: 100%; }
 
 .displayNone {
   display: none;
@@ -1159,5 +1181,9 @@ div [data-reactroot] {
   top: 25px;
   margin: 15px;
   left: 0; }
+
+.arrowImg {
+  margin-left: 10px;
+  margin-right: 10px; }
 
 /*# sourceMappingURL=main_styles.css.map */
