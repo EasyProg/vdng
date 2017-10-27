@@ -1,0 +1,39 @@
+.nonPlayingDiv
+{
+  @extend #video;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0,1);
+  z-index:2147483649;
+  //z-index:100;
+  font-family: "ComfortaaRegular";
+  font-size:3em;
+  color:white;
+}
+.playHoldImg
+{
+  margin: 0 auto;
+  position:relative;
+  //opacity:0.5;
+  width: 20%;
+  height: 35%;
+}
+
+.playHoldImg:hover
+{
+  @extend .playHoldImg;
+  opacity:0.9;
+  cursor: pointer;
+}
+.playHoldImg:target
+{
+  @extend .playHoldImg;
+  opacity:0.9;
+}
+.bottomText {
+  margin-top: 5vh;
+  letter-spacing: 1px;
+}

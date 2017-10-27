@@ -1,0 +1,108 @@
+@import 'variables';
+.menuItemStyle        {
+  display: block;
+  cursor: pointer;
+  width:30vw;
+  min-width:500px;
+  font-family: "ComfortaaRegular";
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  color: white;
+  height: 110px;
+  line-height: 5.7em;
+  padding-left: 20px;
+                      }
+.staticItem           {
+  width:$menuChannelWidth;
+  min-width: 400px;
+                      }
+.menuBottom           {
+  width:$menuItemWidth;
+  height:5vh;
+  //background: rgba(0,0,0,0.8);
+  bottom:0;
+                      }
+.menuItemStyle:hover  {
+  width:110%;
+  background:$menuHoverColor;
+                      }
+.menuItemStyle:target {
+  background:$menuHoverColor;
+                      }
+.menuItemStyleChosen  {
+  @extend .menuItemStyle;
+  width:110%;
+  background:$menuHoverColor;
+}
+.menuItemStylefocus   {
+  @extend .menuItemStyle;
+  background:$menuActiveColor;
+
+}
+.circleButtonSpan     {
+  width:40px;
+  height:40px;
+  position: relative;
+  top:-53px;
+  left:285px;
+  visibility: visible;
+                      }
+.circleButtonSpanNone {
+  visibility: hidden;
+}
+.menuChannel          {
+  //width:900px;
+  display: block;
+  width:30vw;
+  min-width:450px;
+  height: 92vh;
+  position: absolute;
+  top:0;
+  left:0;
+  //background: rgba(0,0,0,0.8);
+  transition: left 0.3s ease 50ms;
+  //overflow: visible;
+                      }
+.menuChannelLeft      {
+  @extend .menuChannel;
+  left:30vw;
+}
+.menuChannelNone      {
+  @extend .menuChannel;
+  left:-600px;
+}
+.divSideBar           {
+  margin-top: 1.5%;
+  margin-left:1.5%;
+  text-align: center;
+  width:50px;
+  height:50px;
+  line-height:6.2em;
+}
+.divSideBar:hover     {
+  @extend .divSideBar;
+  cursor: pointer;
+  border-radius: 40px;
+  background: rgba(87, 87, 87, 0.6);
+}
+.divSideBar_menu
+{ text-align: center;
+  width:50px;
+  height:50px;
+  line-height:5em;
+  right:20px;
+  position: absolute;
+}
+.divSideBar_menu:hover {
+ @extend .divSideBar_menu;
+  cursor: pointer;
+  border-radius: 40px;
+  background: rgba(87, 87, 87, 0.6);
+}
+
+
+.numberSpan           {
+  width:20px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
