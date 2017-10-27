@@ -72,6 +72,6 @@ export default class Channel extends Component      {
                     <progress className='progresses' value={this.props.progress} max={100} min={0}/>
                 </div>
             </div>
-        )
+                        )
     }
 }

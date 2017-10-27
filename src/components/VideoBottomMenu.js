@@ -118,7 +118,7 @@ class VideoBottomMenu extends Component
                                 </div>
                             </div>
                             <div className="iconResDiv" onClick={(e)=>this.changeSize(e)}>
-                                <img src={aspectratio} width={25} height={25}/>
+                                <img src={border} width={25} height={25}/>
                             </div>
                         </div>
                     </div>

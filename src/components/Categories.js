@@ -169,7 +169,7 @@ class  Categories extends Component                     {
                                     <div         className="categoryText">
                                         {item.name}
                                     </div>
-                                    {i===0?<img src={underline} height={5} width={300} className={'categoryLine'}/>:null}
+                                    {i===0?<img src={underline} height={5} width={400} className={'categoryLine'}/>:null}
                                 </div>
                             )
                         }

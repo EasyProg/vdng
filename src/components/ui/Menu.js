@@ -1,29 +1,25 @@
 import React, {Component,PropTypes} from 'react';
-import {Icon} from 'semantic-ui-react';
 import {bindActionCreators} from 'redux';
 import {setMenusVisible,getChannels,receiveData,setProgram} from '../../actions/actions';
 import {connect} from 'react-redux';
 import 'semantic-ui-css/semantic.min.css';
 import '../../styles/css/main_styles.css';
 import Categories from '../Categories';
-import HomeMenu from '../HomeMenu';
-import home from '../../img/hm.png';
 import prev_button from '../../img/play-previous-button.gif'
-import * as $ from 'jquery';
 import parse from '../Parsing';
 import hlsArray from '../../hls';
 import MenuButton from '../ui/MenuButton';
-import glasses from '../../img/3d-glasses.png';
-import caravan from '../../img/caravan.png';
-import film from '../../img/film-roll.png';
-import scene from '../../img/scene.png';
-import mask from '../../img/mask.png';
-import headphones from '../../img/headphones.png';
-import star from '../../img/shooting-star.png';
-import masks from '../../img/theater.png';
-import play from '../../img/play-categ.png';
-import lock from '../../img/lock.png';
-import all from '../../img/crowd-of-users.png';
+//Categories
+import all from '../../img/categ/all.svg';
+import inform from '../../img/categ/inform.svg';
+import kids from '../../img/categ/kids.svg';
+import music from '../../img/categ/music.svg';
+import sport from '../../img/categ/sport.svg';
+import child from '../../img/categ/inform.svg';
+import fun from '../../img/categ/fun.svg';
+import films from '../../img/categ/films.svg';
+import favorites from '../../img/categ/favorites.svg';
+import multidisciplinary from '../../img/categ/multidisciplinary.svg';
 //import images
 class  Menu extends Component               {
     constructor(props)                      {
@@ -55,8 +51,6 @@ class  Menu extends Component               {
                         }
                     );
                     c.props.dispatch(setProgram(c.props.channels,f));
-
-                    //c.props.dispatch(receiveData(f));
                                             });
                                             });
                                             }
@@ -68,13 +62,19 @@ class  Menu extends Component               {
     }
     chooseSrc(categoryName) {
         switch (categoryName)   {
-            case 'Фильмы': return film;
+            case 'Фильмы': return films;
                 break;
             case 'Все жанры':return all;
                 break;
-            case 'Музыкальный':return headphones;
+            case 'Музыкальный':return music;
                 break;
-            case 'Развлекательный':return masks
+            case 'Развлекательный':return fun;
+                break;
+            case 'Информационный':return inform;
+                break;
+            case 'Многопрофильный':return multidisciplinary;
+                break;
+            case 'Детский':return kids;
 
         }
     }
@@ -92,7 +92,7 @@ class  Menu extends Component               {
             src:this.chooseSrc(this.firstToUpperCase(Object.keys(obj)[key]))});
         }
         if  (localStorage.length>1)         {
-             grpArr.unshift({name: 'Любимые', src: star});
+             grpArr.unshift({name: 'Любимые', src: favorites});
                                             }
         grpArr.unshift({name:'Все жанры',src:all});
         return grpArr;

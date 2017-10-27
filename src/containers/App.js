@@ -12,9 +12,9 @@ class App extends Component  {
     return                   (
                 <Provider store={store}>
                 <div>
+                    <MainMenu/>
                     <VideoPlayer/>
                     <Menu/>
-                    {/*<MainMenu/>*/}
                 </div>
                 </Provider>
                               );

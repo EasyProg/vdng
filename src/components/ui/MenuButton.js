@@ -1,6 +1,6 @@
 import React, {Component,PropTypes} from 'react';
 import {connect} from 'react-redux';
-import  menu from '../../img/main_menu.gif';
+import  menu from '../../img/main-menu-icon.svg';
 import {setMenusVisible,getChannels} from '../../actions/actions';
 import {bindActionCreators} from 'redux';
 import hlsArray from '../../hls';
@@ -29,6 +29,10 @@ class MenuButton extends Component                      {
 
             $("#vduppermenu,#vdbottommenu").fadeOut(100);
             $('#video').focus();
+            if (!channelsState===true)
+            {
+                $('#channels').focus();
+            }
                                                         }
         else                                            {
 
@@ -55,7 +59,7 @@ class MenuButton extends Component                      {
             return (<div
                 className={this.setPositionClass()}
                 onClick={(e) => this.toggleMenuState()}>
-                <img src={menu} height={45} width={30}/>
+                <img src={menu} height={40} width={50}/>
                 </div>);
         else return null
                 }
