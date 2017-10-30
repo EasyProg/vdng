@@ -12,8 +12,8 @@ import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 const hls = new Hls();
-class VideoPlayer extends Component     {
-    constructor(props)                  {
+class VideoPlayer extends Component      {
+    constructor(props)                   {
         super(props);
         //Bind functions
         this.changeSize    = this.changeSize.bind(this);
@@ -27,60 +27,60 @@ class VideoPlayer extends Component     {
         this.videoOnLoad   = this.videoOnLoad.bind(this);
         this.timer = '';
         this.state = {fullScreen:false};
-                                        }
+    }
     //Component Functions
-    componentDidMount()                 {
+    componentDidMount()                  {
         this.videoOnLoad();
                                          }
-    toggle(isPlaying)                   {
+    toggle(isPlaying)                    {
         var  vd = document.getElementById('video');
-            //this.video.video;
-            //console.log(vd);
+        //this.video.video;
+        //console.log(vd);
         this.props.dispatch(togglePlay(isPlaying));
         if (isPlaying)                   {
             vd.play();
 
-                                         }
+        }
         else
             vd.pause();
 
                                          }
-    changeRes(res)                      {
-                                         }
-    videoOnLoad()                       {
+    changeRes(res)                       {
+    }
+    videoOnLoad()                        {
         var vd = document.getElementById('video');
         var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
         //console.log(vd);
         if  (this.props.video&&navigator.userAgent.search(reg)===-1)
-            //false)
-                                        {
-                hls.loadSource(this.props.video.link);
-                hls.attachMedia(vd);
-                hls.on(Hls.Events.MANIFEST_PARSED,
+        //false)
+        {
+            hls.loadSource(this.props.video.link);
+            hls.attachMedia(vd);
+            hls.on(Hls.Events.MANIFEST_PARSED,
                 function ()             {
                     {
                         vd.play();
                     }
-                                        });
-                var funcCnt = this;
-                hls.on(Hls.Events.ERROR, function (event, data)
-                                        {
-                                        {
+                });
+            var funcCnt = this;
+            hls.on(Hls.Events.ERROR, function (event, data)
+            {
+                {
                     switch (data.type)  {
                         case Hls.ErrorTypes.NETWORK_ERROR:
                             console.log(Hls.ErrorTypes.NETWORK_ERROR);
                             break;
-                            default:
+                        default:
                             break;
-                                        }
-                                        }
-                                        });
-                                        }
-                                        }
+                    }
+                }
+            });
+        }
+    }
     handleCurrTime(param)               {
         var vd = this.video.video;
         if (param===1)
-                                        {
+        {
             vd.currentTime+=10;         }
         else vd.currentTime-=10;
     }
@@ -91,7 +91,7 @@ class VideoPlayer extends Component     {
         else vd.playbackRate-=0.1;
     }
     handlePlay()                        {
-            this.timer = this.state.fullScreen?
+        this.timer = this.state.fullScreen?
             setTimeout(function()               {
                 //Скрыть плей
                 $("#vduppermenu").fadeOut(1000);
@@ -102,20 +102,12 @@ class VideoPlayer extends Component     {
                 {$('#video').focus();}
                 $("#vduppermenu,#vdbottommenu,.divSideBar,.menuCenterText").fadeOut(1000);
             },5000);
-                                        }
+    }
     menuFullScreenAppears(param)        {
         if (param==='mouseEnter')
         {
             clearTimeout(this.timer);
             return
-        }
-        //Отобразить плей
-        if (this.props.isOpened===false&&this.props.autoPlay)
-        {
-            clearTimeout(this.timer);
-            $("#vduppermenu,.divSideBar,#vdbottommenu,.menuCenterText").fadeIn(1);
-            //Запустить скрытие
-            this.handlePlay();
         }
         else if (param===true)          {
             this.props.dispatch(setMenusVisible
@@ -129,10 +121,27 @@ class VideoPlayer extends Component     {
                 }
                 ,
                 false));
-                                        }
+            if (!this.props.fullScreen)
+            {
+                clearTimeout(this.timer);
+                $("#vduppermenu,.divSideBar,#vdbottommenu,.menuCenterText").fadeIn(1);
+                //Запустить скрытие
+                this.handlePlay();
+            }
+            if (this.props.fullScreen)  {
+                this.toggle(this.props.isPlaying);
+            }
+        }
+        //Отобразить плей
+        else if (this.props.isOpened===false&&this.props.autoPlay)
+        {
+            clearTimeout(this.timer);
+            $("#vduppermenu,.divSideBar,#vdbottommenu,.menuCenterText").fadeIn(1);
+            //Запустить скрытие
+            this.handlePlay();
+        }
         else if (param==='visible')     {
             clearTimeout(this.timer);
-            console.log('asasas');
         }
                                         }
     escFullScreen()                     {
@@ -169,6 +178,7 @@ class VideoPlayer extends Component     {
                 this.props.dispatch(toggleFullScreen(true));
             }
             document.addEventListener ("webkitfullscreenchange", this.escFullScreen, false);
+            $('#video').focus();
             this.setState({fullScreen:true});
         }
         //from fullScreen to Normal
@@ -187,10 +197,10 @@ class VideoPlayer extends Component     {
             }
             this.props.dispatch(toggleFullScreen(false));
             this.setState({fullScreen:false});
-                                                 }}
+        }}
     shouldComponentUpdate(nextProps,nextState)
     {
-    //&& nextProps.isOpened!==false
+        //&& nextProps.isOpened!==false
         if  (nextProps.isOpened!==this.props.isOpened&& (nextProps.isOpened!==false||nextProps.isOpened!==true))
         {
             return false
@@ -222,6 +232,7 @@ class VideoPlayer extends Component     {
                                  handleCurrPlaybackContext={this.handleCurrPlayback}
                                  onMouseEnter={e=>this.menuFullScreenAppears('mouseEnter')}
                                  onMouseLeave={e=>this.menuFullScreenAppears()}
+                                 changeSizeContext={this.changeSize}
                 />
                 <VideoBottomMenu changeSizeContext={this.changeSize}
                                  changeResContext= {this.changeRes}
@@ -230,8 +241,8 @@ class VideoPlayer extends Component     {
                 />
             </div>                      )
 
-                                        }
-                                        }
+    }
+}
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,togglePlay,toggleButtons,
@@ -239,11 +250,11 @@ const mapDispatchToProps = (dispatch) =>
     }, dispatch);
 export default connect      (
     state => ({
-    video:                state.videoReducer.video,
-    isPlaying:            state.videoReducer.isPlaying,
-    autoPlay:             state.videoReducer.autoPlay,
-    fullScreen:           state.videoReducer.fullScreen,
-    isOpened:             state.menuReducer.isOpened
+        video:                state.videoReducer.video,
+        isPlaying:            state.videoReducer.isPlaying,
+        autoPlay:             state.videoReducer.autoPlay,
+        fullScreen:           state.videoReducer.fullScreen,
+        isOpened:             state.menuReducer.isOpened
     }),
     mapDispatchToProps
-                            )(VideoPlayer);
+)(VideoPlayer);

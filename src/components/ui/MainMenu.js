@@ -16,23 +16,23 @@ class  MainMenu extends Component
         else if   (this.props.menus.channelsMenuVisible&&
             !this.props.menus.categoryMenuVisible&&
             !this.props.menus.programsVisible
-                  )
+        )
             return  (<div className="oneMenuOpen">
             </div>);
         else if  (
             this.props.menus.channelsMenuVisible&&
             (this.props.menus.categoryMenuVisible||
                 this.props.menus.programsVisible)
-                 )
+        )
             return  (<div className="twoMenuOpen">
             </div>);
-                 }
+    }
     render()     {
         if           (this.props.isOpened===false)
             return null;
-        else     return    (<div>{this.returnState()}</div>)
+        else     return    this.returnState()
 
-                }
+    }
 
 }
 export default connect  (

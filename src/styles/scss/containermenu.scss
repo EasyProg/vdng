@@ -1,24 +1,24 @@
 .smKindOfMenu_Channels
 {
-position:absolute;
-height:101vh;
-background: rgba(0,0,0,0.8);
-width:250px;
-transition: width 0.5s ease 100ms;
+    position:absolute;
+    height:101vh;
+    background: rgba(0,0,0,0.8);
+    width:250px;
+    transition: width 0.5s ease 100ms;
 }
 
 .smKindOfMenu_Group
 {
-@extend .smKindOfMenu_Channels;
-width:500px;
+    @extend .smKindOfMenu_Channels;
+    width:500px;
 }
 
 .menu_header
 {
-width:100%;
-color:white;
-top:0;
-background:yellow;
+    width:100%;
+    color:white;
+    top:0;
+    background:yellow;
 }
 
 
@@ -31,4 +31,4 @@ background:yellow;
     top: 2px;
     border-radius: 3px;
     background-color:yellowgreen;
-  }
+}

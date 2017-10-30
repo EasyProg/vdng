@@ -32,8 +32,9 @@ class MenuButton extends Component                      {
             if (!channelsState===true)
             {
                 $('#channels').focus();
+                $('.menuItemStylefocus').focus();
             }
-                                                        }
+        }
         else                                            {
 
             {
@@ -45,33 +46,33 @@ class MenuButton extends Component                      {
 
                 }, true));
             }
-                                                        }
-                                                        }
-    setPositionClass()                                  {
-    if (this.props.isOpened!==true)
-    {
-     return "divSideBar"
+        }
     }
-    else return "divSideBar_menu"
-                                                        }
+    setPositionClass()                                  {
+        if (this.props.isOpened!==true)
+        {
+            return "divSideBar"
+        }
+        else return "divSideBar_menu"
+    }
     render()    {
         if      (this.props.visible)
             return (<div
                 className={this.setPositionClass()}
                 onClick={(e) => this.toggleMenuState()}>
                 <img src={menu} height={40} width={50} id="menubutton"/>
-                </div>);
+            </div>);
         else return null
-                }
-                                                        }
+    }
+}
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,setMenusVisible,getChannels
     },  dispatch);
 export default   connect (
     state => ({  menus:state.menuReducer.menus,
-                 isOpened:state.menuReducer.isOpened,
-                 channels:state.channelReducer.channels,
+        isOpened:state.menuReducer.isOpened,
+        channels:state.channelReducer.channels,
     }),
     mapDispatchToProps
 )(MenuButton);

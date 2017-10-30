@@ -12,42 +12,43 @@ class Video extends Component
         super(props);
         this.state =    {
             playing:true
-                        };
+        };
         this.isVideoPlaying = this.isVideoPlaying.bind(this);
         this.handleClick = this.handleClick.bind(this);
-                        }
+    }
 
     static propTypes =  {
         fullSize: PropTypes.bool.isRequired,
         isPlaying: PropTypes.bool.isRequired,
         video: PropTypes.object.isRequired
-                        };
+    };
 
     componentDidMount() {
         this.isVideoPlaying();
-                        }
+    }
     isVideoPlaying ()   {
         var b = this;
         setTimeout      (
             function    ()
-                {
+            {
                 let vd = document.getElementById('video');
                 if      (vd.paused)
                 {
                     b.setState({playing:false});
-                }},1500 )
+                    vd.pause();
+                }},3000 );
 //console.log(this.video.prop('autoPlay'));
-                        }
+    }
     handleKey(e)        {
         if (e.keyCode === 13)
             this.handleClick();
-                        }
+    }
     handleClick ()      {
         this.video.play();
         this.setState({playing:true});
         this.props.dispatch(toggleAutoPlay(true));
         this.video.focus();
-                        }
+    }
     render()            {
         if (this.props.video!=='none')
         {return(
@@ -76,7 +77,7 @@ class Video extends Component
         else return     (
             <div   className="errorsDiv">Network error</div>
         )
-                        }
+    }
 }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
@@ -86,5 +87,4 @@ export default connect  (
     state => ({
     }),
     mapDispatchToProps
-                        )(Video);
-//Merge request to master project
+)(Video);

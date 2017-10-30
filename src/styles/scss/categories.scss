@@ -4,12 +4,12 @@
   top:-20px;
   width:30vw;
   max-width:30vw;
-  min-width:300px;
+  min-width:30vw;
   margin-top: 20px;
   position: absolute;
   left:0;
   transition: left 0.2s ease 10ms;
-                                                     }
+}
 .categoryLine                                        {
   position: absolute;
   left:7%;
@@ -28,7 +28,7 @@
   display: block;
   cursor: pointer;
   width:30vw;
-  min-width:300px;
+  min-width:30vw;
   //max-width:$menuItemWidth;
   //min-width: 170px;
   //background: rgba(0,0,0,0.7);
@@ -61,13 +61,13 @@
   text-wrap: none;
   height: 90px;
   margin-bottom: 10px;
-                                                      }
+}
 .spanChannelid                                        {
   position: relative;
   display: inline-block;
-  top:-50px;
-  width:35px;
-                                                      }
+  width:40px;
+  min-width: 20px;
+}
 .menuBottom                                           {
   position:absolute;
   bottom:-9vh;
@@ -82,7 +82,7 @@
   max-width:30vw;
   font-size:1.2em;
   //height: 10px;
-                                                      }
+}
 .menuHeaderCh                                         {
   @extend .menuHeader;
   width:$menuChannelWidth;
@@ -148,4 +148,4 @@
   left:0;
   height:101vh;
   background: rgba(0,0,0,0.8);
-                                                      }
+}

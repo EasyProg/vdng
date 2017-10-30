@@ -3,6 +3,7 @@ import React, {Component,PropTypes} from 'react';
 import {Icon} from 'semantic-ui-react';
 import underline from '../img/Underline.png';
 import ChannelList from '../components/ChannelList';
+import MainMenu from '../components/ui/MainMenu';
 //import Css
 import '../styles/css/main_styles.css';
 import 'semantic-ui-css/semantic.min.css';
@@ -26,20 +27,20 @@ class  Categories extends Component                     {
             category:'Все жанры',
             Menu:[],
             channels:this.props.channels
-                                                        };
+        };
         this.filterChannels = this.filterChannels.bind(this);
         this.categVisible = this.categVisible.bind(this);
-                                                        }
+    }
     static propTypes =                                  {
-    visible:PropTypes.bool.isRequired,
-    channelVisible:PropTypes.bool.isRequired,           };
+        visible:PropTypes.bool.isRequired,
+        channelVisible:PropTypes.bool.isRequired,           };
     handleClick (index,cat)                             {
         this.setState   (
-                        {
+            {
                 itemChosen:index,
                 category:cat,
                 //channels:this.props.channels
-                        });
+            });
         this.props.dispatch(toggleCategory(cat));
         var filtered = this.filterChannels(this.state.channels,cat);
         this.props.dispatch(getChannels(filtered));
@@ -63,7 +64,7 @@ class  Categories extends Component                     {
                     settingsVisible: false
                 }, true));
         }
-                                                         };
+    };
     filterChannels(channels,category)                   {
         var cat = category?category.toString():'All channels';
         let filteredChannels = [];
@@ -71,18 +72,18 @@ class  Categories extends Component                     {
             filteredChannels =  channels.filter(function(item)
             {
                 if (cat !== 'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
-                return       item.category.toUpperCase() === cat.toUpperCase();
+                    return       item.category.toUpperCase() === cat.toUpperCase();
                 else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
                 else return  item.category
             })
-                                                        }
+        }
         this.props.dispatch(getChannels(filteredChannels));
         return filteredChannels;
-                                                        };
+    };
     componentWillReceiveProps(nextProps) {
         if (nextProps.channels.length===0)
-        this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
-                                         }
+            this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
+    }
     switchCateg(event,cat)                              {
         let elems = this.props.categories;
         var i = elems.map(x => x.name).indexOf(cat);
@@ -99,6 +100,10 @@ class  Categories extends Component                     {
                         category:elems[nextElem].name,
                     });
                 break;}
+            case 39: {
+                $('#channels').focus();
+                break;
+            }
             case 38:
                 items[prevElem].focus();
                 this.setState(
@@ -134,7 +139,7 @@ class  Categories extends Component                     {
                         settingsVisible: false
                     }));
                 $('#video').focus();
-                    }
+            }
                 break;
             default:
         }
@@ -147,7 +152,7 @@ class  Categories extends Component                     {
                     categoryMenuVisible:false,
                     settingsVisible:false
                 },true                              ));
-                                                     }
+    }
     render()                                         {
         return                                       (
             <div className="hoverDiv">
@@ -187,17 +192,16 @@ class  Categories extends Component                     {
             </div>
         )
     }
-                                                        }
+}
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,setMenusVisible,getChannels,toggleCategory
     },  dispatch);
 export default connect(
     state =>
-    ({ channels:state.channelReducer.channels,
-       channelCategory:state.channelReducer.chosenCategory,
-       isFavor:state.channelReducer.isFavor
-    }),
+        ({ channels:state.channelReducer.channels,
+            channelCategory:state.channelReducer.chosenCategory,
+            isFavor:state.channelReducer.isFavor
+        }),
     mapDispatchToProps
 )(Categories);
-

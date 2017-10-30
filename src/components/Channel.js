@@ -13,7 +13,7 @@ export default class Channel extends Component      {
 
     constructor(props)  {
         super(props);
-                        }
+    }
 
     static propTypes =  {
         progress:       PropTypes.number,
@@ -24,56 +24,66 @@ export default class Channel extends Component      {
         hiddenChannel:  PropTypes.bool.isRequired,
         chosen:         PropTypes.bool.isRequired,
         favorite:       PropTypes.bool.isRequired,
-                        };
+    };
 
 
     runningString(e)    {
         var str   = $('.pname_hover:hover');
+        var strCont = $('.pname:hover');
         var width = str.width();
         var con_w = str.css('left');
 
         function run () {
-            var con_len = parseInt(con_w) - width + 100;
+            var con_len = parseInt(con_w) - (width - strCont.width());
 
             str.animate
             ({left:con_len + 'px'},
-                {duration: 3000,
+                {duration: 2000,
                     complete: function ()
                     {
                         str.css('left',con_w);
                         //run();
                     }});}
-        if (e.currentTarget.textContent.length>15)
-                        {
+        if (width>strCont.width())
+        {
             run();
-                        }}
-        stopRun ()      {
+        }}
+    stopRun ()      {
         $('.pname_hover').stop(true,true);
-                        }
-
+    }
+    // componentDidUpdate() {
+    //     $('.menuItemStylefocus').focus();
+    // }
     render()            {
         return          (
             <div  className={this.props.chosen?'menuItemStylefocus':this.props.elemChosen?'menuItemStyleChosen':'menuItemStyle'}
-                  //className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
+                //className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
                   onClick={this.props.onClick}
                   onKeyDown={this.props.onKeyDown}
                   key={this.props.key}
                   tabIndex={this.props.tabIndex}
                   ref={(channel)=>this.channel=channel}
             >
-                 <div className="staticItem">
-                 <span className="spanChannelid">{this.props.channelNum}</span>
-                 <img  width={100} height={100} src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
-                 <span className="pname" onMouseOver={(e)=>this.runningString(e)} onMouseLeave={(e)=>this.stopRun()}>
+                <div className="staticItem">
+                    <span className="spanChannelid">{this.props.channelNum}</span>
+                    <img  width={100} height={100} src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
+                    <div className="menuChannelName">
+                        <div className="divForFavorite">
+                            {this.props.favorite ? <div className="pnameFav"><img src={book} width={20} height={20}/></div> : ''}
+                        </div>
+                        <div className="pname" onMouseOver={(e)=>this.runningString(e)} onMouseLeave={(e)=>this.stopRun()}>
                  <span className="pname_hover">
                  {this.props.programName}
                  </span>
-                 </span>
-                    {/*<Rating maxRate={5} rate={3} chosen={this.props.chosen}/>*/}
-                    <progress className='progresses' value={this.props.progress} max={100} min={0}/>
-                    {this.props.favorite ? <span className="pnameFav"><img src={book} width={20} height={20}/></span> : ''}
-                 </div>
-                 </div>
-                        )
-                        }
+                        </div>
+                        <div className="progressDives">
+                            {this.props.progress!==-1?<progress className='progresses' value={this.props.progress} max={100} min={0}/>:null}
+                        </div>
+                        {/*<Rating maxRate={5} rate={3} chosen={this.props.chosen}/>*/}
+                        {/*{this.props.favorite ? <span className="pnameFav"><img src={book} width={20} height={20}/></span> : ''}*/}
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }

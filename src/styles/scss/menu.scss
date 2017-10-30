@@ -3,7 +3,7 @@
   display: block;
   cursor: pointer;
   width:30vw;
-  min-width:500px;
+  min-width:30vw;
   font-family: "ComfortaaRegular";
   font-size: 1.3em;
   letter-spacing: 1px;
@@ -11,24 +11,30 @@
   height: 110px;
   line-height: 5.7em;
   padding-left: 20px;
-                      }
+}
 .staticItem           {
+
   width:$menuChannelWidth;
   min-width: 400px;
-                      }
+  display:flex;
+  height:100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
 .menuBottom           {
   width:$menuItemWidth;
   height:5vh;
   //background: rgba(0,0,0,0.8);
   bottom:0;
-                      }
+}
 .menuItemStyle:hover  {
   width:110%;
   background:$menuHoverColor;
-                      }
+}
 .menuItemStyle:target {
   background:$menuHoverColor;
-                      }
+}
 .menuItemStyleChosen  {
   @extend .menuItemStyle;
   width:110%;
@@ -37,6 +43,7 @@
 .menuItemStylefocus   {
   @extend .menuItemStyle;
   background:$menuActiveColor;
+  width:110%;
 
 }
 .circleButtonSpan     {
@@ -46,15 +53,15 @@
   top:-53px;
   left:285px;
   visibility: visible;
-                      }
+}
 .circleButtonSpanNone {
   visibility: hidden;
-                      }
+}
 .menuChannel          {
   //width:900px;
   display: block;
   width:30vw;
-  min-width:450px;
+  min-width:30vw;
   height: 92vh;
   position: absolute;
   top:0;
@@ -62,7 +69,7 @@
   //background: rgba(0,0,0,0.8);
   transition: left 0.3s ease 50ms;
   //overflow: visible;
-                      }
+}
 .menuChannelLeft      {
   @extend .menuChannel;
   left:30vw;
@@ -78,7 +85,7 @@
   width:60px;
   height:60px;
   line-height:6.5em;
-                      }
+}
 .divSideBar:hover     {
   @extend .divSideBar;
   cursor: pointer;
@@ -96,7 +103,7 @@
   position: absolute;
 }
 .divSideBar_menu:hover {
- @extend .divSideBar_menu;
+  @extend .divSideBar_menu;
   cursor: pointer;
   border-radius: 40px;
   background: rgba(87, 87, 87, 0.6);

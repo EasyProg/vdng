@@ -19,8 +19,8 @@ import getCurrentProgram from '../components/workingDate';
 import * as $ from 'jquery';
 class VideoUpperMenu extends Component                         {
     static propTypes =                                         {
-    isPlaying:PropTypes.bool.isRequired
-                                                               };
+        isPlaying:PropTypes.bool.isRequired
+    };
     constructor(props)                                         {
         super(props);
         this.switchKeyPress = this.switchKeyPress.bind(this);
@@ -33,7 +33,7 @@ class VideoUpperMenu extends Component                         {
                 currentTime: 0,
                 progressValue:0
             }
-                                                               }
+    }
 
     componentDidMount()                                        {
         var func = this.switchKeyPress;
@@ -43,7 +43,7 @@ class VideoUpperMenu extends Component                         {
             //event.preventDefault();
             func(event);
         });
-                                                               }
+    }
     switchKeyPress(event)                                      {
         //event.stopPropagation();
         switch (event.keyCode)                                 {
@@ -98,6 +98,15 @@ class VideoUpperMenu extends Component                         {
                 }
                 break;
             }
+            case 8:
+            {
+                if (this.props.fullScreen)
+                {
+
+                    this.props.changeSizeContext();
+                }
+                break;
+            }
             default:break;
         }
     }
@@ -134,19 +143,19 @@ class VideoUpperMenu extends Component                         {
             return  getCurrentProgram(this.props.video.program).startTime;
         }
         else return 0;
-                                                               }
-    setProgressValue(now,all)                                  {
-    //get the current value of progress
-    if (now&&all!==0)
-
-    {
-        var position = (now / all) * 100;
-
-
-
-        this.setState({progressValue:position});
     }
-                                                               }
+    setProgressValue(now,all)                                  {
+        //get the current value of progress
+        if (now&&all!==0)
+
+        {
+            var position = (now / all) * 100;
+
+
+
+            this.setState({progressValue:position});
+        }
+    }
     render()
     { if (this.props.video.program)
         return (
@@ -174,30 +183,31 @@ class VideoUpperMenu extends Component                         {
                     <ProgramTime time={this.currentProgram()}/>
                 </div>
             </div>
-                );
-        else return (<div id="vduppermenu"
-                          onKeyDown={(e)=>this.switchKeyPress(e)}
-                          tabIndex={1} className="displayNone"
-                          onMouseEnter={this.props.onMouseEnter}
-                          onMouseLeave={this.props.onMouseLeave}
-                                            >
-                    <div  className="divPlayer">
-                    <div  className="playerButtonsDiv" id="playerbuttonsdiv">
+        );
+    else return (<div id="vduppermenu"
+                      onKeyDown={(e)=>this.switchKeyPress(e)}
+                      tabIndex={1} className="displayNone"
+                      onMouseEnter={this.props.onMouseEnter}
+                      onMouseLeave={this.props.onMouseLeave}
+        >
+            <div  className="divPlayer">
+                <div  className="playerButtonsDiv" id="playerbuttonsdiv">
                     <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')}/>
                     <img src={backward} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
                     <img onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
                     <img src={forward}  className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
                     <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')}/>
-                    </div>
-                    </div>
-                    </div>)
+                </div>
+            </div>
+        </div>)
     }
-                                                                }
+}
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);
 export default connect      (
-    state =>        ({ fullScreen:state.videoReducer.fullScreen,
+    state =>        ({
+        fullScreen:state.videoReducer.fullScreen,
         channels:state.channelReducer.channels,
         video:state.videoReducer.video,
         menus:state.menuReducer.menus,

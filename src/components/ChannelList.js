@@ -35,13 +35,13 @@ class  ChannelList extends Component            {
             programs:[],
             currentProgram:''
 
-                        }
-                                                }
+        }
+    }
     static propTypes  =                         {
         playList:   PropTypes.array.isRequired,
         category:   PropTypes.string.isRequired,
         visibleSetContext:PropTypes.func.isRequired
-                                                };
+    };
     setMenusVisibleFalse()                      {
         this.props.dispatch(setMenusVisible(
             {
@@ -52,7 +52,7 @@ class  ChannelList extends Component            {
             },false
         ));
         $('#video').focus();
-                                                 }
+    }
     switchChannel(param='next',i=0)             {
         var items = $('.menuItemStyle,.menuItemStyleChosen,.menuItemStylefocus');
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
@@ -60,13 +60,13 @@ class  ChannelList extends Component            {
         if (param === 'next'&&items[nextElem])   {
             items[nextElem].focus();
             this.setState({channelId:nextElem});
-                                                 }
+        }
         if (param === 'prev'&&items[prevElem])   {
             items[prevElem].focus();
             this.setState({channelId:prevElem});
 
-                                                 }
-                                                 }
+        }
+    }
     handleKey(e,elem)                           {
         switch (e.keyCode)                       {
             case 40:
@@ -81,7 +81,7 @@ class  ChannelList extends Component            {
                 //this.handleClick(this.props.playList[this.state.channelId],e);
                 setTimeout(this.setMenusVisibleFalse,300);
 
-                                                }
+            }
                 break;
             case 32:
                 this.handleClick(this.props.playList[this.state.channelId],e);
@@ -94,7 +94,7 @@ class  ChannelList extends Component            {
                     }
                 ));
                 break;
-            case 37:        {
+            case 37:   {
                 this.props.dispatch(setMenusVisible (
                     {
                         channelsMenuVisible: true,
@@ -152,7 +152,7 @@ class  ChannelList extends Component            {
         if (parseProgramsArr.length > 0)
         {
             this.props.dispatch(setMenusVisible
-                (
+            (
                 {
                     programsVisible: true,
                     channelsMenuVisible: true,
@@ -162,6 +162,8 @@ class  ChannelList extends Component            {
                 ,
                 true));
             this.setState({programs: parseProgramsArr});
+
+
 
         }
         else {
@@ -176,8 +178,8 @@ class  ChannelList extends Component            {
                 ,
                 true
             ));
-            }
-                                                }
+        }
+    }
     categVisible()                              {
         this.props.dispatch(    setMenusVisible (
             {
@@ -186,7 +188,7 @@ class  ChannelList extends Component            {
                 settingsVisible:false
             },true));
 
-                                                }
+    }
     isFavorite(channelId)                       {
         if (localStorage.getItem(channelId)!==null)
         {
@@ -195,14 +197,13 @@ class  ChannelList extends Component            {
         else
             return false
 
-                                                }
+    }
     // componentWillUpdate()                       {
     // this.switchChannel();
     //                                             }
-
     render()                                    {
-            //this.switchChannel();
-            if (this.props.playList.length)
+        //this.switchChannel();
+        if (this.props.playList.length)
             return                              (
                 <div>
                     <div className={this.props.channelsMenuVisible&&this.props.catMenuVisible?
@@ -222,7 +223,7 @@ class  ChannelList extends Component            {
                             </div>:''
                         }
                         <CustomScroll>
-                                {this.props.playList.map((elem, i) =>
+                            {this.props.playList.map((elem, i) =>
                                 <Channel
                                     key={i}
                                     img={elem.img}
@@ -236,10 +237,10 @@ class  ChannelList extends Component            {
                                     tabIndex        =   {i}
                                     elemChosen      =   {i === this.state.channelId}
                                     onKeyDown       =   {e=>this.handleKey(e,elem)}
-                                    progress        =   {elem.program?getCurrentProgram(elem.program).progressValue:0}
+                                    progress        =   {elem.program?getCurrentProgram(elem.program).progressValue:-1}
                                 />
-                                )
-                                }
+                            )
+                            }
                         </CustomScroll>
                         <ProgramList  visible= {this.props.menus.programsVisible}
                                       programs={this.state.programs}
@@ -250,8 +251,8 @@ class  ChannelList extends Component            {
                 </div>
             );
         else return (null)
-            }
-                                                }
+    }
+}
 const mapDispatchToProps = (dispatch) => bindActionCreators
 ({
     dispatch,
@@ -271,10 +272,6 @@ connect                 (
         catMenuVisible:state.menuReducer.menus.categoryMenuVisible,
         menus:state.menuReducer.menus,
         channels:state.channelReducer.channels
-                        }),
-        mapDispatchToProps
-                        )(ChannelList);
-
-
-
-
+    }),
+    mapDispatchToProps
+)(ChannelList);
