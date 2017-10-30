@@ -1,0 +1,168 @@
+@import "menu";
+@import "video";
+@import "homemenu";
+@import "animations";
+@import "settings";
+@import "parent_control";
+@import "categories";
+@import "video_upper_menu";
+@import "video_bottom_menu";
+@import "TVChannelImg";
+@import "videoarchive";
+@import "category_name";
+@import "holdscreen";
+@import "programlist";
+@import "containermenu";
+@import "mainmenu";
+*                    {
+  outline: 0;
+  border: 0;
+}
+
+body                 {
+  background: black;
+  outline: 0;
+  border: 0;
+  overflow: hidden;
+  min-height:400px;
+  min-width:600px;
+  height:100vh;
+                     }
+#root                {
+  height:100vh;
+                     }
+div [data-reactroot] {
+  position: relative;
+  height:100vh;
+                     }
+@font-face {
+  font-family: "ComfortaaRegular";
+  src: url("../fonts/ComfortaaRegular.eot");
+  src: url("../fonts/ComfortaaRegular.eot?#iefix")format("embedded-opentype"),
+  url("../fonts/ComfortaaRegular.woff") format("woff"),
+  url("../fonts/ComfortaaRegular.ttf") format("truetype");
+  font-weight: bold;
+            }
+@font-face {
+  font-family: "RobotoMedium";
+  src: url(../fonts/RobotoMedium.ttf);
+  font-weight: 600;
+}
+
+
+.testDiv        {
+  background: white;
+  display: block;
+  width:100px;
+  height: 40px;
+  transition: width 1s ease 1s;
+}
+.testDiv:hover {
+  display: block;
+  width:0;
+  transition: width 1s ease 1s;
+}
+.mainMenuDiv
+{
+  top:-20px;
+  margin-top: 15px;
+  //position: fixed;
+  position: absolute;
+  width:100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index:2147483647;
+  background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0));
+}
+.mainMenuDivFull {
+  @extend .mainMenuDiv;
+  height:120px;
+  top:-15px;
+  //background: rgba(0, 0, 0,0.3)
+  background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0));
+}
+
+
+.menuDives {
+  height: 150px;
+  width:100%;
+  display: flex;
+}
+//.menuCenterText {
+//  position: relative;
+//  width:500px;
+//}
+.menuCenterText {
+  margin-left:150px;
+  position:absolute;
+  width:100%;
+  line-height:2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  //top:100px;
+  letter-spacing: 1px;
+  font-family: "ComfortaaRegular";
+  //font-weight: bold;
+  color:white;
+  margin-top:20px;
+}
+.upperText              {
+  display: flex;
+  width:100%;
+  flex-direction: row;
+  align-items: center;
+  //top:100px;
+  letter-spacing: 1px;
+  font-family: "ComfortaaRegular";
+  font-size:2em;
+                        }
+.lowerText              {
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  //top:100px;
+  letter-spacing: 1px;
+  font-family: "ComfortaaRegular";
+  font-size:1.5em;
+                        }
+.textBlock              {
+  display: flex;
+  margin-left: 10px;
+  flex-direction: column;
+  width:100%;
+  //align-items: center;
+                        }
+.displayNone            {
+  display:none;
+  //position:relative;
+  //top:-10%;
+  //position: absolute;
+  z-index:2147483647;
+}
+.imgChannelStyle        {
+  //display: block;
+  //position:absolute;
+  top:25px;
+  margin:15px;
+  left:0;
+}
+.arrowImg               {
+margin-left:10px;
+margin-right:10px;
+                        }
+//#vduppermenu:hover {
+// opacity:1;
+// display:block;
+// background: yellow;
+//}
+//.divChannelText {
+//  line-height: 10em;
+//}
+//#video {
+//  position:relative;
+//  //left:10%;
+//}
