@@ -198,14 +198,11 @@ class  ChannelList extends Component            {
             return false
 
     }
-    // componentWillUpdate()                       {
-    // this.switchChannel();
-    //                                             }
     render()                                    {
         //this.switchChannel();
         if (this.props.playList.length)
             return                              (
-                <div>
+                    <div>
                     <div className={this.props.channelsMenuVisible&&this.props.catMenuVisible?
                         'menuChannelLeft':this.props.channelsMenuVisible&&
                         !this.props.catMenuVisible?'menuChannel':'menuChannelNone'}
@@ -242,13 +239,18 @@ class  ChannelList extends Component            {
                             )
                             }
                         </CustomScroll>
+                        <div className="hhfff">
+                        {/*set div hidden */}
+                        {this.props.playList.map((elem, i) =>
+                        <div className="menuItemStyle"/>)}
+                        </div>
                         <ProgramList  visible= {this.props.menus.programsVisible}
                                       programs={this.state.programs}
                                       currentProgramId={this.props.video.program?
                                       getCurrentProgram(this.props.video.program).current.id:''}
                         />
                     </div>
-                </div>
+                    </div>
             );
         else return (null)
     }

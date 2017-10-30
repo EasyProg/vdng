@@ -120,9 +120,9 @@ class VideoBottomMenu extends Component
                                     {this.state.resolution}
                                 </div>
                             </div>
-                            <div className="iconResDiv" onClick={(e)=>this.changeSize(e)}>
-                                <img src={border} width={25} height={25}/>
-                            </div>
+                        </div>
+                        <div className="iconResDiv" onClick={(e)=>this.changeSize(e)}>
+                            <img src={border} width={25} height={25}/>
                         </div>
                     </div>
                 </div>
