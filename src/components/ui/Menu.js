@@ -1,6 +1,6 @@
 import React, {Component,PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
-import {setMenusVisible,getChannels,receiveData,setProgram} from '../../actions/actions';
+import {setMenusVisible,getChannels,receiveData,setProgram,setElemsVis} from '../../actions/actions';
 import {connect} from 'react-redux';
 import 'semantic-ui-css/semantic.min.css';
 import '../../styles/css/main_styles.css';
@@ -63,7 +63,7 @@ class  Menu extends Component               {
     firstToUpperCase( str )                 {
         return str.substr(0, 1).toUpperCase() + str.substr(1);
     }
-    chooseSrc(categoryName) {
+    chooseSrc(categoryName)                 {
         switch (categoryName)   {
             case 'Фильмы': return films;
                 break;
@@ -116,77 +116,25 @@ class  Menu extends Component               {
             }));
         }
     }
-    handlePlay()                        {
-        this.timer = this.state.fullScreen?
-            setTimeout(function()               {
-                //Скрыть плей
-                $("#vduppermenu").fadeOut(1000);
-            },5000):
-            setTimeout(function()               {
-                //Скрыть плей
-                if ($('#channels').className==='menuChannel')
-                {$('#video').focus();}
-                $("#vduppermenu,#vdbottommenu,.divSideBar,.menuCenterText").fadeOut(1000);
-            },5000);
-    }
-    menuFullScreenAppears(param)        {
-        if (param==='mouseEnter')
-        {
-            clearTimeout(this.timer);
-            return
-        }
-        else if (param===true)          {
-            this.props.dispatch(setMenusVisible
-            (
-                {
-                    programsVisible: false,
-                    channelsMenuVisible: false,
-                    categoryMenuVisible: false,
-                    settingsVisible: false,
-                    vdArchVisible: false
-                }
-                ,
-                false));
-            if (!this.props.fullScreen)
-            {
-                clearTimeout(this.timer);
-                $("#vduppermenu,.divSideBar,#vdbottommenu,.menuCenterText").fadeIn(1);
-                //Запустить скрытие
-                this.handlePlay();
-            }
-            if (this.props.fullScreen)  {
-                this.toggle(this.props.isPlaying);
-            }
-        }
-        //Отобразить плей
-        else if (this.props.isOpened===false&&this.props.autoPlay)
-        {
-            clearTimeout(this.timer);
-            $("#vduppermenu,.divSideBar,#vdbottommenu,.menuCenterText").fadeIn(1);
-            //Запустить скрытие
-            this.handlePlay();
-        }
-        else if (param==='visible')     {
-            clearTimeout(this.timer);
-        }
-    }
-    render()   {
+    render()        {
         if  (this.props.autoPlay)
-            return (
+            return  (
                 <div id="menu" className="mainMenuDiv">
-                    <div className="menuDives">
+                                    <div className="menuDives"
+                                    onMouseEnter={e=>this.props.dispatch(setElemsVis(true))}
+                                    onMouseLeave={e=>this.props.dispatch(setElemsVis(false))}>
                         <MenuButton visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
                         <Categories visible={this.props.menus.categoryMenuVisible}
                                     channelVisible={this.props.menus.channelsMenuVisible}
                                     toggleMenuStateContext={this.toggleMenuState}
-                                    channels={this.props.channels}
+                                    channels=  {this.props.channels}
                                     categories={this.parseCategories()}
-
                         />
-                        <div className={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":'displayNone'}>
-                            <img src={this.props.channelImg} width={50} height={50} className="imgChannelStyle"/>
-                            <div className="textBlock">
-                                <div className="upperText">
+                        <div        className={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":'displayNone'}>
+                            <img    src={this.props.channelImg} width={50} height={50}
+                                    className="imgChannelStyle"/>
+                            <div    className="textBlock">
+                            <div    className="upperText">
                                     {this.props.category}
                                     <img src={prev_button} width={20} height={20} className="arrowImg"/>
                                     <span>{this.props.channelId}{'. '}{this.props.channel}
@@ -201,13 +149,13 @@ class  Menu extends Component               {
                     {/*<div className="menuDives">*/}
                     {/*</div>*/}
                 </div>
-            );
+                    );
         else return null
-    }
+                    }
 
 }
 const mapDispatchToProps = (dispatch) => bindActionCreators(  {
-    dispatch,setMenusVisible,getChannels,receiveData,setProgram
+    dispatch,setMenusVisible,getChannels,receiveData,setProgram,setElemsVis
 }, dispatch);
 export default connect (
     state =>           ({
@@ -219,8 +167,9 @@ export default connect (
         category:  state.channelReducer.chosenCategory,
         menus:     state.menuReducer.menus,
         program:   state.videoReducer.video.program,
-        isParentControl: state.settingsReducer.parentalControl,
-        autoPlay:state.videoReducer.autoPlay
+        isParentControl:
+                   state.settingsReducer.parentalControl,
+        autoPlay:  state.videoReducer.autoPlay
     }),
     mapDispatchToProps
 )(Menu);

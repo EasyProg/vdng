@@ -29,7 +29,8 @@ const   menuState =    {
     settingsVisible:false,
     vdArchVisible:false
     },
-    isOpened:false
+    isOpened:false,
+    elemsVisible:false
 };
 const settingsState ={
     timeShift:       settings.timeshift.status,
@@ -79,10 +80,11 @@ function menuReducer (state=menuState,action=null)          {
     {
         case 'CHANNELS_MENU_VISIBLE' :
             return {...state,menus:action.menus,isOpened:action.isOpened};
+        case 'SEY_VIS': return {...state,elemsVisible:action.data};
         default:
             return state;
     }
-}
+                                                            }
 function settingsReducer(state=settingsState,action=null)   {
 
     return state;

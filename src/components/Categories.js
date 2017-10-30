@@ -156,6 +156,7 @@ class  Categories extends Component                     {
     render()                                         {
         return                                       (
             <div className="hoverDiv">
+                {/*<MainMenu/>*/}
                 <div className={this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories"
                      onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
                     <div className="menuHeaderCat">
@@ -189,6 +190,7 @@ class  Categories extends Component                     {
                         tabIndex={1}
                     />
                 </div>
+                <MainMenu/>
             </div>
         )
     }

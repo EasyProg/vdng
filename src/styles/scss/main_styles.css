@@ -60,6 +60,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 2147483641;
   transition: left 0.3s ease 50ms; }
 
 .menuChannelLeft {
@@ -402,7 +403,8 @@ hr {
   margin-top: 20px;
   position: absolute;
   left: 0;
-  transition: left 0.2s ease 10ms; }
+  transition: left 0.2s ease 10ms;
+  z-index: 2147483641; }
 
 .categoryLine, .categoryLineNone {
   position: absolute;
@@ -1084,7 +1086,6 @@ hr {
   background-color: yellowgreen; }
 
 .oneMenuOpen {
-  display: block;
   position: absolute;
   width: 30vw;
   min-width: 450px;
@@ -1092,10 +1093,9 @@ hr {
   height: 101vh;
   background: rgba(0, 0, 0, 0.8);
   transition: width 0.2s ease-in;
-  z-index: 2147483648; }
+  z-index: 2147483640; }
 
 .twoMenuOpen {
-  display: block;
   position: absolute;
   width: 60vw;
   max-width: 60vw;
@@ -1104,17 +1104,16 @@ hr {
   height: 101vh;
   background: rgba(0, 0, 0, 0.8);
   transition: width 0.2s ease-in;
-  z-index: 2147483648; }
+  z-index: 2147483640; }
 
 .threeMenuOpen {
-  display: block;
   position: absolute;
   width: 100vw;
   max-width: 60vw;
   left: 0;
   height: 101vh;
   background: rgba(0, 0, 0, 0.8);
-  z-index: 2147483648; }
+  z-index: 2147483640; }
 
 * {
   outline: 0;

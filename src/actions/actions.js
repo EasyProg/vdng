@@ -94,4 +94,9 @@ export function receiveData(json)           {
         data:  json
     }
 }
-
+export function setElemsVis (param) {
+        return                      {
+            //
+            type: 'SEY_VIS',
+            data:  param            }
+                                    }

@@ -7,12 +7,12 @@ import hlsArray from '../../hls';
 import parse from '../Parsing';
 import * as $ from 'jquery';
 class MenuButton extends Component                      {
-    constructor(props)   {
+        constructor(props)   {
         super(props);
         this.toggleMenuState = this.toggleMenuState.bind(this);
-    };
+        };
 
-    toggleMenuState()                                   {
+        toggleMenuState()                                   {
         var channelsState = this.props.menus.channelsMenuVisible;
         var settingsState = this.props.menus.settingsVisible;
         //Туггл кнопок если стейт изменился
@@ -57,11 +57,12 @@ class MenuButton extends Component                      {
     }
     render()    {
         if      (this.props.visible)
-            return (<div
+            return (
+                <div
                 className={this.setPositionClass()}
                 onClick={(e) => this.toggleMenuState()}>
                 <img src={menu} height={40} width={50} id="menubutton"/>
-            </div>);
+                </div>);
         else return null
     }
 }

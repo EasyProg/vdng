@@ -12,8 +12,8 @@ import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 const hls = new Hls();
-class VideoPlayer extends Component      {
-    constructor(props)                   {
+class VideoPlayer extends Component     {
+    constructor(props)                  {
         super(props);
         //Bind functions
         this.changeSize    = this.changeSize.bind(this);
@@ -29,10 +29,10 @@ class VideoPlayer extends Component      {
         this.state = {fullScreen:false};
     }
     //Component Functions
-    componentDidMount()                  {
+    componentDidMount()                 {
         this.videoOnLoad();
                                          }
-    toggle(isPlaying)                    {
+    toggle(isPlaying)                   {
         var  vd = document.getElementById('video');
         //this.video.video;
         //console.log(vd);
@@ -45,9 +45,9 @@ class VideoPlayer extends Component      {
             vd.pause();
 
                                          }
-    changeRes(res)                       {
+    changeRes(res)                      {
     }
-    videoOnLoad()                        {
+    videoOnLoad()                       {
         var vd = document.getElementById('video');
         var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
         //console.log(vd);
@@ -103,7 +103,12 @@ class VideoPlayer extends Component      {
                 $("#vduppermenu,#vdbottommenu,.divSideBar,.menuCenterText").fadeOut(1000);
             },5000);
     }
-    menuFullScreenAppears(param)        {
+    componentWillReceiveProps(nextProps) {
+    if (nextProps.isVisible===true)
+        this.menuFullScreenAppears('mouseEnter');
+                                         }
+
+    menuFullScreenAppears(param)         {
         if (param==='mouseEnter')
         {
             clearTimeout(this.timer);
@@ -128,10 +133,10 @@ class VideoPlayer extends Component      {
                 //Запустить скрытие
                 this.handlePlay();
             }
-            if (this.props.fullScreen)  {
+            if (this.props.fullScreen)   {
                 this.toggle(this.props.isPlaying);
             }
-        }
+                                         }
         //Отобразить плей
         else if (this.props.isOpened===false&&this.props.autoPlay)
         {
@@ -142,7 +147,7 @@ class VideoPlayer extends Component      {
         }
         else if (param==='visible')     {
             clearTimeout(this.timer);
-        }
+                                        }
                                         }
     escFullScreen()                     {
         if (   !document.fullscreenElement
@@ -201,7 +206,8 @@ class VideoPlayer extends Component      {
     shouldComponentUpdate(nextProps,nextState)
     {
         //&& nextProps.isOpened!==false
-        if  (nextProps.isOpened!==this.props.isOpened&& (nextProps.isOpened!==false||nextProps.isOpened!==true))
+        if  (nextProps.isOpened!==this.props.isOpened||nextProps.isVisible!==this.props.isVisible)
+//&& (nextProps.isOpened!==false||nextProps.isOpened!==true)
         {
             return false
         }
@@ -223,7 +229,7 @@ class VideoPlayer extends Component      {
                                  onDblClick = {e=>this.changeSize()}
                                  isOpened   = {this.props.isOpened}
 
-                />\
+                />
                 {/*<div className="panelDiv" id="panelDiv"/>*/}
                 <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                  toggleContext={this.toggle}
@@ -242,19 +248,20 @@ class VideoPlayer extends Component      {
             </div>                      )
 
     }
-}
+                                        }
 const mapDispatchToProps = (dispatch) =>
-    bindActionCreators({
+    bindActionCreators(     {
         dispatch,togglePlay,toggleButtons,
         toggleFullScreen,setMenusVisible,setFavor
-    }, dispatch);
+                            }, dispatch);
 export default connect      (
-    state => ({
+    state =>                ({
         video:                state.videoReducer.video,
         isPlaying:            state.videoReducer.isPlaying,
         autoPlay:             state.videoReducer.autoPlay,
         fullScreen:           state.videoReducer.fullScreen,
-        isOpened:             state.menuReducer.isOpened
-    }),
-    mapDispatchToProps
-)(VideoPlayer);
+        isOpened:             state.menuReducer.isOpened,
+        isVisible:            state.menuReducer.elemsVisible
+                             }),
+                             mapDispatchToProps
+                            )(VideoPlayer);
