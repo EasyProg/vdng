@@ -1,7 +1,7 @@
 import React, {Component,PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {changeVideo,toggleCategory,togglePlay,getChannels,setMenusVisible} from '../actions/actions';
+import {changeVideo,toggleCategory,togglePlay,getChannels,setMenusVisible,setChannelProgram} from '../actions/actions';
 import {Button} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import '../styles/css/main_styles.css';
@@ -18,8 +18,8 @@ import MenuButton from './ui/MenuButton';
 import CategoryName from './ui/CategoryName';
 import CustomScroll from './ui/CustomScroll';
 var    ScrollbarWrapper = require('react-scrollbar');
-class  ChannelList extends Component            {
-    constructor(props)                          {
+class  ChannelList extends Component                {
+    constructor(props)                              {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.categVisible = this.categVisible.bind(this);
@@ -28,15 +28,15 @@ class  ChannelList extends Component            {
         this.setMenusVisibleFalse = this.setMenusVisibleFalse.bind(this);
         this.timer = '';
         this.menuTimer = '';
-        this.state =    {
-            itemChosen:0,
-            channelId:-1,
-            isClicked:false,
-            programs:[],
-            currentProgram:''
-
-        }
-    }
+        this.state =                                 {
+             itemChosen:0,
+             channelId:-1,
+             isClicked:false,
+             program:[],
+             programs:[],
+             currentProgram:'',
+                                                     }
+                                                     }
     static propTypes  =                         {
         playList:   PropTypes.array.isRequired,
         category:   PropTypes.string.isRequired,
@@ -53,35 +53,51 @@ class  ChannelList extends Component            {
         ));
         $('#video').focus();
     }
-    switchChannel(param='next',i=0)             {
+    switchChannel(param='next',i=0)                  {
         var items = $('.menuItemStyle,.menuItemStyleChosen,.menuItemStylefocus');
-        var nextElem = i + 1 >=    items.length ?  0 : i + 1;
-        var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
-        if (param === 'next'&&items[nextElem])   {
+        var nextElem = i + 1 >= items.length ? 0 : i + 1;
+        var prevElem = i - 1 < 0 ? items.length - 1 : i - 1;
+        if (param === 'next' && items[nextElem])     {
             items[nextElem].focus();
-            this.setState({channelId:nextElem});
-        }
-        if (param === 'prev'&&items[prevElem])   {
-            items[prevElem].focus();
-            this.setState({channelId:prevElem});
+            this.setState({channelId: nextElem, program: this.props.playList[nextElem].program});
+                                                     }
+            if (param === 'prev' && items[prevElem])
+                                                     {
+                items[prevElem].focus();
+                this.setState({channelId: prevElem, program: this.props.playList[prevElem].program});
 
-        }
-    }
+                                                     }
+                                                     }
     handleKey(e,elem)                           {
-        switch (e.keyCode)                       {
+            switch (e.keyCode)                      {
+
+
+            case 39 :
+                                                    {
+            if (elem&&elem.program)                       {
+                this.setState({programs: parseProgram(elem.program)});
+                this.props.dispatch(setMenusVisible (
+                                                    {
+                        channelsMenuVisible: true,
+                        categoryMenuVisible: false,
+                        settingsVisible: false,
+                        programsVisible:true
+                                                    },true
+                                                    ));
+                                                    }
+                                                    }
+            break;
             case 40:
                 this.switchChannel('next', this.state.channelId);
                 break;
             case 38:
                 this.switchChannel('prev', this.state.channelId);
                 break;
-            case 13:                            {
-                //let promise = new Promise((resolve,reject)=>
+            case 13:                                {
                 this.handleClick(this.props.playList[this.state.channelId],e);
-                //this.handleClick(this.props.playList[this.state.channelId],e);
                 setTimeout(this.setMenusVisibleFalse,300);
 
-            }
+                                                    }
                 break;
             case 32:
                 this.handleClick(this.props.playList[this.state.channelId],e);
@@ -148,26 +164,7 @@ class  ChannelList extends Component            {
         e.preventDefault();
         this.props.dispatch(changeVideo(elem));
         this.props.dispatch(togglePlay(!this.props.autoPlay));
-        var parseProgramsArr = parseProgram(elem.program);
-        if (parseProgramsArr.length > 0)
-        {
-            this.props.dispatch(setMenusVisible
-            (
-                {
-                    programsVisible: true,
-                    channelsMenuVisible: true,
-                    categoryMenuVisible: false,
-                    settingsVisible: false
-                }
-                ,
-                true));
-            this.setState({programs: parseProgramsArr});
-
-
-
-        }
-        else {
-            this.props.dispatch(setMenusVisible
+        this.props.dispatch(setMenusVisible
             (
                 {
                     programsVisible: false,
@@ -176,10 +173,39 @@ class  ChannelList extends Component            {
                     settingsVisible: false
                 }
                 ,
-                true
-            ));
-        }
-    }
+                true));
+        //var parseProgramsArr = parseProgram(elem.program);
+        // if (parseProgramsArr.length > 0)
+        // {
+        //     this.props.dispatch(setMenusVisible
+        //     (
+        //         {
+        //             programsVisible: true,
+        //             channelsMenuVisible: true,
+        //             categoryMenuVisible: false,
+        //             settingsVisible: false
+        //         }
+        //         ,
+        //         true));
+        //     this.setState({programs: parseProgramsArr});
+        //
+        //
+        //
+        // }
+        // else {
+        //     this.props.dispatch(setMenusVisible
+        //     (
+        //         {
+        //             programsVisible: false,
+        //             channelsMenuVisible: true,
+        //             categoryMenuVisible: this.props.menus.categoryMenuVisible,
+        //             settingsVisible: false
+        //         }
+        //         ,
+        //         true
+        //     ));
+        // }
+                                                }
     categVisible()                              {
         this.props.dispatch(    setMenusVisible (
             {
@@ -204,8 +230,8 @@ class  ChannelList extends Component            {
             return                              (
                     <div>
                     <div className={this.props.channelsMenuVisible&&this.props.catMenuVisible?
-                        'menuChannelLeft':this.props.channelsMenuVisible&&
-                        !this.props.catMenuVisible?'menuChannel':'menuChannelNone'}
+                         'menuChannelLeft':this.props.channelsMenuVisible&&
+                         !this.props.catMenuVisible?'menuChannel':'menuChannelNone'}
                          onClick={this.props.onClick} id="channels" tabIndex={1}
                          onKeyDown={e=>this.handleKey(e)}
                     >
@@ -239,31 +265,29 @@ class  ChannelList extends Component            {
                             )
                             }
                         </CustomScroll>
-                        <div className="hhfff">
-                        {/*set div hidden */}
-                        {this.props.playList.map((elem, i) =>
-                        <div className="menuItemStyle"/>)}
-                        </div>
-                        <ProgramList  visible= {this.props.menus.programsVisible}
-                                      programs={this.state.programs}
-                                      currentProgramId={this.props.video.program?
-                                      getCurrentProgram(this.props.video.program).current.id:''}
+                        <ProgramList
+                                    visible = {this.props.menus.programsVisible}
+                                    programs={this.state.programs}
+                                    currentProgramId={getCurrentProgram(this.state.program).current.id}
                         />
                     </div>
+                    <div className="menuBottom"/>
                     </div>
             );
         else return (null)
     }
-}
+                                                     }
 const mapDispatchToProps = (dispatch) => bindActionCreators
-({
+    (
+    {
     dispatch,
     changeVideo,
     toggleCategory,
     togglePlay,
     getChannels,
-    setMenusVisible
-}, dispatch);
+    setMenusVisible,
+    setChannelProgram
+    }, dispatch);
 export default
 connect                 (
     state =>            ({
@@ -273,7 +297,8 @@ connect                 (
         channelsMenuVisible:state.menuReducer.menus.channelsMenuVisible,
         catMenuVisible:state.menuReducer.menus.categoryMenuVisible,
         menus:state.menuReducer.menus,
-        channels:state.channelReducer.channels
-    }),
-    mapDispatchToProps
-)(ChannelList);
+        channels:state.channelReducer.channels,
+        currentChannel:state.channelReducer.channelProgram
+                        }),
+                        mapDispatchToProps
+                        )(ChannelList);

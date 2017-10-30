@@ -137,7 +137,7 @@ class  Menu extends Component               {
                             <div    className="upperText">
                                     {this.props.category}
                                     <img src={prev_button} width={20} height={20} className="arrowImg"/>
-                                    <span>{this.props.channelId}{'. '}{this.props.channel}
+                                    <span>{this.props.channelNum}{'. '}{this.props.channel}
                                 </span>
                                 </div>
                                 <div className="lowerText">
@@ -162,7 +162,7 @@ export default connect (
         fullScreen:state.videoReducer.fullScreen,
         channel:   state.videoReducer.video.channel,
         channels:  state.channelReducer.channels,
-        channelId: state.videoReducer.video.channelId,
+        channelNum: state.videoReducer.video.channelNum,
         channelImg:state.videoReducer.video.img,
         category:  state.channelReducer.chosenCategory,
         menus:     state.menuReducer.menus,

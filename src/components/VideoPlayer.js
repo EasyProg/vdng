@@ -26,28 +26,28 @@ class VideoPlayer extends Component     {
         this.escFullScreen = this.escFullScreen.bind(this);
         this.videoOnLoad   = this.videoOnLoad.bind(this);
         this.timer = '';
-        this.state = {fullScreen:false};
-    }
+        this.state = {fullScreen:false,networkError:false};
+                                        }
     //Component Functions
-    componentDidMount()                 {
-        this.videoOnLoad();
-                                         }
-    toggle(isPlaying)                   {
-        var  vd = document.getElementById('video');
-        //this.video.video;
-        //console.log(vd);
-        this.props.dispatch(togglePlay(isPlaying));
-        if (isPlaying)                   {
-            vd.play();
+        componentDidMount()                 {
+            this.videoOnLoad();
+                                             }
+        toggle(isPlaying)                   {
+            var  vd = document.getElementById('video');
+            //this.video.video;
+            //console.log(vd);
+            this.props.dispatch(togglePlay(isPlaying));
+            if (isPlaying)                   {
+                vd.play();
 
+            }
+            else
+                vd.pause();
+
+                                             }
+        changeRes(res)                      {
         }
-        else
-            vd.pause();
-
-                                         }
-    changeRes(res)                      {
-    }
-    videoOnLoad()                       {
+        videoOnLoad()                       {
         var vd = document.getElementById('video');
         var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
         //console.log(vd);
@@ -57,8 +57,10 @@ class VideoPlayer extends Component     {
             hls.loadSource(this.props.video.link);
             hls.attachMedia(vd);
             hls.on(Hls.Events.MANIFEST_PARSED,
-                function ()             {
+                function ()
+                {
                     {
+                        this.setState({networkError:false});
                         vd.play();
                     }
                 });
@@ -66,9 +68,15 @@ class VideoPlayer extends Component     {
             hls.on(Hls.Events.ERROR, function (event, data)
             {
                 {
-                    switch (data.type)  {
+                    switch (data.type)
+                    {
                         case Hls.ErrorTypes.NETWORK_ERROR:
-                            console.log(Hls.ErrorTypes.NETWORK_ERROR);
+                        {
+                            funcCnt.setState({networkError:true});
+                            //console.log(Hls.ErrorTypes.NETWORK_ERROR + 'NETWORK ERRROR!!!!!!_!!!!!');
+
+
+                        }
                             break;
                         default:
                             break;
@@ -107,7 +115,6 @@ class VideoPlayer extends Component     {
     if (nextProps.isVisible===true)
         this.menuFullScreenAppears('mouseEnter');
                                          }
-
     menuFullScreenAppears(param)         {
         if (param==='mouseEnter')
         {
@@ -228,6 +235,7 @@ class VideoPlayer extends Component     {
                                  onMouseMove= {e=>this.menuFullScreenAppears()}
                                  onDblClick = {e=>this.changeSize()}
                                  isOpened   = {this.props.isOpened}
+                                 networkError={this.state.networkError}
 
                 />
                 {/*<div className="panelDiv" id="panelDiv"/>*/}
@@ -261,7 +269,8 @@ export default connect      (
         autoPlay:             state.videoReducer.autoPlay,
         fullScreen:           state.videoReducer.fullScreen,
         isOpened:             state.menuReducer.isOpened,
-        isVisible:            state.menuReducer.elemsVisible
+        isVisible:            state.menuReducer.elemsVisible,
+        //networkError:         state.videoReducer.networkError
                              }),
                              mapDispatchToProps
                             )(VideoPlayer);

@@ -2,6 +2,7 @@ import  React, {Component,PropTypes} from 'react';
 import  '../styles/css/main_styles.css';
 import '../components/ui/HoldScreen';
 import HoldScreen from "./ui/HoldScreen";
+import ChannelUnavailable from "./ui/ChannelUnavailable";
 import {bindActionCreators} from 'redux';
 import {toggleAutoPlay} from '../actions/actions';
 import  {connect} from 'react-redux';
@@ -72,6 +73,11 @@ class Video extends Component
                                 onKeyDown={(e)=>this.handleKey(e)}/>
                     :null
                 }
+                {
+                    this.props.networkError?
+                    <ChannelUnavailable/>:null
+
+                }
             </div>
         )}
         else return     (
@@ -82,7 +88,7 @@ class Video extends Component
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,toggleAutoPlay
-    }, dispatch);
+    },  dispatch);
 export default connect  (
     state => ({
     }),

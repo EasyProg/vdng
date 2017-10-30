@@ -5,41 +5,70 @@ import HomeButton from './ui/MenuButton';
 import * as $ from 'jquery';
 import CustomScroll from './ui/CustomScroll';
 export default class ProgramList extends Component
-{
+                                     {
     constructor(props)
-    {
+                                     {
         super(props);
-    }
+        this.state={itemChosen:0};
+        this.switchProgram = this.switchProgram.bind(this);
+        this.handleKey =     this.handleKey.bind(this);
+                                     }
+
     static propTypes =               {
         programs: PropTypes.array.isRequired,
         visible:  PropTypes.bool.isRequired
 
-    };
+                                     };
+    handleKey(e,elem)                {
+    switch (e.key)                   {
+        case 40:
+        this.switchProgram('next', this.state.itemChosen);
+        break;
+        case 38:
+        this.switchProgram('prev', this.state.itemChosen);
+        break;
+                                     }
+                                     }
+    switchProgram(param='next',chosen){
+        var items = $('.programListItem');
+        var i =     $('.programListItemChosen')[0].key||chosen||0;
+        var nextElem = i + 1 >=    items.length ?  0 : i + 1;
+        var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
+        if (param === 'next'&&items[nextElem])
+                                 {
+            items[nextElem].focus();
+            this.setState({itemChosen:nextElem});
+                                 }
+        if (param === 'prev'&&items[prevElem])
+                                 {
+            items[prevElem].focus();
+            this.setState({itemChosen:prevElem});
+
+                                 }
+                                 }
     getDayOfWeek (dt)                {
         var date_parse = new Date(dt.substr(6,4),Number(dt.substr(3,2))-1,dt.substr(0,2));
-        console.log(date_parse);
-        //console.log(dt.substr(5,4),dt.substr(2,2),dt.substr(0,1));
         switch (date_parse.getDay()) {
-            case 0 : return 'Sunday';
+            case 0 : return 'Неділя';
                 break;
-            case 1 : return 'Monday';
+            case 1 : return 'Понеділок';
                 break;
-            case 2 : return 'Tuesday';
+            case 2 : return 'Вівторок';
                 break;
-            case 3 : return 'Wednesday';
+            case 3 : return 'Середа';
                 break;
-            case 4 : return 'Thursday';
+            case 4 : return 'Четвер';
                 break;
-            case 5 : return 'Friday';
+            case 5 : return 'П\'ятниця';
                 break;
-            case 6 : return 'Saturday';
+            case 6 : return 'Субота';
                 break;
 
         }
         //return date_parse.getDay();
 
-    }
-    runningString(e)                {
+                                    }
+    runningString(e)             {
         var str   = $('.programName_hover:hover');
         var strCont = $('.programName:hover');
         var width = str.width();
@@ -47,7 +76,6 @@ export default class ProgramList extends Component
 
         function run ()           {
             var con_len = parseInt(con_w) - (width - strCont.width());
-
             str.animate
             ({left:con_len + 'px'},
                 {duration: 3000,
@@ -57,18 +85,18 @@ export default class ProgramList extends Component
                         //run();
                     }});          }
         if (width>strCont.width())
-        {
+                                  {
             run();
-        }}
+                                  }}
     stopRun ()                    {
         $('.programName_hover').stop(true,true);
-    }
+                                  }
     componentDidMount()           {
         $('.programListItemChosen').focus();
-    }
+                                  }
     componentDidUpdate() {
         $('.programListItemChosen').focus();
-    }
+                                  }
 // $('.programList').animate({'width':'400'},100);
 //                                   }
     render()                      {
@@ -86,24 +114,26 @@ export default class ProgramList extends Component
                                     <hr className="hrProgram"/>
                                 </div>
                                 <div className="dayListItem">
-                                    {
+                                {
                                         this.props.programs[i]['data'].map
                                         (
-                                            (e,i)=>
-                                                <div key={i}
-                                                     tabIndex={i}
-                                                     className={e.id===this.props.currentProgramId?"programListItemChosen":"programListItem"}
-                                                     onMouseOver={(e)=>this.runningString(e)}
-                                                     onMouseLeave={(e)=>this.stopRun()}>
-                                                        <span className="programTime">{e.start_time_show.substring(e.start_time_show.indexOf(':'),
-                                                            e.start_time_show.length-1).length===1?e.start_time_show+'0':e.start_time_show}
+                                            (elem,i)=>
+                                                <div    key={i}
+                                                        tabIndex={i}
+                                                        className={elem.id===this.props.currentProgramId?"programListItemChosen":"programListItem"}
+                                                        onMouseOver={(e)=>this.runningString(e)}
+                                                        onMouseLeave={(e)=>this.stopRun()}
+                                                     // onKeyDown={this.handleKey(e,elem)}
+                                                >
+                                                        <span className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),
+                                                            elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}
                                                         </span>
                                                     <span className="programName">
-                                                    <span className="programName_hover">{e.title}</span>
+                                                    <span className="programName_hover">{elem.title}</span>
                                                     </span>
                                                 </div>
                                         )
-                                    }
+                                }
                                 </div>
                             </div>
                         )}

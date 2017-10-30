@@ -76,7 +76,7 @@ class  Categories extends Component                     {
                 else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
                 else return  item.category
             })
-        }
+                                                        }
         this.props.dispatch(getChannels(filteredChannels));
         return filteredChannels;
     };

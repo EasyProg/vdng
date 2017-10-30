@@ -100,3 +100,17 @@ export function setElemsVis (param) {
             type: 'SEY_VIS',
             data:  param            }
                                     }
+
+export function setChannelProgram(channelId,channelArr) {
+    var result = channelArr.filter(function (item){
+        console.log(channelId);
+    return item.channelId===channelId;
+    });
+
+    return  {
+
+        type: 'SET_CHANNEL',
+        data:  result[0]
+            }
+
+}

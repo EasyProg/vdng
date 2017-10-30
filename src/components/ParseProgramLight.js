@@ -30,7 +30,6 @@ export default function parseProgram (arr)   {
     var obj = {};
 
     if (arr)                                 {
-        console.log(arr);
         newArr = arr.map((e, i) =>           {
                 var parseDt = new Date(e['start_at'] * 1000);
                 var startDt = parseDt.getDate() + '.' + (Number(parseDt.getMonth()) + 1).toString() + '.' + parseDt.getFullYear();
@@ -67,6 +66,5 @@ export default function parseProgram (arr)   {
 
                                              });
                                              }
-    console.log(lstArr);
     return lstArr
                                              }

@@ -5,7 +5,7 @@ import parse from '../components/Parsing';
 
 const   initialState  =  {
     video:         {link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/51/stream.m3u8',
-    channelId:51,
+    channelNum:1,
     channel: '1+1',
     img:'https://admin.hls.tv/cdn/logo/746d07c80571189d7d991e6810c9d34d.jpg',
     itemChosen:null,
@@ -15,12 +15,13 @@ const   initialState  =  {
     isPlaying:true,
     autoPlay:true,
     fullScreen:false
-                         };
+                       };
 const   channelState = {
     chosenCategory   :'Все жанры',
     channels:parse(hlsArray),
-    isFavor:false
-};
+    isFavor:false,
+    channelProgram:[]
+                       };
 const   menuState =    {
     menus:         {
     channelsMenuVisible:false,
@@ -69,11 +70,13 @@ function channelReducer (state=channelState,action=null)    {
         case 'SET_PROGRAM':
         return {...state,channels:action.channelsArr};
         case 'SET_FAVORITE' :
-        return {...state, isFavor:action.isFavor};
+        return {...state,isFavor:action.isFavor};
+        case 'SET_CHANNEL':
+        return {...state,channelProgram:action.data};
         default:
         return state;
                                                             }
-}
+                                                            }
 //menu visible
 function menuReducer (state=menuState,action=null)          {
     switch (action.type)
