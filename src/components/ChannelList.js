@@ -83,16 +83,31 @@ class  ChannelList extends Component                {
                             programsVisible: true
                                             }, true
                                             ));
-                    console.log('aasasasa');
                     $('#programList').focus();
 
                                             }
                                             }
             break;
             case 40:
+                this.props.dispatch(setMenusVisible(
+                    {
+                        channelsMenuVisible: true,
+                        categoryMenuVisible: false,
+                        settingsVisible: false,
+                        programsVisible: false
+                    }, true
+                ));
                 this.switchChannel('next', this.state.channelId);
                 break;
             case 38:
+                this.props.dispatch(setMenusVisible(
+                    {
+                        channelsMenuVisible: true,
+                        categoryMenuVisible: false,
+                        settingsVisible: false,
+                        programsVisible: false
+                    }, true
+                ));
                 this.switchChannel('prev', this.state.channelId);
                 break;
             case 13:                                {
@@ -130,7 +145,7 @@ class  ChannelList extends Component                {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false
-                    }));
+                    },false));
                 $('#video').focus();
             }
                 break;
