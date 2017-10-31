@@ -2,7 +2,20 @@ import {combineReducers} from 'redux';
 import * as settings from '../settings.json';
 import hlsArray from '../hls';
 import parse from '../components/Parsing';
-
+function getChannels(url)                   {
+    fetch(url).then(function(response)      {
+            if (response.status!==200)      {
+                console.log('Looks like it was some error ' + response.status);
+                return;
+            }
+            response.json().then            (function(data)
+                                            {
+                    console.log(data);
+                                            }
+                                            )
+                                            }
+                                            )
+                                            }
 const   initialState  =
     {
     video:{link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/51/stream.m3u8',
@@ -26,23 +39,23 @@ const   channelState = {
     channelProgram:[]
                        };
 const   menuState =    {
-    menus:         {
+    menus:             {
     channelsMenuVisible:false,
     categoryMenuVisible:false,
     programsVisible:false,
     settingsVisible:false,
     vdArchVisible:false
-    },
+                       },
     isOpened:false,
     elemsVisible:false
-};
-const settingsState ={
+                        };
+const settingsState =   {
     timeShift:       settings.timeshift.status,
     parentalControl: settings.parental_control.status,
     catchUp:         false,
     epgStatus:       false,
     isFavorite:      false
-};
+                        };
 const   epgState = {
     programs:[]
 };
@@ -106,9 +119,9 @@ function epgReducer (state=epgState,action=null)            {
 
 //Combine reducers
 const videoApp = combineReducers({
-    videoReducer,
-    channelReducer,
-    menuReducer,
-    settingsReducer
+                 videoReducer,
+                 channelReducer,
+                 menuReducer,
+                 settingsReducer
 });
 export default videoApp;

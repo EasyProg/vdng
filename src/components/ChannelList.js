@@ -37,214 +37,214 @@ class  ChannelList extends Component                {
              currentProgram:'',
                                                      }
                                                      }
-    static propTypes  =                         {
-        playList:   PropTypes.array.isRequired,
-        category:   PropTypes.string.isRequired,
-        visibleSetContext:PropTypes.func.isRequired
-    };
-    setMenusVisibleFalse()                      {
-        this.props.dispatch(setMenusVisible(
-            {
-                channelsMenuVisible: false,
-                categoryMenuVisible: false,
-                settingsVisible: false,
-                programsVisible: false
-            },false
-        ));
-        $('#video').focus();
-    }
-    switchChannel(param='next',i=0)                  {
-        var items = $('.menuItemStyle,.menuItemStyleChosen,.menuItemStylefocus');
-        var nextElem = i + 1 >= items.length ? 0 : i + 1;
-        var prevElem = i - 1 < 0 ? items.length - 1 : i - 1;
-        if (param === 'next' && items[nextElem])     {
-            items[nextElem].focus();
-            this.setState({channelId: nextElem, program: this.props.playList[nextElem].program});
-                                                     }
-            if (param === 'prev' && items[prevElem])
-            {items[prevElem].focus();
-            this.setState({channelId: prevElem, program: this.props.playList[prevElem].program});
+        static propTypes  =                         {
+            playList:   PropTypes.array.isRequired,
+            category:   PropTypes.string.isRequired,
+            visibleSetContext:PropTypes.func.isRequired
+        };
+        setMenusVisibleFalse()                      {
+            this.props.dispatch(setMenusVisible(
+                {
+                    channelsMenuVisible: false,
+                    categoryMenuVisible: false,
+                    settingsVisible: false,
+                    programsVisible: false
+                },false
+            ));
+            $('#video').focus();
+        }
+        switchChannel(param='next',i=0)             {
+            var items = $('.menuItemStyle,.menuItemStyleChosen,.menuItemStylefocus');
+            var nextElem = i + 1 >= items.length ? 0 : i + 1;
+            var prevElem = i - 1 < 0 ? items.length - 1 : i - 1;
+            if (param === 'next' && items[nextElem])     {
+                items[nextElem].focus();
+                this.setState({channelId: nextElem, program: this.props.playList[nextElem].program});
+                                                         }
+                if (param === 'prev' && items[prevElem])
+                {items[prevElem].focus();
+                this.setState({channelId: prevElem, program: this.props.playList[prevElem].program});
 
-                                                     }
-                                                     }
-    handleKey(e,elem)                                {
-            switch (e.keyCode)                       {
+                                                         }
+                                                         }
+        handleKey(e,elem)                           {
+                switch (e.keyCode)                       {
 
 
-            case 39 :                                {
-                if (elem && elem.program)            {
-                    this.setState({programs: parseProgram(elem.program)});
+                case 39 :                                {
+                    if (elem && elem.program)            {
+                        this.setState({programs: parseProgram(elem.program)});
+                        this.props.dispatch(setMenusVisible(
+                                                         {
+                                channelsMenuVisible: true,
+                                categoryMenuVisible: false,
+                                settingsVisible: false,
+                                programsVisible: true
+                                                        }, true
+                                                        ));
+                        //set state
+                        $('#programList').focus();
+                                                        }
+                                                        }
+                break;
+                case 40:
                     this.props.dispatch(setMenusVisible(
-                                                     {
+                        {
                             channelsMenuVisible: true,
                             categoryMenuVisible: false,
                             settingsVisible: false,
-                            programsVisible: true
-                                                    }, true
-                                                    ));
-                    //set state
-                    $('#programList').focus();
-                                                    }
-                                                    }
-            break;
-            case 40:
-                this.props.dispatch(setMenusVisible(
-                    {
-                        channelsMenuVisible: true,
-                        categoryMenuVisible: false,
-                        settingsVisible: false,
-                        programsVisible: false
-                    }, true
+                            programsVisible: false
+                        }, true
+                        ));
+                    this.switchChannel('next', this.state.channelId);
+                    break;
+                case 38:
+                    this.props.dispatch(setMenusVisible(
+                        {
+                            channelsMenuVisible: true,
+                            categoryMenuVisible: false,
+                            settingsVisible: false,
+                            programsVisible: false
+                        }, true
                     ));
-                this.switchChannel('next', this.state.channelId);
-                break;
-            case 38:
-                this.props.dispatch(setMenusVisible(
-                    {
-                        channelsMenuVisible: true,
-                        categoryMenuVisible: false,
-                        settingsVisible: false,
-                        programsVisible: false
-                    }, true
-                ));
-                this.switchChannel('prev', this.state.channelId);
-                break;
-            case 13:                                {
-                this.handleClick(this.props.playList[this.state.channelId],e);
-                setTimeout(this.setMenusVisibleFalse,300);
+                    this.switchChannel('prev', this.state.channelId);
+                    break;
+                case 13:                                {
+                    this.handleClick(this.props.playList[this.state.channelId],e);
+                    setTimeout(this.setMenusVisibleFalse,300);
 
-                                                    }
-                break;
-            case 32:
-                this.handleClick(this.props.playList[this.state.channelId],e);
-                this.props.dispatch(setMenusVisible (
-                    {
-                        channelsMenuVisible: false,
-                        categoryMenuVisible: false,
-                        settingsVisible: false,
-                        programsVisible:false
+                                                        }
+                    break;
+                case 32:
+                    this.handleClick(this.props.playList[this.state.channelId],e);
+                    this.props.dispatch(setMenusVisible (
+                        {
+                            channelsMenuVisible: false,
+                            categoryMenuVisible: false,
+                            settingsVisible: false,
+                            programsVisible:false
+                        }
+                    ));
+                    break;
+                case 37:   {
+                    this.props.dispatch(setMenusVisible (
+                        {
+                            channelsMenuVisible: true,
+                            categoryMenuVisible: true,
+                            settingsVisible: false
+                        },true
+                    ));
+                    this.setState({channelId: this.state.itemChosen});
+                    $('#categories').focus();
+                }
+                    break;
+                    break;
+                case 27:    {
+                    this.props.dispatch(setMenusVisible(
+                        {
+                            channelsMenuVisible: false,
+                            categoryMenuVisible: false,
+                            settingsVisible: false
+                        },false));
+                    $('#video').focus();
+                    $('#menuCenterText').fadeOut(100);
+                }
+                    break;
+                case 8:     {
+                    this.props.dispatch(setMenusVisible(
+                        {
+                            channelsMenuVisible: false,
+                            categoryMenuVisible: false,
+                            settingsVisible: false
+                        },false));
+                    $('#video').focus();
+                    $('#menuCenterText').fadeOut(100);
+                            }
+            }
+        }
+        handlePlay()                                {
+            this.timer =
+                setTimeout(function()           {
+                        //Скрыть плей
+                        $("#vduppermenu").fadeOut(1000);
                     }
-                ));
-                break;
-            case 37:   {
-                this.props.dispatch(setMenusVisible (
+                    ,5000);
+
+        }
+        menuFullScreenAppears()                     {
+            clearTimeout(this.timer);
+            clearTimeout(this.menuTimer);
+            $("#vduppermenu,#vdbottommenu").fadeIn(1);
+            //Запустить скрытие
+            this.handlePlay();
+        }
+        handleClick (elem,e)                        {
+            e.stopPropagation();
+            e.preventDefault();
+            this.props.dispatch(changeVideo(elem));
+            this.props.dispatch(togglePlay(!this.props.autoPlay));
+            this.props.dispatch(toggleCategory(this.props.category));
+            this.props.dispatch(setMenusVisible
+                (
                     {
+                        programsVisible: false,
                         channelsMenuVisible: true,
-                        categoryMenuVisible: true,
+                        categoryMenuVisible: this.props.menus.categoryMenuVisible,
                         settingsVisible: false
-                    },true
-                ));
-                this.setState({channelId: this.state.itemChosen});
-                $('#categories').focus();
-            }
-                break;
-                break;
-            case 27:    {
-                this.props.dispatch(setMenusVisible(
-                    {
-                        channelsMenuVisible: false,
-                        categoryMenuVisible: false,
-                        settingsVisible: false
-                    },false));
-                $('#video').focus();
-                $('#menuCenterText').fadeOut(100);
-            }
-                break;
-            case 8:     {
-                this.props.dispatch(setMenusVisible(
-                    {
-                        channelsMenuVisible: false,
-                        categoryMenuVisible: false,
-                        settingsVisible: false
-                    },false));
-                $('#video').focus();
-                $('#menuCenterText').fadeOut(100);
-            }
-        }
-    }
-    handlePlay()                                {
-        this.timer =
-            setTimeout(function()           {
-                    //Скрыть плей
-                    $("#vduppermenu").fadeOut(1000);
-                }
-                ,5000);
-
-    }
-    menuFullScreenAppears()                     {
-        clearTimeout(this.timer);
-        clearTimeout(this.menuTimer);
-        $("#vduppermenu,#vdbottommenu").fadeIn(1);
-        //Запустить скрытие
-        this.handlePlay();
-    }
-    handleClick (elem,e)                        {
-        e.stopPropagation();
-        e.preventDefault();
-        this.props.dispatch(changeVideo(elem));
-        this.props.dispatch(togglePlay(!this.props.autoPlay));
-        this.props.dispatch(toggleCategory(this.props.category));
-        this.props.dispatch(setMenusVisible
-            (
+                    }
+                    ,
+                    true));
+            //var parseProgramsArr = parseProgram(elem.program);
+            // if (parseProgramsArr.length > 0)
+            // {
+            //     this.props.dispatch(setMenusVisible
+            //     (
+            //         {
+            //             programsVisible: true,
+            //             channelsMenuVisible: true,
+            //             categoryMenuVisible: false,
+            //             settingsVisible: false
+            //         }
+            //         ,
+            //         true));
+            //     this.setState({programs: parseProgramsArr});
+            //
+            //
+            //
+            // }
+            // else {
+            //     this.props.dispatch(setMenusVisible
+            //     (
+            //         {
+            //             programsVisible: false,
+            //             channelsMenuVisible: true,
+            //             categoryMenuVisible: this.props.menus.categoryMenuVisible,
+            //             settingsVisible: false
+            //         }
+            //         ,
+            //         true
+            //     ));
+            // }
+                                                    }
+        categVisible()                              {
+            this.props.dispatch(    setMenusVisible (
                 {
-                    programsVisible: false,
-                    channelsMenuVisible: true,
-                    categoryMenuVisible: this.props.menus.categoryMenuVisible,
-                    settingsVisible: false
-                }
-                ,
-                true));
-        //var parseProgramsArr = parseProgram(elem.program);
-        // if (parseProgramsArr.length > 0)
-        // {
-        //     this.props.dispatch(setMenusVisible
-        //     (
-        //         {
-        //             programsVisible: true,
-        //             channelsMenuVisible: true,
-        //             categoryMenuVisible: false,
-        //             settingsVisible: false
-        //         }
-        //         ,
-        //         true));
-        //     this.setState({programs: parseProgramsArr});
-        //
-        //
-        //
-        // }
-        // else {
-        //     this.props.dispatch(setMenusVisible
-        //     (
-        //         {
-        //             programsVisible: false,
-        //             channelsMenuVisible: true,
-        //             categoryMenuVisible: this.props.menus.categoryMenuVisible,
-        //             settingsVisible: false
-        //         }
-        //         ,
-        //         true
-        //     ));
-        // }
-                                                }
-    categVisible()                              {
-        this.props.dispatch(    setMenusVisible (
-            {
-                channelsMenuVisible:true,
-                categoryMenuVisible:true,
-                settingsVisible:false
-            },true));
+                    channelsMenuVisible:true,
+                    categoryMenuVisible:true,
+                    settingsVisible:false
+                },true));
 
-    }
-    isFavorite(channelId)                       {
-        if (localStorage.getItem(channelId)!==null)
-        {
-            return true;
         }
-        else
-            return false
+        isFavorite(channelId)                       {
+            if (localStorage.getItem(channelId)!==null)
+            {
+                return true;
+            }
+            else
+                return false
 
-    }
-    render()                                    {
+        }
+        render()                                    {
         //this.switchChannel();
         if (this.props.playList.length)
             return                              (

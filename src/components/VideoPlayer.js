@@ -12,8 +12,8 @@ import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 const hls = new Hls();
-class VideoPlayer extends Component     {
-    constructor(props)                  {
+class VideoPlayer extends Component         {
+    constructor(props)                      {
         super(props);
         //Bind functions
         this.changeSize    = this.changeSize.bind(this);
@@ -27,7 +27,7 @@ class VideoPlayer extends Component     {
         this.videoOnLoad   = this.videoOnLoad.bind(this);
         this.timer = '';
         this.state = {fullScreen:false,networkError:false};
-                                        }
+                                            }
         //Component Functions
         componentDidMount()                 {
                 this.videoOnLoad();
@@ -159,22 +159,23 @@ class VideoPlayer extends Component     {
                 clearTimeout(this.timer);
                                             }
                                             }
-        escFullScreen()                     {
-            if (   !document.fullscreenElement
+        escFullScreen()                             {
+            if (!document.fullscreenElement
                 && !document.mozFullScreenElement
                 && !document.webkitFullscreenElement
                 && !document.msRequestFullscreen)
+                {
                 this.props.dispatch(toggleFullScreen(false));
-            this.setState({fullScreen:false})
-        }
-        changeSize()                        {
+                this.setState({fullScreen:false})}
+                                                    }
+        changeSize()                                {
             var vd = document.getElementById('video');
             if (   !document.fullscreenElement
                 && !document.mozFullScreenElement
                 && !document.webkitFullscreenElement
                 && !document.msRequestFullscreen)
             //from Normal Screen to Full
-            {
+                                                    {
                 this.handlePlay();
                 if (vd.webkitEnterFullscreen)       {
                     vd.webkitEnterFullscreen();
@@ -195,25 +196,25 @@ class VideoPlayer extends Component     {
                 document.addEventListener ("webkitfullscreenchange", this.escFullScreen, false);
                 $('#video').focus();
                 this.setState({fullScreen:true});
-            }
+                                                    }
             //from fullScreen to Normal
             else                                    {
                 if        (document.cancelFullScreen)
-                {
+                                                    {
                     document.cancelFullScreen();
-                }
+                                                    }
                 else if   (document.mozCancelFullScreen)
-                {
+                                                    {
                     document.mozCancelFullScreen();
-                }
+                                                    }
                 else if   (document.webkitCancelFullScreen)
-                {
+                                                    {
                     document.webkitCancelFullScreen();
-                }
+                                                    }
                 this.props.dispatch(toggleFullScreen(false));
                 this.setState({fullScreen:false});
                 document.removeEventListener("webkitfullscreenchange",this.escFullScreen);
-            }}
+                                                    }}
         shouldComponentUpdate(nextProps,nextState)
                                             {
         //&& nextProps.isOpened!==false
@@ -226,9 +227,9 @@ class VideoPlayer extends Component     {
         else return true
         }
     //Element render
-    render()                            {
+    render()                                {
         this.videoOnLoad();
-        return                          (
+        return                              (
             <div                 ref=         {(dv)=>this.div=dv}
                                  className="centerDiv" id="centerDiv">
                 <Video           isPlaying  = {this.props.isPlaying}
@@ -257,10 +258,10 @@ class VideoPlayer extends Component     {
                                  onMouseEnter={e=>this.menuFullScreenAppears('mouseEnter')}
                                  onMouseLeave={e=>this.menuFullScreenAppears()}
                 />
-            </div>                      )
+            </div>                          )
 
-    }
-                                        }
+                                            }
+                                            }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators(     {
         dispatch,togglePlay,toggleButtons,

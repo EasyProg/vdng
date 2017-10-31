@@ -180,7 +180,7 @@ export default connect (
         fullScreen:state.videoReducer.fullScreen,
         channel:   state.videoReducer.video.channel,
         channels:  state.channelReducer.channels,
-        channelNum: state.videoReducer.video.channelNum,
+        channelNum:state.videoReducer.video.channelNum,
         channelImg:state.videoReducer.video.img,
         category:  state.channelReducer.chosenCategory,
         menus:     state.menuReducer.menus,

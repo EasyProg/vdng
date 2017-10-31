@@ -55,12 +55,14 @@ $plButtonsLeft:10%;
 .playerButtonsDiv>i:hover          {
   text-shadow: 2px 2px 3px
   rgba(255,255,255,0.3),0 0 1em white;
-}
+                                   }
 .playerButtonsDiv>img:hover        {
   //text-shadow: 1px 1px 2px black, 0 0 1em red;
   //margin: 0 auto;
-  box-shadow:inset 0 0 60px 50px
-  rgba(255,255,255,0.6),0 0 2em white;
+  //box-shadow:inset 0 0 60px 50px
+  //rgba(255,255,255,0.6),0 0 2em white;
+
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
   background: transparent;
   //outline: none;
   //filter:drop-shadow(12px,12px,7px,rgba(0,0,0,0.5));
