@@ -84,7 +84,6 @@ class  ChannelList extends Component                {
                                             }, true
                                             ));
                     $('#programList').focus();
-
                                             }
                                             }
             break;
@@ -96,7 +95,7 @@ class  ChannelList extends Component                {
                         settingsVisible: false,
                         programsVisible: false
                     }, true
-                ));
+                    ));
                 this.switchChannel('next', this.state.channelId);
                 break;
             case 38:

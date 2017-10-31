@@ -120,9 +120,11 @@
 
 }
 .progresses                        {
-  max-width:300px;
+  //max-width:300px;
+  max-width: 100%;
   width:100%;
-  min-width: 100px;
+  //min-width: 100px;
+  min-width: 10%;
   height:3px;
   //position: relative;
   background: #575757;

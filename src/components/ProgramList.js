@@ -20,30 +20,42 @@ export default class ProgramList extends Component
 
                                      };
     handleKey(e,elem)                {
-    switch (e.key)                   {
+    console.log('oo');
+    e.stopPropagation();
+    switch (e.keyCode)               {
         case 40:
         this.switchProgram('next', this.state.itemChosen);
+        console.log(this.state.itemChosen);
         break;
         case 38:
         this.switchProgram('prev', this.state.itemChosen);
+        console.log(this.state.itemChosen);
+        break;
+        case 37:
+        $('#channels').focus();
         break;
         default:
         break;
                                      }
                                      }
     switchProgram(param='next',chosen){
-        console.log('sdsdsWWW');
-        var items = $('.programListItem');
-        var i =     $('.programListItemChosen')[0].key||chosen||0;
+        //console.log('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
+        var items = $('.programListItem,.programListItemChosen');
+        var i = chosen||1;
+        //var i =     $('.programListItemChosen')[0].key||chosen||0;
+        //console.log($('.programListItemChosen')[0].key);
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
         var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
+        console.log(items.length);
         if (param === 'next'&&items[nextElem])
                                      {
+            console.log(items[nextElem]);
             items[nextElem].focus();
             this.setState({itemChosen:nextElem});
                                      }
         if (param === 'prev'&&items[prevElem])
                                      {
+            console.log('prev');
             items[prevElem].focus();
             this.setState({itemChosen:prevElem});
 
@@ -97,26 +109,31 @@ export default class ProgramList extends Component
     componentDidMount()           {
         $('.programListItemChosen').focus();
                                   }
-    componentDidUpdate() {
+
+    componentDidUpdate ()         {
         $('.programListItemChosen').focus();
                                   }
+    //componentWillReceiveProps()   {
+        //$('.programListItemChosen').focus();
+        //console.log('focused');
+      //                            }
 // $('.programList').animate({'width':'400'},100);
 //                                   }
     render()                      {
         if (this.props.programs.length&&this.props.visible>0)
             return                (
-                <div className="programList" onKeyDown={(e)=>this.handleKey(e)} tabIndex={1} id="programList">
+                <div className="programList" id="programList" onKeyDown={(e)=>this.handleKey(e)} tabIndex={1}>
                     <div className="menuHeaderCh">
                         <HomeButton visible={true}/>
                     </div>
                     <CustomScroll>
                         {this.props.programs.map((e,i)=>
-                            <div className="blockChainDiv" key={i} tabIndex={2}>
+                            <div className="blockChainDiv" key={i} tabIndex={1}>
                                 <div className="headerProgramDate">
                                     {e.date} <span className="textSpan">{this.getDayOfWeek(e.date)}</span>
                                     <hr className="hrProgram"/>
                                 </div>
-                                <div className="dayListItem">
+                                <div className="dayListItem" tabIndex={1}>
                                 {
                                         this.props.programs[i]['data'].map
                                         (
@@ -126,7 +143,7 @@ export default class ProgramList extends Component
                                                         className={elem.id===this.props.currentProgramId?"programListItemChosen":"programListItem"}
                                                         onMouseOver={(e)=>this.runningString(e)}
                                                         onMouseLeave={(e)=>this.stopRun()}
-                                                        onKeyDown={this.handleKey(e,elem)}
+                                                        onKeyDown={(e)=>this.handleKey(e,elem)}
                                                 >
                                                         <span className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),
                                                             elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}

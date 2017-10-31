@@ -129,7 +129,8 @@ class  Menu extends Component               {
                                     channels=  {this.props.channels}
                                     categories={this.parseCategories()}
                         />
-                        <div        className={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":'displayNone'}>
+                        <div        className={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":'displayNone'}
+                                    id="menuCenterText">
                             <MenuButton visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
                             <img    src={this.props.channelImg} width={50} height={50}
                                     className="imgChannelStyle"/>

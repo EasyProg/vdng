@@ -29,111 +29,124 @@ class VideoPlayer extends Component     {
         this.state = {fullScreen:false,networkError:false};
                                         }
     //Component Functions
-    componentDidMount()                 {
-            this.videoOnLoad();
-                                             }
-    toggle(isPlaying)                   {
-            var  vd = document.getElementById('video');
-            //this.video.video;
-            //console.log(vd);
-            this.props.dispatch(togglePlay(isPlaying));
-            if (isPlaying)                   {
-                vd.play();
+        componentDidMount()                 {
+                this.videoOnLoad();
+                                                 }
+        toggle(isPlaying)                   {
+                var  vd = document.getElementById('video');
+                //this.video.video;
+                //console.log(vd);
+                this.props.dispatch(togglePlay(isPlaying));
+                if (isPlaying)                   {
+                    vd.play();
 
+                }
+                else
+                    vd.pause();
+
+                                                 }
+        changeRes(res)                      {
             }
-            else
-                vd.pause();
-
-                                             }
-    changeRes(res)                      {
-        }
-    videoOnLoad()                       {
-        var vd = document.getElementById('video');
-        var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
-        //console.log(vd);
-        if  (this.props.video&&navigator.userAgent.search(reg)===-1)
-        //false)
-        {
-            hls.loadSource(this.props.video.link);
-            hls.attachMedia(vd);
-            hls.on(Hls.Events.MANIFEST_PARSED,
-                function ()
+        videoOnLoad()                       {
+            var vd = document.getElementById('video');
+            var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
+            //console.log(vd);
+            if  (this.props.video&&navigator.userAgent.search(reg)===-1)
+            //false)
+            {
+                hls.loadSource(this.props.video.link);
+                hls.attachMedia(vd);
+                hls.on(Hls.Events.MANIFEST_PARSED,
+                    function ()
+                    {
+                        {
+                            this.setState({networkError:false});
+                            //vd.play();
+                        }
+                    });
+                var funcCnt = this;
+                hls.on(Hls.Events.ERROR, function (event, data)
                 {
                     {
-                        this.setState({networkError:false});
-                        //vd.play();
+                        switch (data.type)
+                        {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                            {
+                                funcCnt.setState({networkError:true});
+                                //console.log(Hls.ErrorTypes.NETWORK_ERROR + 'NETWORK ERRROR!!!!!!_!!!!!');
+
+
+                            }
+                                break;
+                            default:
+                                break;
+                        }
                     }
                 });
-            var funcCnt = this;
-            hls.on(Hls.Events.ERROR, function (event, data)
+            }
+        }
+        handleCurrTime(param)               {
+            var vd = this.video.video;
+            if (param===1)
             {
-                {
-                    switch (data.type)
+                vd.currentTime+=10;         }
+            else vd.currentTime-=10;
+                                            }
+        handleCurrPlayback (param)          {
+            var vd = this.video;
+            if (param===1)
+            {vd.playbackRate+=0.1;}
+            else vd.playbackRate-=0.1;
+        }
+        handlePlay()                        {
+            this.timer = this.state.fullScreen?
+                setTimeout(function()               {
+                    //Скрыть плей
+                    $("#vduppermenu").fadeOut(1000);
+                },5000):
+                setTimeout(function()               {
+                    //Скрыть плей
+                    if ($('#channels').className==='menuChannel')
+                    {$('#video').focus();}
+                    $("#vduppermenu,#vdbottommenu,#menuCenterText").fadeOut(1000);
+                                                    },5000);
+        }
+        componentWillReceiveProps(nextProps){
+        if (nextProps.isVisible===true)
+            this.menuFullScreenAppears('mouseEnter');
+                                             }
+        menuFullScreenAppears(param)        {
+            if (param==='mouseEnter')
+            {
+                clearTimeout(this.timer);
+                return
+            }
+            else if (param===true)          {
+                this.props.dispatch(setMenusVisible
+                (
                     {
-                        case Hls.ErrorTypes.NETWORK_ERROR:
-                        {
-                            funcCnt.setState({networkError:true});
-                            //console.log(Hls.ErrorTypes.NETWORK_ERROR + 'NETWORK ERRROR!!!!!!_!!!!!');
-
-
-                        }
-                            break;
-                        default:
-                            break;
+                        programsVisible: false,
+                        channelsMenuVisible: false,
+                        categoryMenuVisible: false,
+                        settingsVisible: false,
+                        vdArchVisible: false
                     }
-                }
-            });
-        }
-    }
-    handleCurrTime(param)               {
-        var vd = this.video.video;
-        if (param===1)
-        {
-            vd.currentTime+=10;         }
-        else vd.currentTime-=10;
-    }
-    handleCurrPlayback (param)          {
-        var vd = this.video;
-        if (param===1)
-        {vd.playbackRate+=0.1;}
-        else vd.playbackRate-=0.1;
-    }
-    handlePlay()                        {
-        this.timer = this.state.fullScreen?
-            setTimeout(function()               {
-                //Скрыть плей
-                $("#vduppermenu").fadeOut(1000);
-            },5000):
-            setTimeout(function()               {
-                //Скрыть плей
-                if ($('#channels').className==='menuChannel')
-                {$('#video').focus();}
-                $("#vduppermenu,#vdbottommenu,#menu").fadeOut(1000);
-            },5000);
-    }
-    componentWillReceiveProps(nextProps){
-    if (nextProps.isVisible===true)
-        this.menuFullScreenAppears('mouseEnter');
-                                         }
-    menuFullScreenAppears(param)        {
-        if (param==='mouseEnter')
-        {
-            clearTimeout(this.timer);
-            return
-        }
-        else if (param===true)          {
-            this.props.dispatch(setMenusVisible
-            (
+                    ,
+                    false));
+                if (!this.props.fullScreen)
                 {
-                    programsVisible: false,
-                    channelsMenuVisible: false,
-                    categoryMenuVisible: false,
-                    settingsVisible: false,
-                    vdArchVisible: false
+                    clearTimeout(this.timer);
+                    //$('.menuCenterText').css({"display":"flex"});
+                    $("#vduppermenu,#vdbottommenu,#menuCenterText").fadeIn(1);
+                    //Запустить скрытие
+                    this.handlePlay();
                 }
-                ,
-                false));
-            if (!this.props.fullScreen)
+                if (this.props.fullScreen)   {
+                    this.toggle(this.props.isPlaying);
+                }
+                                             }
+            //Отобразить плей
+            else if (this.props.isOpened===false&&this.props.autoPlay)
             {
                 clearTimeout(this.timer);
                 //$('.menuCenterText').css({"display":"flex"});
@@ -141,79 +154,66 @@ class VideoPlayer extends Component     {
                 //Запустить скрытие
                 this.handlePlay();
             }
-            if (this.props.fullScreen)   {
-                this.toggle(this.props.isPlaying);
-            }
-                                         }
-        //Отобразить плей
-        else if (this.props.isOpened===false&&this.props.autoPlay)
-        {
-            clearTimeout(this.timer);
-            //$('.menuCenterText').css({"display":"flex"});
-            $("#vduppermenu,#vdbottommenu,#menu").fadeIn(1);
-            //Запустить скрытие
-            this.handlePlay();
+            else if (param==='visible')     {
+                clearTimeout(this.timer);
+                                            }
+                                            }
+        escFullScreen()                     {
+            if (   !document.fullscreenElement
+                && !document.mozFullScreenElement
+                && !document.webkitFullscreenElement
+                && !document.msRequestFullscreen)
+                this.props.dispatch(toggleFullScreen(false));
+            this.setState({fullScreen:false})
         }
-        else if (param==='visible')     {
-            clearTimeout(this.timer);
-                                        }
-                                        }
-    escFullScreen()                     {
-        if (   !document.fullscreenElement
-            && !document.mozFullScreenElement
-            && !document.webkitFullscreenElement
-            && !document.msRequestFullscreen)
-            this.props.dispatch(toggleFullScreen(false));
-        this.setState({fullScreen:false})
-    }
-    changeSize()                        {
-        var vd = document.getElementById('video');
-        if (   !document.fullscreenElement
-            && !document.mozFullScreenElement
-            && !document.webkitFullscreenElement
-            && !document.msRequestFullscreen)
-        //from Normal Screen to Full
-        {
-            this.handlePlay();
-            if (vd.webkitEnterFullscreen)       {
-                vd.webkitEnterFullscreen();
-                this.props.dispatch(toggleFullScreen(true));
-            }
-            else if (vd.mozRequestFullScreen)   {
-                vd.mozRequestFullScreen();
-                this.props.dispatch(toggleFullScreen(true));
-            }
-            else if (vd.msRequestFullscreen)    {
-                vd.msRequestFullscreen();
-                this.props.dispatch(toggleFullScreen(true));
-            }
-            else if (vd.requestFullscreen)      {
-                vd.requestFullscreen();
-                this.props.dispatch(toggleFullScreen(true));
-            }
-            document.addEventListener ("webkitfullscreenchange", this.escFullScreen, false);
-            $('#video').focus();
-            this.setState({fullScreen:true});
-        }
-        //from fullScreen to Normal
-        else                                    {
-            if        (document.cancelFullScreen)
+        changeSize()                        {
+            var vd = document.getElementById('video');
+            if (   !document.fullscreenElement
+                && !document.mozFullScreenElement
+                && !document.webkitFullscreenElement
+                && !document.msRequestFullscreen)
+            //from Normal Screen to Full
             {
-                document.cancelFullScreen();
+                this.handlePlay();
+                if (vd.webkitEnterFullscreen)       {
+                    vd.webkitEnterFullscreen();
+                    this.props.dispatch(toggleFullScreen(true));
+                }
+                else if (vd.mozRequestFullScreen)   {
+                    vd.mozRequestFullScreen();
+                    this.props.dispatch(toggleFullScreen(true));
+                }
+                else if (vd.msRequestFullscreen)    {
+                    vd.msRequestFullscreen();
+                    this.props.dispatch(toggleFullScreen(true));
+                }
+                else if (vd.requestFullscreen)      {
+                    vd.requestFullscreen();
+                    this.props.dispatch(toggleFullScreen(true));
+                }
+                document.addEventListener ("webkitfullscreenchange", this.escFullScreen, false);
+                $('#video').focus();
+                this.setState({fullScreen:true});
             }
-            else if   (document.mozCancelFullScreen)
-            {
-                document.mozCancelFullScreen();
-            }
-            else if   (document.webkitCancelFullScreen)
-            {
-                document.webkitCancelFullScreen();
-            }
-            this.props.dispatch(toggleFullScreen(false));
-            this.setState({fullScreen:false});
-        }}
-    shouldComponentUpdate(nextProps,nextState)
-    {
+            //from fullScreen to Normal
+            else                                    {
+                if        (document.cancelFullScreen)
+                {
+                    document.cancelFullScreen();
+                }
+                else if   (document.mozCancelFullScreen)
+                {
+                    document.mozCancelFullScreen();
+                }
+                else if   (document.webkitCancelFullScreen)
+                {
+                    document.webkitCancelFullScreen();
+                }
+                this.props.dispatch(toggleFullScreen(false));
+                this.setState({fullScreen:false});
+            }}
+        shouldComponentUpdate(nextProps,nextState)
+                                            {
         //&& nextProps.isOpened!==false
         if  (nextProps.isOpened!==this.props.isOpened||nextProps.isVisible!==this.props.isVisible)
 //&& (nextProps.isOpened!==false||nextProps.isOpened!==true)
@@ -222,7 +222,7 @@ class VideoPlayer extends Component     {
         }
 
         else return true
-    }
+        }
     //Element render
     render()                            {
         this.videoOnLoad();

@@ -49,7 +49,7 @@
   background:$main_color;
   cursor:pointer;
                         }
-.programListItem:target {
+.programListItem:focus  {
   background:$menuHoverColor;
                         }
 .headerProgramDate      {
