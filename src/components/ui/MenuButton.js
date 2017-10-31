@@ -26,7 +26,7 @@ class MenuButton extends Component                      {
 
             },!channelsState));
             //Set focus to menu
-
+            $('#menuCenterText').fadeOut(100);
             $("#vduppermenu,#vdbottommenu").fadeOut(100);
             $('#video').focus();
             if (!channelsState===true)
@@ -34,9 +34,9 @@ class MenuButton extends Component                      {
                 $('#channels').focus();
                 $('.menuItemStylefocus').focus();
             }
-            if (!channelsState===false)                 {
-            $('#menuCenterText').fadeOut(100);
-                                                        }
+            // if (!channelsState===false)                 {
+            // $('#menuCenterText').fadeOut(100);
+            //                                             }
                                                         }
         else                                            {
 

@@ -7,16 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2309f941-4b33-4db9-a988-0b031d5a3870" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ProgramList.js" afterPath="$PROJECT_DIR$/src/components/ProgramList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoPlayer.js" afterPath="$PROJECT_DIR$/src/components/VideoPlayer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/MenuButton.js" afterPath="$PROJECT_DIR$/src/components/ui/MenuButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.scss" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/menu.scss" afterPath="$PROJECT_DIR$/src/styles/scss/menu.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VideoPlayer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VideoPlayer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/VideoPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="752">
-              <caret line="139" column="54" lean-forward="true" selection-start-line="139" selection-start-column="54" selection-end-line="139" selection-end-column="54" />
+            <state relative-caret-position="-336">
+              <caret line="117" column="45" lean-forward="true" selection-start-line="117" selection-start-column="45" selection-end-line="117" selection-end-column="45" />
               <folding>
                 <element signature="n#!!block;n#componentDidMount#0;n#VideoPlayer#0" expanded="false" />
                 <element signature="n#!!block;n#toggle#0;n#VideoPlayer#0" expanded="false" />
@@ -64,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuButton.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MenuButton.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/ui/MenuButton.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="36" column="57" lean-forward="true" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
+            <state relative-caret-position="275">
+              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -194,8 +185,8 @@
         <option value="$PROJECT_DIR$/src/styles/scss/menu.scss" />
         <option value="$PROJECT_DIR$/src/styles/scss/main_styles.scss" />
         <option value="$PROJECT_DIR$/src/components/ProgramList.js" />
-        <option value="$PROJECT_DIR$/src/components/ui/MenuButton.js" />
         <option value="$PROJECT_DIR$/src/components/VideoPlayer.js" />
+        <option value="$PROJECT_DIR$/src/components/ui/MenuButton.js" />
       </list>
     </option>
   </component>
@@ -365,12 +356,12 @@
       <workItem from="1508747668184" duration="22680000" />
       <workItem from="1508833158128" duration="56793000" />
       <workItem from="1509006680769" duration="78505000" />
-      <workItem from="1509385101361" duration="22675000" />
+      <workItem from="1509385101361" duration="22823000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="646280000" />
+    <option name="totallyTimeSpent" value="646428000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -813,14 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ui/MenuButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="36" column="57" lean-forward="true" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ProgramList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="564">
@@ -831,8 +814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/VideoPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="139" column="54" lean-forward="true" selection-start-line="139" selection-start-column="54" selection-end-line="139" selection-end-column="54" />
+        <state relative-caret-position="-336">
+          <caret line="117" column="45" lean-forward="true" selection-start-line="117" selection-start-column="45" selection-end-line="117" selection-end-column="45" />
           <folding>
             <element signature="n#!!block;n#componentDidMount#0;n#VideoPlayer#0" expanded="false" />
             <element signature="n#!!block;n#toggle#0;n#VideoPlayer#0" expanded="false" />
@@ -845,6 +828,14 @@
             <element signature="n#!!block;n#changeSize#0;n#VideoPlayer#0" expanded="false" />
             <element signature="n#!!block;n#shouldComponentUpdate#0;n#VideoPlayer#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ui/MenuButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
