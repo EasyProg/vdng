@@ -75,7 +75,9 @@ class Video extends Component
                 }
                 {
                     this.props.networkError?
-                    <ChannelUnavailable/>:null
+                    <ChannelUnavailable
+                    onMouseMove={this.props.onMouseMove}
+                    />:null
 
                 }
             </div>

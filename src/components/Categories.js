@@ -137,7 +137,7 @@ class  Categories extends Component                     {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false
-                    }));
+                    },false));
                 $('#video').focus();
             }
                 break;

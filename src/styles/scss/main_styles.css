@@ -960,7 +960,6 @@ hr {
   justify-content: center;
   flex-direction: column;
   background: black;
-  z-index: 2147483649;
   font-family: "ComfortaaRegular";
   font-size: 3em;
   color: white; }

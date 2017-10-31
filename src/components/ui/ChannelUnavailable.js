@@ -19,7 +19,7 @@ export default class ChannelUnavailable extends Component
     render()    {
         return  (
             <div>
-                <div className="nonPlayingDiv">
+                <div className="nonPlayingDiv" onMouseMove={this.props.onMouseMove}>
                     {/*<img src={play} className="playHoldImg" onClick={this.props.onClick} onKeyDown={this.props.onKeyDown} tabIndex={1}/>*/}
                     <div className="bottomTextUn">Канал недоступен</div>
                 </div>
