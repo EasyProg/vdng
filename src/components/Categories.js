@@ -42,7 +42,7 @@ class  Categories extends Component                     {
                 category:cat,
                 //channels:this.props.channels
             });
-        this.props.dispatch(toggleCategory(cat));
+        //this.props.dispatch(toggleCategory(cat));
         var filtered = this.filterChannels(this.state.channels,cat);
         this.props.dispatch(getChannels(filtered));
 
@@ -164,7 +164,7 @@ class  Categories extends Component                     {
                      onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
                     <div className="menuHeaderCat">
                         <CategoryName visible ={true}
-                                      categ   ={this.props.channelCategory}
+                                      categ   ={this.state.category}
                                       categVisibleContext = {this.categVisible}
                                       reversed={true}
                         />

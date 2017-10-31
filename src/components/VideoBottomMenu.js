@@ -8,6 +8,7 @@ import nofavorite from '../img/bookmark-white.gif';
 import favorite   from   '../img/bookmark-black-shape.gif';
 import 'semantic-ui-css/semantic.min.css';
 import '../styles/css/main_styles.css';
+import * as $ from 'jquery';
 import aspectratio from '../img/aspect_ratio.gif';
 import {setFavor,getChannels} from '../actions/actions';
 
@@ -71,14 +72,16 @@ class VideoBottomMenu extends Component
 
     }
     filterChannels(channels,category)   {
+        console.log(channels);
+        console.log(category);
         var cat = category?category.toString():'All channels';
         let filteredChannels = [];
         if   (channels)
         {
             filteredChannels =  channels.filter(function(item)
             {
-                if (cat !==  'All channels'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
-                    return       item.category.toUpperCase() === cat.toUpperCase();
+                if (cat !==  'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
+                return       item.category.toUpperCase() === cat.toUpperCase();
                 else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
                 else return  item.category
             })
@@ -93,8 +96,11 @@ class VideoBottomMenu extends Component
 
         else localStorage.removeItem(this.props.channelId);
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
-        //this.filterChannels(this.props.channels,this.props.channelCategory);
-                                        }
+        this.filterChannels(this.props.channels,this.props.channelCategory);
+        //$('#vduppermenu').focus()
+
+        ;}
+
     render () {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         {if (this.state.showResolution  === false)

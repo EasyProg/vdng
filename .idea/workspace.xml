@@ -7,8 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2309f941-4b33-4db9-a988-0b031d5a3870" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Categories.js" afterPath="$PROJECT_DIR$/src/components/Categories.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ChannelList.js" afterPath="$PROJECT_DIR$/src/components/ChannelList.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoBottomMenu.js" afterPath="$PROJECT_DIR$/src/components/VideoBottomMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/CustomScroll.js" afterPath="$PROJECT_DIR$/src/components/ui/CustomScroll.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,42 +26,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MenuButton.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ui/MenuButton.js">
+      <file leaf-file-name="ChannelList.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/ChannelList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="19" column="57" lean-forward="true" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
+            <state relative-caret-position="275">
+              <caret line="180" column="49" lean-forward="true" selection-start-line="180" selection-start-column="49" selection-end-line="180" selection-end-column="49" />
+              <folding>
+                <element signature="e#1864#2020#0" expanded="false" />
+                <element signature="n#!!block;n#setMenusVisibleFalse#0;n#ChannelList#0" expanded="false" />
+                <element signature="n#!!block;n#handleKey#0;n#ChannelList#0" expanded="false" />
+                <element signature="n#!!block;n#handlePlay#0;n#ChannelList#0" expanded="false" />
+                <element signature="n#!!block;n#menuFullScreenAppears#0;n#ChannelList#0" expanded="false" />
+                <element signature="n#!!block;n#categVisible#0;n#ChannelList#0" expanded="false" />
+                <element signature="n#!!block;n#isFavorite#0;n#ChannelList#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoUpperMenu.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
+      <file leaf-file-name="Categories.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Categories.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="63" column="25" lean-forward="true" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VideoBottomMenu.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/VideoBottomMenu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="87" column="41" lean-forward="true" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomScroll.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ui/CustomScroll.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-              <folding />
+            <state relative-caret-position="530">
+              <caret line="188" column="32" lean-forward="true" selection-start-line="188" selection-start-column="32" selection-end-line="188" selection-end-column="32" />
+              <folding>
+                <element signature="n#!!block;n#filterChannels#0;n#Categories#0" expanded="false" />
+                <element signature="n#!!block;n#componentWillReceiveProps#0;n#Categories#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,8 +70,8 @@
       <file leaf-file-name="Menu.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1462">
-              <caret line="160" column="39" lean-forward="true" selection-start-line="160" selection-start-column="39" selection-end-line="160" selection-end-column="39" />
+            <state relative-caret-position="530">
+              <caret line="175" column="44" lean-forward="true" selection-start-line="175" selection-start-column="44" selection-end-line="175" selection-end-column="44" />
               <folding>
                 <element signature="n#!!block;n#firstToUpperCase#0;n#Menu#0" expanded="false" />
                 <element signature="n#!!block;n#chooseSrc#0;n#Menu#0" expanded="false" />
@@ -169,12 +171,12 @@
         <option value="$PROJECT_DIR$/src/components/ui/MenuButton.js" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/hls.js" />
-        <option value="$PROJECT_DIR$/src/components/Categories.js" />
-        <option value="$PROJECT_DIR$/src/components/ChannelList.js" />
         <option value="$PROJECT_DIR$/src/components/ui/Menu.js" />
         <option value="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
         <option value="$PROJECT_DIR$/src/components/ui/CustomScroll.js" />
         <option value="$PROJECT_DIR$/src/components/VideoBottomMenu.js" />
+        <option value="$PROJECT_DIR$/src/components/Categories.js" />
+        <option value="$PROJECT_DIR$/src/components/ChannelList.js" />
       </list>
     </option>
   </component>
@@ -339,12 +341,12 @@
       <workItem from="1509006680769" duration="78505000" />
       <workItem from="1509385101361" duration="22823000" />
       <workItem from="1509460907607" duration="85000" />
-      <workItem from="1509461589474" duration="7213000" />
+      <workItem from="1509461589474" duration="9278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="653726000" />
+    <option name="totallyTimeSpent" value="655791000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -567,13 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="149" column="24" lean-forward="true" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/scss/programlist.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-255">
@@ -691,14 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hls.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -707,48 +694,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Categories.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="131" column="50" lean-forward="false" selection-start-line="131" selection-start-column="50" selection-end-line="131" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ChannelList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="160" column="50" lean-forward="false" selection-start-line="160" selection-start-column="50" selection-end-line="160" selection-end-column="50" />
-          <folding>
-            <element signature="e#1864#2020#0" expanded="false" />
-            <element signature="n#!!block;n#setMenusVisibleFalse#0;n#ChannelList#0" expanded="false" />
-            <element signature="n#!!block;n#handlePlay#0;n#ChannelList#0" expanded="false" />
-            <element signature="n#!!block;n#menuFullScreenAppears#0;n#ChannelList#0" expanded="false" />
-            <element signature="n#!!block;n#handleClick#0;n#ChannelList#0" expanded="false" />
-            <element signature="n#!!block;n#categVisible#0;n#ChannelList#0" expanded="false" />
-            <element signature="n#!!block;n#isFavorite#0;n#ChannelList#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ui/MainMenu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
-          <caret line="160" column="39" lean-forward="true" selection-start-line="160" selection-start-column="39" selection-end-line="160" selection-end-column="39" />
-          <folding>
-            <element signature="n#!!block;n#firstToUpperCase#0;n#Menu#0" expanded="false" />
-            <element signature="n#!!block;n#chooseSrc#0;n#Menu#0" expanded="false" />
-            <element signature="n#!!block;n#parseCategories#0;n#Menu#0" expanded="false" />
-            <element signature="n#!!block;n#toggleMenuState#0;n#Menu#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -768,19 +718,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
+    <entry file="file://$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="63" column="25" lean-forward="true" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+        <state relative-caret-position="632">
+          <caret line="160" column="14" lean-forward="true" selection-start-line="160" selection-start-column="14" selection-end-line="160" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/VideoBottomMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="87" column="41" lean-forward="true" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
+        <state relative-caret-position="680">
+          <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="175" column="44" lean-forward="true" selection-start-line="175" selection-start-column="44" selection-end-line="175" selection-end-column="44" />
+          <folding>
+            <element signature="n#!!block;n#firstToUpperCase#0;n#Menu#0" expanded="false" />
+            <element signature="n#!!block;n#chooseSrc#0;n#Menu#0" expanded="false" />
+            <element signature="n#!!block;n#parseCategories#0;n#Menu#0" expanded="false" />
+            <element signature="n#!!block;n#toggleMenuState#0;n#Menu#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Categories.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="188" column="32" lean-forward="true" selection-start-line="188" selection-start-column="32" selection-end-line="188" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!block;n#filterChannels#0;n#Categories#0" expanded="false" />
+            <element signature="n#!!block;n#componentWillReceiveProps#0;n#Categories#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ChannelList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="180" column="49" lean-forward="true" selection-start-line="180" selection-start-column="49" selection-end-line="180" selection-end-column="49" />
+          <folding>
+            <element signature="e#1864#2020#0" expanded="false" />
+            <element signature="n#!!block;n#setMenusVisibleFalse#0;n#ChannelList#0" expanded="false" />
+            <element signature="n#!!block;n#handleKey#0;n#ChannelList#0" expanded="false" />
+            <element signature="n#!!block;n#handlePlay#0;n#ChannelList#0" expanded="false" />
+            <element signature="n#!!block;n#menuFullScreenAppears#0;n#ChannelList#0" expanded="false" />
+            <element signature="n#!!block;n#categVisible#0;n#ChannelList#0" expanded="false" />
+            <element signature="n#!!block;n#isFavorite#0;n#ChannelList#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

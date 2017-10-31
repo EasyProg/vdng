@@ -183,6 +183,7 @@ class  ChannelList extends Component                {
         e.preventDefault();
         this.props.dispatch(changeVideo(elem));
         this.props.dispatch(togglePlay(!this.props.autoPlay));
+        this.props.dispatch(toggleCategory(this.props.category));
         this.props.dispatch(setMenusVisible
             (
                 {
