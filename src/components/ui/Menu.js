@@ -38,7 +38,7 @@ class  Menu extends Component               {
                 if (response.status!==200)  {
                     console.log('Looks like it was some error ' + response.status);
                     return;
-                }
+                                            }
                 response.json().then(function(data)
                 {
                     let f = [];
@@ -49,8 +49,8 @@ class  Menu extends Component               {
                             data.forEach(function (elem) {
                                     if (Number(elem['channel_id']) === e['channelId'])
                                         f.push(elem);
-                                }
-                            )
+                                                         }
+                                                         )
                         }
                     );
                     c.props.dispatch(setProgram(c.props.channels,f));
@@ -123,7 +123,6 @@ class  Menu extends Component               {
                                     <div className="menuDives"
                                     onMouseEnter={e=>this.props.dispatch(setElemsVis(true))}
                                     onMouseLeave={e=>this.props.dispatch(setElemsVis(false))}>
-                        <MenuButton visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
                         <Categories visible={this.props.menus.categoryMenuVisible}
                                     channelVisible={this.props.menus.channelsMenuVisible}
                                     toggleMenuStateContext={this.toggleMenuState}
@@ -131,6 +130,7 @@ class  Menu extends Component               {
                                     categories={this.parseCategories()}
                         />
                         <div        className={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":'displayNone'}>
+                            <MenuButton visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
                             <img    src={this.props.channelImg} width={50} height={50}
                                     className="imgChannelStyle"/>
                             <div    className="textBlock">

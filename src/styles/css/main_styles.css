@@ -70,10 +70,10 @@
   left: -600px; }
 
 .divSideBar, .divSideBar:hover {
-  margin-top: 30px;
+  margin-right: 40px;
   margin-left: 30px;
   text-align: center;
-  width: 60px;
+  width: 70px;
   height: 60px;
   line-height: 6.5em; }
 
@@ -1162,7 +1162,7 @@ div [data-reactroot] {
   margin-top: 15px;
   position: absolute;
   width: 100vw;
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -1180,10 +1180,9 @@ div [data-reactroot] {
   display: flex; }
 
 .menuCenterText {
-  margin-left: 150px;
   position: absolute;
   width: 100%;
-  line-height: 2em;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
   align-items: center;

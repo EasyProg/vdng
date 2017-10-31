@@ -12,7 +12,7 @@ class MenuButton extends Component                      {
         this.toggleMenuState = this.toggleMenuState.bind(this);
         };
 
-        toggleMenuState()                                   {
+        toggleMenuState()                               {
         var channelsState = this.props.menus.channelsMenuVisible;
         var settingsState = this.props.menus.settingsVisible;
         //Туггл кнопок если стейт изменился
@@ -34,7 +34,10 @@ class MenuButton extends Component                      {
                 $('#channels').focus();
                 $('.menuItemStylefocus').focus();
             }
-        }
+            if (!channelsState===false)                 {
+            $('#menu').fadeOut(100);
+                                                        }
+                                                        }
         else                                            {
 
             {
@@ -54,7 +57,7 @@ class MenuButton extends Component                      {
             return "divSideBar"
         }
         else return "divSideBar_menu"
-    }
+                                                        }
     render()    {
         if      (this.props.visible)
             return (

@@ -108,7 +108,7 @@ class VideoPlayer extends Component     {
                 //Скрыть плей
                 if ($('#channels').className==='menuChannel')
                 {$('#video').focus();}
-                $("#vduppermenu,#vdbottommenu,.divSideBar,.menuCenterText").fadeOut(1000);
+                $("#vduppermenu,#vdbottommenu,#menu").fadeOut(1000);
             },5000);
     }
     componentWillReceiveProps(nextProps) {
@@ -136,7 +136,8 @@ class VideoPlayer extends Component     {
             if (!this.props.fullScreen)
             {
                 clearTimeout(this.timer);
-                $("#vduppermenu,.divSideBar,#vdbottommenu,.menuCenterText").fadeIn(1);
+                //$('.menuCenterText').css({"display":"flex"});
+                $("#vduppermenu,#vdbottommenu,#menu").fadeIn(1);
                 //Запустить скрытие
                 this.handlePlay();
             }
@@ -148,7 +149,8 @@ class VideoPlayer extends Component     {
         else if (this.props.isOpened===false&&this.props.autoPlay)
         {
             clearTimeout(this.timer);
-            $("#vduppermenu,.divSideBar,#vdbottommenu,.menuCenterText").fadeIn(1);
+            //$('.menuCenterText').css({"display":"flex"});
+            $("#vduppermenu,#vdbottommenu,#menu").fadeIn(1);
             //Запустить скрытие
             this.handlePlay();
         }
