@@ -27,25 +27,28 @@ export default class ProgramList extends Component
         case 38:
         this.switchProgram('prev', this.state.itemChosen);
         break;
+        default:
+        break;
                                      }
                                      }
     switchProgram(param='next',chosen){
+        console.log('sdsdsWWW');
         var items = $('.programListItem');
         var i =     $('.programListItemChosen')[0].key||chosen||0;
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
         var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
         if (param === 'next'&&items[nextElem])
-                                 {
+                                     {
             items[nextElem].focus();
             this.setState({itemChosen:nextElem});
-                                 }
+                                     }
         if (param === 'prev'&&items[prevElem])
-                                 {
+                                     {
             items[prevElem].focus();
             this.setState({itemChosen:prevElem});
 
-                                 }
-                                 }
+                                     }
+                                     }
     getDayOfWeek (dt)                {
         var date_parse = new Date(dt.substr(6,4),Number(dt.substr(3,2))-1,dt.substr(0,2));
         switch (date_parse.getDay()) {
@@ -68,8 +71,8 @@ export default class ProgramList extends Component
         //return date_parse.getDay();
 
                                     }
-    runningString(e)             {
-        var str   = $('.programName_hover:hover');
+    runningString(e)                {
+        var str   =   $('.programName_hover:hover');
         var strCont = $('.programName:hover');
         var width = str.width();
         var con_w = str.css('left');
@@ -102,13 +105,13 @@ export default class ProgramList extends Component
     render()                      {
         if (this.props.programs.length&&this.props.visible>0)
             return                (
-                <div className="programList">
+                <div className="programList" onKeyDown={(e)=>this.handleKey(e)} tabIndex={1} id="programList">
                     <div className="menuHeaderCh">
                         <HomeButton visible={true}/>
                     </div>
                     <CustomScroll>
                         {this.props.programs.map((e,i)=>
-                            <div className="blockChainDiv" key={i}>
+                            <div className="blockChainDiv" key={i} tabIndex={2}>
                                 <div className="headerProgramDate">
                                     {e.date} <span className="textSpan">{this.getDayOfWeek(e.date)}</span>
                                     <hr className="hrProgram"/>
@@ -123,7 +126,7 @@ export default class ProgramList extends Component
                                                         className={elem.id===this.props.currentProgramId?"programListItemChosen":"programListItem"}
                                                         onMouseOver={(e)=>this.runningString(e)}
                                                         onMouseLeave={(e)=>this.stopRun()}
-                                                     // onKeyDown={this.handleKey(e,elem)}
+                                                        onKeyDown={this.handleKey(e,elem)}
                                                 >
                                                         <span className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),
                                                             elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}

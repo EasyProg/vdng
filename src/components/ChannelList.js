@@ -72,20 +72,22 @@ class  ChannelList extends Component                {
             switch (e.keyCode)                      {
 
 
-            case 39 :
-                                                    {
-            if (elem&&elem.program)                       {
-                this.setState({programs: parseProgram(elem.program)});
-                this.props.dispatch(setMenusVisible (
-                                                    {
-                        channelsMenuVisible: true,
-                        categoryMenuVisible: false,
-                        settingsVisible: false,
-                        programsVisible:true
-                                                    },true
-                                                    ));
-                                                    }
-                                                    }
+            case 39 :                       {
+                if (elem && elem.program)   {
+                    this.setState({programs: parseProgram(elem.program)});
+                    this.props.dispatch(setMenusVisible(
+                                            {
+                            channelsMenuVisible: true,
+                            categoryMenuVisible: false,
+                            settingsVisible: false,
+                            programsVisible: true
+                                            }, true
+                                            ));
+                    console.log('aasasasa');
+                    $('#programList').focus();
+
+                                            }
+                                            }
             break;
             case 40:
                 this.switchChannel('next', this.state.channelId);
