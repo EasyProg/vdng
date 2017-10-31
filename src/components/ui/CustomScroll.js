@@ -15,6 +15,7 @@ export default class CustomScrollbars extends Component
             bottom: '2px',
             top: '2px',
             borderRadius: '5px',
+
             backgroundColor:'rgb(94, 94, 94)',
                                         };
         return (
@@ -25,8 +26,9 @@ export default class CustomScrollbars extends Component
                                         }
         renderView({style,...props})    {
         const viewStyle =   {
-            msOverflowX:'visible',
-            overflowX:'visible'
+            // msOverflowX:'visible',
+            // overflowX:
+            width:'30vw'
                             };
             return  (
                 <div
@@ -40,7 +42,8 @@ export default class CustomScrollbars extends Component
         return (
             <Scrollbars
                 renderThumbVertical={this.renderThumb}
-                // renderThumbHorizontal={()=>false}
+                //renderTrackHorizontal={props => <div {...props} className={{display:'none'}}/>}
+                renderThumbHorizontal={()=> <div className={{display:'none'}}/>}
                 renderView={this.renderView}
             >
                 {this.props.children}

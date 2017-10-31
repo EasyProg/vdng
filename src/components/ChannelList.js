@@ -147,6 +147,7 @@ class  ChannelList extends Component                {
                         settingsVisible: false
                     },false));
                 $('#video').focus();
+                $('#menuCenterText').fadeOut(100);
             }
                 break;
             case 8:     {
@@ -157,6 +158,7 @@ class  ChannelList extends Component                {
                         settingsVisible: false
                     },false));
                 $('#video').focus();
+                $('#menuCenterText').fadeOut(100);
             }
         }
     }

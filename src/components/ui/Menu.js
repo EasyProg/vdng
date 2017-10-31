@@ -19,10 +19,10 @@ import sport from '../../img/categ/sport.svg';
 import child from '../../img/categ/inform.svg';
 import fun from '../../img/categ/fun.svg';
 import films from '../../img/categ/films.svg';
-import favorites from '../../img/categ/favorites.svg';
-import multidisciplinary from '../../img/categ/multidisciplinary.svg';
-import getCurrentProgram from '../../components/workingDate';
 import MainMenu from '../../components/ui/MainMenu';
+import favorites from '../../img/categ/favorites.svg';
+import getCurrentProgram from '../../components/workingDate';
+import multidisciplinary from '../../img/categ/multidisciplinary.svg';
 //import images
 class  Menu extends Component               {
     constructor(props)                      {
@@ -30,7 +30,21 @@ class  Menu extends Component               {
         this.toggleMenuState = this.toggleMenuState.bind(this);
         this.parseCategories = this.parseCategories.bind(this);
         this.getPrograms = this.getPrograms.bind(this);
-    }
+                                            }
+    getChannels(url)                        {
+    fetch(url).then(function(response)      {
+            if (response.status!==200)      {
+                console.log('Looks like it was some error ' + response.status);
+                return;
+                                            }
+            response.json().then            (function(data)
+                                            {
+            console.log(data);
+                                            }
+                                            )
+                                            }
+                                            )
+                                            }
     getPrograms (url)                       {
         var c = this;
         fetch(url)
@@ -40,26 +54,28 @@ class  Menu extends Component               {
                     return;
                                             }
                 response.json().then(function(data)
-                {
+                                            {
                     let f = [];
                     c.props.channels.forEach
                     (
                         (e,i)=>
-                        {
-                            data.forEach(function (elem) {
+                                            {
+                            data.forEach(function (elem)
+                                            {
                                     if (Number(elem['channel_id']) === e['channelId'])
                                         f.push(elem);
-                                                         }
-                                                         )
-                        }
-                    );
+                                            }
+                                            )
+                                            }
+                                            );
                     c.props.dispatch(setProgram(c.props.channels,f));
-                });
-            });
-    }
+                                            });
+                                            });
+                                            }
     componentDidMount()                     {
-        var repeat =setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
-    }
+        this.getChannels('https://playlist.hls.tv/play/79fe07520e89862e02b2d00fecf02ca9.m3u');
+        var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
+                                            }
     firstToUpperCase( str )                 {
         return str.substr(0, 1).toUpperCase() + str.substr(1);
     }
@@ -118,9 +134,10 @@ class  Menu extends Component               {
     }
     render()        {
         if  (this.props.autoPlay)
-            return  (
-                <div id="menu" className="mainMenuDiv">
-                                    <div className="menuDives"
+             return  (
+                <div id="menu"      className="mainMenuDiv">
+                                    <div
+                                    className="menuDives"
                                     onMouseEnter={e=>this.props.dispatch(setElemsVis(true))}
                                     onMouseLeave={e=>this.props.dispatch(setElemsVis(false))}>
                         <Categories visible={this.props.menus.categoryMenuVisible}
@@ -129,9 +146,11 @@ class  Menu extends Component               {
                                     channels=  {this.props.channels}
                                     categories={this.parseCategories()}
                         />
-                        <div        className={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":'displayNone'}
+                                        {/*!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":*/}
+                        <div        className='menuCenterText'
                                     id="menuCenterText">
-                            <MenuButton visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
+                            <MenuButton
+                                    visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
                             <img    src={this.props.channelImg} width={50} height={50}
                                     className="imgChannelStyle"/>
                             <div    className="textBlock">
@@ -147,8 +166,6 @@ class  Menu extends Component               {
                             </div>
                         </div>
                     </div>
-                    {/*<div className="menuDives">*/}
-                    {/*</div>*/}
                 </div>
                     );
         else return null

@@ -129,6 +129,7 @@ class  Categories extends Component                     {
                         settingsVisible: false
                     },false));
                 $('#video').focus();
+                $('#menuCenterText').fadeOut(100);
             }
                 break;
             case 8: {
@@ -139,6 +140,8 @@ class  Categories extends Component                     {
                         settingsVisible: false
                     },false));
                 $('#video').focus();
+                $('#menuCenterText').fadeOut(100);
+
             }
                 break;
             default:
