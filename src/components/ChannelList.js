@@ -62,30 +62,30 @@ class  ChannelList extends Component                {
             this.setState({channelId: nextElem, program: this.props.playList[nextElem].program});
                                                      }
             if (param === 'prev' && items[prevElem])
-                                                     {
-                items[prevElem].focus();
-                this.setState({channelId: prevElem, program: this.props.playList[prevElem].program});
+            {items[prevElem].focus();
+            this.setState({channelId: prevElem, program: this.props.playList[prevElem].program});
 
                                                      }
                                                      }
-    handleKey(e,elem)                           {
-            switch (e.keyCode)                      {
+    handleKey(e,elem)                                {
+            switch (e.keyCode)                       {
 
 
-            case 39 :                       {
-                if (elem && elem.program)   {
+            case 39 :                                {
+                if (elem && elem.program)            {
                     this.setState({programs: parseProgram(elem.program)});
                     this.props.dispatch(setMenusVisible(
-                                            {
+                                                     {
                             channelsMenuVisible: true,
                             categoryMenuVisible: false,
                             settingsVisible: false,
                             programsVisible: true
-                                            }, true
-                                            ));
+                                                    }, true
+                                                    ));
+                    //set state
                     $('#programList').focus();
-                                            }
-                                            }
+                                                    }
+                                                    }
             break;
             case 40:
                 this.props.dispatch(setMenusVisible(
@@ -134,6 +134,7 @@ class  ChannelList extends Component                {
                         settingsVisible: false
                     },true
                 ));
+                this.setState({channelId: this.state.itemChosen});
                 $('#categories').focus();
             }
                 break;
@@ -271,7 +272,8 @@ class  ChannelList extends Component                {
                                     hiddenChannel   =   {this.props.channelCategory==='Locked'}
                                     programName     =   {getCurrentProgram(elem.program,elem.channel).title}
                                     favorite        =   {this.isFavorite(elem.channelId)}
-                                    chosen          =   {elem.channelId===this.props.video.channelId&&elem.category===this.props.video.category}
+                                    chosen          =   {elem.channelId===this.props.video.channelId}
+                                    //elem.category===this.props.video.category
                                     onClick         =   {e=>this.handleClick(elem,e)}
                                     tabIndex        =   {i}
                                     elemChosen      =   {i === this.state.channelId}

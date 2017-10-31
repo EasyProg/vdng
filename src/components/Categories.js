@@ -24,16 +24,17 @@ class  Categories extends Component                     {
         super(props);
         this.state =                                    {
             itemChosen:0,
+            itemFocus:0,
             category:'Все жанры',
             Menu:[],
             channels:this.props.channels
-        };
+                                                        };
         this.filterChannels = this.filterChannels.bind(this);
         this.categVisible = this.categVisible.bind(this);
     }
     static propTypes =                                  {
         visible:PropTypes.bool.isRequired,
-        channelVisible:PropTypes.bool.isRequired,           };
+        channelVisible:PropTypes.bool.isRequired,       };
     handleClick (index,cat)                             {
         this.setState   (
             {
@@ -80,24 +81,23 @@ class  Categories extends Component                     {
         this.props.dispatch(getChannels(filteredChannels));
         return filteredChannels;
     };
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps)                {
         if (nextProps.channels.length===0)
             this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
-    }
+                                                        }
     switchCateg(event,cat)                              {
         let elems = this.props.categories;
         var i = elems.map(x => x.name).indexOf(cat);
         var items = $('.categoryItem,.categoryItemChosen');
         var nextElem = i + 1>=   elems.length ?  0 : i + 1;
         var prevElem = i - 1<0 ? elems.length  - 1 : i - 1;
-        console.log(elems.length);
         switch (event.keyCode)  {
             case 40:
             {items[nextElem].focus();
                 this.setState(
                     {
-                        itemChosen:nextElem,
-                        category:elems[nextElem].name,
+                        itemFocus:nextElem,
+                        category: elems[nextElem].name,
                     });
                 break;}
             case 39: {
@@ -108,13 +108,13 @@ class  Categories extends Component                     {
                 items[prevElem].focus();
                 this.setState(
                     {
-                        itemChosen:prevElem,
-                        category:elems[prevElem].name,
+                        itemFocus:prevElem,
+                        category: elems[prevElem].name,
                     });
                 break;
             case 13:
             {
-                this.handleClick(this.state.itemChosen,this.state.category);
+                this.handleClick(this.state.itemFocus,this.state.category);
                 //$('#video').focus();
                 if (this.filterChannels(parse(hlsArray),cat).length>0)
                     $('#channels').focus();
