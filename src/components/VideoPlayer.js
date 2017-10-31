@@ -29,10 +29,10 @@ class VideoPlayer extends Component     {
         this.state = {fullScreen:false,networkError:false};
                                         }
     //Component Functions
-        componentDidMount()                 {
+    componentDidMount()                 {
             this.videoOnLoad();
                                              }
-        toggle(isPlaying)                   {
+    toggle(isPlaying)                   {
             var  vd = document.getElementById('video');
             //this.video.video;
             //console.log(vd);
@@ -45,9 +45,9 @@ class VideoPlayer extends Component     {
                 vd.pause();
 
                                              }
-        changeRes(res)                      {
+    changeRes(res)                      {
         }
-        videoOnLoad()                       {
+    videoOnLoad()                       {
         var vd = document.getElementById('video');
         var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
         //console.log(vd);
@@ -61,7 +61,7 @@ class VideoPlayer extends Component     {
                 {
                     {
                         this.setState({networkError:false});
-                        vd.play();
+                        //vd.play();
                     }
                 });
             var funcCnt = this;
@@ -111,11 +111,11 @@ class VideoPlayer extends Component     {
                 $("#vduppermenu,#vdbottommenu,#menu").fadeOut(1000);
             },5000);
     }
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps){
     if (nextProps.isVisible===true)
         this.menuFullScreenAppears('mouseEnter');
                                          }
-    menuFullScreenAppears(param)         {
+    menuFullScreenAppears(param)        {
         if (param==='mouseEnter')
         {
             clearTimeout(this.timer);

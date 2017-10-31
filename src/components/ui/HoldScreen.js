@@ -14,6 +14,7 @@ constructor(props)
             }
 componentDidMount()
 {
+$("#vduppermenu,#vdbottommenu").fadeOut(10);
 $('.playHoldImg').focus();
 this.props.dispatch(toggleAutoPlay(false));
 }
