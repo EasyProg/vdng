@@ -93,7 +93,7 @@ class VideoBottomMenu extends Component
 
         else localStorage.removeItem(this.props.channelId);
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
-        this.filterChannels(this.props.channels,this.props.channelCategory);
+        //this.filterChannels(this.props.channels,this.props.channelCategory);
                                         }
     render () {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});

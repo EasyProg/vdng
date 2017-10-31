@@ -7,13 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2309f941-4b33-4db9-a988-0b031d5a3870" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Categories.js" afterPath="$PROJECT_DIR$/src/components/Categories.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ChannelList.js" afterPath="$PROJECT_DIR$/src/components/ChannelList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoUpperMenu.js" afterPath="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoBottomMenu.js" afterPath="$PROJECT_DIR$/src/components/VideoBottomMenu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/CustomScroll.js" afterPath="$PROJECT_DIR$/src/components/ui/CustomScroll.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/Menu.js" afterPath="$PROJECT_DIR$/src/components/ui/Menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hls.js" afterPath="$PROJECT_DIR$/src/hls.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,11 +35,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoUpperMenu.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="VideoUpperMenu.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
+            <state relative-caret-position="113">
               <caret line="63" column="25" lean-forward="true" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VideoBottomMenu.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/VideoBottomMenu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="87" column="41" lean-forward="true" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomScroll.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/ui/CustomScroll.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -133,7 +148,6 @@
         <option value="$PROJECT_DIR$/src/styles/scss/homemenu.scss" />
         <option value="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" />
         <option value="$PROJECT_DIR$/src/containers/App.js" />
-        <option value="$PROJECT_DIR$/src/components/VideoBottomMenu.js" />
         <option value="$PROJECT_DIR$/src/styles/scss/video_bottom_menu.scss" />
         <option value="$PROJECT_DIR$/src/components/Channel.js" />
         <option value="$PROJECT_DIR$/src/components/ParseProgramLight.js" />
@@ -157,9 +171,10 @@
         <option value="$PROJECT_DIR$/src/hls.js" />
         <option value="$PROJECT_DIR$/src/components/Categories.js" />
         <option value="$PROJECT_DIR$/src/components/ChannelList.js" />
-        <option value="$PROJECT_DIR$/src/components/ui/CustomScroll.js" />
         <option value="$PROJECT_DIR$/src/components/ui/Menu.js" />
         <option value="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
+        <option value="$PROJECT_DIR$/src/components/ui/CustomScroll.js" />
+        <option value="$PROJECT_DIR$/src/components/VideoBottomMenu.js" />
       </list>
     </option>
   </component>
@@ -324,12 +339,12 @@
       <workItem from="1509006680769" duration="78505000" />
       <workItem from="1509385101361" duration="22823000" />
       <workItem from="1509460907607" duration="85000" />
-      <workItem from="1509461589474" duration="6801000" />
+      <workItem from="1509461589474" duration="7213000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="653314000" />
+    <option name="totallyTimeSpent" value="653726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -692,14 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/VideoBottomMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Categories.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
@@ -721,14 +728,6 @@
             <element signature="n#!!block;n#categVisible#0;n#ChannelList#0" expanded="false" />
             <element signature="n#!!block;n#isFavorite#0;n#ChannelList#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ui/CustomScroll.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -761,10 +760,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ui/CustomScroll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
+        <state relative-caret-position="113">
           <caret line="63" column="25" lean-forward="true" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/VideoBottomMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="87" column="41" lean-forward="true" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
           <folding />
         </state>
       </provider>

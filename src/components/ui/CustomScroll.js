@@ -28,13 +28,14 @@ export default class CustomScrollbars extends Component
         const viewStyle =   {
             // msOverflowX:'visible',
             // overflowX:
-            width:'30vw'
+            //width:'30vw'
                             };
             return  (
                 <div
 
-                    style={{ ...style, ...viewStyle }}
-                    {...props}/>
+                    style={
+                            { ...style, ...viewStyle }}
+                            {...props}/>
                     );
                                         }
 
