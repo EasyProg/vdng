@@ -1,0 +1,144 @@
+.tvimg          {
+  margin-right: 10px;
+  margin-left: 15px;
+  margin-top: 7px;
+}
+.pname          {
+  margin-left: 20px;
+  height: 60px;
+  position: relative;
+  white-space:nowrap;
+  width:250px;
+  line-height: 3em;
+  overflow: hidden;
+  //z-index:100;
+  //background: violet;
+  //overflow: hidden;
+  //-webkit-box-shadow: inset -56px 0px 94px 0px rgba(0,0,0,0.5);
+  //-moz-box-shadow: inset -56px 0px 94px 0px rgba(0,0,0,0.5);
+  //box-shadow: inset -56px 0px 94px 0px rgba(0,0,0,0.5);
+}
+//.pname::after   {
+//  content: '';
+//  position: absolute;
+//  width:50px;
+//  height:100%;
+//  z-index:101;
+//  right: 0; top: 0;
+//  background: -moz-linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0, 1) 200%);
+//  background: -webkit-linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0, 1) 200%);
+//  background: -o-linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0, 1) 200%);
+//  background: -ms-linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0, 1) 200%);
+//  background: linear-gradient(to right, rgba(0,0,0, 0), rgba(0,0,0, 1) 200%);
+//  z-index:101;
+//                }
+.pname_hover  {
+  position: absolute;
+}
+
+
+.pnameShadow    {
+  position: absolute;
+  left:90%;
+  height: 110%;
+  z-index: 30;
+}
+//.pgDiv       {
+//margin-left: 10px;
+//             }
+
+.divShadow      {
+  @extend .pnameShadow;
+  background: -webkit-linear-gradient(bottom, rgba(47, 79, 79, 0), #2f4f4f 5em, #2f4f4f);
+  background: linear-gradient(0deg, rgba(47, 79, 79, 0), #2f4f4f 5em, #2f4f4f);
+  background-size: contain;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.divForFavorite                                       {
+  width:100%;
+  height:30px;
+  //background: yellow;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.pnameFav       {
+  position:absolute;
+  //top:-5px;
+  right:30px;
+  //margin: auto;
+  align-self: center;
+  height:100%;
+  display: block;
+  //right:-290px;
+  //top:-80px;
+  //z-index: 33;
+  //margin-bottom: 20px;
+}
+.rateContainer  {
+  position: relative;
+  top:45px;
+  left:-5px;
+  margin-right: 20px;
+  float: right;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:15px;
+  width:50px;
+  z-index: 31;
+}
+.rateDivFilled  {
+  width: 7px;
+  height: 7px;
+  margin-right: 3px;
+  border-radius: 5px;
+  background: $main_color;
+}
+.rateDivFilledChosen {
+  @extend .rateDivFilled;
+  background: white;
+}
+.rateDivEmpty   {
+  width: 7px;
+  height: 7px;
+  margin-right: 2px;
+  border-radius: 5px;
+  background: #686868;
+}
+.menuChannelName {
+  margin-top: 7px;
+  display:flex;
+  flex-direction: column;
+  height:100px;
+  width:380px;
+  position:relative;
+  justify-content: space-between;
+  //align-items: center;
+
+}
+.progresses                        {
+  max-width:300px;
+  width:100%;
+  min-width: 100px;
+  height:3px;
+  //position: relative;
+  background: #575757;
+  display: block;
+  //margin: auto;
+
+}
+.progressDives
+{ display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  //align-self: flex-end;
+  //background: blue;
+  width:100%;
+  position:relative;
+  height:40px;
+  vertical-align: middle;
+  padding-left: 20px;
+}
