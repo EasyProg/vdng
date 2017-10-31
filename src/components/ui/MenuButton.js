@@ -35,7 +35,7 @@ class MenuButton extends Component                      {
                 $('.menuItemStylefocus').focus();
             }
             if (!channelsState===false)                 {
-            $('#menu').fadeOut(100);
+            $('#menuCenterText').fadeOut(100);
                                                         }
                                                         }
         else                                            {

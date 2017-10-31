@@ -32,6 +32,7 @@ export default class ProgramList extends Component
         console.log(this.state.itemChosen);
         break;
         case 37:
+        //{this.setState({itemChosen:0});
         $('#channels').focus();
         break;
         default:
@@ -41,11 +42,11 @@ export default class ProgramList extends Component
     switchProgram(param='next',chosen){
         //console.log('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
         var items = $('.programListItem,.programListItemChosen');
-        var i = chosen||1;
+        var i = chosen||0;
         //var i =     $('.programListItemChosen')[0].key||chosen||0;
         //console.log($('.programListItemChosen')[0].key);
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
-        var prevElem = i - 1 < 0 ? items.length -  1 : i - 1;
+        var prevElem = i - 1 <= 0 ? items.length - 1 : i - 1;
         console.log(items.length);
         if (param === 'next'&&items[nextElem])
                                      {
@@ -109,8 +110,11 @@ export default class ProgramList extends Component
     componentDidMount()           {
         $('.programListItemChosen').focus();
                                   }
-
+    // componentWillReceiveProps()   {
+    //
+    // }
     componentDidUpdate ()         {
+        //if (this.state.itemChosen===0)
         $('.programListItemChosen').focus();
                                   }
     //componentWillReceiveProps()   {
@@ -128,16 +132,17 @@ export default class ProgramList extends Component
                     </div>
                     <CustomScroll>
                         {this.props.programs.map((e,i)=>
-                            <div className="blockChainDiv" key={i} tabIndex={1}>
+                                <div className="blockChainDiv" key={i} tabIndex={1}>
                                 <div className="headerProgramDate">
-                                    {e.date} <span className="textSpan">{this.getDayOfWeek(e.date)}</span>
+                                    {e.date} <span className="textSpan">
+                                    {this.getDayOfWeek(e.date)}</span>
                                     <hr className="hrProgram"/>
                                 </div>
                                 <div className="dayListItem" tabIndex={1}>
                                 {
-                                        this.props.programs[i]['data'].map
+                                this.props.programs[i]['data'].map
                                         (
-                                            (elem,i)=>
+                                        (elem,i)=>
                                                 <div    key={i}
                                                         tabIndex={i}
                                                         className={elem.id===this.props.currentProgramId?"programListItemChosen":"programListItem"}

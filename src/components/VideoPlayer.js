@@ -28,7 +28,7 @@ class VideoPlayer extends Component     {
         this.timer = '';
         this.state = {fullScreen:false,networkError:false};
                                         }
-    //Component Functions
+        //Component Functions
         componentDidMount()                 {
                 this.videoOnLoad();
                                                  }
@@ -61,7 +61,7 @@ class VideoPlayer extends Component     {
                     {
                         {
                             this.setState({networkError:false});
-                            //vd.play();
+                            vd.play();
                         }
                     });
                 var funcCnt = this;
@@ -103,7 +103,7 @@ class VideoPlayer extends Component     {
                 setTimeout(function()               {
                     //Скрыть плей
                     $("#vduppermenu").fadeOut(1000);
-                },5000):
+                                                    },5000):
                 setTimeout(function()               {
                     //Скрыть плей
                     if ($('#channels').className==='menuChannel')
@@ -150,7 +150,8 @@ class VideoPlayer extends Component     {
             {
                 clearTimeout(this.timer);
                 //$('.menuCenterText').css({"display":"flex"});
-                $("#vduppermenu,#vdbottommenu,#menu").fadeIn(1);
+                //#menuCenterText
+                    $("#vduppermenu,#vdbottommenu,#menuCenterText").fadeIn(1);
                 //Запустить скрытие
                 this.handlePlay();
             }
@@ -211,6 +212,7 @@ class VideoPlayer extends Component     {
                 }
                 this.props.dispatch(toggleFullScreen(false));
                 this.setState({fullScreen:false});
+                document.removeEventListener("webkitfullscreenchange",this.escFullScreen);
             }}
         shouldComponentUpdate(nextProps,nextState)
                                             {
