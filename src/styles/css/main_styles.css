@@ -56,7 +56,7 @@
   display: block;
   width: 30vw;
   min-width: 30vw;
-  height: 85vh;
+  height: 90vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -460,7 +460,6 @@ hr {
 .menuBottom {
   position: absolute;
   bottom: -9vh;
-  z-index: -1;
   width: 30vw;
   height: 9vh; }
 

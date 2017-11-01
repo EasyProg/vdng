@@ -11,6 +11,7 @@ import {bindActionCreators} from 'redux';
 import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
+var hls = new Hls();
 class VideoPlayer extends Component         {
     constructor(props)                      {
         super(props);
@@ -49,10 +50,14 @@ class VideoPlayer extends Component         {
         videoOnLoad()                       {
             var vd = document.getElementById('video');
             var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
+            //hls.detachMedia();
             //console.log(vd);
-            if (hls)
-            hls.destroy();
-            var hls = new Hls();
+            //console.log(hls);
+
+            // if (hls)
+            // {   //console.log('DESTROYING');
+            //     hls.detachMedia();
+            //     hls.destroy();}
             if  (this.props.video&&navigator.userAgent.search(reg)===-1)
             //false)
             {

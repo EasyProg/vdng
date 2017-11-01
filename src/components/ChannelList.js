@@ -18,8 +18,8 @@ import MenuButton from './ui/MenuButton';
 import CategoryName from './ui/CategoryName';
 import CustomScroll from './ui/CustomScroll';
 var    ScrollbarWrapper = require('react-scrollbar');
-class   ChannelList extends Component                {
-        constructor(props)                           {
+class   ChannelList extends Component               {
+        constructor(props)                          {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.categVisible = this.categVisible.bind(this);
@@ -67,7 +67,7 @@ class   ChannelList extends Component                {
 
                                                          }
                                                          }
-        handleKey(e,elem)                                {
+        handleKey(e,elem)                           {
                 switch (e.keyCode)                       {
 
 
@@ -149,6 +149,7 @@ class   ChannelList extends Component                {
                             categoryMenuVisible: false,
                             settingsVisible: false
                         },false));
+                    this.setState({channelId:this.state.itemChosen});
                     $('#video').focus();
                     $('#menuCenterText').fadeOut(100);
                             }
@@ -252,7 +253,7 @@ class   ChannelList extends Component                {
         render()                                    {
         //this.switchChannel();
         if (this.props.playList.length)
-            return                              (
+            return                                  (
                     <div>
                     <div className={this.props.channelsMenuVisible&&this.props.catMenuVisible?
                          'menuChannelLeft':this.props.channelsMenuVisible&&
@@ -313,7 +314,7 @@ const mapDispatchToProps = (dispatch) => bindActionCreators
     getChannels,
     setMenusVisible,
     setChannelProgram
-    }, dispatch);
+                }, dispatch);
 export default
 connect                 (
     state =>            ({

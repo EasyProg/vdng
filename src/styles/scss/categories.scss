@@ -72,7 +72,7 @@
 .menuBottom                                           {
   position:absolute;
   bottom:-9vh;
-  z-index:-1;
+  //z-index:-1;
   width:$menuItemWidth;
   height:9vh;
   //background: rgba(0,0,0,0.8);
@@ -83,14 +83,14 @@
   max-width:30vw;
   font-size:1.2em;
   //height: 10px;
-}
+                                                      }
 .menuHeaderCh                                         {
   @extend .menuHeader;
   width:$menuChannelWidth;
   max-width:$menuChannelWidth;
   font-size:1.2em;
   //line-height: 10em;
-}
+                                                      }
 .menuHeaderCircleDiv                                  {
   background: #4a4a4a;
   border-radius: 45px;
@@ -121,11 +121,11 @@
 .workMotherFucker                                     {
   @extend .categoryItem;
   background: $menuActiveColor;
-}
+                                                      }
 .categoryText                                         {
   align-self: center;
   text-align: left;
-}
+                                                      }
 .categoryImage                                        {
   margin-top:10px;
   float:left;
