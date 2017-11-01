@@ -11,7 +11,8 @@ import {bindActionCreators} from 'redux';
 import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
-var hls = new Hls();
+var    hls = new Hls();
+//var hls = new Hls();
 class VideoPlayer extends Component         {
     constructor(props)                      {
         super(props);
