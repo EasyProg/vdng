@@ -17,7 +17,7 @@ import CurrentTime from '../components/ui/CurrentTime';
 import CustomProgress from '../components/ui/CustomProgress';
 import getCurrentProgram from '../components/workingDate';
 import * as $ from 'jquery';
-class VideoUpperMenu extends Component                         {
+class VideoUpperMenu extends Component   {
     static propTypes =                                         {
         isPlaying:PropTypes.bool.isRequired
     };
@@ -207,7 +207,7 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
     dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);
 export default connect      (
-    state =>        ({
+    state =>                ({
         fullScreen:state.videoReducer.fullScreen,
         channels:state.channelReducer.channels,
         video:state.videoReducer.video,
@@ -215,6 +215,6 @@ export default connect      (
         isTimeShift:state.settingsReducer.timeShift,
         isOpened:  state.menuReducer.isOpened,
 
-    }),
+                            }),
     mapDispatchToProps
 )(VideoUpperMenu);

@@ -18,8 +18,8 @@ import MenuButton from './ui/MenuButton';
 import CategoryName from './ui/CategoryName';
 import CustomScroll from './ui/CustomScroll';
 var    ScrollbarWrapper = require('react-scrollbar');
-class  ChannelList extends Component                {
-    constructor(props)                              {
+class   ChannelList extends Component                {
+        constructor(props)                           {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.categVisible = this.categVisible.bind(this);
@@ -30,7 +30,7 @@ class  ChannelList extends Component                {
         this.menuTimer = '';
         this.state =                                 {
              itemChosen:0,
-             channelId:-1,
+             channelId:0,
              isClicked:false,
              program:[],
              programs:[],
@@ -67,7 +67,7 @@ class  ChannelList extends Component                {
 
                                                          }
                                                          }
-        handleKey(e,elem)                           {
+        handleKey(e,elem)                                {
                 switch (e.keyCode)                       {
 
 
@@ -127,16 +127,19 @@ class  ChannelList extends Component                {
                     ));
                     break;
                 case 37:   {
-                    this.props.dispatch(setMenusVisible (
+                    this.props.dispatch(setMenusVisible
+                    (
                         {
                             channelsMenuVisible: true,
                             categoryMenuVisible: true,
                             settingsVisible: false
                         },true
                     ));
-                    this.setState({channelId: this.state.itemChosen});
-                    $('#categories').focus();
-                }
+                    //this.setState({channelId: this.state.itemChosen});
+                    //
+                    this.setState({channelId: -1});
+                    $('.categoryItemChosen').focus();
+                            }
                     break;
                     break;
                 case 27:    {
@@ -148,7 +151,7 @@ class  ChannelList extends Component                {
                         },false));
                     $('#video').focus();
                     $('#menuCenterText').fadeOut(100);
-                }
+                            }
                     break;
                 case 8:     {
                     this.props.dispatch(setMenusVisible(
@@ -157,6 +160,7 @@ class  ChannelList extends Component                {
                             categoryMenuVisible: false,
                             settingsVisible: false
                         },false));
+                    this.setState({channelId:this.state.itemChosen});
                     $('#video').focus();
                     $('#menuCenterText').fadeOut(100);
                             }
@@ -181,11 +185,12 @@ class  ChannelList extends Component                {
         handleClick (elem,e)                        {
             e.stopPropagation();
             e.preventDefault();
+            this.setState({itemChosen: this.state.channelId});
             this.props.dispatch(changeVideo(elem));
             this.props.dispatch(togglePlay(!this.props.autoPlay));
             this.props.dispatch(toggleCategory(this.props.category));
             this.props.dispatch(setMenusVisible
-                (
+                    (
                     {
                         programsVisible: false,
                         channelsMenuVisible: true,
@@ -299,8 +304,8 @@ class  ChannelList extends Component                {
     }
                                                      }
 const mapDispatchToProps = (dispatch) => bindActionCreators
-    (
-    {
+                (
+                {
     dispatch,
     changeVideo,
     toggleCategory,

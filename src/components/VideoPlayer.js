@@ -11,7 +11,6 @@ import {bindActionCreators} from 'redux';
 import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
-const hls = new Hls();
 class VideoPlayer extends Component         {
     constructor(props)                      {
         super(props);
@@ -30,8 +29,8 @@ class VideoPlayer extends Component         {
                                             }
         //Component Functions
         componentDidMount()                 {
-                this.videoOnLoad();
-                                                 }
+        this.videoOnLoad();
+                                            }
         toggle(isPlaying)                   {
                 var  vd = document.getElementById('video');
                 //this.video.video;
@@ -51,6 +50,9 @@ class VideoPlayer extends Component         {
             var vd = document.getElementById('video');
             var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
             //console.log(vd);
+            if (hls)
+            hls.destroy();
+            var hls = new Hls();
             if  (this.props.video&&navigator.userAgent.search(reg)===-1)
             //false)
             {
@@ -59,14 +61,13 @@ class VideoPlayer extends Component         {
                 hls.on(Hls.Events.MANIFEST_PARSED,
                     function ()
                     {
-                        {
-                            this.setState({networkError:false});
+                            {
                             vd.play();
-                        }
+                            }
                     });
                 var funcCnt = this;
                 hls.on(Hls.Events.ERROR, function (event, data)
-                {
+            {
                     {
                         switch (data.type)
                         {
@@ -82,9 +83,9 @@ class VideoPlayer extends Component         {
                                 break;
                         }
                     }
-                });
+            });
             }
-        }
+                                            }
         handleCurrTime(param)               {
             var vd = this.video.video;
             if (param===1)
@@ -112,9 +113,10 @@ class VideoPlayer extends Component         {
                                                     },5000);
         }
         componentWillReceiveProps(nextProps){
+            this.setState({networkError:false});
         if (nextProps.isVisible===true)
             this.menuFullScreenAppears('mouseEnter');
-                                             }
+                                            }
         menuFullScreenAppears(param)        {
             if (param==='mouseEnter')
             {
@@ -159,7 +161,7 @@ class VideoPlayer extends Component         {
                 clearTimeout(this.timer);
                                             }
                                             }
-        escFullScreen()                             {
+        escFullScreen()                     {
             if (!document.fullscreenElement
                 && !document.mozFullScreenElement
                 && !document.webkitFullscreenElement
@@ -168,7 +170,7 @@ class VideoPlayer extends Component         {
                 this.props.dispatch(toggleFullScreen(false));
                 this.setState({fullScreen:false})}
                                                     }
-        changeSize()                                {
+        changeSize()                        {
             var vd = document.getElementById('video');
             if (   !document.fullscreenElement
                 && !document.mozFullScreenElement
@@ -226,6 +228,7 @@ class VideoPlayer extends Component         {
 
         else return true
         }
+
     //Element render
     render()                                {
         this.videoOnLoad();
@@ -264,8 +267,8 @@ class VideoPlayer extends Component         {
                                             }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators(     {
-        dispatch,togglePlay,toggleButtons,
-        toggleFullScreen,setMenusVisible,setFavor
+    dispatch,togglePlay,toggleButtons,
+    toggleFullScreen,setMenusVisible,setFavor
                             }, dispatch);
 export default connect      (
     state =>                ({

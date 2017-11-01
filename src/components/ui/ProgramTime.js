@@ -30,9 +30,9 @@ export default class ProgramTime extends Component {
         time: PropTypes.number.isRequired
     };
 
-    render()    {
-        return  (
+    render()            {
+        return          (
             <div className="videoTime">{this.timeParser(this.props.time)}</div>
-                )
-                }
-                }
+                        )
+                        }
+                        }

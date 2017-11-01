@@ -171,9 +171,9 @@ class  Categories extends Component                     {
                     </div>
                     <CustomScroll
                     >
-                        {
+                                                             {
                             this.props.categories.map        ((item,i)=>
-                                <div key={i} className={this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
+                                <div key={i} className=      {this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
                                      onClick={e=>this.handleClick (i,item.name)} tabIndex={i}>
                                     <div         className="categoryImage"><img src={item.src} width="40" height="40"/></div>
                                     <div         className="categoryText">
@@ -181,8 +181,8 @@ class  Categories extends Component                     {
                                     </div>
                                     {i===0?<img src={underline} height={5} width={400} className={'categoryLine'}/>:null}
                                 </div>
-                            )
-                        }
+                                                              )
+                                                              }
                     </CustomScroll>
                 </div>
                 <div className="innerDiv">

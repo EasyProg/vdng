@@ -11,11 +11,11 @@ import programs from     '../program';
 import parseProgram from '../components/ParseProgramLight';
 export default class Channel extends Component      {
 
-    constructor(props)  {
+        constructor(props)  {
         super(props);
-    }
+        }
 
-    static propTypes =  {
+        static propTypes =  {
         progress:       PropTypes.number,
         img:            PropTypes.string,
         channelId:      PropTypes.number.isRequired,
@@ -24,10 +24,10 @@ export default class Channel extends Component      {
         hiddenChannel:  PropTypes.bool.isRequired,
         chosen:         PropTypes.bool.isRequired,
         favorite:       PropTypes.bool.isRequired,
-    };
+        };
 
 
-    runningString(e)    {
+        runningString(e)    {
         var str   = $('.pname_hover:hover');
         var strCont = $('.pname:hover');
         var width = str.width();
@@ -48,16 +48,16 @@ export default class Channel extends Component      {
         {
             run();
         }}
-    stopRun ()      {
+        stopRun ()          {
         $('.pname_hover').stop(true,true);
-    }
+                        }
     // componentDidUpdate() {
     //     $('.menuItemStylefocus').focus();
     // }
     render()            {
         return          (
-            <div  className={this.props.chosen?'menuItemStylefocus':this.props.elemChosen?'menuItemStyleChosen':'menuItemStyle'}
-                //className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
+            <div  className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
+                 //className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
                   onClick={this.props.onClick}
                   onKeyDown={this.props.onKeyDown}
                   key={this.props.key}

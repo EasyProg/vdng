@@ -97,7 +97,7 @@ class  Menu extends Component               {
 
         }
     }
-    parseCategories ()                      {
+    parseCategories   ()                      {
         let grpArr = [];
         let c = parse(hlsArray);
         let obj = {};
@@ -132,7 +132,7 @@ class  Menu extends Component               {
             }));
         }
     }
-    render()        {
+    render()         {
         if  (this.props.autoPlay)
              return  (
                 <div id="menu"      className="mainMenuDiv">
@@ -145,8 +145,7 @@ class  Menu extends Component               {
                                     toggleMenuStateContext={this.toggleMenuState}
                                     channels=  {this.props.channels}
                                     categories={this.parseCategories()}
-                        />
-                                        {/*!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":*/}
+                        />          {/*!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible?"menuCenterText":*/}
                         <div        className='menuCenterText'
                                     id="menuCenterText">
                             <MenuButton

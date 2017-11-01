@@ -1201,6 +1201,7 @@ div [data-reactroot] {
   font-size: 2em; }
 
 .lowerText {
+  margin-top: 5px;
   width: 100%;
   display: flex;
   flex-direction: row;
