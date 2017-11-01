@@ -12,13 +12,20 @@
   line-height: 5.7em;
   padding-left: 20px; }
 
+.menuItemStyleReroved {
+  width: 30vw;
+  min-width: 30vw;
+  height: 110px;
+  line-height: 5.7em;
+  padding-left: 20px; }
+
 .staticItem {
   width: 30vw;
   min-width: 400px;
   display: flex;
   height: 100%;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center; }
 
 .menuBottom {
@@ -31,6 +38,7 @@
   background: #9677ff; }
 
 .menuItemStyle:target, .menuItemStyleChosen:target, .menuItemStylefocus:target {
+  width: 110%;
   background: #9677ff; }
 
 .menuItemStyleChosen {
@@ -38,8 +46,7 @@
   background: #9677ff; }
 
 .menuItemStylefocus {
-  background: #575757;
-  width: 110%; }
+  background: #575757; }
 
 .circleButtonSpan {
   width: 40px;
@@ -73,7 +80,7 @@
   margin-right: 30px;
   margin-left: 30px;
   text-align: center;
-  width: 60px;
+  width: 70px;
   height: 60px;
   line-height: 6.5em; }
 
@@ -99,6 +106,9 @@
   width: 20px;
   margin-left: 10px;
   margin-right: 20px; }
+
+.-reactjs-scrollbar-area {
+  overflow-x: visible; }
 
 video::-webkit-media-controls {
   display: none; }
@@ -842,13 +852,13 @@ hr {
   display: flex;
   flex-direction: column;
   height: 100px;
-  width: 380px;
+  width: 350px;
   position: relative;
   justify-content: space-between; }
 
 .progresses {
   max-width: 100%;
-  width: 100%;
+  width: 90%;
   min-width: 10%;
   height: 3px;
   background: #575757;
@@ -863,6 +873,20 @@ hr {
   height: 40px;
   vertical-align: middle;
   padding-left: 20px; }
+
+.epgShowButton {
+  top: -110px;
+  left: 470px;
+  margin-left: 20px;
+  margin-top: 30px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: #6c4ad1;
+  border-radius: 50px;
+  position: relative;
+  text-align: center;
+  line-height: 3em; }
 
 .archDiv {
   top: 0;
@@ -1165,8 +1189,7 @@ div [data-reactroot] {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  z-index: 2147483647;
-  background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0)); }
+  z-index: 2147483647; }
 
 .mainMenuDivFull {
   height: 120px;
@@ -1188,7 +1211,8 @@ div [data-reactroot] {
   letter-spacing: 1px;
   font-family: "ComfortaaRegular";
   color: white;
-  margin-top: 20px; }
+  padding-top: 20px;
+  background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0)); }
 
 .upperText {
   display: flex;

@@ -11,10 +11,10 @@ import {bindActionCreators} from 'redux';
 import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
-var    hls = new Hls();
-//var hls = new Hls();
-class VideoPlayer extends Component         {
-    constructor(props)                      {
+//var    hls = new Hls();
+var hls = new Hls();
+class VideoPlayer extends Component             {
+        constructor(props)                  {
         super(props);
         //Bind functions
         this.changeSize    = this.changeSize.bind(this);
@@ -28,7 +28,7 @@ class VideoPlayer extends Component         {
         this.videoOnLoad   = this.videoOnLoad.bind(this);
         this.timer = '';
         this.state = {fullScreen:false,networkError:false};
-                                            }
+                                                        }
         //Component Functions
         componentDidMount()                 {
         this.videoOnLoad();
@@ -41,9 +41,11 @@ class VideoPlayer extends Component         {
                 if (isPlaying)                   {
                     vd.play();
 
-                }
-                else
+                                                 }
+                else {
                     vd.pause();
+                    //hls.stopLoad();
+                     }
 
                                                  }
         changeRes(res)                      {
@@ -51,17 +53,18 @@ class VideoPlayer extends Component         {
         videoOnLoad()                       {
             var vd = document.getElementById('video');
             var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
+            //let hls = null;
             //hls.detachMedia();
             //console.log(vd);
             //console.log(hls);
-
+            hls.stopLoad();
             // if (hls)
             // {   //console.log('DESTROYING');
             //     hls.detachMedia();
             //     hls.destroy();}
             if  (this.props.video&&navigator.userAgent.search(reg)===-1)
             //false)
-            {
+            {   //hls.destroy();
                 hls.loadSource(this.props.video.link);
                 hls.attachMedia(vd);
                 hls.on(Hls.Events.MANIFEST_PARSED,
@@ -236,9 +239,9 @@ class VideoPlayer extends Component         {
         }
 
     //Element render
-    render()                                {
+    render()                                  {
         this.videoOnLoad();
-        return                              (
+        return                                (
             <div                 ref=         {(dv)=>this.div=dv}
                                  className="centerDiv" id="centerDiv">
                 <Video           isPlaying  = {this.props.isPlaying}
@@ -267,10 +270,10 @@ class VideoPlayer extends Component         {
                                  onMouseEnter={e=>this.menuFullScreenAppears('mouseEnter')}
                                  onMouseLeave={e=>this.menuFullScreenAppears()}
                 />
-            </div>                          )
+            </div>                            )
 
-                                            }
-                                            }
+                                              }
+                                              }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators(     {
     dispatch,togglePlay,toggleButtons,

@@ -17,15 +17,18 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import MenuButton from './ui/MenuButton';
 import CategoryName from './ui/CategoryName';
 import CustomScroll from './ui/CustomScroll';
-var    ScrollbarWrapper = require('react-scrollbar');
-class   ChannelList extends Component               {
-        constructor(props)                          {
+import ReactScrollBar from 'react-scrollbar-js';
+import ReactScroll from 'react-scrollbar-js';
+//var    ScrollbarWrapper = require('react-scrollbar');
+class   ChannelList extends Component                   {
+        constructor(props)                              {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.categVisible = this.categVisible.bind(this);
         this.menuFullScreenAppears = this.menuFullScreenAppears.bind(this);
         this.switchChannel = this.switchChannel.bind(this);
         this.setMenusVisibleFalse = this.setMenusVisibleFalse.bind(this);
+        this.setProgramsVisible = this.setProgramsVisible.bind(this);
         this.timer = '';
         this.menuTimer = '';
         this.state =                                 {
@@ -36,7 +39,7 @@ class   ChannelList extends Component               {
              programs:[],
              currentProgram:'',
                                                      }
-                                                     }
+                                                         }
         static propTypes  =                         {
             playList:   PropTypes.array.isRequired,
             category:   PropTypes.string.isRequired,
@@ -67,7 +70,7 @@ class   ChannelList extends Component               {
 
                                                          }
                                                          }
-        handleKey(e,elem)                           {
+        handleKey(e,elem)                                {
                 switch (e.keyCode)                       {
 
 
@@ -250,6 +253,22 @@ class   ChannelList extends Component               {
                 return false
 
         }
+        setProgramsVisible(e,program)               {
+        e.stopPropagation();
+        if (program)                                {
+        this.setState({programs: parseProgram(program)});
+        this.props.dispatch(setMenusVisible(
+                    {
+                        channelsMenuVisible: true,
+                        categoryMenuVisible: false,
+                        settingsVisible: false,
+                        programsVisible: true
+                    }, true
+                ));
+                //set state
+                $('#programList').focus();
+                                                    }
+                                                    }
         render()                                    {
         //this.switchChannel();
         if (this.props.playList.length)
@@ -271,9 +290,10 @@ class   ChannelList extends Component               {
                                 <MenuButton  visible  = {this.props.menus.channelsMenuVisible&&!this.props.menus.programsVisible}/>
                             </div>:''
                         }
-                        <CustomScroll>
+                            {/*<ReactScrollBar style={{height:'100%',width:'100%',overflowX:'visible'}}>*/}
+
                             {this.props.playList.map((elem, i) =>
-                                <Channel
+                                    <Channel
                                     key={i}
                                     img={elem.img}
                                     channelNum      =   {elem.channelNum}
@@ -282,19 +302,20 @@ class   ChannelList extends Component               {
                                     programName     =   {getCurrentProgram(elem.program,elem.channel).title}
                                     favorite        =   {this.isFavorite(elem.channelId)}
                                     chosen          =   {elem.channelId===this.props.video.channelId}
-                                    //elem.category===this.props.video.category
                                     onClick         =   {e=>this.handleClick(elem,e)}
                                     tabIndex        =   {i}
                                     elemChosen      =   {i === this.state.channelId}
                                     onKeyDown       =   {e=>this.handleKey(e,elem)}
                                     progress        =   {elem.program?getCurrentProgram(elem.program).progressValue:-1}
-                                />
+                                    setProgramVisibleContext = {this.setProgramsVisible}
+                                    program         =   {elem.program}
+                                    />
                             )
                             }
-                        </CustomScroll>
+                        {/*</ReactScrollBar>*/}
                         <ProgramList
-                                    visible = {this.props.menus.programsVisible}
-                                    programs={this.state.programs}
+                                    visible         = {this.props.menus.programsVisible}
+                                    programs        = {this.state.programs}
                                     currentProgramId={getCurrentProgram(this.state.program).current.id}
                         />
                     </div>

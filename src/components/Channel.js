@@ -1,19 +1,16 @@
 import React, {Component,PropTypes} from 'react';
 import '../styles/css/main_styles.css';
 import hiddenchannel from '../img/nochannel.png';
-import nochannel from    '../img/noimage.png';
 import 'semantic-ui-css/semantic.min.css';
 import book from '../img/bookmark-orange.svg';
-import Rating from       '../components/ui/Rating';
 import * as $ from 'jquery';
-import ProgramList from  '../components/ProgramList';
-import programs from     '../program';
-import parseProgram from '../components/ParseProgramLight';
+import arrow from '../img/angle-arrow-pointing-to-right.svg';
 export default class Channel extends Component      {
 
         constructor(props)  {
         super(props);
-        }
+        this.state = {visible:false}
+                            }
 
         static propTypes =  {
         progress:       PropTypes.number,
@@ -24,7 +21,7 @@ export default class Channel extends Component      {
         hiddenChannel:  PropTypes.bool.isRequired,
         chosen:         PropTypes.bool.isRequired,
         favorite:       PropTypes.bool.isRequired,
-        };
+                            };
 
 
         runningString(e)    {
@@ -51,6 +48,11 @@ export default class Channel extends Component      {
         stopRun ()          {
         $('.pname_hover').stop(true,true);
                         }
+        circleVisible (param)
+        {
+        if (param) this.setState({visible:true});
+        else this.setState({visible:false})
+        }
     // componentDidUpdate() {
     //     $('.menuItemStylefocus').focus();
     // }
@@ -63,6 +65,8 @@ export default class Channel extends Component      {
                   key={this.props.key}
                   tabIndex={this.props.tabIndex}
                   ref={(channel)=>this.channel=channel}
+                  onMouseEnter={e=>this.circleVisible(true)}
+                  onMouseLeave={e=>this.circleVisible(false)}
             >
                 <div className="staticItem">
                     <span className="spanChannelid">{this.props.channelNum}</span>
@@ -83,6 +87,11 @@ export default class Channel extends Component      {
                         {/*{this.props.favorite ? <span className="pnameFav"><img src={book} width={20} height={20}/></span> : ''}*/}
                     </div>
                 </div>
+                {this.state.visible&&this.props.progress!==-1?
+                 <div className="epgShowButton" onClick={e=>this.props.setProgramVisibleContext(e,this.props.program)}>
+                    <img src={arrow} width={15} height={15}/>
+                 </div>:null}
+
             </div>
         )
     }

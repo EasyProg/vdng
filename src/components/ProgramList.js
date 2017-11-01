@@ -110,12 +110,12 @@ export default class ProgramList extends Component
     componentDidMount()           {
         $('.programListItemChosen').focus();
                                   }
-    // componentWillReceiveProps()   {
-    //
-    // }
+    componentWillReceiveProps()   {
+        $('.programListItemChosen').focus();
+    }
     componentDidUpdate ()         {
         //if (this.state.itemChosen===0)
-        $('.programListItemChosen').focus();
+        //$('.programListItemChosen').focus();
                                   }
     //componentWillReceiveProps()   {
         //$('.programListItemChosen').focus();
