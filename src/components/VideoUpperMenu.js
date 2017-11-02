@@ -1,26 +1,26 @@
 import React, { Component,PropTypes } from 'react';
 import {Icon} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import pause from '../img/pause-button.gif';
-import play from '../img/play-rounded-button.gif';
-import backward from '../img/fast-backward-button.gif';
-import forward from '../img/fast-forward-button.gif';
-import prev from '../img/play-prev.gif';
-import next from '../img/play-next.gif';
+import pause from '../img/pause-button.svg';
+import play from '../img/main-play.svg';
+import backward from '../img/ff-prev-button.svg';
+import forward from '../img/ff-next-button.svg';
+import prev from '../img/prev.svg';
+import next from '../img/next.svg';
 //import next from '../img/fast-forward.svg';
-import '../styles/css/main_styles.css';
 import {connect} from 'react-redux';
+import '../styles/css/main_styles.css';
 import {bindActionCreators} from 'redux';
-import {changeVideo, toggleCategory, setMenusVisible, toggleFullScreen} from '../actions/actions';
 import ProgramTime from '../components/ui/ProgramTime';
 import CurrentTime from '../components/ui/CurrentTime';
-import CustomProgress from '../components/ui/CustomProgress';
 import getCurrentProgram from '../components/workingDate';
+import CustomProgress from '../components/ui/CustomProgress';
+import {changeVideo, toggleCategory, setMenusVisible, toggleFullScreen} from '../actions/actions';
 import * as $ from 'jquery';
-class VideoUpperMenu extends Component   {
+class VideoUpperMenu extends Component                         {
     static propTypes =                                         {
         isPlaying:PropTypes.bool.isRequired
-    };
+                                                               };
     constructor(props)                                         {
         super(props);
         this.switchKeyPress = this.switchKeyPress.bind(this);
@@ -34,7 +34,6 @@ class VideoUpperMenu extends Component   {
                 progressValue:0
             }
     }
-
     componentDidMount()                                        {
         var func = this.switchKeyPress;
         var t = this;
@@ -43,7 +42,7 @@ class VideoUpperMenu extends Component   {
             //event.preventDefault();
             func(event);
         });
-    }
+                                                               }
     switchKeyPress(event)                                      {
         //event.stopPropagation();
         switch (event.keyCode)                                 {
@@ -157,8 +156,7 @@ class VideoUpperMenu extends Component   {
             this.setState({progressValue:position});
         }
     }
-    render()
-    { if (this.props.video.program)
+    render()                                                   { if (this.props.video.program)
         return (
             <div id="vduppermenu"
                  onKeyDown={(e)=>this.switchKeyPress(e)}
@@ -173,12 +171,15 @@ class VideoUpperMenu extends Component   {
                 {/*className={this.props.fullScreen?'progressBarFull':'progressBar'}/>*/}
                 <div  className="divPlayer">
                     {/*<Timer isWholeProgramTime={true}/>*/}
-                    <CurrentTime startTime={this.currentTime()} wholeTime={this.currentProgram()} setProgressValueContext={this.setProgressValue}/>
+                    <CurrentTime startTime={this.currentTime()}
+                    videoChannel={this.props.video.channel}
+                    wholeTime={this.currentProgram()}
+                    setProgressValueContext={this.setProgressValue}/>
                     <div  className="playerButtonsDiv" id="playerbuttonsdiv">
                         <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')}/>
-                        <img src={backward} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
+                        <img src={backward} width={25} height={25} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
                         <img onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
-                        <img src={forward}  className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
+                        <img src={forward}  width={25} height={25} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
                         <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')}/>
                     </div>
                     <ProgramTime time={this.currentProgram()}/>
@@ -191,18 +192,18 @@ class VideoUpperMenu extends Component   {
                       onMouseEnter={this.props.onMouseEnter}
                       onMouseLeave={this.props.onMouseLeave}
         >
-            <div  className="divPlayer">
+            <div      className="divPlayer">
                 <div  className="playerButtonsDiv" id="playerbuttonsdiv">
                     <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')}/>
-                    <img src={backward} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
+                    <img src={backward} width={25} height={25} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
                     <img onClick={(e)=>this.props.toggleContext(this.props.isPlaying)} width={45} height={45} src={this.props.isPlaying?pause:play} />
-                    <img src={forward}  className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
+                    <img src={forward}  width={25} height={25} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
                     <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')}/>
                 </div>
             </div>
         </div>)
     }
-}
+                                                               }
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);

@@ -4,25 +4,25 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import HomeButton from './ui/MenuButton';
 import * as $ from 'jquery';
 import CustomScroll from './ui/CustomScroll';
-export default class ProgramList extends Component
-                                     {
-    constructor(props)
-                                     {
+import {connect} from 'react-redux';
+import {setMenusVisible} from '../actions/actions';
+import {bindActionCreators} from 'redux';
+    class ProgramList extends Component
+                                            {
+        constructor(props)                  {
         super(props);
         this.state={itemChosen:0};
         this.switchProgram = this.switchProgram.bind(this);
         this.handleKey =     this.handleKey.bind(this);
-                                     }
-
-    static propTypes =               {
+                                            }
+        static propTypes =                  {
         programs: PropTypes.array.isRequired,
         visible:  PropTypes.bool.isRequired
 
-                                     };
-    handleKey(e,elem)                {
-    console.log('oo');
-    e.stopPropagation();
-    switch (e.keyCode)               {
+                                            };
+        handleKey(e,elem)                   {
+        e.stopPropagation();
+        switch (e.keyCode)               {
         case 40:
         this.switchProgram('next', this.state.itemChosen);
         console.log(this.state.itemChosen);
@@ -32,38 +32,40 @@ export default class ProgramList extends Component
         console.log(this.state.itemChosen);
         break;
         case 37:
-        //{this.setState({itemChosen:0});
-        $('#channels').focus();
+        this.props.dispatch(setMenusVisible(
+        {
+        channelsMenuVisible: true,
+        categoryMenuVisible: false,
+        settingsVisible: false,
+        programsVisible: false
+        }, true
+            ));
+        $('.menuItemStyleChosen').focus();
+        //$('#channels').focus();
         break;
         default:
         break;
                                      }
                                      }
-    switchProgram(param='next',chosen){
-        //console.log('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
+        switchProgram(param='next',chosen)  {
         var items = $('.programListItem,.programListItemChosen');
         var i = chosen||0;
-        //var i =     $('.programListItemChosen')[0].key||chosen||0;
-        //console.log($('.programListItemChosen')[0].key);
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
         var prevElem = i - 1 <= 0 ? items.length - 1 : i - 1;
-        console.log(items.length);
         if (param === 'next'&&items[nextElem])
                                      {
-            console.log(items[nextElem]);
             items[nextElem].focus();
             this.setState({itemChosen:nextElem});
                                      }
         if (param === 'prev'&&items[prevElem])
                                      {
-            console.log('prev');
             items[prevElem].focus();
             this.setState({itemChosen:prevElem});
 
                                      }
                                      }
-    getDayOfWeek (dt)                {
-        var date_parse = new Date(dt.substr(6,4),Number(dt.substr(3,2))-1,dt.substr(0,2));
+        getDayOfWeek (dt)                   {
+        var date_parse = new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,dt.substr(0,1));
         switch (date_parse.getDay()) {
             case 0 : return 'Неділя';
                 break;
@@ -80,17 +82,16 @@ export default class ProgramList extends Component
             case 6 : return 'Субота';
                 break;
 
-        }
-        //return date_parse.getDay();
+                                    }
 
                                     }
-    runningString(e)                {
+        runningString(e)                    {
         var str   =   $('.programName_hover:hover');
         var strCont = $('.programName:hover');
         var width = str.width();
         var con_w = str.css('left');
 
-        function run ()           {
+        function run ()               {
             var con_len = parseInt(con_w) - (width - strCont.width());
             str.animate
             ({left:con_len + 'px'},
@@ -99,42 +100,47 @@ export default class ProgramList extends Component
                     {
                         str.css('left',con_w);
                         //run();
-                    }});          }
+                    }});              }
         if (width>strCont.width())
                                   {
             run();
                                   }}
-    stopRun ()                    {
-        $('.programName_hover').stop(true,true);
-                                  }
-    componentDidMount()           {
-        $('.programListItemChosen').focus();
-                                  }
-    componentWillReceiveProps()   {
-        $('.programListItemChosen').focus();
-    }
-    componentDidUpdate ()         {
-        //if (this.state.itemChosen===0)
-        //$('.programListItemChosen').focus();
-                                  }
-    //componentWillReceiveProps()   {
-        //$('.programListItemChosen').focus();
-        //console.log('focused');
-      //                            }
-// $('.programList').animate({'width':'400'},100);
-//                                   }
-    render()                      {
+        stopRun ()                          {
+            $('.programName_hover').stop(true,true);
+                                      }
+        componentDidMount()                 {
+            //$('.programListItemChosen').focus();
+                                      }
+        componentWillReceiveProps(nextProps){
+            this.setState({itemChosen:nextProps.currentProgramId-1});
+                                      }
+        componentDidUpdate ()               {
+            //if (this.state.itemChosen===0)
+            $('.programListItemChosen').focus();
+                                      }
+        shouldComponentUpdate(nextProps,nextState)
+                                            {
+        if  (this.state.itemChosen!==nextState.itemChosen)
+        return false;
+        else return true
+                                      }
+        render()                            {
         if (this.props.programs.length&&this.props.visible>0)
-            return                (
+            return                    (
                 <div className="programList" id="programList" onKeyDown={(e)=>this.handleKey(e)} tabIndex={1}>
                     <div className="menuHeaderCh">
                         <HomeButton visible={true}/>
                     </div>
                     <CustomScroll>
-                        {this.props.programs.map((e,i)=>
+                                {this.props.programs.map((e,i)=>
                                 <div className="blockChainDiv" key={i} tabIndex={1}>
                                 <div className="headerProgramDate">
-                                    {e.date} <span className="textSpan">
+                                    {
+                                        e.date.substr(0,2).indexOf('.')===-1?
+                                        e.date.substr(0,5)+e.date.substr(7,2):'0'+
+                                        e.date.substr(0,5)+e.date.substr(7,2)
+                                    }
+                                    <span className="textSpan">
                                     {this.getDayOfWeek(e.date)}</span>
                                     <hr className="hrProgram"/>
                                 </div>
@@ -168,4 +174,12 @@ export default class ProgramList extends Component
             );
         else return null
     }
-}
+                                            }
+        const mapDispatchToProps = (dispatch) =>
+        bindActionCreators({
+        dispatch,setMenusVisible
+        }, dispatch);
+        export default connect              (
+            state =>                        ({}),
+            mapDispatchToProps
+                                            )(ProgramList);

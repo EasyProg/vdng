@@ -63,12 +63,13 @@ div [data-reactroot] {
   transition: width 1s ease 1s;
 }
 .mainMenuDiv
-{
+{ pointer-events: none;
   top:-20px;
   margin-top: 15px;
   //position: fixed;
   position: absolute;
   width:100vw;
+  //display: flex;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -96,6 +97,7 @@ div [data-reactroot] {
 //}
 .menuCenterText {
   //margin-left:150px;
+  pointer-events: none;
   position:absolute;
   width:100%;
   //line-height:2em;

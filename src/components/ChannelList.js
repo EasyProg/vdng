@@ -20,8 +20,8 @@ import CustomScroll from './ui/CustomScroll';
 import ReactScrollBar from 'react-scrollbar-js';
 import ReactScroll from 'react-scrollbar-js';
 //var    ScrollbarWrapper = require('react-scrollbar');
-class   ChannelList extends Component                   {
-        constructor(props)                              {
+class   ChannelList extends Component                {
+        constructor(props)                           {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.categVisible = this.categVisible.bind(this);
@@ -39,7 +39,7 @@ class   ChannelList extends Component                   {
              programs:[],
              currentProgram:'',
                                                      }
-                                                         }
+                                                     }
         static propTypes  =                         {
             playList:   PropTypes.array.isRequired,
             category:   PropTypes.string.isRequired,
@@ -86,7 +86,8 @@ class   ChannelList extends Component                   {
                                                         }, true
                                                         ));
                         //set state
-                        $('#programList').focus();
+                        //$('#programList').focus();
+                        //$('.programListItemChosen').focus();
                                                         }
                                                         }
                 break;
@@ -203,37 +204,6 @@ class   ChannelList extends Component                   {
                     }
                     ,
                     true));
-            //var parseProgramsArr = parseProgram(elem.program);
-            // if (parseProgramsArr.length > 0)
-            // {
-            //     this.props.dispatch(setMenusVisible
-            //     (
-            //         {
-            //             programsVisible: true,
-            //             channelsMenuVisible: true,
-            //             categoryMenuVisible: false,
-            //             settingsVisible: false
-            //         }
-            //         ,
-            //         true));
-            //     this.setState({programs: parseProgramsArr});
-            //
-            //
-            //
-            // }
-            // else {
-            //     this.props.dispatch(setMenusVisible
-            //     (
-            //         {
-            //             programsVisible: false,
-            //             channelsMenuVisible: true,
-            //             categoryMenuVisible: this.props.menus.categoryMenuVisible,
-            //             settingsVisible: false
-            //         }
-            //         ,
-            //         true
-            //     ));
-            // }
                                                     }
         categVisible()                              {
             this.props.dispatch(    setMenusVisible (
@@ -290,7 +260,7 @@ class   ChannelList extends Component                   {
                                 <MenuButton  visible  = {this.props.menus.channelsMenuVisible&&!this.props.menus.programsVisible}/>
                             </div>:''
                         }
-                            {/*<ReactScrollBar style={{height:'100%',width:'100%',overflowX:'visible'}}>*/}
+                            <CustomScroll style={{height:'100%',width:'100%',overflowX:'visible'}}>
 
                             {this.props.playList.map((elem, i) =>
                                     <Channel
@@ -312,7 +282,7 @@ class   ChannelList extends Component                   {
                                     />
                             )
                             }
-                        {/*</ReactScrollBar>*/}
+                            </CustomScroll>
                         <ProgramList
                                     visible         = {this.props.menus.programsVisible}
                                     programs        = {this.state.programs}

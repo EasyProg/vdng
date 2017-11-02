@@ -98,7 +98,9 @@
   text-align: center;
   width:70px;
   height:60px;
-  line-height:6.5em;
+  line-height:6.5;
+  pointer-events: auto;
+  //pointer-events: auto;
   //visibility: hidden;
   //display: none;
                       }

@@ -82,7 +82,8 @@
   text-align: center;
   width: 70px;
   height: 60px;
-  line-height: 6.5em; }
+  line-height: 6.5;
+  pointer-events: auto; }
 
 .divSideBar:hover {
   cursor: pointer;
@@ -522,6 +523,7 @@ hr {
   width: 40px; }
 
 .hoverDiv {
+  pointer-events: auto;
   display: block;
   position: absolute;
   width: 0;
@@ -647,8 +649,6 @@ hr {
   background-color: #9677ff; }
 
 .backwardActiveButton, .backwardDisButton {
-  width: 25px;
-  height: 20px;
   opacity: 0.3; }
 
 .backwardDisButton {
@@ -1047,10 +1047,12 @@ hr {
 .headerProgramDate {
   color: white;
   text-align: left;
-  margin-left: 20px; }
+  margin-left: 20px;
+  margin-right: 20px; }
 
 .textSpan {
-  color: #9677ff; }
+  color: #9677ff;
+  padding-left: 10px; }
 
 .hrProgram {
   background: #9677ff;
@@ -1181,6 +1183,7 @@ div [data-reactroot] {
   transition: width 1s ease 1s; }
 
 .mainMenuDiv, .mainMenuDivFull {
+  pointer-events: none;
   top: -20px;
   margin-top: 15px;
   position: absolute;
@@ -1202,6 +1205,7 @@ div [data-reactroot] {
   display: flex; }
 
 .menuCenterText {
+  pointer-events: none;
   position: absolute;
   width: 100%;
   justify-content: space-between;

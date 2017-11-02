@@ -19,7 +19,6 @@ import CategoryName from './ui/CategoryName';
 import CustomScroll from './ui/CustomScroll';
 import parseProgram from '../components/ParseProgramLight';
 class  Categories extends Component                     {
-
     constructor(props)                                  {
         super(props);
         this.state =                                    {
@@ -116,8 +115,8 @@ class  Categories extends Component                     {
             {
                 this.handleClick(this.state.itemFocus,this.state.category);
                 //$('#video').focus();
-                if (this.filterChannels(parse(hlsArray),cat).length>0)
-                    $('#channels').focus();
+                if (this.props.channels.length>0)
+                $('#channels').focus();
                 break;
             }
             case 27: {
@@ -147,7 +146,7 @@ class  Categories extends Component                     {
             default:
         }
     }
-    categVisible()                                  {
+    categVisible()                                      {
         if (this.props.channels.length>0)
             this.props.dispatch(setMenusVisible     (
                 {
@@ -156,7 +155,7 @@ class  Categories extends Component                     {
                     settingsVisible:false
                 },true                              ));
     }
-    render()                                         {
+    render()                                            {
         return                                       (
             <div className="hoverDiv">
                 {/*<MainMenu/>*/}
@@ -197,14 +196,14 @@ class  Categories extends Component                     {
             </div>
         )
     }
-}
+                                                        }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,setMenusVisible,getChannels,toggleCategory
     },  dispatch);
 export default connect(
     state =>
-        ({ channels:state.channelReducer.channels,
+        ({  channels:state.channelReducer.channels,
             channelCategory:state.channelReducer.chosenCategory,
             isFavor:state.channelReducer.isFavor
         }),

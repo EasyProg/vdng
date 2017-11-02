@@ -55,12 +55,14 @@
 .headerProgramDate      {
   color:white;
   text-align: left;
-  margin-left: 20px;
-}
+  margin-left:  20px;
+  margin-right: 20px
+                        }
 .textSpan               {
   color:$main_color;
+  padding-left:10px;
   //text-align: left;
-}
+                        }
 .hrProgram              {
   background:$main_color;
   //color:$main_color;
@@ -70,7 +72,7 @@
   display: block;
   position: relative;
   left:-5px;
-}
+                        }
 .programName            {
   height: 40px;
   margin-left: 40px;

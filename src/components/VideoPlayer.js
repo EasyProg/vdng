@@ -13,7 +13,7 @@ import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 //var    hls = new Hls();
 var hls = new Hls();
-class VideoPlayer extends Component             {
+class VideoPlayer extends Component         {
         constructor(props)                  {
         super(props);
         //Bind functions
@@ -28,7 +28,8 @@ class VideoPlayer extends Component             {
         this.videoOnLoad   = this.videoOnLoad.bind(this);
         this.timer = '';
         this.state = {fullScreen:false,networkError:false};
-                                                        }
+        this.hls = null;
+                                                }
         //Component Functions
         componentDidMount()                 {
         this.videoOnLoad();
@@ -53,25 +54,20 @@ class VideoPlayer extends Component             {
         videoOnLoad()                       {
             var vd = document.getElementById('video');
             var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
-            //let hls = null;
-            //hls.detachMedia();
-            //console.log(vd);
-            //console.log(hls);
-            hls.stopLoad();
-            // if (hls)
-            // {   //console.log('DESTROYING');
-            //     hls.detachMedia();
-            //     hls.destroy();}
+            if (this.hls)                   {
+            this.hls.destroy();
+                                            }
+            let hls = new Hls();
             if  (this.props.video&&navigator.userAgent.search(reg)===-1)
             //false)
             {   //hls.destroy();
-                hls.loadSource(this.props.video.link);
-                hls.attachMedia(vd);
-                hls.on(Hls.Events.MANIFEST_PARSED,
-                    function ()
+            hls.loadSource(this.props.video.link);
+            hls.attachMedia(vd);
+            hls.on(Hls.Events.MANIFEST_PARSED,
+            function ()
                     {
                             {
-                            vd.play();
+                            if (this.state.video.isPlaying) vd.play();
                             }
                     });
                 var funcCnt = this;
@@ -94,6 +90,7 @@ class VideoPlayer extends Component             {
                     }
             });
             }
+            this.hls=hls;
                                             }
         handleCurrTime(param)               {
             var vd = this.video.video;
@@ -154,7 +151,7 @@ class VideoPlayer extends Component             {
                 }
                 if (this.props.fullScreen)   {
                     this.toggle(this.props.isPlaying);
-                }
+                                             }
                                              }
             //Отобразить плей
             else if (this.props.isOpened===false&&this.props.autoPlay)
@@ -226,6 +223,9 @@ class VideoPlayer extends Component             {
                 this.setState({fullScreen:false});
                 document.removeEventListener("webkitfullscreenchange",this.escFullScreen);
                                                     }}
+        componentWillUnmount()              {
+        this.hls.destroy();
+                                            }
         shouldComponentUpdate(nextProps,nextState)
                                             {
         //&& nextProps.isOpened!==false
@@ -237,9 +237,8 @@ class VideoPlayer extends Component             {
 
         else return true
         }
-
-    //Element render
-    render()                                  {
+        //Element render
+        render()                              {
         this.videoOnLoad();
         return                                (
             <div                 ref=         {(dv)=>this.div=dv}
@@ -274,20 +273,20 @@ class VideoPlayer extends Component             {
 
                                               }
                                               }
-const mapDispatchToProps = (dispatch) =>
-    bindActionCreators(     {
-    dispatch,togglePlay,toggleButtons,
-    toggleFullScreen,setMenusVisible,setFavor
-                            }, dispatch);
-export default connect      (
-    state =>                ({
-        video:                state.videoReducer.video,
-        isPlaying:            state.videoReducer.isPlaying,
-        autoPlay:             state.videoReducer.autoPlay,
-        fullScreen:           state.videoReducer.fullScreen,
-        isOpened:             state.menuReducer.isOpened,
-        isVisible:            state.menuReducer.elemsVisible,
-        //networkError:         state.videoReducer.networkError
-                             }),
-                             mapDispatchToProps
-                            )(VideoPlayer);
+        const mapDispatchToProps = (dispatch) =>
+        bindActionCreators(     {
+        dispatch,togglePlay,toggleButtons,
+        toggleFullScreen,setMenusVisible,setFavor
+                                }, dispatch);
+        export default connect      (
+            state =>                ({
+                video:                state.videoReducer.video,
+                isPlaying:            state.videoReducer.isPlaying,
+                autoPlay:             state.videoReducer.autoPlay,
+                fullScreen:           state.videoReducer.fullScreen,
+                isOpened:             state.menuReducer.isOpened,
+                isVisible:            state.menuReducer.elemsVisible,
+                //networkError:         state.videoReducer.networkError
+                                     }),
+                                      mapDispatchToProps
+                                     )(VideoPlayer);

@@ -53,7 +53,7 @@ class  Menu extends Component               {
                     console.log('Looks like it was some error ' + response.status);
                     return;
                                             }
-                response.json().then(function(data)
+                    response.json().then(function(data)
                                             {
                     let f = [];
                     c.props.channels.forEach
@@ -97,7 +97,7 @@ class  Menu extends Component               {
 
         }
     }
-    parseCategories   ()                      {
+    parseCategories   ()                    {
         let grpArr = [];
         let c = parse(hlsArray);
         let obj = {};
@@ -132,7 +132,7 @@ class  Menu extends Component               {
             }));
         }
     }
-    render()         {
+    render()                                {
         if  (this.props.autoPlay)
              return  (
                 <div id="menu"      className="mainMenuDiv">
@@ -170,9 +170,14 @@ class  Menu extends Component               {
         else return null
                     }
 
-}
+                                            }
 const mapDispatchToProps = (dispatch) => bindActionCreators(  {
-    dispatch,setMenusVisible,getChannels,receiveData,setProgram,setElemsVis
+    dispatch,
+    setMenusVisible,
+    getChannels,
+    receiveData,
+    setProgram,
+    setElemsVis
 }, dispatch);
 export default connect (
     state =>           ({

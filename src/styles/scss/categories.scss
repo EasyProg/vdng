@@ -141,6 +141,7 @@
 //}
 .hoverDiv                                             {
   //overflow: visible;
+  pointer-events: auto;
   display: block;
   position: absolute;
   width:0;

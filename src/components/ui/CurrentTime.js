@@ -10,9 +10,18 @@ export default class CurrentTime extends Component {
         this.tick = this.tick.bind(this);
                                  };
 
-    componentWillReceiveProps()  {
+    // componentWillReceiveProps()  {
+    //     clearInterval(this.int);
+    //     this.int = setInterval(this.tick, 1000);
+    //     console.log('received!!!!!!!!!');
+    //                              }
+    componentDidMount()          {
+    this.int = setInterval(this.tick, 1000);
+                                 }
+    componentDidUpdate()         {
         clearInterval(this.int);
-        this.int = setInterval(this.tick, 1000)
+        this.int = setInterval(this.tick, 1000);
+        console.log('received!!!!!!!!!');
                                  }
 
     componentWillUnmount()       {
@@ -50,9 +59,9 @@ export default class CurrentTime extends Component {
     }
 
     static propTypes =
-        {
+                                  {
             startTime: PropTypes.number.isRequired
-        };
+                                  };
 
     render() {
         return (
