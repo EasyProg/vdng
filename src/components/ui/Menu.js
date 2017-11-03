@@ -135,7 +135,7 @@ class  Menu extends Component               {
     render()                                {
         if  (this.props.autoPlay)
              return  (
-                <div id="menu"      className="mainMenuDiv">
+                <div                id="menu"      className="mainMenuDiv">
                                     <div
                                     className="menuDives"
                                     onMouseEnter={e=>this.props.dispatch(setElemsVis(true))}

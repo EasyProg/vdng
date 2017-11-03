@@ -20,8 +20,8 @@ import CustomScroll from './ui/CustomScroll';
 import ReactScrollBar from 'react-scrollbar-js';
 import ReactScroll from 'react-scrollbar-js';
 //var    ScrollbarWrapper = require('react-scrollbar');
-class   ChannelList extends Component                {
-        constructor(props)                           {
+class   ChannelList extends Component               {
+        constructor(props)                          {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.categVisible = this.categVisible.bind(this);
@@ -31,15 +31,15 @@ class   ChannelList extends Component                {
         this.setProgramsVisible = this.setProgramsVisible.bind(this);
         this.timer = '';
         this.menuTimer = '';
-        this.state =                                 {
-             itemChosen:0,
-             channelId:0,
-             isClicked:false,
-             program:[],
-             programs:[],
-             currentProgram:'',
-                                                     }
-                                                     }
+        this.state =                                     {
+        itemChosen:0,
+        channelId:0,
+        isClicked:false,
+        program:[],
+        programs:[],
+        currentProgram:'',
+                                                         }
+                                                         }
         static propTypes  =                         {
             playList:   PropTypes.array.isRequired,
             category:   PropTypes.string.isRequired,
@@ -60,24 +60,59 @@ class   ChannelList extends Component                {
             var items = $('.menuItemStyle,.menuItemStyleChosen,.menuItemStylefocus');
             var nextElem = i + 1 >= items.length ? 0 : i + 1;
             var prevElem = i - 1 < 0 ? items.length - 1 : i - 1;
-            if (param === 'next' && items[nextElem])     {
+            if (param === 'next' && items[nextElem]){
                 items[nextElem].focus();
                 this.setState({channelId: nextElem, program: this.props.playList[nextElem].program});
-                                                         }
+                this.runningString('focus');
+                                                    }
                 if (param === 'prev' && items[prevElem])
                 {items[prevElem].focus();
                 this.setState({channelId: prevElem, program: this.props.playList[prevElem].program});
+                this.runningString('focus');
 
-                                                         }
-                                                         }
-        handleKey(e,elem)                                {
+                                                    }
+                                                    }
+        runningString(param)                        {
+            if (param==='hover')
+            {
+            var str     = $('.pname_hover:hover');
+            var strCont = $('.pname:hover');
+            }
+            if (param==='focus')
+            {
+            this.stopRun();
+            var str     = $('.menuItemStyle:focus>.staticItem>.menuChannelName>.pname>.pname_hover');
+            var strCont = $('.menuItemStyle:focus>.staticItem>.menuChannelName>.pname');
+            }
+            var width = str.width();
+            var con_w = str.css('left');
+
+            function run () {
+                var con_len = parseInt(con_w) - (width - strCont.width());
+                str.animate
+                ({left:con_len + 'px'},
+                    {duration: 2000,
+                        complete: function ()
+                        {
+                            str.css('left',con_w);
+                            //run();
+                        }});}
+            if (width>strCont.width())
+            {
+                run();
+            }                                       }
+        stopRun      ()                             {
+            $('.pname_hover').stop(true,true);
+        }
+        handleKey(e,elem)                           {
                 switch (e.keyCode)                       {
 
 
                 case 39 :                                {
                     if (elem && elem.program)            {
                         this.setState({programs: parseProgram(elem.program)});
-                        this.props.dispatch(setMenusVisible(
+                        this.props.dispatch(setMenusVisible
+                                                         (
                                                          {
                                 channelsMenuVisible: true,
                                 categoryMenuVisible: false,
@@ -103,7 +138,8 @@ class   ChannelList extends Component                {
                     this.switchChannel('next', this.state.channelId);
                     break;
                 case 38:
-                    this.props.dispatch(setMenusVisible(
+                    this.props.dispatch(
+                        setMenusVisible(
                         {
                             channelsMenuVisible: true,
                             categoryMenuVisible: false,
@@ -226,7 +262,8 @@ class   ChannelList extends Component                {
         setProgramsVisible(e,program)               {
         e.stopPropagation();
         if (program)                                {
-        this.setState({programs: parseProgram(program)});
+        //this.setState({channelId: prevElem, program: this.props.playList[prevElem].program});
+        this.setState({programs: parseProgram(program),program:program});
         this.props.dispatch(setMenusVisible(
                     {
                         channelsMenuVisible: true,
@@ -260,12 +297,11 @@ class   ChannelList extends Component                {
                                 <MenuButton  visible  = {this.props.menus.channelsMenuVisible&&!this.props.menus.programsVisible}/>
                             </div>:''
                         }
-                            <div className="customScrollDiv">
-
+                        <CustomScroll>
                             {this.props.playList.map((elem, i) =>
                                     <Channel
-                                    key={i}
-                                    img={elem.img}
+                                    key=                {i}
+                                    img=                {elem.img}
                                     channelNum      =   {elem.channelNum}
                                     channelId       =   {elem.channelId}
                                     hiddenChannel   =   {this.props.channelCategory==='Locked'}
@@ -282,7 +318,7 @@ class   ChannelList extends Component                {
                                     />
                             )
                             }
-                            </div>
+                        </CustomScroll>
                         <ProgramList
                                     visible         = {this.props.menus.programsVisible}
                                     programs        = {this.state.programs}
@@ -294,7 +330,7 @@ class   ChannelList extends Component                {
             );
         else return (null)
     }
-                                                     }
+                                                    }
 const mapDispatchToProps = (dispatch) => bindActionCreators
                 (
                 {

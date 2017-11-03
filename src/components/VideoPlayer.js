@@ -54,10 +54,13 @@ class VideoPlayer extends Component         {
         videoOnLoad()                       {
             var vd = document.getElementById('video');
             var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
-            if (this.hls)                   {
+            setInterval                     (
+            function() {
+            if (this.hls) {
             this.hls.destroy();
-                                            }
+            }
             let hls = new Hls();
+            },30000                         );
             if  (this.props.video&&navigator.userAgent.search(reg)===-1)
             //false)
             {   //hls.destroy();

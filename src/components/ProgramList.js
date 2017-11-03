@@ -22,7 +22,29 @@ class ProgramList extends Component
                                             };
         handleKey(e,elem)                   {
         e.stopPropagation();
-        switch (e.keyCode)               {
+        switch (e.keyCode)                  {
+        case 8:                             {
+        this.props.dispatch(setMenusVisible(
+        {channelsMenuVisible: false,
+        categoryMenuVisible: false,
+        settingsVisible: false,
+        programsVisible: false
+
+        },false));
+        $('#video').focus();
+                                            }
+        break;
+        case 27:                            {
+        this.props.dispatch(setMenusVisible(
+        {channelsMenuVisible: false,
+         categoryMenuVisible: false,
+         settingsVisible: false,
+         programsVisible: false
+
+         },false));
+         $('#video').focus();
+                                            }
+        break;
         case 40:
         this.switchProgram('next', this.state.itemChosen);
         console.log(this.state.itemChosen);
@@ -50,8 +72,7 @@ class ProgramList extends Component
         break;
                                      }
                                      }
-        switchProgram(param='next',chosen)
-                                     {
+        switchProgram(param='next',chosen)  {
         var items = $('.programListItem,.programListItemChosen');
         var i = chosen||0;
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
@@ -91,16 +112,16 @@ class ProgramList extends Component
                                     }
 
                                     }
-        runningString(param)         {
+        runningString(param)                {
         if (param==='hover')         {
         var str =     $('.programName_hover:hover');
         var strCont = $('.programName:hover');
-        console.log(strCont);
                                      }
         if (param==='focus')         {
         this.stopRun();
         var str =     $('.programListItem:focus>.programName>.programName_hover');
         var strCont = $('.programListItem:focus>.programName');
+        console.log(strCont);
                                      }
         var width = str.width();
         var con_w = str.css('left');
@@ -122,7 +143,7 @@ class ProgramList extends Component
         stopRun ()                          {
             $('.programName_hover').stop(true,true);
                                       }
-        componentDidMount()           {
+        componentDidMount()                 {
             //$('.programListItemChosen').focus();
                                       }
         componentWillReceiveProps(nextProps){
@@ -147,8 +168,8 @@ class ProgramList extends Component
                     </div>
                     <CustomScroll>
                                 {this.props.programs.map((e,i)=>
-                                <div className="blockChainDiv" key={i} tabIndex={1}>
-                                <div className="headerProgramDate">
+                                    <div className="blockChainDiv" key={i} tabIndex={1}>
+                                    <div className="headerProgramDate">
                                     {
                                         e.date.substr(0,2).indexOf('.')===-1?
                                         e.date.substr(0,5)+e.date.substr(7,2):'0'+
@@ -157,8 +178,8 @@ class ProgramList extends Component
                                     <span className="textSpan">
                                     {this.getDayOfWeek(e.date)}</span>
                                     <hr className="hrProgram"/>
-                                </div>
-                                <div className="dayListItem" tabIndex={1}>
+                                    </div>
+                                    <div className="dayListItem" tabIndex={1}>
                                 {
                                 this.props.programs[i]['data'].map
                                         (

@@ -101,8 +101,10 @@ class  Categories extends Component                     {
                 break;}
             case 39: {
                 $('#channels').focus();
+                $('.menuItemStylefocus').focus();
+                console.log($(':focus'));
                 break;
-            }
+                    }
             case 38:
                 items[prevElem].focus();
                 this.setState(
