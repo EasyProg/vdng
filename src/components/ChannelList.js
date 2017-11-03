@@ -260,7 +260,7 @@ class   ChannelList extends Component                {
                                 <MenuButton  visible  = {this.props.menus.channelsMenuVisible&&!this.props.menus.programsVisible}/>
                             </div>:''
                         }
-                            <CustomScroll style={{height:'100%',width:'100%',overflowX:'visible'}}>
+                            <div className="customScrollDiv">
 
                             {this.props.playList.map((elem, i) =>
                                     <Channel
@@ -282,7 +282,7 @@ class   ChannelList extends Component                {
                                     />
                             )
                             }
-                            </CustomScroll>
+                            </div>
                         <ProgramList
                                     visible         = {this.props.menus.programsVisible}
                                     programs        = {this.state.programs}

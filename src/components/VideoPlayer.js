@@ -65,11 +65,16 @@ class VideoPlayer extends Component         {
             hls.attachMedia(vd);
             hls.on(Hls.Events.MANIFEST_PARSED,
             function ()
-                    {
+                      {
                             {
-                            if (this.state.video.isPlaying) vd.play();
+                            if (this.state.video.isPlaying)
+                                vd.play();
+                            else {
+                                console.log('must stopped');
+                                hls.stopLoad();
+                                 }
                             }
-                    });
+                      });
                 var funcCnt = this;
                 hls.on(Hls.Events.ERROR, function (event, data)
             {

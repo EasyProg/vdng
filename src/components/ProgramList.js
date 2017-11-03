@@ -7,7 +7,7 @@ import CustomScroll from './ui/CustomScroll';
 import {connect} from 'react-redux';
 import {setMenusVisible} from '../actions/actions';
 import {bindActionCreators} from 'redux';
-    class ProgramList extends Component
+class ProgramList extends Component
                                             {
         constructor(props)                  {
         super(props);
@@ -31,23 +31,27 @@ import {bindActionCreators} from 'redux';
         this.switchProgram('prev', this.state.itemChosen);
         console.log(this.state.itemChosen);
         break;
-        case 37:
+        case 37: {
         this.props.dispatch(setMenusVisible(
-        {
-        channelsMenuVisible: true,
-        categoryMenuVisible: false,
-        settingsVisible: false,
-        programsVisible: false
-        }, true
+                {
+                    channelsMenuVisible: true,
+                    categoryMenuVisible: false,
+                    settingsVisible: false,
+                    programsVisible: false
+                }, true
             ));
+        this.setState({itemChosen:-1});
         $('.menuItemStyleChosen').focus();
+
+                  }
         //$('#channels').focus();
         break;
         default:
         break;
                                      }
                                      }
-        switchProgram(param='next',chosen)  {
+        switchProgram(param='next',chosen)
+                                     {
         var items = $('.programListItem,.programListItemChosen');
         var i = chosen||0;
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
@@ -56,11 +60,13 @@ import {bindActionCreators} from 'redux';
                                      {
             items[nextElem].focus();
             this.setState({itemChosen:nextElem});
+            this.runningString('focus');
                                      }
         if (param === 'prev'&&items[prevElem])
                                      {
             items[prevElem].focus();
             this.setState({itemChosen:prevElem});
+            this.runningString('focus');
 
                                      }
                                      }
@@ -85,9 +91,17 @@ import {bindActionCreators} from 'redux';
                                     }
 
                                     }
-        runningString(e)                    {
-        var str   =   $('.programName_hover:hover');
+        runningString(param)         {
+        if (param==='hover')         {
+        var str =     $('.programName_hover:hover');
         var strCont = $('.programName:hover');
+        console.log(strCont);
+                                     }
+        if (param==='focus')         {
+        this.stopRun();
+        var str =     $('.programListItem:focus>.programName>.programName_hover');
+        var strCont = $('.programListItem:focus>.programName');
+                                     }
         var width = str.width();
         var con_w = str.css('left');
 
@@ -102,31 +116,31 @@ import {bindActionCreators} from 'redux';
                         //run();
                     }});              }
         if (width>strCont.width())
-                                  {
+                                    {
             run();
-                                  }}
+                                    }}
         stopRun ()                          {
             $('.programName_hover').stop(true,true);
                                       }
-        componentDidMount()                 {
+        componentDidMount()           {
             //$('.programListItemChosen').focus();
                                       }
         componentWillReceiveProps(nextProps){
             this.setState({itemChosen:nextProps.currentProgramId-1});
-                                      }
+                                            }
         componentDidUpdate ()               {
             //if (this.state.itemChosen===0)
             $('.programListItemChosen').focus();
-                                      }
+                                            }
         shouldComponentUpdate(nextProps,nextState)
                                             {
-        if  (this.state.itemChosen!==nextState.itemChosen)
+        if  (this.state.itemChosen!==nextState.itemChosen&&nextState.itemChosen!==nextProps.currentProgramId-1)
         return false;
         else return true
-                                      }
+                                            }
         render()                            {
-        if (this.props.programs.length&&this.props.visible>0)
-            return                    (
+        if (this.props.programs.length>0&&this.props.menus.programsVisible)
+            return                          (
                 <div className="programList" id="programList" onKeyDown={(e)=>this.handleKey(e)} tabIndex={1}>
                     <div className="menuHeaderCh">
                         <HomeButton visible={true}/>
@@ -152,7 +166,7 @@ import {bindActionCreators} from 'redux';
                                                 <div    key={i}
                                                         tabIndex={i}
                                                         className={elem.id===this.props.currentProgramId?"programListItemChosen":"programListItem"}
-                                                        onMouseOver={(e)=>this.runningString(e)}
+                                                        onMouseOver={(e)=>this.runningString('hover')}
                                                         onMouseLeave={(e)=>this.stopRun()}
                                                         onKeyDown={(e)=>this.handleKey(e,elem)}
                                                 >
@@ -180,6 +194,6 @@ import {bindActionCreators} from 'redux';
         dispatch,setMenusVisible
         }, dispatch);
         export default connect              (
-            state =>                        ({}),
+            state =>                        ({menus:state.menuReducer.menus}),
             mapDispatchToProps
                                             )(ProgramList);

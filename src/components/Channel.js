@@ -75,7 +75,10 @@ export default class Channel extends Component      {
                         <div className="divForFavorite">
                             {this.props.favorite ? <div className="pnameFav"><img src={book} width={20} height={20}/></div> : ''}
                         </div>
-                        <div className="pname" onMouseOver={(e)=>this.runningString(e)} onMouseLeave={(e)=>this.stopRun()}>
+                        <div className="pname"
+                             onMouseOver={(e)=>this.runningString(e)}
+                             onMouseLeave={(e)=>this.stopRun()}
+                        >
                  <span className="pname_hover">
                  {this.props.programName}
                  </span>

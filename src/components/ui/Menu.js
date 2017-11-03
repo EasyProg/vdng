@@ -73,7 +73,7 @@ class  Menu extends Component               {
                                             });
                                             }
     componentDidMount()                     {
-        this.getChannels('https://playlist.hls.tv/play/79fe07520e89862e02b2d00fecf02ca9.m3u');
+        this.getChannels('https://dev.hls.tv/play/79fe07520e89862e02b2d00fecf02ca9.m3u');
         var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
                                             }
     firstToUpperCase( str )                 {
@@ -171,14 +171,14 @@ class  Menu extends Component               {
                     }
 
                                             }
-const mapDispatchToProps = (dispatch) => bindActionCreators(  {
+const mapDispatchToProps = (dispatch) => bindActionCreators({
     dispatch,
     setMenusVisible,
     getChannels,
     receiveData,
     setProgram,
     setElemsVis
-}, dispatch);
+                                                            }, dispatch);
 export default connect (
     state =>           ({
         fullScreen:state.videoReducer.fullScreen,
