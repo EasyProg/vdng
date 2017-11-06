@@ -93,10 +93,9 @@ class   ChannelList extends Component               {
                 ({left:con_len + 'px'},
                     {duration: 2000,
                         complete: function ()
-                        {
+                    {
                             str.css('left',con_w);
-                            //run();
-                        }});}
+                    }});}
             if (width>strCont.width())
             {
                 run();
@@ -297,7 +296,8 @@ class   ChannelList extends Component               {
                                 <MenuButton  visible  = {this.props.menus.channelsMenuVisible&&!this.props.menus.programsVisible}/>
                             </div>:''
                         }
-                        <CustomScroll>
+                        <div className="customMenuScrollDiv">
+                            <div className="customMenuDiv">
                             {this.props.playList.map((elem, i) =>
                                     <Channel
                                     key=                {i}
@@ -313,12 +313,14 @@ class   ChannelList extends Component               {
                                     elemChosen      =   {i === this.state.channelId}
                                     onKeyDown       =   {e=>this.handleKey(e,elem)}
                                     progress        =   {elem.program?getCurrentProgram(elem.program).progressValue:-1}
-                                    setProgramVisibleContext = {this.setProgramsVisible}
+                                    setProgramVisibleContext
+                                                    = {this.setProgramsVisible}
                                     program         =   {elem.program}
                                     />
                             )
                             }
-                        </CustomScroll>
+                            </div>
+                        </div>
                         <ProgramList
                                     visible         = {this.props.menus.programsVisible}
                                     programs        = {this.state.programs}

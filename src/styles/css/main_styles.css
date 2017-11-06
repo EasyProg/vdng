@@ -19,24 +19,28 @@
   line-height: 5.7em;
   padding-left: 20px; }
 
-.customScrollDiv {
+.customMenuScrollDiv {
   height: 92vh;
   position: absolute;
-  width: 100%;
-  overflow-x: visible; }
+  width: 110%;
+  overflow-y: auto;
+  overflow-x: hidden; }
 
-.customScrollDivInner {
+.customMenuScrollDiv::-webkit-scrollbar {
+  width: 0; }
+
+.customMenuScrollDiv::-webkit-scrollbar-track {
+  -webkit-border-radius: 6px;
+  background-color: transparent; }
+
+.customMenuScrollDiv::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 6px;
+  background-color: transparent; }
+
+.customMenuDiv {
   height: 92vh;
   width: 100%;
-  overflow-y: auto; }
-
-.customScrollDiv::-webkit-scrollbar-thumb {
-  width: 3px;
-  background-color: #545454; }
-
-.customScrollDiv::-webkit-scrollbar-track {
-  width: 3px;
-  background-color: rgba(255, 0, 0, 0); }
+  overflow-x: visible; }
 
 .staticItem {
   width: 30vw;
@@ -509,9 +513,9 @@ hr {
 
 .menuHeaderCircleDiv {
   background: #4a4a4a;
-  border-radius: 60px;
-  width: 60px;
-  height: 60px;
+  border-radius: 58px;
+  width: 58px;
+  height: 58px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 9px;
@@ -1035,8 +1039,8 @@ hr {
   height: 92vh;
   position: absolute;
   top: 0;
-  left: 30vw;
-  width: 30vw; }
+  left: 32vw;
+  width: 28vw; }
 
 .dayListItem {
   margin-top: 40px;

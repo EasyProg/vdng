@@ -57,8 +57,7 @@ export default class Channel extends Component      {
         }
     render()             {
         return           (
-            <div  className={this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
-                 //className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
+            <div  className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
                   onClick={this.props.onClick}
                   onKeyDown={this.props.onKeyDown}
                   key={this.props.key}
@@ -77,7 +76,6 @@ export default class Channel extends Component      {
                   <div className="pname"
                        onMouseOver={ (e)=>this.runningString('hover')}
                        onMouseLeave={(e)=>this.stopRun()}
-                       //onKeyDown={(e)=>this.runningString('focus')}
                  >
                  <span className="pname_hover">
                  {this.props.programName}
@@ -92,9 +90,8 @@ export default class Channel extends Component      {
                  </div>
                  {this.state.visible&&this.props.progress!==-1?
                  <div className="epgShowButton" onClick={e=>this.props.setProgramVisibleContext(e,this.props.program)}>
-                    <img src={arrow} width={15} height={15}/>
+                 <img src={arrow} width={15} height={15}/>
                  </div>:null}
-
             </div>
         )
     }

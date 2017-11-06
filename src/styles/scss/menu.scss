@@ -21,32 +21,33 @@
   padding-left: 20px;
                       }
 
-.customScrollDiv      {
+.customMenuScrollDiv  {
   height:92vh;
   position:absolute;
+  width:110%;
+  overflow-y:auto;
+  overflow-x:hidden;
+                      }
+.customMenuScrollDiv::-webkit-scrollbar
+{
+  width:0;
+}
+.customMenuScrollDiv::-webkit-scrollbar-track
+{
+  -webkit-border-radius: 6px;
+  background-color: transparent;
+}
+.customMenuScrollDiv::-webkit-scrollbar-thumb
+{
+  -webkit-border-radius: 6px;
+  background-color: transparent;
+}
+.customMenuDiv          {
+  height:92vh;
   width:100%;
   overflow-x:visible;
 
-  //margin-left: -3em;
-
-                      }
-.customScrollDivInner {
-  height:92vh;
-  width:100%;
-  overflow-y:auto;
-  //margin-left: -3em;
-
-}
-.customScrollDiv::-webkit-scrollbar-thumb
-{
-  width:3px;
-  background-color: #545454;
-}
-.customScrollDiv::-webkit-scrollbar-track
-{
-  width:3px;
-  background-color: rgba(255, 0, 0, 0);
-}
+                        }
 .staticItem             {
 
   width:$menuChannelWidth;
