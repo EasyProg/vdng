@@ -92,7 +92,9 @@ class ProgramList extends Component
                                      }
                                      }
         getDayOfWeek (dt)                   {
-        var date_parse = new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,dt.substr(0,1));
+        var date_parse = new Date(dt.substr(5,4),
+                             Number(dt.substr(2,2))-1,dt.substr(0,2).indexOf('.')===-1?dt.substr(0,2):dt.substr(0,1));
+
         switch (date_parse.getDay()) {
             case 0 : return 'Неділя';
                 break;
@@ -172,7 +174,7 @@ class ProgramList extends Component
                                     <div className="headerProgramDate">
                                     {
                                         e.date.substr(0,2).indexOf('.')===-1?
-                                        e.date.substr(0,5)+e.date.substr(7,2):'0'+
+                                        e.date.substr(0,6)+e.date.substr(8,2):'0'+
                                         e.date.substr(0,5)+e.date.substr(7,2)
                                     }
                                     <span className="textSpan">

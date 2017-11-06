@@ -47,3 +47,4 @@ const playList = [{ EXTINF:
        'СТБ': undefined } },
   'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/145/stream.m3u8' ];
 export default playList;
+
