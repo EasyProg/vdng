@@ -1,3 +1,29 @@
+// function parse(arr)                        {
+//     var channels = [];
+//     var t = '';
+//     var link ='';
+//     var imgLink ='';
+//     let parseCategory ='';
+//     let parseChannelID = 0;
+//     let parseChannelNum = 0;
+//     if (arr)    {
+//         arr.map ((e, i) =>
+//                 {
+//             let c = e['EXTINF'];
+//             parseCategory = c.substring(c.indexOf('category=', 1) + 9, c.indexOf(';keycode', 1));
+//             parseChannelNum = Number(c.substring(c.indexOf('keycode=', 1) + 8, c.indexOf(';thumb', 1)));
+//             parseChannelID = Number(c.substring(c.indexOf('id=', 1) + 3, c.indexOf(';category', 1)));
+//             imgLink = c.substring(c.indexOf('thumb=', 1) + 6, c.indexOf(';type', 1));
+//     //Set triggered path
+//                 });
+//                 }
+//     var serialObj = JSON.stringify(channels);
+//     localStorage.setItem("channels",serialObj);
+//     return(channels);
+//                                           }
+//
+//
+// export default parse;
 function parse(arr)                        {
     var channels = [];
     var t = '';
@@ -22,7 +48,7 @@ function parse(arr)                        {
                         imgLink =  c.substring(c.indexOf('thumb=',1)+6,c.indexOf(';type',1));
                     }
                 }
-                                          }
+            }
             if (typeof e === 'string')    {
                 link = e;
                 channels.push( {channelNum:parseChannelNum,
@@ -32,13 +58,13 @@ function parse(arr)                        {
                     category:parseCategory,
                     img:imgLink,
                     favorite:false});
-                                          }
+            }
         });
     }
     var serialObj = JSON.stringify(channels);
     localStorage.setItem("channels",serialObj);
     return(channels);
-                                          }
+}
 
 
 export default parse;

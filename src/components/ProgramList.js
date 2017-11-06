@@ -92,10 +92,9 @@ class ProgramList extends Component
                                      }
                                      }
         getDayOfWeek (dt)                   {
-        var date_parse = new Date(dt.substr(5,4),
-                             Number(dt.substr(2,2))-1,dt.substr(0,2).indexOf('.')===-1?dt.substr(0,2):dt.substr(0,1));
-
-        switch (date_parse.getDay()) {
+       //var date_parse = new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,dt.substr(0,2).indexOf('.')===-1?dt.substr(0,2):dt.substr(0,1));
+        var date_parse = dt.substr(0,2).indexOf('.')===1?new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,dt.substr(0,1)):new Date(dt.substr(6,4),Number(dt.substr(3,2))-1,dt.substr(0,2));
+        switch (date_parse.getDay())        {
             case 0 : return 'Неділя';
                 break;
             case 1 : return 'Понеділок';
@@ -111,9 +110,9 @@ class ProgramList extends Component
             case 6 : return 'Субота';
                 break;
 
-                                    }
+                                            }
 
-                                    }
+                                            }
         runningString(param)                {
         if (param==='hover')         {
         var str =     $('.programName_hover:hover');
