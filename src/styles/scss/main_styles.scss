@@ -26,7 +26,8 @@ body                 {
   overflow: hidden;
   min-height:400px;
   min-width:600px;
-  height:100vh;
+  height:99vh;
+  width:99vw;
                      }
 #root                {
   height:100vh;
@@ -35,19 +36,19 @@ div [data-reactroot] {
   position: relative;
   height:100vh;
                      }
-@font-face {
+@font-face           {
   font-family: "ComfortaaRegular";
   src: url("../fonts/ComfortaaRegular.eot");
   src: url("../fonts/ComfortaaRegular.eot?#iefix")format("embedded-opentype"),
   url("../fonts/ComfortaaRegular.woff") format("woff"),
   url("../fonts/ComfortaaRegular.ttf") format("truetype");
   font-weight: bold;
-            }
-@font-face {
+                      }
+@font-face            {
   font-family: "RobotoMedium";
   src: url(../fonts/RobotoMedium.ttf);
   font-weight: 600;
-}
+                      }
 
 
 .testDiv        {
@@ -77,25 +78,25 @@ div [data-reactroot] {
   z-index:2147483647;
   //background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0));
 }
-.mainMenuDivFull {
+.mainMenuDivFull        {
   @extend .mainMenuDiv;
   height:120px;
   top:-15px;
   //background: rgba(0, 0, 0,0.3)
   background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0));
-}
+                        }
 
 
-.menuDives {
+.menuDives              {
   height: 150px;
   width:100%;
   display: flex;
-}
+                        }
 //.menuCenterText {
 //  position: relative;
 //  width:500px;
 //}
-.menuCenterText {
+.menuCenterText         {
   //margin-left:150px;
   pointer-events: none;
   position:absolute;
@@ -113,7 +114,7 @@ div [data-reactroot] {
   color:white;
   padding-top:20px;
   background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0));
-}
+                        }
 .upperText              {
   display: flex;
   width:100%;

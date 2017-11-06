@@ -13,8 +13,8 @@ import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 //var    hls = new Hls();
 var hls = new Hls();
-class VideoPlayer extends Component         {
-        constructor(props)                  {
+class VideoPlayer extends Component     {
+        constructor(props)              {
         super(props);
         //Bind functions
         this.changeSize    = this.changeSize.bind(this);
@@ -29,11 +29,18 @@ class VideoPlayer extends Component         {
         this.timer = '';
         this.state = {fullScreen:false,networkError:false};
         this.hls = null;
-                                                }
+        this.int = null;
+                                        }
         //Component Functions
-        componentDidMount()                 {
-        this.videoOnLoad();
-                                            }
+        componentDidMount()             {
+        this.videoOnLoad ();
+            $(window).resize(function() {
+            if (window.innerWidth<=720)
+            {
+             $('body').css('overflow-x','auto');
+            }
+                                        });
+                                        }
         toggle(isPlaying)                   {
                 var  vd = document.getElementById('video');
                 //this.video.video;
@@ -49,18 +56,22 @@ class VideoPlayer extends Component         {
                      }
 
                                                  }
-        changeRes(res)                      {
+        changeRes(res)                  {
             }
         videoOnLoad()                       {
             var vd = document.getElementById('video');
             var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
-            setInterval                     (
-            function() {
-            if (this.hls) {
-            this.hls.destroy();
-            }
-            let hls = new Hls();
-            },30000                         );
+
+            if (this.int)   {
+                clearInterval(this.int);
+                            }
+            this.int = setInterval      (
+                    function () {
+                        if (this.hls)   {
+                            this.hls.destroy();
+                                        }
+                        let hls = new Hls();
+                                }, 60000);
             if  (this.props.video&&navigator.userAgent.search(reg)===-1)
             //false)
             {   //hls.destroy();

@@ -90,7 +90,7 @@
   display: block;
   width: 30vw;
   min-width: 30vw;
-  height: 90vh;
+  height: 91vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -1039,8 +1039,8 @@ hr {
   height: 92vh;
   position: absolute;
   top: 0;
-  left: 32vw;
-  width: 28vw; }
+  left: 33vw;
+  width: 27vw; }
 
 .dayListItem {
   margin-top: 40px;
@@ -1179,7 +1179,8 @@ body {
   overflow: hidden;
   min-height: 400px;
   min-width: 600px;
-  height: 100vh; }
+  height: 99vh;
+  width: 99vw; }
 
 #root {
   height: 100vh; }
