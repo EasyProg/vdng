@@ -10,7 +10,7 @@ export default class Channel extends Component      {
     constructor(props)   {
         super(props);
         this.state = {visible:false}
-                            }
+                         }
     static propTypes =   {
         progress:       PropTypes.number,
         img:            PropTypes.string,
@@ -52,12 +52,15 @@ export default class Channel extends Component      {
         $('.pname_hover').stop(true,true);
                         }
     circleVisible(param) {
-        if (param) this.setState({visible:true});
-        else this.setState({visible:false})
-        }
+        if (param) this.setState({visible: true});
+        else this.setState({visible: false})
+                         }
     render()             {
         return           (
             <div  className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
+                  //this.props.elemChosen?'menuItemStyleChosen':
+                  //this.props.chosen?'menuItemStylefocus':
+                 //className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
                   onClick={this.props.onClick}
                   onKeyDown={this.props.onKeyDown}
                   key={this.props.key}
@@ -76,6 +79,7 @@ export default class Channel extends Component      {
                   <div className="pname"
                        onMouseOver={ (e)=>this.runningString('hover')}
                        onMouseLeave={(e)=>this.stopRun()}
+                       //onKeyDown={(e)=>this.runningString('focus')}
                  >
                  <span className="pname_hover">
                  {this.props.programName}
@@ -88,10 +92,11 @@ export default class Channel extends Component      {
                  {/*{this.props.favorite ? <span className="pnameFav"><img src={book} width={20} height={20}/></span> : ''}*/}
                  </div>
                  </div>
-                 {this.state.visible&&this.props.progress!==-1?
+                 {(this.props.elemChosen||this.state.visible)&&this.props.progress!==-1?
                  <div className="epgShowButton" onClick={e=>this.props.setProgramVisibleContext(e,this.props.program)}>
-                 <img src={arrow} width={15} height={15}/>
+                    <img src={arrow} width={15} height={15}/>
                  </div>:null}
+
             </div>
         )
     }

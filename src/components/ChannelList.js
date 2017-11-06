@@ -29,17 +29,18 @@ class   ChannelList extends Component               {
         this.switchChannel = this.switchChannel.bind(this);
         this.setMenusVisibleFalse = this.setMenusVisibleFalse.bind(this);
         this.setProgramsVisible = this.setProgramsVisible.bind(this);
+        this.disableFocus = this.disableFocus.bind(this);
         this.timer = '';
         this.menuTimer = '';
-        this.state =                                     {
+        this.state =                                {
         itemChosen:0,
         channelId:0,
         isClicked:false,
         program:[],
         programs:[],
         currentProgram:'',
-                                                         }
-                                                         }
+                                                    }
+                                                    }
         static propTypes  =                         {
             playList:   PropTypes.array.isRequired,
             category:   PropTypes.string.isRequired,
@@ -275,6 +276,10 @@ class   ChannelList extends Component               {
                 $('#programList').focus();
                                                     }
                                                     }
+        disableFocus()                              {
+        $('#channels').focus();
+        this.setState({channelId:-1});
+                                                    }
         render()                                    {
         //this.switchChannel();
         if (this.props.playList.length)
@@ -285,6 +290,7 @@ class   ChannelList extends Component               {
                          !this.props.catMenuVisible?'menuChannel':'menuChannelNone'}
                          onClick={this.props.onClick} id="channels" tabIndex={1}
                          onKeyDown={e=>this.handleKey(e)}
+                         onMouseOver={e=>this.disableFocus()}
                     >
                         {this.props.playList.length?
                             <div className="menuHeaderCh">
@@ -314,7 +320,7 @@ class   ChannelList extends Component               {
                                     onKeyDown       =   {e=>this.handleKey(e,elem)}
                                     progress        =   {elem.program?getCurrentProgram(elem.program).progressValue:-1}
                                     setProgramVisibleContext
-                                                    = {this.setProgramsVisible}
+                                                    =   {this.setProgramsVisible}
                                     program         =   {elem.program}
                                     />
                             )

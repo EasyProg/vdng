@@ -117,8 +117,8 @@ class  Categories extends Component                     {
             {
                 this.handleClick(this.state.itemFocus,this.state.category);
                 //$('#video').focus();
-                if (this.props.channels.length>0)
-                $('#channels').focus();
+                //if (this.props.channels.length>0)
+                //$('#channels').focus();
                 break;
             }
             case 27: {

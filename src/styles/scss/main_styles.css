@@ -56,15 +56,11 @@
   height: 5vh;
   bottom: 0; }
 
-.menuItemStyle:hover, .menuItemStyleChosen:hover, .menuItemStylefocus:hover {
+.menuItemStyle:hover:not(:focus), .menuItemStyleChosen:hover:not(:focus), .menuItemStylefocus:hover:not(:focus) {
   width: 110%;
   background: #9677ff; }
 
-.menuItemStyle:focus, .menuItemStyleChosen:focus, .menuItemStylefocus:focus {
-  width: 110%;
-  background: #9677ff; }
-
-.menuItemStyle:target, .menuItemStyleChosen:target, .menuItemStylefocus:target {
+.menuItemStyle:focus:not(:hover), .menuItemStyleChosen:focus:not(:hover), .menuItemStylefocus:focus:not(:hover) {
   width: 110%;
   background: #9677ff; }
 
@@ -74,6 +70,10 @@
 
 .menuItemStylefocus {
   background: #575757; }
+
+.menuItemStylefocus:focus {
+  width: 110%;
+  background: #9677ff; }
 
 .circleButtonSpan {
   width: 40px;
@@ -90,7 +90,7 @@
   display: block;
   width: 30vw;
   min-width: 30vw;
-  height: 91vh;
+  height: 9vh;
   position: absolute;
   top: 0;
   left: 0;
