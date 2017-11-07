@@ -73,8 +73,12 @@ class  Menu extends Component               {
                                             });
                                             }
     componentDidMount()                     {
-        this.getChannels('https://dev.hls.tv/play/79fe07520e89862e02b2d00fecf02ca9.m3u');
-        var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
+    this.getChannels('http://wp-test.hls.tv/79fe07520e89862e02b2d00fecf02ca9.m3u');
+        //get current url for player
+        //get hls
+
+
+    var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
                                             }
     firstToUpperCase( str )                 {
         return str.substr(0, 1).toUpperCase() + str.substr(1);

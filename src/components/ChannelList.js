@@ -277,7 +277,7 @@ class   ChannelList extends Component               {
         $('#channels').focus();
                                                     }
         // shouldComponentUpdate() {
-        // if ()
+        // if
         //                         }
 
         componentDidUpdate(prevProps)
