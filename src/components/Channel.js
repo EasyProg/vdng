@@ -20,7 +20,7 @@ export default class Channel extends Component      {
         hiddenChannel:  PropTypes.bool.isRequired,
         chosen:         PropTypes.bool.isRequired,
         favorite:       PropTypes.bool.isRequired,
-                            };
+                        };
     runningString(param) {
         if (param==='hover') {
         var str     = $('.pname_hover:hover');
@@ -57,10 +57,7 @@ export default class Channel extends Component      {
                          }
     render()             {
         return           (
-            <div  className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
-                  //this.props.elemChosen?'menuItemStyleChosen':
-                  //this.props.chosen?'menuItemStylefocus':
-                 //className={this.props.elemChosen?'menuItemStyleChosen':this.props.chosen?'menuItemStylefocus':'menuItemStyle'}
+            <div  className={this.props.chosen?'menuItemStyleChosen':'menuItemStyle'}
                   onClick={this.props.onClick}
                   onKeyDown={this.props.onKeyDown}
                   key={this.props.key}
@@ -77,9 +74,9 @@ export default class Channel extends Component      {
                   {this.props.favorite ? <div className="pnameFav"><img src={book} width={20} height={20}/></div> : ''}
                   </div>
                   <div className="pname"
-                       onMouseOver={ (e)=>this.runningString('hover')}
-                       onMouseLeave={(e)=>this.stopRun()}
-                       //onKeyDown={(e)=>this.runningString('focus')}
+                  onMouseOver={(e)=>this.runningString('hover')}
+                  onMouseLeave={(e)=>this.stopRun()}
+                  //onKeyDown={(e)=>this.runningString('focus')}
                  >
                  <span className="pname_hover">
                  {this.props.programName}

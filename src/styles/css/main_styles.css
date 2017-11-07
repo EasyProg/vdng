@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.menuItemStyle, .menuItemStyleChosen, .menuItemStylefocus {
+.menuItemStyle, .menuItemStyle:focus, .menuItemStyle:hover, .menuItemStyleChosen {
   display: block;
   cursor: pointer;
   width: 30vw;
@@ -56,24 +56,16 @@
   height: 5vh;
   bottom: 0; }
 
-.menuItemStyle:hover:not(:focus), .menuItemStyleChosen:hover:not(:focus), .menuItemStylefocus:hover:not(:focus) {
+.menuItemStyle:focus, .menuItemStyleChosen:focus {
   width: 110%;
   background: #9677ff; }
 
-.menuItemStyle:focus:not(:hover), .menuItemStyleChosen:focus:not(:hover), .menuItemStylefocus:focus:not(:hover) {
+.menuItemStyle:hover, .menuItemStyleChosen:hover {
   width: 110%;
   background: #9677ff; }
 
 .menuItemStyleChosen {
-  width: 110%;
-  background: #9677ff; }
-
-.menuItemStylefocus {
   background: #575757; }
-
-.menuItemStylefocus:focus {
-  width: 110%;
-  background: #9677ff; }
 
 .circleButtonSpan {
   width: 40px;
@@ -1251,6 +1243,7 @@ div [data-reactroot] {
   width: 100%;
   flex-direction: row;
   align-items: center;
+  line-height: 1em;
   letter-spacing: 1px;
   font-family: "ComfortaaRegular";
   font-size: 2em; }

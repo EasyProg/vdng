@@ -72,8 +72,7 @@ class VideoPlayer extends Component     {
                                         }
                         let hls = new Hls();
                                 }, 60000);
-            if  (this.props.video&&navigator.userAgent.search(reg)===-1)
-            //false)
+            if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
             {   //hls.destroy();
             hls.loadSource(this.props.video.link);
             hls.attachMedia(vd);

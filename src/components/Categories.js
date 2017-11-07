@@ -99,10 +99,10 @@ class  Categories extends Component                     {
                         category: elems[nextElem].name,
                     });
                 break;}
-            case 39: {
+            case 39:{
                 $('#channels').focus();
-                $('.menuItemStylefocus').focus();
-                console.log($(':focus'));
+                $('.menuItemStyle:first').focus();
+                //console.log($(':focus'));
                 break;
                     }
             case 38:

@@ -64,33 +64,21 @@
   //background: rgba(0,0,0,0.8);
   bottom:0;
 }
-.menuItemStyle:hover:not(:focus)
-{
-  width:110%;
-  background:$menuHoverColor;
-}
-.menuItemStyle:focus:not(:hover)
-{
-  width:110%;
-  background:$menuHoverColor;
-}
-.menuItemStyleChosen
-{
+.menuItemStyle:focus {
   @extend .menuItemStyle;
-  //width:110%;
   width:110%;
   background:$menuHoverColor;
 }
-.menuItemStylefocus   {
+.menuItemStyle:hover {
+  @extend .menuItemStyle;
+  width:110%;
+  background:$menuHoverColor;
+}
+.menuItemStyleChosen   {
   @extend .menuItemStyle;
   background:$menuActiveColor;
   //width:110%;
 
-                      }
-.menuItemStylefocus:focus
-                      {
-  width:110%;
-  background:$menuHoverColor;
                       }
 .circleButtonSpan     {
   width:40px;
@@ -99,7 +87,7 @@
   top:-53px;
   left:285px;
   visibility: visible;
-}
+                      }
 .circleButtonSpanNone {
   visibility: hidden;
 }

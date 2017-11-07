@@ -72,11 +72,12 @@ class ProgramList extends Component
         break;
                                      }
                                      }
-        switchProgram(param='next',chosen)  {
+        switchProgram(param='next',chosen)
+                                     {
         var items = $('.programListItem,.programListItemChosen');
         var i = chosen||0;
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
-        var prevElem = i - 1 <= 0 ? items.length - 1 : i - 1;
+        var prevElem = i - 1 <= 0 ?items.length - 1 : i - 1;
         if (param === 'next'&&items[nextElem])
                                      {
             items[nextElem].focus();
@@ -148,7 +149,7 @@ class ProgramList extends Component
             //$('.programListItemChosen').focus();
                                       }
         componentWillReceiveProps(nextProps){
-            this.setState({itemChosen:nextProps.currentProgramId-1});
+        this.setState({itemChosen:nextProps.currentProgramId-1});
                                             }
         componentDidUpdate ()               {
             //if (this.state.itemChosen===0)

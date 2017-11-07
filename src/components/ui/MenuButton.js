@@ -32,12 +32,8 @@ class MenuButton extends Component                      {
             if (!channelsState===true)
             {
                 $('#channels').focus();
-                $('.menuItemStylefocus').focus();
-
+                $('.menuItemStyleChosen').focus();
             }
-            // if (!channelsState===false)                 {
-            // $('#menuCenterText').fadeOut(100);
-            //                                             }
                                                         }
         else                                            {
 
