@@ -27,12 +27,12 @@ class  MainMenu extends Component
             return  (<div className="twoMenuOpen">
             </div>);
     }
-    render()     {
+    render()         {
         if           (this.props.isOpened===false)
             return null;
         else     return    this.returnState()
 
-    }
+                     }
 
 }
 export default connect  (

@@ -5,7 +5,7 @@ import HoldScreen from "./ui/HoldScreen";
 import ChannelUnavailable from "./ui/ChannelUnavailable";
 import {bindActionCreators} from 'redux';
 import {toggleAutoPlay} from '../actions/actions';
-import  {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import * as $ from 'jquery';
 class Video extends Component
 {

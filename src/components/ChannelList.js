@@ -231,7 +231,8 @@ class   ChannelList extends Component               {
         handleClick (elem,e)                        {
             e.stopPropagation();
             e.preventDefault();
-            this.setState({channelId: elem.channelId,itemChosen:elem.channelId});
+            if (elem)
+            {this.setState({channelId: elem.channelId,itemChosen:elem.channelId});}
             this.props.dispatch(changeVideo(elem));
             this.props.dispatch(togglePlay(!this.props.autoPlay));
             this.props.dispatch(toggleCategory(this.props.category));

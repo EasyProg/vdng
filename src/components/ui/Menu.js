@@ -21,9 +21,9 @@ import fun from '../../img/categ/fun.svg';
 import films from '../../img/categ/films.svg';
 import MainMenu from '../../components/ui/MainMenu';
 import favorites from '../../img/categ/favorites.svg';
+import cognitive from '../../img/cognitive.svg';
 import getCurrentProgram from '../../components/workingDate';
 import newParse from '../../components/parseFromJson';
-
 import multidisciplinary from '../../img/categ/multidisciplinary.svg';
 //import images
 class  Menu extends Component               {
@@ -105,6 +105,8 @@ class  Menu extends Component               {
             case 'Многопрофильный':return multidisciplinary;
                 break;
             case 'Детский':return kids;
+                break;
+            case 'Познавательный':return cognitive;
 
         }
     }

@@ -127,7 +127,7 @@ class VideoPlayer extends Component             {
             if (param===1)
             {vd.playbackRate+=0.1;}
             else vd.playbackRate-=0.1;
-        }
+                                            }
         handlePlay()                        {
             this.timer = this.state.fullScreen?
                 setTimeout(function()

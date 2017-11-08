@@ -68,7 +68,7 @@ export default class Channel extends Component      {
             >
             <div className="staticItem">
                   <span className="spanChannelid">{this.props.channelNum}</span>
-                  <img  width={100} height={100} src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
+                  <img src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
                   <div className="menuChannelName">
                   <div className="divForFavorite">
                   {this.props.favorite ? <div className="pnameFav"><img src={book} width={20} height={20}/></div> : ''}

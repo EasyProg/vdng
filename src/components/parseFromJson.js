@@ -3,19 +3,19 @@ function newParse(arr)
     let channels = [];
 //Parsing new json
 
-    arr.map((e, i) => {
+    arr.map((e, i) =>   {
+            if (e['type']==='hls') {
                 channels.push(
-                {
-                    //channelNum:parseChannelNum,
-                    channelId :e['id'],
-                    channel   :e['name'],
-                    link:      e['link'],
-                    //category:parseCategory,
-                    img:       e['logo'],
-                    aspect:    e['aspect'],
-                    favorite:false
-                });
-                       }
+                        {
+                        channelId: e['id'],
+                        channel: e['name'],
+                        link: e['link'],
+                        img: e['logo'],
+                        aspect: e['aspect'],
+                        favorite: false
+                        });
+                        }
+                        }
     );
     return channels;
 }

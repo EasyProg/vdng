@@ -6,6 +6,7 @@ import border     from '../img/switch_button.gif';
 import live       from '../img/live-icon.gif';
 import nofavorite from '../img/bookmark-white.gif';
 import favorite   from   '../img/bookmark-black-shape.gif';
+import aspect     from '../img/aspect_ratio.svg';
 import 'semantic-ui-css/semantic.min.css';
 import '../styles/css/main_styles.css';
 import * as $ from 'jquery';
@@ -28,11 +29,13 @@ class VideoBottomMenu extends Component
             lock:false,
             resolution:'1080р',
             Favorite:this.isFavorite(this.props.channelId),
+            ratio:0
             //isFavorite()
         };
         this.toggleFavorite = this.toggleFavorite.bind(this);
         this.isFavorite=      this.isFavorite.bind(this);
         this.filterChannels= this.filterChannels.bind(this);
+        this.changeRatio  = this.changeRatio.bind(this);
     }
     shouldComponentUpdate (nextProps,nextState)
     {
@@ -44,6 +47,7 @@ class VideoBottomMenu extends Component
         }
         else return false
     }
+
 
     chooseResolution (res)  {
         this.setState       ({
@@ -97,9 +101,31 @@ class VideoBottomMenu extends Component
         else localStorage.removeItem(this.props.channelId);
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         this.filterChannels(this.props.channels,this.props.channelCategory);
-        //$('#vduppermenu').focus()
-
-        ;}
+        }
+    changeRatio()                       {
+    switch(this.state.ratio)            {
+        case 0:
+        {
+        this.setState({ratio:1});
+        }
+        break;
+        case 1:
+        {
+        this.setState({ratio:2});
+        }
+        break;
+        case 2:
+        {
+        this.setState({ratio:3});
+        }
+        break;
+        case 3:
+        {
+        this.setState({ratio:0});
+        }
+        break;
+                                        }
+                                        }
 
     render () {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
@@ -125,6 +151,9 @@ class VideoBottomMenu extends Component
                                 <div className="upper_buttons_res">
                                     {this.state.resolution}
                                 </div>
+                            </div>
+                            <div className="iconsDiv">
+                                <img src={aspect} width={40} height={30} onClick={this.changeRatio}/>
                             </div>
                         </div>
                         <div className="iconResDiv" onClick={(e)=>this.changeSize(e)}>

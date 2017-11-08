@@ -26,7 +26,7 @@ class MenuButton extends Component                      {
 
             },!channelsState));
             //Set focus to menu
-            $('#menuCenterText').fadeOut(100);
+            $('#menuCenterText,.bottomShadowDiv').fadeOut(100);
             $("#vduppermenu,#vdbottommenu").fadeOut(100);
             $('#video').focus();
             if (!channelsState===true)
