@@ -2,20 +2,21 @@ import {combineReducers} from 'redux';
 import * as settings from '../settings.json';
 import hlsArray from '../hls';
 import parse from '../components/Parsing';
-function getChannels(url)                   {
-    fetch(url).then(function(response)      {
-            if (response.status!==200)      {
-                console.log('Looks like it was some error ' + response.status);
-                return;
-            }
-            response.json().then            (function(data)
-                                            {
-                    console.log(data);
-                                            }
-                                            )
-                                            }
-                                            )
-                                            }
+// function getChannels(url)                   {
+//     fetch(url).then(function(response)      {
+//             if (response.status!==200)      {
+//                 console.log('Looks like it was some error ' + response.status);
+//                 return;
+//             }
+//             response.json().then            (function(data)
+//                                             {
+//                     console.log(data);
+//                                             }
+//                                             )
+//                                             }
+//                                             )
+//                                             }
+
 const   initialState  = {
         video:{link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/51/stream.m3u8',
         channelNum:1,
@@ -31,12 +32,12 @@ const   initialState  = {
         fullScreen:false
 
                         };
-const   channelState = {
+const   channelState =  {
     chosenCategory   :'Все жанры',
     channels:parse(hlsArray),
     isFavor:false,
     channelProgram:[]
-                       };
+                        };
 const   menuState =    {
     menus:             {
     channelsMenuVisible:false,

@@ -10,16 +10,16 @@ function parse(arr)                        {
         arr.map  ((e, i) =>
                  {
                  let c = e['EXTINF'];
-                 link =          c.substring( c.indexOf('https://cdnua01', 1));
-                 parseCategory = c.substring( c.indexOf('category=', 1) + 9, c.indexOf(';keycode', 1));
+                 link            = c.substring( c.indexOf('https://cdnua01', 1));
+                 parseCategory   = c.substring( c.indexOf('category=', 1) + 9, c.indexOf(';keycode', 1));
                  parseChannelNum = Number(    c.substring(c.indexOf('keycode=', 1) + 8, c.indexOf(';thumb', 1)));
-                 parseChannelID =  Number(    c.substring(c.indexOf('id=', 1) + 3, c.indexOf(';category', 1)));
-                 imgLink =       c.substring( c.indexOf('thumb=', 1) + 6, c.indexOf(';type', 1));
-                 channelName =                c.substring(c.indexOf('hls,', 1) + 4,   c.indexOf('https://cdnua01',1));
+                 parseChannelID  = Number(    c.substring(c.indexOf('id=', 1) + 3, c.indexOf(';category', 1)));
+                 imgLink         = c.substring( c.indexOf('thumb=', 1) + 6, c.indexOf(';type', 1));
+                 channelName     = c.substring(c.indexOf('hls,', 1) + 4,   c.indexOf('https://cdnua01',1));
                      //hls,112 Украинаhttps://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/53/stream.m3u8
                     //Set triggered path
                  channels.push         (
-                {
+                               {
                  channelNum:parseChannelNum,
                  channelId :parseChannelID,
                  channel   :channelName,
@@ -36,6 +36,7 @@ function parse(arr)                        {
 
 
 export default parse;
+
 // function parse(arr)                        {
 //     var channels = [];
 //     var t = '';

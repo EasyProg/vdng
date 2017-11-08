@@ -38,7 +38,7 @@ export default class VideoArchive extends  Component
         super(props);
         this.searchVideo = this.searchVideo.bind(this);
         this.state = {videos:arch}
-    }
+                                        }
     searchVideo(videos)                 {
         videos = videos.length === 0? arch:videos;
         var research = this.input.value.toUpperCase();

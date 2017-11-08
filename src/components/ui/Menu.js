@@ -22,6 +22,8 @@ import films from '../../img/categ/films.svg';
 import MainMenu from '../../components/ui/MainMenu';
 import favorites from '../../img/categ/favorites.svg';
 import getCurrentProgram from '../../components/workingDate';
+import newParse from '../../components/parseFromJson';
+
 import multidisciplinary from '../../img/categ/multidisciplinary.svg';
 //import images
 class  Menu extends Component               {
@@ -31,15 +33,19 @@ class  Menu extends Component               {
         this.parseCategories = this.parseCategories.bind(this);
         this.getPrograms = this.getPrograms.bind(this);
                                             }
-    getChannels(url)                        {
-    fetch(url).then(function(response)      {
+    getJsonChannels(url)                    {
+    let context = this;
+    fetch(url).then(function(response)
+                                            {
             if (response.status!==200)      {
                 console.log('Looks like it was some error ' + response.status);
                 return;
                                             }
-            response.json().then            (function(data)
+            response.then                   (function(data)
                                             {
-            console.log(data);
+            console.log(data[0]);
+            context.getChannels(newParse(data));
+
                                             }
                                             )
                                             }
@@ -73,12 +79,13 @@ class  Menu extends Component               {
                                             });
                                             }
     componentDidMount()                     {
-    this.getChannels('http://wp-test.hls.tv/79fe07520e89862e02b2d00fecf02ca9.m3u');
-        //get current url for player
-        //get hls
-
-
+    //this.getChannels('https://admin.hls.tv/play/9762be960fd8d0586edfe1b14e391583.m3u');
+    //set href
+    var href   = document.location.href;
+    var parsed = href.substring(href.indexOf('/',10)+1);
+    this.getJsonChannels('https://cdnua02.hls.tv/play/'+ parsed +'/list.json');
     var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
+
                                             }
     firstToUpperCase( str )                 {
         return str.substr(0, 1).toUpperCase() + str.substr(1);
@@ -139,7 +146,8 @@ class  Menu extends Component               {
     render()                                {
         if  (this.props.autoPlay)
              return  (
-                <div                id="menu"      className="mainMenuDiv">
+                <div                id="menu"
+                                    className="mainMenuDiv">
                                     <div
                                     className="menuDives"
                                     onMouseEnter={e=>this.props.dispatch(setElemsVis(true))}
@@ -172,10 +180,10 @@ class  Menu extends Component               {
                 </div>
                     );
         else return null
-                    }
+                                            }
 
                                             }
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+const mapDispatchToProps = (dispatch) => bindActionCreators ({
     dispatch,
     setMenusVisible,
     getChannels,

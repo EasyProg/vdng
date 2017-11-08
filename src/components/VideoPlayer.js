@@ -32,7 +32,7 @@ class VideoPlayer extends Component     {
         this.int = null;
                                         }
         //Component Functions
-        componentDidMount()             {
+        componentDidMount()                 {
         this.videoOnLoad ();
             $(window).resize(function() {
             if (window.innerWidth<=720)
@@ -56,7 +56,7 @@ class VideoPlayer extends Component     {
                      }
 
                                                  }
-        changeRes(res)                  {
+        changeRes(res)                      {
             }
         videoOnLoad()                       {
             var vd = document.getElementById('video');
@@ -133,7 +133,7 @@ class VideoPlayer extends Component     {
                     //Скрыть плей
                     if ($('#channels').className==='menuChannel')
                     {$('#video').focus();}
-                    $("#vduppermenu,#vdbottommenu,#menuCenterText").fadeOut(1000);
+                    $("#vduppermenu,#vdbottommenu,#menuCenterText,.bottomShadowDiv").fadeOut(1000);
                                                     },5000);
         }
         componentWillReceiveProps(nextProps){
@@ -163,7 +163,7 @@ class VideoPlayer extends Component     {
                 {
                     clearTimeout(this.timer);
                     //$('.menuCenterText').css({"display":"flex"});
-                    $("#vduppermenu,#vdbottommenu,#menuCenterText").fadeIn(1);
+                    $("#vduppermenu,#vdbottommenu,#menuCenterText,.bottomShadowDiv").fadeIn(1);
                     //Запустить скрытие
                     this.handlePlay();
                 }
@@ -177,7 +177,7 @@ class VideoPlayer extends Component     {
                 clearTimeout(this.timer);
                 //$('.menuCenterText').css({"display":"flex"});
                 //#menuCenterText
-                    $("#vduppermenu,#vdbottommenu,#menuCenterText").fadeIn(1);
+                    $("#vduppermenu,#vdbottommenu,#menuCenterText,.bottomShadowDiv").fadeIn(1);
                 //Запустить скрытие
                 this.handlePlay();
             }
@@ -272,7 +272,6 @@ class VideoPlayer extends Component     {
                                  networkError={this.state.networkError}
 
                 />
-                {/*<div className="panelDiv" id="panelDiv"/>*/}
                 <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                  toggleContext={this.toggle}
                                  handleOnPlayContext={this.handleOnPlay}

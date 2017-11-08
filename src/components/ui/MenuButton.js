@@ -46,7 +46,7 @@ class MenuButton extends Component                      {
 
                 }, true));
             }
-        }
+                                                        }
     }
     setPositionClass()                                  {
         if (this.props.isOpened!==true)
