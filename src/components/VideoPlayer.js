@@ -130,7 +130,8 @@ class VideoPlayer extends Component             {
         }
         handlePlay()                        {
             this.timer = this.state.fullScreen?
-                setTimeout(function()               {
+                setTimeout(function()
+                                            {
                     //Скрыть плей
                     $("#vduppermenu").fadeOut(1000);
                                                     },5000):
@@ -140,7 +141,7 @@ class VideoPlayer extends Component             {
                     {$('#video').focus();}
                     $("#vduppermenu,#vdbottommenu,#menuCenterText,.bottomShadowDiv").fadeOut(1000);
                                                     },5000);
-        }
+                                            }
         componentWillReceiveProps(nextProps){
             this.setState({networkError:false});
         if (nextProps.isVisible===true)
