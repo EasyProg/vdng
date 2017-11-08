@@ -13,8 +13,8 @@ import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 //var    hls = new Hls();
 var hls = new Hls();
-class VideoPlayer extends Component     {
-        constructor(props)              {
+class VideoPlayer extends Component             {
+        constructor(props)                      {
         super(props);
         //Bind functions
         this.changeSize    = this.changeSize.bind(this);
@@ -30,18 +30,23 @@ class VideoPlayer extends Component     {
         this.state = {fullScreen:false,networkError:false};
         this.hls = null;
         this.int = null;
-                                        }
+                                                }
         //Component Functions
-        componentDidMount()                 {
+        componentDidMount()                     {
         this.videoOnLoad ();
-            $(window).resize(function() {
+            $(window).resize(function()         {
             if (window.innerWidth<=720)
             {
              $('body').css('overflow-x','auto');
             }
-                                        });
-                                        }
-        toggle(isPlaying)                   {
+            if (window.innerHeight<=480)
+            {
+             $('body').css('overflow-y','auto');
+            }
+            else $('body').css('overflow','hidden');
+                                                });
+                                                }
+        toggle(isPlaying)                       {
                 var  vd = document.getElementById('video');
                 //this.video.video;
                 //console.log(vd);
@@ -56,9 +61,9 @@ class VideoPlayer extends Component     {
                      }
 
                                                  }
-        changeRes(res)                      {
-            }
-        videoOnLoad()                       {
+        changeRes(res)                           {
+                                                 }
+        videoOnLoad()                            {
             var vd = document.getElementById('video');
             var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
 

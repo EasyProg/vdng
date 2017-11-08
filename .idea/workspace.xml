@@ -8,21 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2309f941-4b33-4db9-a988-0b031d5a3870" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/parseFromJson.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Parsing.js" afterPath="$PROJECT_DIR$/src/components/Parsing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoArchive.js" afterPath="$PROJECT_DIR$/src/components/VideoArchive.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoPlayer.js" afterPath="$PROJECT_DIR$/src/components/VideoPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/Menu.js" afterPath="$PROJECT_DIR$/src/components/ui/Menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/MenuButton.js" afterPath="$PROJECT_DIR$/src/components/ui/MenuButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/App.js" afterPath="$PROJECT_DIR$/src/containers/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.scss" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/menu.scss" afterPath="$PROJECT_DIR$/src/styles/scss/menu.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,79 +25,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VideoArchive.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/VideoArchive.js">
+      <file leaf-file-name="VideoPlayer.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/VideoPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="38" column="55" lean-forward="true" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Parsing.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Parsing.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="37" column="21" lean-forward="false" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Menu.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="145" column="45" lean-forward="true" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="45" />
+            <state relative-caret-position="-1122">
+              <caret line="54" column="30" lean-forward="true" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
               <folding>
-                <element signature="e#0#49#0" expanded="true" />
-                <element signature="e#564#606#0" expanded="true" />
-                <element signature="n#!!block;n#getPrograms#0;n#Menu#0" expanded="false" />
-                <element signature="n#!!block;n#firstToUpperCase#0;n#Menu#0" expanded="false" />
-                <element signature="n#!!block;n#chooseSrc#0;n#Menu#0" expanded="false" />
-                <element signature="n#!!block;n#parseCategories#0;n#Menu#0" expanded="false" />
-                <element signature="n#!!block;n#toggleMenuState#0;n#Menu#0" expanded="false" />
+                <element signature="n#!!block;n#changeRes#0;n#VideoPlayer#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parseFromJson.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/parseFromJson.js">
+      <file leaf-file-name="main_styles.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/scss/main_styles.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="actions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/actions/actions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
+            <state relative-caret-position="510">
               <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-                <element signature="e#1483#1744#0" expanded="false" />
-                <element signature="e#1772#1985#0" expanded="false" />
-                <element signature="e#2006#2025#0" expanded="false" />
-                <element signature="n#!!block;n#videoReducer#0" expanded="false" />
-                <element signature="n#!!block;n#menuReducer#0" expanded="false" />
-                <element signature="n#!!block;n#settingsReducer#0" expanded="false" />
-                <element signature="n#!!block;n#epgReducer#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -154,6 +85,7 @@
       <find>MusicBox</find>
       <find>focus</find>
       <find>componentDidUpdate</find>
+      <find>window</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\User\WebstormProjects\vdng-video\src</dir>
@@ -212,12 +144,12 @@
         <option value="$PROJECT_DIR$/src/containers/App.js" />
         <option value="$PROJECT_DIR$/src/components/ui/MenuButton.js" />
         <option value="$PROJECT_DIR$/src/styles/scss/main_styles.scss" />
-        <option value="$PROJECT_DIR$/src/components/VideoPlayer.js" />
         <option value="$PROJECT_DIR$/src/components/VideoArchive.js" />
         <option value="$PROJECT_DIR$/src/components/Parsing.js" />
         <option value="$PROJECT_DIR$/src/components/parseFromJson.js" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/components/ui/Menu.js" />
+        <option value="$PROJECT_DIR$/src/components/VideoPlayer.js" />
       </list>
     </option>
   </component>
@@ -237,7 +169,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="70" />
     <option name="y" value="184" />
     <option name="width" value="1936" />
@@ -387,18 +319,18 @@
       <workItem from="1509615055241" duration="23482000" />
       <workItem from="1509702963154" duration="29192000" />
       <workItem from="1509968611933" duration="18955000" />
-      <workItem from="1509990359363" duration="45442000" />
+      <workItem from="1509990359363" duration="47374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="808108000" />
+    <option name="totallyTimeSpent" value="810040000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.165625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09862142" sideWeight="0.61510414" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26193002" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -773,14 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/scss/main_styles.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="98" column="16" lean-forward="false" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ui/MenuButton.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -789,35 +713,6 @@
             <element signature="e#0#49#0" expanded="true" />
             <element signature="n#!!block;n#setPositionClass#0;n#MenuButton#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/VideoPlayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="170" column="54" lean-forward="true" selection-start-line="170" selection-start-column="54" selection-end-line="170" selection-end-column="54" />
-          <folding>
-            <element signature="n#!!block;n#componentDidMount#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#toggle#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#changeRes#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#videoOnLoad#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#handleCurrTime#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#handleCurrPlayback#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#handlePlay#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#componentWillReceiveProps#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#escFullScreen#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#changeSize#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#componentWillUnmount#0;n#VideoPlayer#0" expanded="false" />
-            <element signature="n#!!block;n#shouldComponentUpdate#0;n#VideoPlayer#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ui/HoldScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="37" column="15" lean-forward="true" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,18 +775,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/parseFromJson.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="145" column="45" lean-forward="true" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="45" />
+        <state relative-caret-position="640">
+          <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
             <element signature="e#564#606#0" expanded="true" />
@@ -900,6 +787,40 @@
             <element signature="n#!!block;n#chooseSrc#0;n#Menu#0" expanded="false" />
             <element signature="n#!!block;n#parseCategories#0;n#Menu#0" expanded="false" />
             <element signature="n#!!block;n#toggleMenuState#0;n#Menu#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/parseFromJson.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ui/HoldScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="37" column="15" lean-forward="true" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/scss/main_styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/VideoPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1122">
+          <caret line="54" column="30" lean-forward="true" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!block;n#changeRes#0;n#VideoPlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
