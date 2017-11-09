@@ -68,7 +68,7 @@ class VideoUpperMenu extends Component                         {
                     ));
                     //$('#channels').focus();
                     $("#vduppermenu,#vdbottommenu").fadeOut(100);
-                    $('#menuCenterText').fadeOut(100);
+                    $('#menuCenterText,.bottomShadowDiv').fadeOut(100);
                     //console.log('SHIT!@');
                 }
 
