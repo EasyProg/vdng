@@ -50,16 +50,43 @@ class Video extends Component
         this.props.dispatch(toggleAutoPlay(true));
         this.video.focus();
     }
+    setRatio(num)  {
+    switch (num)   {
+        case 0:
+            return {
+            videoDivClass:'videoUsualDiv',
+            videoClass:'videoUsual',
+                   };
+            break;
+        case 1:
+            return  {
+            videoDivClass:'videoDiv4',
+            videoClass:'video4',
+                    };
+            break;
+        case 2:
+            return {
+            videoDivClass:'videoDiv16',
+            videoClass:'video16',
+            };
+            break;
+                    }
+                    }
+
+
+
     render()            {
         if (this.props.video!=='none')
         {return(
-            <div id="videoDiv"
+            <div className={this.setRatio(this.props.ratio).videoDivClass}
+                //className="videoDiv16"
             >
                 <video id="video"
                        ref={(video) => this.video = video}
                        autoPlay={this.props.isPlaying}
                        controls={false}
-                    //loop
+                       className={this.setRatio(this.props.ratio).videoClass}
+                       //className="video16"
                        playsInline
                        tabIndex={1}
                        onDoubleClick={this.props.onDblClick}
@@ -68,11 +95,11 @@ class Video extends Component
                        src={navigator.userAgent.search(/iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i)!== -1?this.props.video.link:''}
 
                 />
-                {   !this.state.playing?
-                    <HoldScreen onClick={(e)=>this.handleClick()}
-                                onKeyDown={(e)=>this.handleKey(e)}/>
-                    :null
-                }
+                {/*{   !this.state.playing?*/}
+                    {/*<HoldScreen onClick={(e)=>this.handleClick()}*/}
+                                {/*onKeyDown={(e)=>this.handleKey(e)}/>*/}
+                    {/*:null*/}
+                {/*}*/}
                 {
                     this.props.networkError?
                     <ChannelUnavailable

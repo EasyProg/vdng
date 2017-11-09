@@ -35,7 +35,6 @@ class VideoBottomMenu extends Component
         this.toggleFavorite = this.toggleFavorite.bind(this);
         this.isFavorite=      this.isFavorite.bind(this);
         this.filterChannels= this.filterChannels.bind(this);
-        this.changeRatio  = this.changeRatio.bind(this);
     }
     shouldComponentUpdate (nextProps,nextState)
     {
@@ -102,30 +101,6 @@ class VideoBottomMenu extends Component
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         this.filterChannels(this.props.channels,this.props.channelCategory);
         }
-    changeRatio()                       {
-    switch(this.state.ratio)            {
-        case 0:
-        {
-        this.setState({ratio:1});
-        }
-        break;
-        case 1:
-        {
-        this.setState({ratio:2});
-        }
-        break;
-        case 2:
-        {
-        this.setState({ratio:3});
-        }
-        break;
-        case 3:
-        {
-        this.setState({ratio:0});
-        }
-        break;
-                                        }
-                                        }
 
     render () {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
@@ -152,8 +127,8 @@ class VideoBottomMenu extends Component
                                     {this.state.resolution}
                                 </div>
                             </div>
-                            <div className="iconsDiv">
-                                <img src={aspect} width={40} height={30} onClick={this.changeRatio}/>
+                            <div className="iconsDiv" onClick={(e)=>this.props.changeRatioContext(this.props.ratio)}>
+                                <img src={aspect} width={40} height={30}/>
                             </div>
                         </div>
                         <div className="iconResDiv" onClick={(e)=>this.changeSize(e)}>
@@ -168,16 +143,17 @@ class VideoBottomMenu extends Component
                 <div id='vdbottommenu'
                      className='divBottomPlayer'
                      onMouseEnter={this.props.onMouseEnter}
+
                      onMouseLeave={this.props.onMouseLeave}>
                     <div className="playerButtonsBottomDivRes">
                         {
                             this.resolutions.map ((elem,i)=>
                                 <div key={i} className="iconsDiv" onClick={(e)=>this.chooseResolution(elem)}>{elem}</div>
-                            )
+                                                 )
                         }
                     </div>
                 </div>
-            )
+                                                        )
         }
         }
     }

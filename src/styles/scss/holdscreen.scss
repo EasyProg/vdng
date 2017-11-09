@@ -1,14 +1,15 @@
 .nonPlayingDiv
 {
-  @extend #video;
+  align-self: center;
+  width:100vw;
+  height:100vh;
+  top:0;
   display: flex;
   position: absolute;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   background: rgba(0, 0, 0,1);
-  //z-index:2147483649;
-  //z-index:100;
   font-family: "ComfortaaRegular";
   font-size:3em;
   color:white;

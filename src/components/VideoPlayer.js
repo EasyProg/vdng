@@ -26,8 +26,9 @@ class VideoPlayer extends Component             {
         this.handlePlay    =    this.handlePlay.bind(this);
         this.escFullScreen = this.escFullScreen.bind(this);
         this.videoOnLoad   = this.videoOnLoad.bind(this);
+        this.changeRatio   = this.changeRatio.bind(this);
         this.timer = '';
-        this.state = {fullScreen:false,networkError:false};
+        this.state = {fullScreen:false,networkError:false,ratio:0};
         this.hls = null;
         this.int = null;
                                                 }
@@ -35,18 +36,21 @@ class VideoPlayer extends Component             {
         componentDidMount()                     {
         this.videoOnLoad ();
             $(window).resize(function()         {
+
+            console.log(window.innerWidth);
             if (window.innerWidth<=720)
             {
-             $('body').css('overflow-x','auto');
+             $('body').css('overflow-x','scroll');
             }
+            else $('body').css('overflow-x','hidden');
             if (window.innerHeight<=480)
             {
              $('body').css('overflow-y','auto');
             }
-            else $('body').css('overflow','hidden');
+            else $('body').css('overflow-y','hidden');
                                                 });
                                                 }
-        toggle(isPlaying)                       {
+        toggle(isPlaying)                   {
                 var  vd = document.getElementById('video');
                 //this.video.video;
                 //console.log(vd);
@@ -61,9 +65,9 @@ class VideoPlayer extends Component             {
                      }
 
                                                  }
-        changeRes(res)                           {
+        changeRes(res)                      {
                                                  }
-        videoOnLoad()                            {
+        videoOnLoad()                       {
             var vd = document.getElementById('video');
             var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
 
@@ -261,6 +265,22 @@ class VideoPlayer extends Component             {
 
         else return true
         }
+        changeRatio (rat)
+        {
+            console.log(rat);
+            switch(rat) {
+                case 0:
+                this.setState({ratio:1});
+                break;
+                case 1:
+                this.setState({ratio:2});
+                break;
+                case 2:
+                this.setState({ratio:0});
+                break;
+                        }
+        }
+
         //Element render
         render()                              {
         this.videoOnLoad();
@@ -276,6 +296,8 @@ class VideoPlayer extends Component             {
                                  onDblClick = {e=>this.changeSize()}
                                  isOpened   = {this.props.isOpened}
                                  networkError={this.state.networkError}
+                                 ratio=       {this.state.ratio}
+
 
                 />
                 <VideoUpperMenu  isPlaying={this.props.isPlaying}
@@ -289,8 +311,11 @@ class VideoPlayer extends Component             {
                 />
                 <VideoBottomMenu changeSizeContext={this.changeSize}
                                  changeResContext= {this.changeRes}
+                                 changeRatioContext={this.changeRatio}
                                  onMouseEnter={e=>this.menuFullScreenAppears('mouseEnter')}
                                  onMouseLeave={e=>this.menuFullScreenAppears()}
+                                 ratio=       {this.state.ratio}
+
                 />
             </div>                            )
 

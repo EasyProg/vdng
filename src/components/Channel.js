@@ -71,7 +71,7 @@ export default class Channel extends Component      {
                   <img src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
                   <div className="menuChannelName">
                   <div className="divForFavorite">
-                  {this.props.favorite ? <div className="pnameFav"><img src={book} width={20} height={20}/></div> : ''}
+                  {this.props.favorite ? <img className="imgFav" src={book} width={20} height={20}/> : ''}
                   </div>
                   <div className="pname"
                   onMouseOver={(e)=>this.runningString('hover')}

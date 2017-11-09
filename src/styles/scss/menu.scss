@@ -3,16 +3,18 @@
   display: block;
   cursor: pointer;
   width:30vw;
-  min-width:30vw;
+  //min-width:250px;
   font-family: "ComfortaaRegular";
-  font-size: 1.3em;
+  font-size:1.4vw;
+  min-font-size: 1em;
+  max-font-size: 2em;
   letter-spacing: 1px;
   color: white;
   height: 110px;
-  line-height: 5.7em;
+  vertical-align: middle;
   padding-left: 20px;
   //position:absolute;
-                      }
+}
 .menuItemStyleReroved {
   width:30vw;
   min-width:30vw;
@@ -47,16 +49,6 @@
   overflow-x:visible;
 
                         }
-.staticItem             {
-
-  width:$menuChannelWidth;
-  min-width: 400px;
-  display:flex;
-  height:100%;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
 .menuBottom           {
   width:$menuItemWidth;
   height:5vh;
@@ -70,7 +62,7 @@
 }
 .menuItemStyle:hover {
   @extend .menuItemStyle;
-  width:110%;
+  width:33vw;
   background:$menuHoverColor;
 }
 .menuItemStyleChosen   {
@@ -94,7 +86,7 @@
   //width:900px;
   display: block;
   width:30vw;
-  min-width:30vw;
+  min-width:300px;
   height: 9vh;
   position: absolute;
   top:0;

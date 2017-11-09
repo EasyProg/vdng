@@ -23,46 +23,58 @@ video::media-controls         {
   position:relative;
   top:50%;
                               }
-#video {
-  align-self: center;
-  //width:  100%;
-  width:  100vw!important;
-  //!important
-  height:100vh!important;
-  top:0;
-}
-.videoUsual                   {
-  align-self: center;
-  //width:  100%;
-  width:  100vw!important;
-  //!important
-  height:100vh!important;
-  top:0;
+//Done video styles
+.videoUsualDiv                {
   //min-height:480px;
   //min-width:720px;
                               }
+.videoUsual                   {
+  align-self: center;
+  width:  100%;
+  height: 100vh;
+  top:0;
+  min-height:480px;
+  min-width:720px;
+                              }
+.videoDiv16 {
+  //left:0;
+  align-self: center;
+  position: absolute;
+  width: 100vw;
+  height: 90vh;
+  min-height:480px;
+  min-width:720px;
+            }
 .video16                      {
+  -webkit-transform:scaleX(1.5);
+  -moz-transform:scaleX(1.5);
+  -ms-transform:scaleX(1.5);
+  transform:scaleX(1.5);
+  position:relative;
   align-self: center;
-  //width:  100%;
-  width:  600px!important;
-  //!important
-  height:700px!important;
+  width:100%;
   top:0;
-  //min-height:480px;
-  //min-width:720px;
+  height:100%; }
+.videoDiv4 {
+  //left:0;
+  align-self: center;
+  position: absolute;
+  width: 90vw;
+  height: 100vh;
+  min-height:480px;
+  min-width:720px;
 }
-.video4                        {
+.video4                       {
+  -webkit-transform:scaleY(1.5);
+  -moz-transform:scaleY(1.5);
+  -ms-transform:scaleY(1.5);
+  transform:scaleY(1.5);
+  position:relative;
   align-self: center;
-  //width:  100%;
-  width:  600px!important;
-  //!important
-  height:700px!important;
+  width:100%;
   top:0;
-  //min-height:480px;
-  //min-width:720px;
-                               }
-
-
+  height:100%;                }
+//Done video styles
 
 
 #scrollBarDiv                 {
@@ -70,30 +82,19 @@ video::media-controls         {
   height: 80%;
   display: none;
   top:0;
-  //min-height:480px;
-  //min-width:640px;
   overflow:scroll;
 
                               }
-
-//.videoDiv                   {
-//overflow: hidden;
-//position:relative;
-//width:5vw!important;
-//height:5vh!important;
-//top:0;
-//
-//}
 .errorsDiv                    {
-  @extend  #video;
+  position:absolute;
+  align-self: center;
+  width:100vw;
+  height:100vh;
+  top:0;
   font:30px Times New Roman bold;
   color:white;
   text-align: center;
-}
-
-
-
-
+                              }
 .playBackDiv                  {
   position: fixed;
   top:80%;
@@ -105,9 +106,3 @@ video::media-controls         {
   width:100%;
   height:40%;
 }
-//.processDiv {
-//visibility: hidden;
-//width:100%;
-//height:100%;
-//z-index: 10;
-//}

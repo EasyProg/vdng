@@ -35,19 +35,19 @@ class  Menu extends Component               {
                                             }
     getJsonChannels(url)                    {
     let context = this;
-    fetch(url).then(function(response)
-                                            {
-            if (response.status!==200)      {
-                console.log('Looks like it was some error ' + response.status);
-                return;
-                                            }
-            response.then                   (function(data)
-                                            {
-            console.log(data[0]);
-            context.getChannels(newParse(data));
-
-                                            }
-                                            )
+    fetch(url).then(function(response)      {
+        if (response.status !== 200) {
+            console.log('Looks like it was some error ' + response.status);
+            return;
+        }
+        console.log(response);
+        if (response)
+        {
+                    let data = response;
+                    console.log(typeof data);
+                    if (data[0])
+                    context.getChannels(newParse(data));
+        }
                                             }
                                             )
                                             }
@@ -82,10 +82,10 @@ class  Menu extends Component               {
     //this.getChannels('https://admin.hls.tv/play/9762be960fd8d0586edfe1b14e391583.m3u');
     //set href
     var href   = document.location.href;
-    var parsed = href.substring(href.indexOf('/',10)+1);
-    this.getJsonChannels('https://cdnua02.hls.tv/play/'+ parsed +'/list.json');
+    //var parsed = href.substring(href.indexOf('/',10)+1);
+    this.getJsonChannels(href +'list.json');
+    //var repeat setInterval(this.getPrograms(href+'channels.json'),43200000);
     var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
-
                                             }
     firstToUpperCase( str )                 {
         return str.substr(0, 1).toUpperCase() + str.substr(1);
