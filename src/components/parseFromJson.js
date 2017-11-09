@@ -5,7 +5,8 @@ function newParse(arr)
 
     arr.map((e, i) =>   {
             if (e['type']==='hls') {
-                channels.push(
+                channels.push
+                        (
                         {
                         channelId: e['id'],
                         channel: e['name'],

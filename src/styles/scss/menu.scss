@@ -60,9 +60,16 @@
   width:110%;
   background:$menuHoverColor;
 }
+//.menuItemStyle>.staticItem>.divForFavorite:hover {
+//  @extend .divForFavorite;
+//  //width:90%;
+//  //background:$menuHoverColor;
+//}
+
+
 .menuItemStyle:hover {
   @extend .menuItemStyle;
-  width:33vw;
+  width:110%;
   background:$menuHoverColor;
 }
 .menuItemStyleChosen   {

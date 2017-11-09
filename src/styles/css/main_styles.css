@@ -53,7 +53,7 @@
   background: #9677ff; }
 
 .menuItemStyle:hover, .menuItemStyleChosen:hover {
-  width: 33vw;
+  width: 110%;
   background: #9677ff; }
 
 .menuItemStyleChosen {

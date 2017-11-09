@@ -2,20 +2,22 @@ import {combineReducers} from 'redux';
 import * as settings from '../settings.json';
 import hlsArray from '../hls';
 import parse from '../components/Parsing';
-// function getChannels(url)                   {
-//     fetch(url).then(function(response)      {
-//             if (response.status!==200)      {
-//                 console.log('Looks like it was some error ' + response.status);
-//                 return;
-//             }
-//             response.json().then            (function(data)
-//                                             {
-//                     console.log(data);
-//                                             }
-//                                             )
-//                                             }
-//                                             )
-//                                             }
+function getSettings(url)                {
+        let context = this;
+        fetch(url).then(function(response){
+            if (response.status !== 200) {
+                console.log('Looks like it was some error ' + response.status);
+                return;
+                                         }
+            if (response)
+                                         {
+                let data = response;
+                if (data[0])
+                return data
+                                         }
+                                         }
+                                         )
+                                         }
 
 const   initialState  = {
         video:{link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/51/stream.m3u8',
@@ -26,17 +28,17 @@ const   initialState  = {
         category:"Все жанры",
         channelId:51
         },
-    //Global state variables
+        //Global state variables
         isPlaying:true,
         autoPlay:true,
         fullScreen:false
 
                         };
 const   channelState =  {
-    chosenCategory   :'Все жанры',
-    channels:parse(hlsArray),
-    isFavor:false,
-    channelProgram:[]
+        chosenCategory   :'Все жанры',
+        channels:parse(hlsArray),
+        isFavor:false,
+        channelProgram:[]
                         };
 const   menuState =    {
     menus:             {
@@ -49,7 +51,8 @@ const   menuState =    {
     isOpened:false,
     elemsVisible:false
                         };
-const   settingsState =   {
+const   settingsState = {
+    settings:        getSettings(document.location.href+'/settings.json'),
     timeShift:       settings.timeshift.status,
     parentalControl: settings.parental_control.status,
     catchUp:         false,

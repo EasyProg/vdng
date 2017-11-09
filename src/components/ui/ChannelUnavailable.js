@@ -24,6 +24,6 @@ export default class ChannelUnavailable extends Component
                     <div className="bottomTextUn">Канал недоступен</div>
                 </div>
             </div>
-        )
-    }
+                )
+                }
 }
