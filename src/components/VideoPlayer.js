@@ -145,6 +145,7 @@ class VideoPlayer extends Component             {
                     {$('#video').focus();}
                     $("#vduppermenu,#vdbottommenu,#menuCenterText,.bottomShadowDiv").fadeOut(1000);
                                                     },5000);
+                $('#video').focus();
                                             }
         componentWillReceiveProps(nextProps){
             this.setState({networkError:false});
@@ -184,7 +185,7 @@ class VideoPlayer extends Component             {
             //Отобразить плей
             else if (this.props.isOpened===false&&this.props.autoPlay)
             {
-                clearTimeout(this.timer);
+                    clearTimeout(this.timer);
                 //$('.menuCenterText').css({"display":"flex"});
                 //#menuCenterText
                     $("#vduppermenu,#vdbottommenu,#menuCenterText,.bottomShadowDiv").fadeIn(1);
@@ -265,8 +266,7 @@ class VideoPlayer extends Component             {
 
         else return true
         }
-        changeRatio (rat)
-        {
+        changeRatio (rat)                   {
             console.log(rat);
             switch(rat) {
                 case 0:

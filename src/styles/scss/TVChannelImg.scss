@@ -12,7 +12,7 @@
   height: 60px;
   position: relative;
   white-space:nowrap;
-  width:250px;
+  width:70%;
   line-height: 3em;
   overflow: hidden;
   display: flex;
@@ -80,15 +80,18 @@
   min-width: 100px;
   right:10px;
   ///background: yellow;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  //display: block;
+  //display: flex;
+  //flex-direction: row;
+  //justify-content: flex-end;
+  //align-items: center;
+  display: block;
   position: relative;
+  //pointer-events:none;
+
 }
 .imgFav         {
   position: relative;
+  float:right;
   //position: static;
   //right:10px;
 }
@@ -174,7 +177,7 @@
 .epgShowButton        {
   top:-110px;
   //float:right;
-  left:470px;
+  left:520px;
   //margin-right:50px;
   margin-left: 20px;
   margin-top: 30px;
@@ -185,5 +188,5 @@
   border-radius: 50px;
   position: relative;
   text-align: center;
-  line-height: 2em;
+  line-height: 1.9em;
 }

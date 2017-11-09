@@ -83,7 +83,7 @@ class  Menu extends Component               {
     //set href
     var href   = document.location.href;
     //var parsed = href.substring(href.indexOf('/',10)+1);
-    this.getJsonChannels(href +'list.json');
+    this.getJsonChannels('https://cdnua01.hls.tv/play/9762be960fd8d0586edfe1b14e391583/list.json');
     //var repeat setInterval(this.getPrograms(href+'channels.json'),43200000);
     var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
                                             }

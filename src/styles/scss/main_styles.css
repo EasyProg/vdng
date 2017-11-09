@@ -474,7 +474,9 @@ hr {
 
 .categoryLine, .categoryLineNone {
   position: absolute;
+  display: block;
   left: 7%;
+  top: 12%;
   vertical-align: bottom; }
 
 .categoryLineNone {
@@ -549,8 +551,12 @@ hr {
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 9px;
-  line-height: 3.2em;
-  text-align: center; }
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
 
 .categoryItem:hover, .categoryItemChosen:hover, .workMotherFucker:hover {
   background: #9677ff;
@@ -841,7 +847,7 @@ hr {
   height: 60px;
   position: relative;
   white-space: nowrap;
-  width: 250px;
+  width: 70%;
   line-height: 3em;
   overflow: hidden;
   display: flex;
@@ -877,14 +883,12 @@ hr {
   height: 30px;
   min-width: 100px;
   right: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+  display: block;
   position: relative; }
 
 .imgFav {
-  position: relative; }
+  position: relative;
+  float: right; }
 
 .rateContainer {
   position: relative;
@@ -945,7 +949,7 @@ hr {
 
 .epgShowButton {
   top: -110px;
-  left: 470px;
+  left: 520px;
   margin-left: 20px;
   margin-top: 30px;
   display: block;
@@ -955,7 +959,7 @@ hr {
   border-radius: 50px;
   position: relative;
   text-align: center;
-  line-height: 2em; }
+  line-height: 1.9em; }
 
 .archDiv {
   top: 0;
@@ -1039,7 +1043,7 @@ hr {
 
 .divCateg {
   position: relative;
-  font-size: 1.2em;
+  font-size: 1.2vw;
   display: flex;
   width: 100%;
   align-items: center;
