@@ -45,8 +45,8 @@ class  Menu extends Component               {
                                             {
                     response.json().then    (
                         function (data)     {
+                            console.log(data);
                             if (data[0])
-                                console.log(data);
                                 context.getChannels(newParse(data));
                                             }
                                             );
