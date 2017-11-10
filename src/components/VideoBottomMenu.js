@@ -1,12 +1,12 @@
 import React, { Component,PropTypes } from 'react';
 import {Button,Icon} from 'semantic-ui-react';
 import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import border     from '../img/switch_button.gif';
-import live       from '../img/live-icon.gif';
-import nofavorite from '../img/bookmark-white.gif';
-import favorite   from   '../img/bookmark-black-shape.gif';
-import aspect     from '../img/aspect_ratio.svg';
+import {connect}     from 'react-redux';
+import border        from '../img/switch_button.gif';
+import live          from '../img/live-icon.gif';
+import nofavorite    from '../img/bookmark-white.gif';
+import favorite      from   '../img/bookmark-black-shape.gif';
+import aspect        from '../img/aspect_ratio.svg';
 import 'semantic-ui-css/semantic.min.css';
 import '../styles/css/main_styles.css';
 import * as $ from 'jquery';

@@ -51,7 +51,6 @@ class VideoUpperMenu extends Component                         {
         switch (event.keyCode)                                 {
             case 32:
                 $('#playpause').focus();
-                console.log(this.props.toggleContext);
                 this.props.toggleContext(this.props.isPlaying);
                 break;
             case 40:
@@ -99,6 +98,7 @@ class VideoUpperMenu extends Component                         {
                     ));
                 else if (!this.state.isOpened) {
                     $("#vduppermenu,#vdbottommenu").fadeIn(100);
+                    this.props.toggleContext(this.props.isPlaying);
                 }
                 break;
             }
@@ -108,6 +108,10 @@ class VideoUpperMenu extends Component                         {
                 {
 
                     this.props.changeSizeContext();
+                }
+                else if (navigator.userAgent.match("Android"))
+                {
+                    navigator.app.exitApp();
                 }
                 break;
             }

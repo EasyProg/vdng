@@ -44,7 +44,8 @@ class Video extends Component
         if (e.keyCode === 13)
             this.handleClick();
     }
-    handleClick ()      {
+    handleClick (e)      {
+        e.stopPropagation();
         this.video.play();
         this.setState({playing:true});
         this.props.dispatch(toggleAutoPlay(true));
@@ -96,7 +97,7 @@ class Video extends Component
 
                 />
                 {   !this.state.playing?
-                    <HoldScreen onClick={(e)=>this.handleClick()}
+                    <HoldScreen onClick={(e)=>this.handleClick(e)}
                                 onKeyDown={(e)=>this.handleKey(e)}/>
                     :null
                 }

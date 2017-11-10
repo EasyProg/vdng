@@ -39,7 +39,7 @@ video::media-controls         {
 .videoDiv16                   {
   //left:0;
   align-self: center;
-  position: absolute;
+  position: absolute!important;
   width: 100vw;
   height: 90vh;
   min-height:480px;
@@ -55,9 +55,16 @@ video::media-controls         {
   width:100%;
   top:0;
   height:100%; }
-#video:-webkit-full-screen {
-  -webkit-transform:scaleX(1.5)!important;
+video:-webkit-full-screen
+{
+  display:block;
+  position:absolute;
+  width:100px;
+  height:100px;
 }
+//video:-webkit-full-screen {
+//  -webkit-transform:scaleX(1.5)!important;
+//}
 .videoDiv4 {
   //left:0;
   align-self: center;

@@ -155,7 +155,7 @@ video::media-controls {
 
 .videoDiv16 {
   align-self: center;
-  position: absolute;
+  position: absolute !important;
   width: 100vw;
   height: 90vh;
   min-height: 480px;
@@ -172,8 +172,11 @@ video::media-controls {
   top: 0;
   height: 100%; }
 
-#video:-webkit-full-screen {
-  -webkit-transform: scaleX(1.5) !important; }
+video:-webkit-full-screen {
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px; }
 
 .videoDiv4 {
   align-self: center;
@@ -856,7 +859,7 @@ hr {
   margin-left: 15px;
   margin-top: 7px;
   width: 4vw;
-  height: 4vw;
+  height: 3vw;
   min-height: 30px;
   min-width: 30px; }
 

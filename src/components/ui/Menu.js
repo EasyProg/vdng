@@ -33,24 +33,24 @@ class  Menu extends Component               {
         this.parseCategories = this.parseCategories.bind(this);
         this.getPrograms = this.getPrograms.bind(this);
     }
-    getJsonChannels(url)                     {
+    getJsonChannels(url)                    {
         let context = this;
-        fetch(url).then(function(response)   {
+        fetch(url).then(function(response)  {
                 if (response.status !== 200)
-                    {
+                                            {
                     console.log('Looks like it was some error ' + response.status);
                     return;
-                    }
+                                            }
                 console.log(response);
-                if (response.headers.get("content-type").indexOf("application/json") !== -1)
-                    {
+                if  (response.headers.get("content-type").indexOf("application/json") !== -1)
+                                            {
                     let data = response.json();
-                    console.log(typeof data);
+                    console.log(data);
                     if (data[0])
                         context.getChannels(newParse(data));
-                    }
-                    }
-                    )
+                                            }
+                                            }
+                                            )
                                             }
     getPrograms (url)                       {
         var c = this;
