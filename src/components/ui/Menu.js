@@ -43,11 +43,11 @@ class  Menu extends Component               {
                                             }
                 if  (response.headers.get("content-type").indexOf("application/json") !== -1)
                                             {
-                    response.json().then    (
+                     response.json().then   (
                         function (data)     {
                             console.log(data);
                             if (data[0])
-                                context.getChannels(newParse(data));
+                                context.props.dispatch(getChannels(newParse(data)));
                                             }
                                             );
                                             }
@@ -171,7 +171,7 @@ class  Menu extends Component               {
                             <img    src={this.props.channelImg} width={50} height={50}
                                     className="imgChannelStyle"/>
                             <div    className="textBlock">
-                                <div    className="upperText">
+                               <div className="upperText">
                                     {this.props.category}
                                     <img src={prev_button} width={20} height={20} className="arrowImg"/>
                                     <span>{this.props.channelNum}{'. '}{this.props.channel}

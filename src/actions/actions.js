@@ -52,13 +52,14 @@ export function setProgram (channelsArr,programArr)
     let newChannels = channelsArr;
     for (var i=0;i<newChannels.length;i++)
                         {  //console.log('Shit!!!');
-        programArr.forEach(
+        programArr.forEach
+                        (
         function(item,j){
             //console.log(item);
             if (newChannels[i]['channelId']===Number(item['channel_id']))
-            {
+                        {
                 newChannels[i]['program'] =   item['list'];
-            }
+                        }
                         }
 
                         );
