@@ -37,7 +37,6 @@ class VideoPlayer extends Component             {
         this.videoOnLoad ();
             $(window).resize(function()         {
 
-            console.log(window.innerWidth);
             if (window.innerWidth<=720)
             {
              $('body').css('overflow-x','scroll');
@@ -132,10 +131,10 @@ class VideoPlayer extends Component             {
             {vd.playbackRate+=0.1;}
             else vd.playbackRate-=0.1;
                                             }
-        handlePlay()                        {
+        handlePlay()                                {
             this.timer = this.state.fullScreen?
                 setTimeout(function()
-                                            {
+                                                    {
                     //Скрыть плей
                     $("#vduppermenu").fadeOut(1000);
                                                     },5000):

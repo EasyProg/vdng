@@ -647,6 +647,10 @@ hr {
   filter: drop-shadow(0 0 10px white);
   background: transparent; }
 
+.playerButtonsDiv > img:focus {
+  filter: drop-shadow(0 0 10px white);
+  background: transparent; }
+
 .videoTime {
   cursor: default;
   line-height: 2.9em;
@@ -717,7 +721,7 @@ hr {
   background: transparent; }
 
 .divBottomPlayer, .divBottomPlayerFull {
-  z-index: 2147483647;
+  z-index: 2147483648;
   position: absolute;
   bottom: 30px;
   left: 22%;
@@ -758,7 +762,7 @@ hr {
   left: 24%;
   top: 15%; }
 
-.iconsDiv, .iconsNewResDiv, .iconsLiveDiv, .iconsLockedDiv, .iconsDiv:hover {
+.iconsDiv, .iconsNewResDiv, .iconsLiveDiv, .iconsLockedDiv, .iconsDiv:hover, .iconsDiv:focus {
   color: white;
   font-size: 13px;
   font-family: "RobotoMedium";
@@ -796,7 +800,13 @@ hr {
   border-radius: 40px;
   position: inherit; }
 
-.iconResDiv, .iconResDivFull, .iconResDiv:hover {
+.iconsDiv:focus, .iconsNewResDiv:focus, .iconsLiveDiv:focus, .iconsLockedDiv:focus {
+  cursor: pointer;
+  background: #9677ff;
+  border-radius: 40px;
+  position: inherit; }
+
+.iconResDiv, .iconResDivFull, .iconResDiv:hover, .iconResDiv:focus {
   text-align: center;
   padding-top: 15px;
   width: 60px;
@@ -809,6 +819,11 @@ hr {
   left: 110%; }
 
 .iconResDiv:hover, .iconResDivFull:hover {
+  cursor: pointer;
+  background: #9677ff;
+  border-radius: 40px; }
+
+.iconResDiv:focus, .iconResDivFull:focus {
   cursor: pointer;
   background: #9677ff;
   border-radius: 40px; }
@@ -838,7 +853,7 @@ hr {
   margin-left: 15px;
   margin-top: 7px;
   width: 4vw;
-  height: 7vh;
+  height: 4vw;
   min-height: 30px;
   min-width: 30px; }
 

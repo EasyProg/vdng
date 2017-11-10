@@ -14,7 +14,6 @@ class App extends Component  {
                 <div>
                     <VideoPlayer/>
                     <Menu/>
-                    <div className="bottomShadowDiv"/>
                 </div>
                 </Provider>
                               );

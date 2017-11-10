@@ -22,14 +22,15 @@ class VideoBottomMenu extends Component
             //setFavoriteContext:PropTypes.func.isRequired,
         };
     resolutions = ['360р','480р','720р','1080р','1440р'];
-    constructor(props)      {
+    constructor(props)                  {
         super(props);
         this.state =        {
             showResolution:false,
             lock:false,
             resolution:'1080р',
             Favorite:this.isFavorite(this.props.channelId),
-            ratio:0
+            ratio:0,
+            focus:0
             //isFavorite()
         };
         this.toggleFavorite = this.toggleFavorite.bind(this);
@@ -37,7 +38,7 @@ class VideoBottomMenu extends Component
         this.filterChannels= this.filterChannels.bind(this);
     }
     shouldComponentUpdate (nextProps,nextState)
-    {
+                                        {
         if (this.props.channelId!==nextProps.channelId||this.state.Favorite!==nextState.Favorite)
         {   console.log(nextProps.channelId);
             this.setState({Favorite:this.isFavorite(this.props.channelId)});
@@ -48,24 +49,24 @@ class VideoBottomMenu extends Component
     }
 
 
-    chooseResolution (res)  {
+    chooseResolution (res)              {
         this.setState       ({
             showResolution:false,
             resolution:res
         });
         this.props.changeResContext(res.substr(0,res.length-1));
     }
-    changeSize(e)           {
+    changeSize(e)                       {
         this.props.changeSizeContext();
     }
-    setLock(vl)             {
+    setLock(vl)                         {
         this.setState       (
             {
                 lock:!vl,
             }
         )
     }
-    isFavorite(channelId)   {
+    isFavorite(channelId)               {
         if (localStorage.getItem(channelId)!==null)
         {
             return true;
@@ -75,8 +76,6 @@ class VideoBottomMenu extends Component
 
     }
     filterChannels(channels,category)   {
-        console.log(channels);
-        console.log(category);
         var cat = category?category.toString():'All channels';
         let filteredChannels = [];
         if   (channels)
@@ -101,7 +100,53 @@ class VideoBottomMenu extends Component
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         this.filterChannels(this.props.channels,this.props.channelCategory);
         }
+    switchPlayback(event)     {
 
+        event.stopPropagation();
+        let items = $('#iconRes,.playerButtonsBottomDiv>.iconsDiv');
+        console.log(items.length);
+        let id = this.state.focus;
+        let nextElem = id + 1 >= items.length ? id :  id + 1;
+        let prevElem = id - 1 < 0 ? id : id - 1;
+        switch (event.keyCode){
+            case 37 :
+                items[prevElem].focus();
+                this.setState({focus:prevElem});
+                break;
+            case 39 :
+                items[nextElem].focus();
+                this.setState({focus:nextElem});
+                break;
+            case 13:
+                if (this.state.focus===0)
+                    this.toggleFavorite();
+                else if (this.state.focus===1)
+                    this.props.changeRatioContext(this.props.ratio);
+                if (this.state.focus===2)
+                    this.changeSize();
+                break;
+            case 32:
+                if (this.state.focus===0)
+                    this.toggleFavorite();
+                else if (this.state.focus===1)
+                    this.props.changeRatioContext(this.props.ratio);
+                if (this.state.focus===2)
+                    this.changeSize();
+                break;
+            case 38:
+                $('#playpause').focus();
+                break;
+            case 8:
+                //$('.iconsDiv:first').focus();
+                $('#vduppermenu').focus();
+                this.props.onMouseLeave();
+                break;
+
+        }
+        console.log(this.state.focus)
+
+
+    }
     render () {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         {if (this.state.showResolution  === false)
@@ -111,12 +156,13 @@ class VideoBottomMenu extends Component
                      className="displayNone"
                      onMouseEnter={this.props.onMouseEnter}
                      onMouseLeave={this.props.onMouseLeave}>
+                    <div className="bottomShadowDiv"/>
                     <div className="divBottomPlayer">
-                        <div className="playerButtonsBottomDiv">
+                        <div className="playerButtonsBottomDiv" onKeyDown={e=>this.switchPlayback(e)}>
                             <div className="iconsDisabledDiv">
                                 <Icon className={this.state.lock?"big inverted lock alternate":"big inverted unlock alternate"}/>
                             </div>
-                            <div className="iconsDiv" onClick={(e)=>this.toggleFavorite()}>
+                            <div className="iconsDiv" id="jtbset" onClick={(e)=>this.toggleFavorite()} tabIndex={1}>
                                 <img src={this.state.Favorite?favorite:nofavorite} width={20} height={25}/>
                             </div>
                             <div className="iconsDisabledDiv">
@@ -127,11 +173,11 @@ class VideoBottomMenu extends Component
                                     {this.state.resolution}
                                 </div>
                             </div>
-                            <div className="iconsDiv" onClick={(e)=>this.props.changeRatioContext(this.props.ratio)}>
+                            <div className="iconsDiv" onClick={(e)=>this.props.changeRatioContext(this.props.ratio)} tabIndex={1}>
                                 <img src={aspect} width={40} height={30}/>
                             </div>
                         </div>
-                        <div className="iconResDiv" onClick={(e)=>this.changeSize(e)}>
+                        <div className="iconResDiv" id="iconRes" onClick={(e)=>this.changeSize(e)} tabIndex={1} onKeyDown={e=>this.switchPlayback(e)}>
                             <img src={border} width={25} height={25}/>
                         </div>
                     </div>

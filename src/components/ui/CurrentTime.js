@@ -21,7 +21,6 @@ export default class CurrentTime extends Component {
     componentDidUpdate()         {
         clearInterval(this.int);
         this.int = setInterval(this.tick, 1000);
-        console.log('received!!!!!!!!!');
                                  }
 
     componentWillUnmount()       {

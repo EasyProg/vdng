@@ -55,7 +55,7 @@ $plButtonsLeft:10%;
 .playerButtonsDiv>i:hover          {
   text-shadow: 2px 2px 3px
   rgba(255,255,255,0.3),0 0 1em white;
-                                   }
+}
 .playerButtonsDiv>img:hover        {
   //text-shadow: 1px 1px 2px black, 0 0 1em red;
   //margin: 0 auto;
@@ -67,6 +67,10 @@ $plButtonsLeft:10%;
   //outline: none;
   //filter:drop-shadow(12px,12px,7px,rgba(0,0,0,0.5));
   //border-radius: 17px;
+}
+.playerButtonsDiv>img:focus        {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+  background: transparent;
 }
 .videoTime                         {
   cursor: default;

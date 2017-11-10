@@ -1,5 +1,5 @@
 .divBottomPlayer              {
-  z-index:  2147483647;
+  z-index:  2147483648;
   position: absolute;
   bottom: 30px;
   left:22%;
@@ -93,6 +93,13 @@
   border-radius:40px;
   position: inherit;
 }
+.iconsDiv:focus               {
+  @extend .iconsDiv;
+  cursor:pointer;
+  background:$main_color;
+  border-radius:40px;
+  position: inherit;
+                              }
 //Resolution Div
 .iconResDiv                   {
 
@@ -115,6 +122,13 @@
   left:110%;
 }
 .iconResDiv:hover             {
+  @extend .iconResDiv;
+  cursor:pointer;
+  background:$main_color;
+  border-radius:40px;
+  //position: inherit;
+}
+.iconResDiv:focus             {
   @extend .iconResDiv;
   cursor:pointer;
   background:$main_color;
