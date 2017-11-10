@@ -162,7 +162,7 @@ video::media-controls {
   min-width: 720px; }
 
 .video16 {
-  -webkit-transform: scaleX(1.5);
+  -webkit-transform: scaleX(1.5) !important;
   -moz-transform: scaleX(1.5);
   -ms-transform: scaleX(1.5);
   transform: scaleX(1.5);
@@ -171,6 +171,9 @@ video::media-controls {
   width: 100%;
   top: 0;
   height: 100%; }
+
+#video:-webkit-full-screen {
+  -webkit-transform: scaleX(1.5) !important; }
 
 .videoDiv4 {
   align-self: center;
