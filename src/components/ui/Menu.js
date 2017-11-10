@@ -1,6 +1,5 @@
 import React, {Component,PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
-import {setMenusVisible,getChannels,receiveData,setProgram,setElemsVis} from '../../actions/actions';
 import {connect} from 'react-redux';
 import 'semantic-ui-css/semantic.min.css';
 import '../../styles/css/main_styles.css';
@@ -25,6 +24,7 @@ import cognitive from '../../img/cognitive.svg';
 import getCurrentProgram from '../../components/workingDate';
 import newParse from '../../components/parseFromJson';
 import multidisciplinary from '../../img/categ/multidisciplinary.svg';
+import {setMenusVisible,getChannels,receiveData,setProgram,setElemsVis} from '../../actions/actions';
 //import images
 class  Menu extends Component               {
     constructor(props)                      {
@@ -41,13 +41,15 @@ class  Menu extends Component               {
                     console.log('Looks like it was some error ' + response.status);
                     return;
                                             }
-                console.log(response);
                 if  (response.headers.get("content-type").indexOf("application/json") !== -1)
                                             {
-                    let data = response.json();
-                    console.log(data);
-                    if (data[0])
-                        context.getChannels(newParse(data));
+                    response.json().then    (
+                        function (data)     {
+                            if (data[0])
+                                console.log(data);
+                                context.getChannels(newParse(data));
+                                            }
+                                            );
                                             }
                                             }
                                             )

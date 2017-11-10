@@ -118,25 +118,31 @@
   text-align: center;
   width:70px;
   height:60px;
-  line-height:6.5;
+  margin-top: 2vh;
   pointer-events: auto;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   //pointer-events: auto;
   //visibility: hidden;
   //display: none;
                       }
 .divSideBar:hover     {
   @extend .divSideBar;
+  //margin-top: 3vh;
   cursor: pointer;
   border-radius: 50px;
   //width:50px;
   //height:50px;
   background: rgba(87, 87, 87, 0.6);
-}
+
+                      }
 .divSideBar_menu
 { text-align: center;
   width:60px;
   height:60px;
-  line-height:5.7em;
+  line-height:5.5em;
   right:20px;
   position: absolute;
 }

@@ -94,8 +94,12 @@
   text-align: center;
   width: 70px;
   height: 60px;
-  line-height: 6.5;
-  pointer-events: auto; }
+  margin-top: 2vh;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
 
 .divSideBar:hover {
   cursor: pointer;
@@ -106,7 +110,7 @@
   text-align: center;
   width: 60px;
   height: 60px;
-  line-height: 5.7em;
+  line-height: 5.5em;
   right: 20px;
   position: absolute; }
 
@@ -122,15 +126,6 @@
 
 .-reactjs-scrollbar-area {
   overflow-x: visible; }
-
-video::-webkit-media-controls {
-  display: none; }
-
-video::-moz-media-controls {
-  display: none; }
-
-video::media-controls {
-  display: none; }
 
 .innerDiv {
   float: left;
@@ -171,18 +166,6 @@ video::media-controls {
   width: 100%;
   top: 0;
   height: 100%; }
-
-.video16:-webkit-full-screen {
-  display: block;
-  position: absolute;
-  width: 100px;
-  height: 100px; }
-
-video:-webkit-full-screen {
-  display: block;
-  position: absolute;
-  width: 100px;
-  height: 100px; }
 
 .videoDiv4 {
   align-self: center;
@@ -562,7 +545,7 @@ hr {
   height: 58px;
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 9px;
+  margin-bottom: 1vh;
   text-align: center;
   vertical-align: middle;
   display: flex;
@@ -1123,7 +1106,7 @@ hr {
   margin-top: 40px;
   display: block;
   font-family: "ComfortaaRegular";
-  font-size: 1em;
+  font-size: 1vw;
   letter-spacing: 2px;
   margin-bottom: 50px; }
 

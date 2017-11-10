@@ -113,6 +113,9 @@ class VideoUpperMenu extends Component                         {
                 {
                     navigator.app.exitApp();
                 }
+                else {      console.log('shut down');
+                            window.close();
+                }
                 break;
             }
             default:break;

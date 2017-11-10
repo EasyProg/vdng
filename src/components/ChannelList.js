@@ -283,7 +283,7 @@ class   ChannelList extends Component               {
         //                         }
 
         componentDidUpdate(prevProps)
-                                    {
+                                                    {
         if (prevProps.channelsMenuVisible!==this.props.channelsMenuVisible&&this.props.channelsMenuVisible!==false&&this.props.catMenuVisible===false)
 
         {
@@ -354,13 +354,13 @@ class   ChannelList extends Component               {
 const mapDispatchToProps = (dispatch) => bindActionCreators
                 (
                 {
-    dispatch,
-    changeVideo,
-    toggleCategory,
-    togglePlay,
-    getChannels,
-    setMenusVisible,
-    setChannelProgram
+        dispatch,
+        changeVideo,
+        toggleCategory,
+        togglePlay,
+        getChannels,
+        setMenusVisible,
+        setChannelProgram
                 }, dispatch);
 export default
 connect                 (
