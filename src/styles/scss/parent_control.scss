@@ -1,0 +1,60 @@
+.divInput {
+  position:relative;
+  width:100%;
+  margin:10px;
+  height:50px;
+  background: #353535;
+  padding:10px;
+  font-size:1.2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.divInput:hover {
+  border:1px solid $main_color;
+  cursor:pointer;
+}
+
+.inputPassword {
+  width:80%;
+  height:35px;
+  background: #353535;
+  color:      white;
+  font-family: "Comfortaa Light";
+  text-align: left;
+  padding:10px;
+  font-size:1em;
+}
+
+.divInputPassword {
+  position: relative;
+  margin-bottom:40px;
+  margin-top:40px;
+}
+.saveButton {
+  cursor:pointer;
+  position:relative;
+  width:100%;
+  margin:10px;
+  height:40px;
+  background: $main_color;
+  color:      white;
+  font-family: "Comfortaa Light";
+  text-align: center;
+}
+.circleButtonSpanInput {
+  //display: inline;
+  width:40px;
+  height:40px;
+  background: #323232;
+  border-radius:30px;
+  position: relative;
+  align-items: center;
+  line-height: 3em;
+}
+.circleButtonSpanInput:hover {
+  @extend .circleButtonSpanInput;
+  cursor:pointer;
+  background: #434343;
+}
