@@ -59,8 +59,8 @@ class   ChannelList extends Component               {
         }
         switchChannel(param='next',id,channelid)    {
             var items = $('.menuItemStyle,.menuItemStyleChosen');
-            var nextElem = id + 1 >= items.length ? 0 :    id + 1;
-            var prevElem = id - 1 < 0 ? items.length - 1 : id - 1;
+            var nextElem = id + 1 >=    items.length ? 0 : id + 1;
+            var prevElem = id - 1 <= 0 ?0 :     id - 1;
             if (param === 'next' && items[nextElem]){
                 items[nextElem].focus();
                 this.setState({itemChosen:nextElem,channelId: channelid, program: this.props.playList[nextElem].program});
@@ -126,14 +126,14 @@ class   ChannelList extends Component               {
                 case 40:
                 {
                     if (elem)   {
-                        this.props.dispatch(setMenusVisible(
-                                {
-                                channelsMenuVisible: true,
-                                categoryMenuVisible: false,
-                                settingsVisible: false,
-                                programsVisible: false
-                                }, true
-                        ));
+                        // this.props.dispatch(setMenusVisible(
+                        //         {
+                        //         channelsMenuVisible: true,
+                        //         categoryMenuVisible: false,
+                        //         settingsVisible: false,
+                        //         programsVisible: false
+                        //         }, true
+                        // ));
                         this.switchChannel('next', this.state.itemChosen || i, elem.channelId);
                                 }
                 }
@@ -141,18 +141,18 @@ class   ChannelList extends Component               {
 
                 case 38:
                 {
-                    if (elem)  {
-                        this.props.dispatch(
-                            setMenusVisible(
-                                {
-                                    channelsMenuVisible: true,
-                                    categoryMenuVisible: false,
-                                    settingsVisible: false,
-                                    programsVisible: false
-                                }, true
-                            ));
+                     if (elem)   {
+                    //     this.props.dispatch(
+                    //         setMenusVisible(
+                    //             {
+                    //                 channelsMenuVisible: true,
+                    //                 categoryMenuVisible: false,
+                    //                 settingsVisible: false,
+                    //                 programsVisible: false
+                    //             }, true
+                    //         ));
                         this.switchChannel('prev', this.state.itemChosen || i, elem.channelId);
-                               }
+                                }
 
                 }
                     break;
@@ -185,6 +185,7 @@ class   ChannelList extends Component               {
                     //this.setState({channelId: this.state.itemChosen});
                     //
                     this.setState({channelId: -1});
+                    if (this.props.menus.categoryMenuVisible)
                     $('.categoryItemChosen').focus();
                             }
                     break;

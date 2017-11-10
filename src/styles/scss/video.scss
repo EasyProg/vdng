@@ -55,16 +55,19 @@ video::media-controls         {
   width:100%;
   top:0;
   height:100%; }
-video:-webkit-full-screen
+.video16:-webkit-full-screen
 {
   display:block;
   position:absolute;
   width:100px;
   height:100px;
 }
-//video:-webkit-full-screen {
-//  -webkit-transform:scaleX(1.5)!important;
-//}
+video:-webkit-full-screen {
+  display:block;
+  position:absolute;
+  width:100px;
+  height:100px;
+}
 .videoDiv4 {
   //left:0;
   align-self: center;

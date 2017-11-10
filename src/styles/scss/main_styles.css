@@ -172,6 +172,12 @@ video::media-controls {
   top: 0;
   height: 100%; }
 
+.video16:-webkit-full-screen {
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px; }
+
 video:-webkit-full-screen {
   display: block;
   position: absolute;
