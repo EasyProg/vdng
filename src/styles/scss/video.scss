@@ -36,6 +36,10 @@ video::media-controls         {
   min-height:480px;
   min-width:720px;
                               }
+#video:-moz-full-screen {
+z-index:  2147483640;
+position:absolute;
+}
 
 .videoDiv16                   {
   //left:0;

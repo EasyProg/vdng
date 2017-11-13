@@ -16,7 +16,7 @@ import Channel from './Channel';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import MenuButton from './ui/MenuButton';
 import CategoryName from './ui/CategoryName';
-import CustomScroll from './ui/CustomScroll';
+import CustomScrollInvis from './ui/CustomScrollInvis';
 import ReactScrollBar from 'react-scrollbar-js';
 import ReactScroll from 'react-scrollbar-js';
 //var    ScrollbarWrapper = require('react-scrollbar');
@@ -262,10 +262,6 @@ class   ChannelList extends Component               {
         disableFocus()                              {
         $('#channels').focus();
                                                     }
-        // shouldComponentUpdate() {
-        // if
-        //                         }
-
         componentDidUpdate(prevProps)
                                                     {
         if (prevProps.channelsMenuVisible!==this.props.channelsMenuVisible&&this.props.channelsMenuVisible!==false&&this.props.catMenuVisible===false)

@@ -27,22 +27,23 @@
   line-height: 5.7em;
   padding-left: 20px;
                       }
+.customMenuDiv          {
+  height:92vh;
+  width:100%;
+  overflow-x:visible;
+
+}
 .customMenuScrollDiv  {
   height:92vh;
   position:absolute;
   width:110%;
-  overflow:-moz-scrollbars-none;
   overflow-y:auto;
   overflow-x:hidden;
-                      }
+}
 .customMenuScrollDiv::-webkit-scrollbar
 {
   width:0;
-}.customMenuScrollDiv::-moz-scrollbar
- {
-   width:0;
- }
-
+}
 .customMenuScrollDiv::-webkit-scrollbar-track
 {
   -webkit-border-radius: 6px;
@@ -54,12 +55,6 @@
   background-color: transparent;
 }
 
-.customMenuDiv          {
-  height:92vh;
-  width:100%;
-  overflow-x:visible;
-
-                        }
 .menuBottom           {
   width:$menuItemWidth;
   height:5vh;

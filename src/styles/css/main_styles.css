@@ -23,18 +23,19 @@
   line-height: 5.7em;
   padding-left: 20px; }
 
+.customMenuDiv {
+  height: 92vh;
+  width: 100%;
+  overflow-x: visible; }
+
 .customMenuScrollDiv {
   height: 92vh;
   position: absolute;
   width: 110%;
-  overflow: -moz-scrollbars-none;
   overflow-y: auto;
   overflow-x: hidden; }
 
 .customMenuScrollDiv::-webkit-scrollbar {
-  width: 0; }
-
-.customMenuScrollDiv::-moz-scrollbar {
   width: 0; }
 
 .customMenuScrollDiv::-webkit-scrollbar-track {
@@ -44,11 +45,6 @@
 .customMenuScrollDiv::-webkit-scrollbar-thumb {
   -webkit-border-radius: 6px;
   background-color: transparent; }
-
-.customMenuDiv {
-  height: 92vh;
-  width: 100%;
-  overflow-x: visible; }
 
 .menuBottom {
   width: 30vw;
@@ -165,6 +161,10 @@ video::media-controls {
   top: 0;
   min-height: 480px;
   min-width: 720px; }
+
+#video:-moz-full-screen {
+  z-index: 2147483640;
+  position: absolute; }
 
 .videoDiv16 {
   align-self: center;

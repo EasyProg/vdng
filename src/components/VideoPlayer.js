@@ -13,8 +13,8 @@ import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 //var    hls = new Hls();
 var hls = new Hls();
-class VideoPlayer extends Component             {
-        constructor(props)                      {
+class VideoPlayer extends Component         {
+        constructor(props)                  {
         super(props);
         //Bind functions
         this.changeSize    = this.changeSize.bind(this);
@@ -33,7 +33,7 @@ class VideoPlayer extends Component             {
         this.int = null;
                                                 }
         //Component Functions
-        componentDidMount()                     {
+        componentDidMount()                 {
         this.videoOnLoad ();
             $(window).resize(function()         {
 
@@ -130,12 +130,12 @@ class VideoPlayer extends Component             {
             {vd.playbackRate+=0.1;}
             else vd.playbackRate-=0.1;
                                             }
-        handlePlay()                                {
+        handlePlay()                        {
             this.timer = this.state.fullScreen?
                 setTimeout(function()
                                                     {
                     //Скрыть плей
-                    $("#vduppermenu").fadeOut(1000);
+                    $("#vduppermenu,#vdbottommenu").fadeOut(1000);
                                                     },5000):
                 setTimeout(function()               {
                     //Скрыть плей
@@ -202,7 +202,7 @@ class VideoPlayer extends Component             {
                 {
                 this.props.dispatch(toggleFullScreen(false));
                 this.setState({fullScreen:false})}
-                                                    }
+                                            }
         changeSize()                        {
             var vd = document.getElementById('video');
             if (   !document.fullscreenElement
