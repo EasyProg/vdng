@@ -15,7 +15,7 @@
   position: absolute;
   display:block;
   left:7%;
-  top:12%;
+  top:7.2rem;
   vertical-align: bottom;
 }
 .categoryLineNone                                    {
@@ -37,7 +37,7 @@
   min-width:30vw;
   font-family: "ComfortaaRegular";
   //font-size:1.3em;
-  font-size:1.4vw;
+  font-size:1.4rem;
   color:white;
   height: 110px;
   //line-height: 6em;
@@ -84,7 +84,7 @@
   @extend .menuHeader;
   width:30vw;
   max-width:30vw;
-  font-size:1.2em;
+  font-size:1.2rem;
   //height: 10px;
                                                       }
 .menuHeaderCh                                         {

@@ -96,7 +96,7 @@ class Video extends Component
                        src={navigator.userAgent.search(/iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i)!== -1?this.props.video.link:''}
 
                 />
-                {   !this.state.playing?
+                {   !this.state.playing&&!this.props.networkError?
                     <HoldScreen onClick={(e)=>this.handleClick(e)}
                                 onKeyDown={(e)=>this.handleKey(e)}/>
                     :null

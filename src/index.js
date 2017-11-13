@@ -4,5 +4,5 @@ import App from './containers/App';
 import {BrowserRouter} from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render( <App />, document.getElementById('root'));
 registerServiceWorker();

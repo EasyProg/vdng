@@ -29,7 +29,7 @@ class VideoPlayer extends Component             {
         this.changeRatio   = this.changeRatio.bind(this);
         this.timer = '';
         this.state = {fullScreen:false,networkError:false,ratio:0};
-        this.hls = null;
+        this.hls = new Hls();
         this.int = null;
                                                 }
         //Component Functions
@@ -78,13 +78,13 @@ class VideoPlayer extends Component             {
                         if (this.hls)   {
                             this.hls.destroy();
                                         }
-                        let hls = new Hls();
-                                }, 60000);
+                        this.hls = new Hls();
+                                }, 3000);
             if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
             {   //hls.destroy();
-            hls.loadSource(this.props.video.link);
-            hls.attachMedia(vd);
-            hls.on(Hls.Events.MANIFEST_PARSED,
+            this.hls.loadSource(this.props.video.link);
+            this.hls.attachMedia(vd);
+            this.hls.on(Hls.Events.MANIFEST_PARSED,
             function ()
                       {
                             {
@@ -92,30 +92,29 @@ class VideoPlayer extends Component             {
                                 vd.play();
                             else {
                                 console.log('must stopped');
-                                hls.stopLoad();
+                                this.hls.stopLoad();
                                  }
                             }
                       });
                 var funcCnt = this;
-                hls.on(Hls.Events.ERROR, function (event, data)
-            {
+                this.hls.on(Hls.Events.ERROR, function (event, data)
+                    {
                     {
                         switch (data.type)
                         {
                             case Hls.ErrorTypes.NETWORK_ERROR:
-                            {
+                            {   funcCnt.hls.stopLoad();
+                                funcCnt.hls.destroy();
                                 funcCnt.setState({networkError:true});
                                 //console.log(Hls.ErrorTypes.NETWORK_ERROR + 'NETWORK ERRROR!!!!!!_!!!!!');
-
-
                             }
                                 break;
                             default:
                                 break;
                         }
                     }
-            });
-            }
+                    });
+                    }
             this.hls=hls;
                                             }
         handleCurrTime(param)               {

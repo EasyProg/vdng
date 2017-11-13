@@ -1,12 +1,12 @@
-//video::-webkit-media-controls {
-//  display:none;
-//}
-//video::-moz-media-controls    {
-//  display:none;
-//}
-//video::media-controls         {
-//  display:none;
-//}
+video::-webkit-media-controls {
+  display:none;
+}
+video::-moz-media-controls    {
+  display:none;
+}
+video::media-controls         {
+  display:none;
+}
 .innerDiv                     {
   float:left;
   margin-left: 100px;

@@ -113,7 +113,8 @@ class VideoUpperMenu extends Component                         {
                 {
                     navigator.app.exitApp();
                 }
-                else {      console.log('shut down');
+                else
+                {      console.log('shut down');
                             window.close();
                 }
                 break;
@@ -167,7 +168,7 @@ class VideoUpperMenu extends Component                         {
             this.setState({progressValue:position});
         }
     }
-    switchPlayback(event)     {
+    switchPlayback(event)                                      {
 
         event.stopPropagation();
         let items = $('.playerButtonsDiv>img:not(.backwardActiveButton)');

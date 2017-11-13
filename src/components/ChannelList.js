@@ -316,7 +316,7 @@ class   ChannelList extends Component               {
                         }
                         <div className="customMenuScrollDiv">
                         <div className="customMenuDiv">
-                            {this.props.playList.map(  (elem, i) =>
+                                                        {this.props.playList.map(  (elem, i) =>
                                     <Channel
                                     key=                {i}
                                     img=                {elem.img}
@@ -335,8 +335,8 @@ class   ChannelList extends Component               {
                                                     =   {this.setProgramsVisible}
                                     program         =   {elem.program}
                                     />
-                            )
-                            }
+                                                        )
+                                                    }
                             </div>
                         </div>
                         <ProgramList
