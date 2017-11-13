@@ -109,7 +109,8 @@ class   ChannelList extends Component               {
 
 
                 case 39 :                                {
-                    if (elem && elem.program)            {
+                    if (elem && getCurrentProgram(elem.program).progressValue)
+                                                         {
                         this.setState({programs: parseProgram(elem.program)});
                         this.props.dispatch(setMenusVisible
                                                          (
@@ -126,14 +127,6 @@ class   ChannelList extends Component               {
                 case 40:
                 {
                     if (elem)   {
-                        // this.props.dispatch(setMenusVisible(
-                        //         {
-                        //         channelsMenuVisible: true,
-                        //         categoryMenuVisible: false,
-                        //         settingsVisible: false,
-                        //         programsVisible: false
-                        //         }, true
-                        // ));
                         this.switchChannel('next', this.state.itemChosen || i, elem.channelId);
                                 }
                 }
@@ -142,15 +135,6 @@ class   ChannelList extends Component               {
                 case 38:
                 {
                      if (elem)   {
-                    //     this.props.dispatch(
-                    //         setMenusVisible(
-                    //             {
-                    //                 channelsMenuVisible: true,
-                    //                 categoryMenuVisible: false,
-                    //                 settingsVisible: false,
-                    //                 programsVisible: false
-                    //             }, true
-                    //         ));
                         this.switchChannel('prev', this.state.itemChosen || i, elem.channelId);
                                 }
 
@@ -330,7 +314,7 @@ class   ChannelList extends Component               {
                                     tabIndex        =   {i}
                                     elemChosen      =   {this.state.itemChosen === i}
                                     onKeyDown       =   {e=>this.handleKey(e,elem,i)}
-                                    progress        =   {elem.program?getCurrentProgram(elem.program).progressValue:-1}
+                                    progress        =   {elem.program?getCurrentProgram(elem.program).progressValue===undefined?-1:getCurrentProgram(elem.program).progressValue:-1}
                                     setProgramVisibleContext
                                                     =   {this.setProgramsVisible}
                                     program         =   {elem.program}
@@ -342,7 +326,7 @@ class   ChannelList extends Component               {
                         <ProgramList
                                     visible         = {this.props.menus.programsVisible}
                                     programs        = {this.state.programs}
-                                    currentProgramId={getCurrentProgram(this.state.program).current.id}
+                                    currentProgramId= {getCurrentProgram(this.state.program).current.id}
                         />
                     </div>
                     <div className="menuBottom"/>

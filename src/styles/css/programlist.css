@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$menuActiveColor".
-        on line 45 of ./src/styles/scss/programlist.scss
+        on line 33 of ./src/styles/scss/programlist.scss
 
-40:   padding-top: 18px;
-41:   text-align: left;
-42: }
-43: .programListItemChosen  {
-44:   @extend .programListItem;
-45:   background:$menuActiveColor;
-46:                         }
-47: 
-48: .programListItem:hover  {
-49:   background:$main_color;
-50:   cursor:pointer;
+28:   padding-top: 18px;
+29:   text-align: left;
+30: }
+31: .programListItemChosen  {
+32:   @extend .programListItem;
+33:   background:$menuActiveColor;
+34:                         }
+35: 
+36: .programListItem:hover  {
+37:   background:$main_color;
+38:   cursor:pointer;
 
 Backtrace:
-./src/styles/scss/programlist.scss:45
+./src/styles/scss/programlist.scss:33
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/node.rb:50:in `perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -69,4 +69,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/interna
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$menuActiveColor\".\A         on line 45 of ./src/styles/scss/programlist.scss\A \A 40:   padding-top: 18px;\A 41:   text-align: left;\A 42: }\A 43: .programListItemChosen  {\A 44:   @extend .programListItem;\A 45:   background:$menuActiveColor;\A 46:                         }\A 47: \A 48: .programListItem:hover  {\A 49:   background:$main_color;\A 50:   cursor:pointer;"; }
+  content: "Error: Undefined variable: \"$menuActiveColor\".\A         on line 33 of ./src/styles/scss/programlist.scss\A \A 28:   padding-top: 18px;\A 29:   text-align: left;\A 30: }\A 31: .programListItemChosen  {\A 32:   @extend .programListItem;\A 33:   background:$menuActiveColor;\A 34:                         }\A 35: \A 36: .programListItem:hover  {\A 37:   background:$main_color;\A 38:   cursor:pointer;"; }

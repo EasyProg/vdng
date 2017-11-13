@@ -17,7 +17,7 @@ export default function getCurrentProgram (arr,channelName)
             timeLeft = currentObj[0]['stop_at'] - delta;
             programTime = currentObj[0]['stop_at'] - currentObj[0]['start_at'];
             var position = (timeAfter / (timeLeft + timeAfter)) * 100;
-            //console.log(currentObj[0]);
+            //currentObj
             return          {
                 startTime: currentObj[0]['start_at'],
                 prTime: programTime,

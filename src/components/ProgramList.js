@@ -146,7 +146,7 @@ class ProgramList extends Component
             $('.programName_hover').stop(true,true);
                                       }
         componentDidMount()                 {
-            //$('.programListItemChosen').focus();
+         console.log(this.props.programs);
                                       }
         componentWillReceiveProps(nextProps){
         this.setState({itemChosen:nextProps.currentProgramId-1});

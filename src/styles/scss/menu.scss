@@ -31,14 +31,18 @@
   height:92vh;
   position:absolute;
   width:110%;
-  //overflow-y:-moz-scrollbars-none;
+  overflow:-moz-scrollbars-none;
   overflow-y:auto;
   overflow-x:hidden;
                       }
 .customMenuScrollDiv::-webkit-scrollbar
 {
   width:0;
-}
+}.customMenuScrollDiv::-moz-scrollbar
+ {
+   width:0;
+ }
+
 .customMenuScrollDiv::-webkit-scrollbar-track
 {
   -webkit-border-radius: 6px;
