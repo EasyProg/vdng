@@ -91,22 +91,21 @@ class VideoPlayer extends Component         {
                             if (this.state.video.isPlaying)
                                 vd.play();
                             else {
-                                console.log('must stopped');
                                 this.hls.stopLoad();
                                  }
                             }
                       });
                 var funcCnt = this;
-                this.hls.on(Hls.Events.ERROR, function (event, data)
+                this.hls.on(Hls.Events.ERROR, function
+                    (event, data)
                     {
                     {
                         switch (data.type)
                         {
                             case Hls.ErrorTypes.NETWORK_ERROR:
-                            {   funcCnt.hls.stopLoad();
-                                funcCnt.hls.destroy();
-                                funcCnt.setState({networkError:true});
-                                //console.log(Hls.ErrorTypes.NETWORK_ERROR + 'NETWORK ERRROR!!!!!!_!!!!!');
+                            {    funcCnt.hls.stopLoad();
+                                 funcCnt.hls.destroy();
+                                 funcCnt.setState({networkError:true});
                             }
                                 break;
                             default:
