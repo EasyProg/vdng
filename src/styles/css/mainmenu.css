@@ -1,0 +1,31 @@
+.oneMenuOpen {
+  position: absolute;
+  width: 30vw;
+  min-width: 300px;
+  left: 0;
+  height: 101vh;
+  background: rgba(0, 0, 0, 0.8);
+  transition: width 0.2s ease-in;
+  z-index: 2147483640; }
+
+.twoMenuOpen {
+  position: absolute;
+  width: 60vw;
+  max-width: 60vw;
+  min-width: 30vw;
+  left: 0;
+  height: 101vh;
+  background: rgba(0, 0, 0, 0.8);
+  transition: width 0.2s ease-in;
+  z-index: 2147483640; }
+
+.threeMenuOpen {
+  position: absolute;
+  width: 100vw;
+  max-width: 60vw;
+  left: 0;
+  height: 101vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2147483640; }
+
+/*# sourceMappingURL=mainmenu.css.map */
