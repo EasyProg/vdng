@@ -14,6 +14,7 @@
 @import "programlist";
 @import "containermenu";
 @import "mainmenu";
+@import "mobilemenu";
 *                    {
   outline: 0;
   border: 0;
@@ -30,11 +31,13 @@ body                 {
   width:99vw;
                      }
 #root                {
-  height:100vh;
+  height:100rem;
+  width:100%;
                      }
 div [data-reactroot] {
-  position: relative;
-  height:100vh;
+  //position: relative;
+  //height:101vh;
+  @extend #root
                      }
 @font-face           {
   font-family: "ComfortaaRegular";
@@ -64,12 +67,12 @@ div [data-reactroot] {
   transition: width 1s ease 1s;
                       }
 .mainMenuDiv
-{ pointer-events: none;
-  top:-20px;
-  margin-top: 15px;
+{  pointer-events: none;
+  //margin-top: 15px;
   //position: fixed;
   position: absolute;
   width:100vw;
+  //height:100%;
   //display: flex;
   display: flex;
   flex-direction: row;

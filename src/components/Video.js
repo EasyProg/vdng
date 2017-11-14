@@ -71,6 +71,12 @@ class Video extends Component
             videoClass:'video16',
             };
             break;
+        case 3:
+            return {
+            videoDivClass:'videoUsualDiv',
+            videoClass:'videoFit',
+            };
+            break;
                     }
                     }
 
@@ -79,7 +85,7 @@ class Video extends Component
     render()            {
         if (this.props.video!=='none')
         {return(
-            <div //className={this.setRatio(this.props.ratio).videoDivClass}
+            <div className={this.setRatio(this.props.ratio).videoDivClass}
                 //className="videoDiv16"
             >
                 <video id="video"

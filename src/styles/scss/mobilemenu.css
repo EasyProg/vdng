@@ -2,7 +2,8 @@
   position: absolute;
   height: 70vh;
   width: 100vw;
-  background: black; }
+  background: yellow;
+  top: 30vh; }
 
 .mobileMenuHeader {
   position: relative;

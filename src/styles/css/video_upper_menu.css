@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$main_color".
-        on line 134 of ./src/styles/scss/video_upper_menu.scss
+        on line 150 of ./src/styles/scss/video_upper_menu.scss
 
-129:   @extend .progressBar;
-130:   //top:83.5%;
-131: }
-132: #progress-bar::-webkit-progress-bar
-133: {
-134:   background: $main_color;
-135: }
-136: #progress-bar::-webkit-progress-value
-137: {
-138:   background:white;
-139: }
+145:   @extend .progressBar;
+146:   //top:83.5%;
+147: }
+148: #progress-bar::-webkit-progress-bar
+149: {
+150:   background: $main_color;
+151: }
+152: #progress-bar::-webkit-progress-value
+153: {
+154:   background:white;
+155: }
 
 Backtrace:
-./src/styles/scss/video_upper_menu.scss:134
+./src/styles/scss/video_upper_menu.scss:150
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/node.rb:50:in `perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -69,4 +69,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/interna
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$main_color\".\A         on line 134 of ./src/styles/scss/video_upper_menu.scss\A \A 129:   @extend .progressBar;\A 130:   //top:83.5%;\A 131: }\A 132: #progress-bar::-webkit-progress-bar\A 133: {\A 134:   background: $main_color;\A 135: }\A 136: #progress-bar::-webkit-progress-value\A 137: {\A 138:   background:white;\A 139: }"; }
+  content: "Error: Undefined variable: \"$main_color\".\A         on line 150 of ./src/styles/scss/video_upper_menu.scss\A \A 145:   @extend .progressBar;\A 146:   //top:83.5%;\A 147: }\A 148: #progress-bar::-webkit-progress-bar\A 149: {\A 150:   background: $main_color;\A 151: }\A 152: #progress-bar::-webkit-progress-value\A 153: {\A 154:   background:white;\A 155: }"; }

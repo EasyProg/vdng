@@ -100,7 +100,7 @@ class VideoBottomMenu extends Component
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         this.filterChannels(this.props.channels,this.props.channelCategory);
         }
-    switchPlayback(event)     {
+    switchPlayback(event)               {
 
         event.stopPropagation();
         let items = $('#iconRes,.playerButtonsBottomDiv>.iconsDiv');
@@ -147,7 +147,7 @@ class VideoBottomMenu extends Component
 
 
     }
-    render () {
+    render ()                           {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         {if (this.state.showResolution  === false)
         {

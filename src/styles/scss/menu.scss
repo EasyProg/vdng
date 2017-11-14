@@ -89,6 +89,7 @@
 }
 .menuItemStyleChosen   {
   @extend .menuItemStyle;
+  width:80%;
   background:$menuActiveColor;
   //width:110%;
 

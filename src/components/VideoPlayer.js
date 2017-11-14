@@ -273,6 +273,9 @@ class VideoPlayer extends Component         {
                 this.setState({ratio:2});
                 break;
                 case 2:
+                this.setState({ratio:3});
+                break;
+                case 3:
                 this.setState({ratio:0});
                 break;
                         }
@@ -297,6 +300,7 @@ class VideoPlayer extends Component         {
 
 
                 />
+                {/*<div className="playBackDivMain">*/}
                 <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                  toggleContext={this.toggle}
                                  handleOnPlayContext={this.handleOnPlay}
@@ -314,6 +318,7 @@ class VideoPlayer extends Component         {
                                  ratio=       {this.state.ratio}
 
                 />
+            {/*</div>*/}
             </div>                            )
 
                                               }
@@ -331,7 +336,7 @@ class VideoPlayer extends Component         {
                 fullScreen:           state.videoReducer.fullScreen,
                 isOpened:             state.menuReducer.isOpened,
                 isVisible:            state.menuReducer.elemsVisible,
-                //networkError:         state.videoReducer.networkError
+                //networkError:       state.videoReducer.networkError
                                      }),
                                       mapDispatchToProps
                                      )(VideoPlayer);

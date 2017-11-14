@@ -1,4 +1,5 @@
 import React, {Component,PropTypes} from 'react';
+import MobileMenu from './MobileMenu';
 
 export default class MobileApp extends Component
             {
@@ -11,7 +12,9 @@ window.addEventListener("orientationchange",function()
             }
 render ()   {
     return  (
-            <div>MobileApp</div>
+            <div>
+            <MobileMenu/>
+            </div>
             )
             }
             }

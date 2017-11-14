@@ -32,7 +32,7 @@ class  Menu extends Component               {
         this.toggleMenuState = this.toggleMenuState.bind(this);
         this.parseCategories = this.parseCategories.bind(this);
         this.getPrograms = this.getPrograms.bind(this);
-    }
+                                            }
     getJsonChannels(url)                    {
         let context = this;
         fetch(url).then(function(response)  {
@@ -97,7 +97,7 @@ class  Menu extends Component               {
         return str.substr(0, 1).toUpperCase() + str.substr(1);
                                             }
     chooseSrc(categoryName)                 {
-        switch (categoryName)   {
+        switch (categoryName)               {
             case 'Фильмы': return films;
                 break;
             case 'Все жанры':return all;
@@ -134,7 +134,7 @@ class  Menu extends Component               {
         }
         grpArr.unshift({name:'Все жанры',src:all});
         return grpArr;
-    }
+                                            }
     toggleMenuState(menuType = 'left')      {
         //e.stopPropagation();
         //console.log('Event Log');

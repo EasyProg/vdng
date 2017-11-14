@@ -272,10 +272,10 @@ class   ChannelList extends Component               {
         }
 
                                     }
-        componentDidMount()             {
+        componentDidMount()                         {
             this.setState({channelId: this.props.channels[0].channelId,itemChosen:this.props.channels[0].channelId});
             this.props.dispatch(changeVideo(this.props.channels[0]));
-        }
+                                                    }
         render()                                    {
         //this.switchChannel();
         if (this.props.playList.length)
