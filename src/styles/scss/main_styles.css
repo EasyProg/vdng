@@ -16,6 +16,13 @@
   vertical-align: middle;
   padding-left: 20px; }
 
+.customMenuFirefoxScrollDiv {
+  height: 92vh;
+  position: absolute;
+  width: 115%;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
 .menuItemStyleReroved {
   width: 30vw;
   min-width: 30vw;
@@ -141,6 +148,47 @@ video::-moz-media-controls {
 video::media-controls {
   display: none; }
 
+/*  Needed to hide player controls in Safari Only */
+video::-webkit-media-controls-panel {
+  display: none !important; }
+
+video::-webkit-media-controls-play-button {
+  display: none !important; }
+
+video::-webkit-media-controls-current-time-display {
+  display: none !important; }
+
+video::-webkit-media-controls-time-remaining-display {
+  display: none !important; }
+
+video::-webkit-media-controls-timeline {
+  display: none !important; }
+
+video::-webkit-media-controls-mute-button {
+  display: none !important; }
+
+video::-webkit-media-controls-volume-slider {
+  display: none !important; }
+
+video::-webkit-media-controls-fullscreen-button {
+  display: none !important; }
+
+video::-internal-media-controls-download-button {
+  display: none !important; }
+
+/* Firefox Shadow DOM Fix */
+*::-moz-list-bullet, *::-moz-list-number {
+  display: none !important; }
+
+*::-moz-meter-bar {
+  display: none !important; }
+
+:-moz-full-screen:not(:root)::backdrop {
+  display: none !important; }
+
+*::backdrop {
+  display: none !important; }
+
 .innerDiv {
   float: left;
   margin-left: 100px;
@@ -161,10 +209,6 @@ video::media-controls {
   top: 0;
   min-height: 480px;
   min-width: 720px; }
-
-#video:-moz-full-screen {
-  z-index: 2147483640;
-  position: absolute; }
 
 .videoDiv16 {
   align-self: center;
@@ -638,7 +682,7 @@ hr {
   -webkit-align-items: center;
   justify-content: space-between;
   -webkit-justify-content: space-between;
-  z-index: 2147483646; }
+  z-index: 2147483647; }
 
 .playerButtonsDiv {
   cursor: pointer;
@@ -734,7 +778,7 @@ hr {
   background: transparent; }
 
 .divBottomPlayer, .divBottomPlayerFull {
-  z-index: 2147483648;
+  z-index: 2147483647;
   position: absolute;
   bottom: 30px;
   left: 22%;
@@ -980,8 +1024,8 @@ hr {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-right: 8rem;
-  width: 60px;
+  margin-right: 13rem;
+  width: 70px;
   height: 50px;
   background: #6c4ad1;
   border-radius: 50px;

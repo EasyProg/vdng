@@ -7,6 +7,78 @@ video::-moz-media-controls    {
 video::media-controls         {
   display:none;
 }
+/*  Needed to hide player controls in Safari Only */
+
+video::-webkit-media-controls-panel {
+  display:none !important;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-current-time-display {
+  display: none !important;
+}
+
+video::-webkit-media-controls-time-remaining-display {
+  display: none !important;
+}
+
+video::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
+video::-webkit-media-controls-mute-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-volume-slider {
+  display: none !important;
+}
+
+video::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+}
+
+video::-internal-media-controls-download-button {
+  display: none !important;
+}
+//*Ms edge constrols disable*//
+//video:fullscreen  {
+//  @extend #video;
+//}
+/* Firefox Shadow DOM Fix */
+
+*::-moz-list-bullet, *::-moz-list-number {
+  display:none !important;
+}
+
+*::-moz-meter-bar {
+  display:none !important;
+}
+
+:-moz-full-screen:not(:root)::backdrop {
+  display:none !important;
+}
+
+*::backdrop {
+  display:none !important;
+}
+
+//:fullscreen:not(:root,video,.divPlayer)  {
+//  //position: absolute!important;
+//  display:none !important;
+//  //z-index:1 !important;
+//                              }
+
+//:fullscreen(video)  {
+//z-index: 10!important;
+//}
+
+
+
+//:fullscreen:
 .innerDiv                     {
   float:left;
   margin-left: 100px;
@@ -36,10 +108,10 @@ video::media-controls         {
   min-height:480px;
   min-width:720px;
                               }
-#video:-moz-full-screen {
-z-index:  2147483640;
-position:absolute;
-}
+//#video:-moz-full-screen {
+//z-index:  2147483640;
+//position:absolute;
+//}
 
 .videoDiv16                   {
   //left:0;

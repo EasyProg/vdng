@@ -79,7 +79,7 @@ class Video extends Component
     render()            {
         if (this.props.video!=='none')
         {return(
-            <div className={this.setRatio(this.props.ratio).videoDivClass}
+            <div //className={this.setRatio(this.props.ratio).videoDivClass}
                 //className="videoDiv16"
             >
                 <video id="video"

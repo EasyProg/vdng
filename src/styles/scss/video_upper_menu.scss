@@ -37,8 +37,11 @@ $plButtonsLeft:10%;
   -webkit-align-items: center;
   justify-content: space-between;
   -webkit-justify-content:space-between;
-  z-index:2147483646;
+  z-index:2147483647;
 }
+//.divPlayer:fullscreen {
+//@extend .divPlayer;
+//}
 .playerButtonsDiv                  {
   cursor:pointer;
   display:flex;
@@ -67,7 +70,7 @@ $plButtonsLeft:10%;
   //outline: none;
   //filter:drop-shadow(12px,12px,7px,rgba(0,0,0,0.5));
   //border-radius: 17px;
-}
+                                   }
 .playerButtonsDiv>img:focus        {
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
   background: transparent;

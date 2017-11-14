@@ -272,6 +272,10 @@ class   ChannelList extends Component               {
         }
 
                                     }
+        componentDidMount()             {
+            this.setState({channelId: this.props.channels[0].channelId,itemChosen:this.props.channels[0].channelId});
+            this.props.dispatch(changeVideo(this.props.channels[0]));
+        }
         render()                                    {
         //this.switchChannel();
         if (this.props.playList.length)
@@ -281,7 +285,7 @@ class   ChannelList extends Component               {
                          'menuChannelLeft':this.props.channelsMenuVisible&&
                          !this.props.catMenuVisible?'menuChannel':'menuChannelNone'}
                          onClick={this.props.onClick} id="channels" tabIndex={1}
-                         onKeyDown={e=>this.handleKey(e)}
+                         onKeyDown=  {e=>this.handleKey(e)}
                          onMouseOver={e=>this.disableFocus()}
                     >
                         {this.props.playList.length?
@@ -295,6 +299,7 @@ class   ChannelList extends Component               {
                             </div>:''
                         }
                         <div className="customMenuScrollDiv">
+                        <div className="customMenuFirefoxScrollDiv">
                         <div className="customMenuDiv">
                                                         {this.props.playList.map(  (elem, i) =>
                                     <Channel
@@ -317,7 +322,8 @@ class   ChannelList extends Component               {
                                     />
                                                         )
                                                     }
-                            </div>
+                        </div>
+                        </div>
                         </div>
                         <ProgramList
                                     visible         = {this.props.menus.programsVisible}

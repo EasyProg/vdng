@@ -134,7 +134,7 @@ class VideoPlayer extends Component         {
                 setTimeout(function()
                                                     {
                     //Скрыть плей
-                    $("#vduppermenu,#vdbottommenu").fadeOut(1000);
+                    $("#vduppermenu,#vdbottommenu,#menuCenterText,.bottomShadowDiv").fadeOut(1000);
                                                     },5000):
                 setTimeout(function()               {
                     //Скрыть плей

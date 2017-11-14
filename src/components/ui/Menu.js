@@ -86,8 +86,9 @@ class  Menu extends Component               {
         //set href
         var href   = document.location.href;
         var parsed = href.substring(href.indexOf('/',10)+1);
+        //alert(parsed);
         //this.getJsonChannels(href+'/list.json');
-        this.getJsonChannels('https://cdnua02.hls.tv/play/67afdc3ad5b664e5af80ef36e7a9e3d2/list.json');
+        this.getJsonChannels('https://cdnua01.hls.tv/'+parsed+'/list.json');
         //67afdc3ad5b664e5af80ef36e7a9e3d2/53/stream.m3u8
         //var repeat setInterval(this.getPrograms(href+'channels.json'),43200000);
         var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
@@ -113,8 +114,8 @@ class  Menu extends Component               {
                 break;
             case 'Познавательный':return cognitive;
 
-        }
-    }
+                                            }
+                                            }
     parseCategories   ()                    {
         let grpArr = [];
         let c = parse(hlsArray);
