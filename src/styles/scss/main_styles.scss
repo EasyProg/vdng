@@ -18,7 +18,7 @@
 *                    {
   outline: 0;
   border: 0;
-                     }
+}
 
 body                 {
   background: black;
@@ -29,16 +29,14 @@ body                 {
   min-width:600px;
   height:99vh;
   width:99vw;
-                     }
+}
 #root                {
-  height:100rem;
-  width:100%;
-                     }
+  height:100vh;
+}
 div [data-reactroot] {
-  //position: relative;
-  //height:101vh;
-  @extend #root
-                     }
+  position: relative;
+  height:100vh;
+}
 @font-face           {
   font-family: "ComfortaaRegular";
   src: url("../fonts/ComfortaaRegular.eot");
@@ -46,12 +44,12 @@ div [data-reactroot] {
   url("../fonts/ComfortaaRegular.woff") format("woff"),
   url("../fonts/ComfortaaRegular.ttf") format("truetype");
   font-weight: bold;
-                      }
+}
 @font-face            {
   font-family: "RobotoMedium";
   src: url(../fonts/RobotoMedium.ttf);
   font-weight: 600;
-                      }
+}
 
 
 .testDiv              {
@@ -60,19 +58,19 @@ div [data-reactroot] {
   width:100px;
   height: 40px;
   transition: width 1s ease 1s;
-                      }
+}
 .testDiv:hover        {
   display: block;
   width:0;
   transition: width 1s ease 1s;
-                      }
+}
 .mainMenuDiv
-{  pointer-events: none;
-  //margin-top: 15px;
+{ pointer-events: none;
+  top:-20px;
+  margin-top: 15px;
   //position: fixed;
   position: absolute;
   width:100vw;
-  //height:100%;
   //display: flex;
   display: flex;
   flex-direction: row;
@@ -87,14 +85,14 @@ div [data-reactroot] {
   top:-15px;
   //background: rgba(0, 0, 0,0.3)
   background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0));
-                        }
+}
 
 
 .menuDives              {
   height: 150px;
   width:100%;
   display: flex;
-                        }
+}
 //.menuCenterText {
 //  position: relative;
 //  width:500px;
@@ -107,7 +105,7 @@ div [data-reactroot] {
   background: linear-gradient(to top,rgba(0,0,0,1),rgba(0,0,0,0));
   pointer-events: none;
   z-index:2147483647;
-                        }
+}
 .menuCenterText         {
   //margin-left:150px;
   pointer-events: none;
@@ -127,7 +125,7 @@ div [data-reactroot] {
   color:white;
   //padding-top:20px;
   background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0));
-                        }
+}
 .upperText              {
   display: flex;
   width:100%;
@@ -138,7 +136,7 @@ div [data-reactroot] {
   letter-spacing: 1px;
   font-family: "ComfortaaRegular";
   font-size:2em;
-                        }
+}
 .lowerText              {
   margin-top: 5px;
   width:100%;
@@ -149,14 +147,14 @@ div [data-reactroot] {
   letter-spacing: 1px;
   font-family: "ComfortaaRegular";
   font-size:1.5em;
-                        }
+}
 .textBlock              {
   display: flex;
   margin-left: 10px;
   flex-direction: column;
   width:100%;
   //align-items: center;
-                        }
+}
 .displayNone            {
   display:none;
   //position:relative;
@@ -170,20 +168,8 @@ div [data-reactroot] {
   top:25px;
   margin:15px;
   left:0;
-                        }
+}
 .arrowImg               {
-margin-left:10px;
-margin-right:10px;
-                        }
-//#vduppermenu:hover {
-// opacity:1;
-// display:block;
-// background: yellow;
-//}
-//.divChannelText {
-//  line-height: 10em;
-//}
-//#video {
-//  position:relative;
-//  //left:10%;
-//}
+  margin-left:10px;
+  margin-right:10px;
+}

@@ -13,8 +13,9 @@ class App extends Component  {
     return                   (
                 <Provider store={store}>
                 {window.location.href.indexOf('mobile')===-1?<div>
-                    <Menu/>
-                    <VideoPlayer/>
+                        <VideoPlayer/>
+                        <Menu/>
+
                 </div>:
                     <MobileApp/>
                 }

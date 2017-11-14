@@ -321,7 +321,7 @@ class   ChannelList extends Component               {
                                     program         =   {elem.program}
                                     />
                                                         )
-                                                    }
+                                                        }
                         </div>
                         </div>
                         </div>

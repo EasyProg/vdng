@@ -16,13 +16,6 @@
   vertical-align: middle;
   padding-left: 20px; }
 
-.customMenuFirefoxScrollDiv {
-  height: 92vh;
-  position: absolute;
-  width: 115%;
-  overflow-y: auto;
-  overflow-x: hidden; }
-
 .menuItemStyleReroved {
   width: 30vw;
   min-width: 30vw;
@@ -39,6 +32,14 @@
   height: 92vh;
   position: absolute;
   width: 110%;
+  overflow-y: hidden;
+  overflow-x: hidden; }
+
+.customMenuFirefoxScrollDiv {
+  height: 92vh;
+  position: absolute;
+  width: 115%;
+  margin-right: -30px;
   overflow-y: auto;
   overflow-x: hidden; }
 
@@ -67,8 +68,8 @@
   background: #9677ff; }
 
 .menuItemStyleChosen {
-  width: 80%;
-  background: #575757; }
+  background: #575757;
+  width: 90%; }
 
 .circleButtonSpan {
   width: 40px;
@@ -189,6 +190,11 @@ video::-internal-media-controls-download-button {
 
 *::backdrop {
   display: none !important; }
+
+:fullscreen:not(:root) {
+  position: absolute !important;
+  display: block !important;
+  z-index: 1 !important; }
 
 .innerDiv {
   float: left;
@@ -1389,9 +1395,12 @@ body {
   height: 99vh;
   width: 99vw; }
 
-#root, div [data-reactroot] {
-  height: 100rem;
-  width: 100%; }
+#root {
+  height: 100vh; }
+
+div [data-reactroot] {
+  position: relative;
+  height: 100vh; }
 
 @font-face {
   font-family: "ComfortaaRegular";
@@ -1416,6 +1425,8 @@ body {
 
 .mainMenuDiv, .mainMenuDivFull {
   pointer-events: none;
+  top: -20px;
+  margin-top: 15px;
   position: absolute;
   width: 100vw;
   display: flex;

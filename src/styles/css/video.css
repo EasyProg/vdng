@@ -48,6 +48,11 @@ video::-internal-media-controls-download-button {
 *::backdrop {
   display: none !important; }
 
+:fullscreen:not(:root) {
+  position: absolute !important;
+  display: block !important;
+  z-index: 1 !important; }
+
 .innerDiv {
   float: left;
   margin-left: 100px;

@@ -66,12 +66,14 @@ video::-internal-media-controls-download-button {
   display:none !important;
 }
 
-//:fullscreen:not(:root,video,.divPlayer)  {
-//  //position: absolute!important;
-//  display:none !important;
-//  //z-index:1 !important;
-//                              }
-
+:fullscreen:not(:root)        {
+  position: absolute!important;
+  display: block !important;
+  z-index:1 !important;
+                              }
+//video :fullscreen {
+//  z-index:10!important;
+//}
 //:fullscreen(video)  {
 //z-index: 10!important;
 //}

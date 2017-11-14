@@ -69,17 +69,18 @@ class VideoPlayer extends Component         {
         videoOnLoad()                       {
             var vd = document.getElementById('video');
             var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
-
-            if (this.int)   {
-                clearInterval(this.int);
-                            }
-            this.int = setInterval      (
-                    function () {
-                        if (this.hls)   {
-                            this.hls.destroy();
-                                        }
-                        this.hls = new Hls();
-                                }, 3000);
+            console.log('Channel changed');
+            // if (this.int)   {
+            //     clearInterval(this.int);
+            //                 }
+            // this.int = setInterval      (
+            //         function () {
+            //             if (this.hls)   {
+            //                 this.hls.destroy();
+            //                             }
+            //                     this.hls = new Hls();
+            //                     }, 3000);
+            if (this.hls) this.hls.stopLoad();
             if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
             {   //hls.destroy();
             this.hls.loadSource(this.props.video.link);
@@ -170,7 +171,6 @@ class VideoPlayer extends Component         {
                 if (!this.props.fullScreen)
                 {
                     clearTimeout(this.timer);
-                    //$('.menuCenterText').css({"display":"flex"});
                     $("#vduppermenu,#vdbottommenu,#menuCenterText,.bottomShadowDiv").fadeIn(1);
                     //Запустить скрытие
                     this.handlePlay();
@@ -183,7 +183,6 @@ class VideoPlayer extends Component         {
             else if (this.props.isOpened===false&&this.props.autoPlay)
             {
                     clearTimeout(this.timer);
-                //$('.menuCenterText').css({"display":"flex"});
                 //#menuCenterText
                     $("#vduppermenu,#vdbottommenu,#menuCenterText,.bottomShadowDiv").fadeIn(1);
                 //Запустить скрытие

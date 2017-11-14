@@ -15,13 +15,6 @@
   vertical-align: middle;
   padding-left: 20px; }
 
-.customMenuFirefoxScrollDiv {
-  height: 92vh;
-  position: absolute;
-  width: 115%;
-  overflow-y: auto;
-  overflow-x: hidden; }
-
 .menuItemStyleReroved {
   width: 30vw;
   min-width: 30vw;
@@ -38,6 +31,14 @@
   height: 92vh;
   position: absolute;
   width: 110%;
+  overflow-y: hidden;
+  overflow-x: hidden; }
+
+.customMenuFirefoxScrollDiv {
+  height: 92vh;
+  position: absolute;
+  width: 115%;
+  margin-right: -30px;
   overflow-y: auto;
   overflow-x: hidden; }
 
@@ -66,8 +67,8 @@
   background: #9677ff; }
 
 .menuItemStyleChosen {
-  width: 80%;
-  background: #575757; }
+  background: #575757;
+  width: 90%; }
 
 .circleButtonSpan {
   width: 40px;
