@@ -10,6 +10,9 @@
   left:0;
   transition: left 0.2s ease 10ms;
   z-index:2147483641;
+  overflow:hidden;
+  //margin-right: -130rem;
+  //overflow-y:hidden;
 }
 .categoryLine                                        {
   position: absolute;

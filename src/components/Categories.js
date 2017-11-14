@@ -170,8 +170,9 @@ class  Categories extends Component                     {
                                       reversed={true}
                         />
                     </div>
-                    <CustomScroll
-                    >
+                    <div className="customMenuFirefoxScrollDiv">
+                    <CustomScroll>
+                    {/*>*/}
                                                              {
                             this.props.categories.map        ((item,i)=>
                                 <div key={i} className=      {this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
@@ -185,6 +186,7 @@ class  Categories extends Component                     {
                                                               )
                                                               }
                     </CustomScroll>
+                    </div>
                 </div>
                 <div className="innerDiv">
                     <ChannelList
