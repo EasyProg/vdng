@@ -36,7 +36,8 @@ video::-internal-media-controls-download-button {
   display: none !important; }
 
 /* Firefox Shadow DOM Fix */
-*::-moz-list-bullet, *::-moz-list-number {
+*::-moz-list-bullet,
+*::-moz-list-number {
   display: none !important; }
 
 *::-moz-meter-bar {
@@ -49,9 +50,7 @@ video::-internal-media-controls-download-button {
   display: none !important; }
 
 :fullscreen:not(:root) {
-  position: absolute !important;
-  display: block !important;
-  z-index: 1 !important; }
+  display: none !important; }
 
 .innerDiv {
   float: left;
