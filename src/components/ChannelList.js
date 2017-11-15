@@ -104,14 +104,14 @@ class   ChannelList extends Component               {
         stopRun      ()                             {
             $('.pname_hover').stop(true,true);
         }
-        handleKey(e,elem,i)                         {
+        handleKey(e,elem,i)                              {
                 switch (e.keyCode)                       {
 
 
                 case 39 :                                {
                     if (elem && getCurrentProgram(elem.program).progressValue)
                                                          {
-                        this.setState({programs: parseProgram(elem.program)});
+                        this.setState({programs: parseProgram(elem.program),itemChosen:false});
                         this.props.dispatch(setMenusVisible
                                                          (
                                                          {
@@ -168,8 +168,8 @@ class   ChannelList extends Component               {
                     ));
                     //this.setState({channelId: this.state.itemChosen});
                     //
-                    this.setState({channelId: -1});
-                    if (this.props.menus.categoryMenuVisible)
+                    this.setState({channelId: -1,itemChosen:false});
+                    //if (this.props.menus.categoryMenuVisible)
                     $('.categoryItemChosen').focus();
                             }
                     break;
@@ -261,17 +261,27 @@ class   ChannelList extends Component               {
                                                     }
         disableFocus()                              {
         $('#channels').focus();
+        this.setState({itemChosen:false});
                                                     }
         componentDidUpdate(prevProps)
                                                     {
-        if (prevProps.channelsMenuVisible!==this.props.channelsMenuVisible&&this.props.channelsMenuVisible!==false&&this.props.catMenuVisible===false)
+        if  (
+
+            (prevProps.channelsMenuVisible!==this.props.channelsMenuVisible&&this.props.channelsMenuVisible!==false&&this.props.catMenuVisible===false)
+
+
+            )
 
         {
-
-            $('.menuItemStyleChosen').focus();
+            let chosen = $('.menuItemStyleChosen');
+            chosen.focus();
+            //$('.menuItemStyleChosen').focus();
+            //console.log(chosen);
+            //console.log($('.menuItemStyleChosen').attr("tabIndex"));
+            this.setState({itemChosen:Number(chosen.attr("tabIndex"))});
         }
 
-                                    }
+                                                    }
         componentDidMount()                         {
             this.setState({channelId: this.props.channels[0].channelId,itemChosen:this.props.channels[0].channelId});
             this.props.dispatch(changeVideo(this.props.channels[0]));

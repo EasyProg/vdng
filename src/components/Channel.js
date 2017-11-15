@@ -52,9 +52,16 @@ export default class Channel extends Component      {
         $('.pname_hover').stop(true,true);
                         }
     circleVisible(param) {
+        console.log('changeState');
         if (param) this.setState({visible: true});
         else this.setState({visible: false})
                          }
+    onBlur (e)           {
+        if (!e.currentTarget.contains(document.activeElement))
+        {
+        this.circleVisible(false);
+        }
+                         };
     render()             {
         return           (
             <div  className={this.props.chosen?'menuItemStyleChosen':'menuItemStyle'}
@@ -65,6 +72,8 @@ export default class Channel extends Component      {
                   ref={(channel)=>this.channel=channel}
                   onMouseEnter={e=>this.circleVisible(true)}
                   onMouseLeave={e=>this.circleVisible(false)}
+                  onBlur={e=>this.onBlur(e)}
+                  //onFocusOut=
             >
             <div className="staticItem">
                   <span className="spanChannelid">{this.props.channelNum}</span>
@@ -89,7 +98,8 @@ export default class Channel extends Component      {
                  {/*{this.props.favorite ? <span className="pnameFav"><img src={book} width={20} height={20}/></span> : ''}*/}
                  </div>
                  </div>
-                 {(this.props.elemChosen||this.state.visible)&&this.props.progress!==-1?
+                 {/*this.props.elemChosen*/}
+                 {(this.state.visible||this.props.elemChosen)&&this.props.progress!==-1?
                  <div className="epgShowButton" onClick={e=>this.props.setProgramVisibleContext(e,this.props.program)}>
                     <img src={arrow} width={15} height={15}/>
                  </div>:null}
