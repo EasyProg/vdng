@@ -104,7 +104,7 @@ class   ChannelList extends Component               {
         stopRun      ()                             {
             $('.pname_hover').stop(true,true);
         }
-        handleKey(e,elem,i)                              {
+        handleKey(e,elem,i)                         {
                 switch (e.keyCode)                       {
 
 
@@ -267,7 +267,12 @@ class   ChannelList extends Component               {
                                                     {
         if  (
 
-            (prevProps.channelsMenuVisible!==this.props.channelsMenuVisible&&this.props.channelsMenuVisible!==false&&this.props.catMenuVisible===false)
+            ((prevProps.channelsMenuVisible!==
+             this.props.channelsMenuVisible &&this.props.channelsMenuVisible!==
+             false&&this.props.catMenuVisible===false)//||
+             //prevProps.menus.programsVisible!==this.props.menus.programsVisible
+
+            )
 
 
             )

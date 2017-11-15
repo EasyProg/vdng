@@ -11,6 +11,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Channel.js" afterPath="$PROJECT_DIR$/src/components/Channel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ChannelList.js" afterPath="$PROJECT_DIR$/src/components/ChannelList.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/mainmenu.css" afterPath="$PROJECT_DIR$/src/styles/css/mainmenu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/mainmenu.css.map" afterPath="$PROJECT_DIR$/src/styles/css/mainmenu.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/mainmenu.scss" afterPath="$PROJECT_DIR$/src/styles/scss/mainmenu.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,13 +34,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ChannelList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChannelList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ChannelList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="318" column="45" lean-forward="false" selection-start-line="318" selection-start-column="36" selection-end-line="318" selection-end-column="45" />
+            <state relative-caret-position="-629">
+              <caret line="42" column="53" lean-forward="true" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
               <folding>
-                <element signature="n#!!block;n#constructor#0;n#ChannelList#0" expanded="false" />
                 <element signature="e#2069#2241#0" expanded="false" />
                 <element signature="n#!!block;n#setMenusVisibleFalse#0;n#ChannelList#0" expanded="false" />
                 <element signature="n#!!block;n#switchChannel#0;n#ChannelList#0" expanded="false" />
@@ -46,26 +52,34 @@
                 <element signature="n#!!block;n#categVisible#0;n#ChannelList#0" expanded="false" />
                 <element signature="n#!!block;n#isFavorite#0;n#ChannelList#0" expanded="false" />
                 <element signature="n#!!block;n#setProgramsVisible#0;n#ChannelList#0" expanded="false" />
-                <element signature="n#!!block;n#componentDidUpdate#0;n#ChannelList#0" expanded="false" />
                 <element signature="n#!!block;n#componentDidMount#0;n#ChannelList#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Channel.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mainmenu.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/scss/mainmenu.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="12" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Channel.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Channel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="101" column="39" lean-forward="false" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
+            <state relative-caret-position="306">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding>
-                <element signature="e#514#937#0" expanded="false" />
-                <element signature="e#964#1849#0" expanded="false" />
-                <element signature="e#1145#1326#0" expanded="false" />
-                <element signature="e#1422#1758#0" expanded="false" />
-                <element signature="e#1875#1945#0" expanded="false" />
-                <element signature="e#1971#2131#0" expanded="false" />
-                <element signature="e#2157#2303#0" expanded="false" />
+                <element signature="e#568#991#0" expanded="false" />
+                <element signature="e#1018#1903#0" expanded="false" />
+                <element signature="e#1199#1380#0" expanded="false" />
+                <element signature="e#1476#1812#0" expanded="false" />
+                <element signature="e#1929#1999#0" expanded="false" />
+                <element signature="e#2025#2185#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -175,8 +189,8 @@
         <option value="$PROJECT_DIR$/src/components/VideoBottomMenu.js" />
         <option value="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
         <option value="$PROJECT_DIR$/src/styles/scss/mainmenu.scss" />
-        <option value="$PROJECT_DIR$/src/components/Channel.js" />
         <option value="$PROJECT_DIR$/src/components/ChannelList.js" />
+        <option value="$PROJECT_DIR$/src/components/Channel.js" />
       </list>
     </option>
   </component>
@@ -359,18 +373,18 @@
       <workItem from="1510565817698" duration="18093000" />
       <workItem from="1510587182456" duration="34124000" />
       <workItem from="1510678258051" duration="17460000" />
-      <workItem from="1510761089043" duration="6054000" />
+      <workItem from="1510761089043" duration="8655000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="961248000" />
+    <option name="totallyTimeSpent" value="963849000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15416667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1953125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13467656" sideWeight="0.6197917" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -741,6 +755,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
           <caret line="80" column="14" lean-forward="true" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -813,33 +828,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/scss/mainmenu.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Channel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="101" column="39" lean-forward="false" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
-          <folding>
-            <element signature="e#514#937#0" expanded="false" />
-            <element signature="e#964#1849#0" expanded="false" />
-            <element signature="e#1145#1326#0" expanded="false" />
-            <element signature="e#1422#1758#0" expanded="false" />
-            <element signature="e#1875#1945#0" expanded="false" />
-            <element signature="e#1971#2131#0" expanded="false" />
-            <element signature="e#2157#2303#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="12" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ChannelList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="318" column="45" lean-forward="false" selection-start-line="318" selection-start-column="36" selection-end-line="318" selection-end-column="45" />
+        <state relative-caret-position="-629">
+          <caret line="42" column="53" lean-forward="true" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
           <folding>
-            <element signature="n#!!block;n#constructor#0;n#ChannelList#0" expanded="false" />
             <element signature="e#2069#2241#0" expanded="false" />
             <element signature="n#!!block;n#setMenusVisibleFalse#0;n#ChannelList#0" expanded="false" />
             <element signature="n#!!block;n#switchChannel#0;n#ChannelList#0" expanded="false" />
@@ -852,8 +851,22 @@
             <element signature="n#!!block;n#categVisible#0;n#ChannelList#0" expanded="false" />
             <element signature="n#!!block;n#isFavorite#0;n#ChannelList#0" expanded="false" />
             <element signature="n#!!block;n#setProgramsVisible#0;n#ChannelList#0" expanded="false" />
-            <element signature="n#!!block;n#componentDidUpdate#0;n#ChannelList#0" expanded="false" />
             <element signature="n#!!block;n#componentDidMount#0;n#ChannelList#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Channel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding>
+            <element signature="e#568#991#0" expanded="false" />
+            <element signature="e#1018#1903#0" expanded="false" />
+            <element signature="e#1199#1380#0" expanded="false" />
+            <element signature="e#1476#1812#0" expanded="false" />
+            <element signature="e#1929#1999#0" expanded="false" />
+            <element signature="e#2025#2185#0" expanded="false" />
           </folding>
         </state>
       </provider>

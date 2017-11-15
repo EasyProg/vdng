@@ -9,7 +9,8 @@ export default class Channel extends Component      {
 
     constructor(props)   {
         super(props);
-        this.state = {visible:false}
+        this.state = {visible:false};
+        this.checkFocus= this.checkFocus.bind(this);
                          }
     static propTypes =   {
         progress:       PropTypes.number,
@@ -56,12 +57,21 @@ export default class Channel extends Component      {
         if (param) this.setState({visible: true});
         else this.setState({visible: false})
                          }
-    onBlur (e)           {
-        if (!e.currentTarget.contains(document.activeElement))
-        {
-        this.circleVisible(false);
-        }
-                         };
+    // onBlur (e)           {
+    //     if (!e.currentTarget.contains(document.activeElement))
+    //     {
+    //     this.circleVisible(false);
+    //     }
+    //                      };
+    // checkFocus ()
+    // {
+    //
+    //    console.log('Shit!!!!!');
+    // }
+
+
+
+
     render()             {
         return           (
             <div  className={this.props.chosen?'menuItemStyleChosen':'menuItemStyle'}
@@ -72,7 +82,7 @@ export default class Channel extends Component      {
                   ref={(channel)=>this.channel=channel}
                   onMouseEnter={e=>this.circleVisible(true)}
                   onMouseLeave={e=>this.circleVisible(false)}
-                  onBlur={e=>this.onBlur(e)}
+                  onFocus={e=>this.checkFocus()}
                   //onFocusOut=
             >
             <div className="staticItem">

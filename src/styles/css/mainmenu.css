@@ -10,6 +10,7 @@
   z-index: 2147483640; }
 
 .twoMenuOpen {
+  min-height: 750px;
   position: absolute;
   width: 60vw;
   max-width: 60vw;
@@ -21,6 +22,7 @@
   z-index: 2147483640; }
 
 .threeMenuOpen {
+  min-height: 750px;
   position: absolute;
   width: 100vw;
   max-width: 60vw;
