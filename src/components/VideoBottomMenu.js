@@ -47,8 +47,6 @@ class VideoBottomMenu extends Component
         }
         else return false
     }
-
-
     chooseResolution (res)              {
         this.setState       ({
             showResolution:false,
@@ -158,6 +156,9 @@ class VideoBottomMenu extends Component
                      onMouseLeave={this.props.onMouseLeave}>
                     <div className="bottomShadowDiv"/>
                     <div className="divBottomPlayer">
+                        <div className="iconResDivNone" onClick={(e)=>this.changeSize(e)} tabIndex={1} onKeyDown={e=>this.switchPlayback(e)}>
+                            <img src={border} width={25} height={25}/>
+                        </div>
                         <div className="playerButtonsBottomDiv" onKeyDown={e=>this.switchPlayback(e)}>
                             <div className="iconsDisabledDiv">
                                 <Icon className={this.state.lock?"big inverted lock alternate":"big inverted unlock alternate"}/>

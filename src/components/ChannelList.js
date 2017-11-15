@@ -33,7 +33,7 @@ class   ChannelList extends Component               {
         this.timer = '';
         this.menuTimer = '';
         this.state =                                {
-        itemChosen:false,
+        itemChosen:0,
         channelId:0,
         isClicked:false,
         program:[],
@@ -291,9 +291,9 @@ class   ChannelList extends Component               {
                         {this.props.playList.length?
                             <div className="menuHeaderCh">
                                 <CategoryName visible = {this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible}
-                                              categ   = {this.props.channelCategory}
-                                              categVisibleContext = {this.categVisible}
-                                              reversed= {false}
+                                   categ   = {this.props.channelCategory}
+                                   categVisibleContext = {this.categVisible}
+                                   reversed= {false}
                                 />
                                 <MenuButton  visible  = {this.props.menus.channelsMenuVisible&&!this.props.menus.programsVisible}/>
                             </div>:''
@@ -314,6 +314,7 @@ class   ChannelList extends Component               {
                                     onClick         =   {e=>this.handleClick(elem,e)}
                                     tabIndex        =   {i}
                                     elemChosen      =   {this.state.itemChosen === i}
+                                    //elemChosen      =   {this.state.channelId === elem.channelId}
                                     onKeyDown       =   {e=>this.handleKey(e,elem,i)}
                                     progress        =   {elem.program?getCurrentProgram(elem.program).progressValue===undefined?-1:getCurrentProgram(elem.program).progressValue:-1}
                                     setProgramVisibleContext

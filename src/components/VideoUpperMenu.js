@@ -47,7 +47,8 @@ class VideoUpperMenu extends Component                         {
                                                                });
                                                                }
     switchKeyPress(event)                                      {
-        //event.stopPropagation();
+        event.stopPropagation();
+        event.preventDefault();
         switch (event.keyCode)                                 {
             case 32:
                 $('#playpause').focus();
@@ -234,21 +235,21 @@ class VideoUpperMenu extends Component                         {
                 <div  className="divPlayer">
                     {/*<Timer isWholeProgramTime={true}/>*/}
                     {this.props.video.program?<CurrentTime startTime={this.currentTime()}
-                                 videoChannel={this.props.video.channel}
-                                 wholeTime={this.currentProgram()}
-                                 setProgressValueContext={this.setProgressValue} onFocus={this.props.onMouseEnter} onFocusOut={this.props.onMouseLeave}/>:null}
+                             videoChannel={this.props.video.channel}
+                             wholeTime={this.currentProgram()}
+                             setProgressValueContext={this.setProgressValue} onFocus={this.props.onMouseEnter} onFocusOut={this.props.onMouseLeave}/>:null}
                     <div  className="playerButtonsDiv" id="playerbuttonsdiv" onKeyDown={e=>this.switchPlayback(e)}>
-                            <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')} tabIndex={1}/>
-                            <img src={backward} width={25} height={25} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
-                            <img onClick={(e)=>this.props.toggleContext(this.props.isPlaying)}
+                             <img src={prev} width={20} height={20} onClick={(e)=>this.switchChannel('prev')} tabIndex={1}/>
+                             <img src={backward} width={25} height={25} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
+                             <img onClick={(e)=>this.props.toggleContext(this.props.isPlaying)}
                              width={45} height={45} src={this.props.isPlaying?pause:play}
                              tabIndex={2} id="playpause"
                              onFocus={this.props.onMouseEnter}
-                        />
-                        <img src={forward}  width={25} height={25} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
-                        <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')} tabIndex={3}/>
+                             />
+                             <img src={forward}  width={25} height={25} className={this.props.isTimeShift?'backwardActiveButton':'backwardDisButton'}/>
+                             <img src={next} width={20} height={20} onClick={(e)=>this.switchChannel('next')} tabIndex={3}/>
                     </div>
-                    {this.props.video.program?<ProgramTime time={this.currentProgram()}/>:null}
+                {this.props.video.program?<ProgramTime time={this.currentProgram()}/>:null}
                 </div>
             </div>
         );

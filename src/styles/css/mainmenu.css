@@ -4,6 +4,7 @@
   min-width: 300px;
   left: 0;
   height: 101vh;
+  min-height: 750px;
   background: rgba(0, 0, 0, 0.8);
   transition: width 0.2s ease-in;
   z-index: 2147483640; }

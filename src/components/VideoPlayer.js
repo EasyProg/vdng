@@ -327,10 +327,10 @@ class VideoPlayer extends Component         {
                                               }
                                               }
         const mapDispatchToProps = (dispatch) =>
-        bindActionCreators(     {
+        bindActionCreators(                   {
         dispatch,togglePlay,toggleButtons,
         toggleFullScreen,setMenusVisible,setFavor
-                                }, dispatch);
+                                              }, dispatch);
         export default connect      (
             state =>                ({
                 video:                state.videoReducer.video,
