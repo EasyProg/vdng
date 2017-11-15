@@ -1,0 +1,204 @@
+video::-webkit-media-controls {
+  display:none;
+}
+video::-moz-media-controls    {
+  display:none;
+}
+video::-media-controls         {
+  display:none;
+}
+/*  Needed to hide player controls in Safari Only */
+
+video::-webkit-media-controls-panel {
+  display:none !important;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-current-time-display {
+  display: none !important;
+}
+
+video::-webkit-media-controls-time-remaining-display {
+  display: none !important;
+}
+
+video::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
+video::-webkit-media-controls-mute-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-volume-slider {
+  display: none !important;
+}
+
+video::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+}
+
+video::-internal-media-controls-download-button {
+  display: none !important;
+}
+//*Ms edge constrols disable*//
+//video:fullscreen  {
+//  @extend #video;
+//}
+/* Firefox Shadow DOM Fix */
+
+*::-moz-list-bullet,
+*::-moz-list-number {
+  display:none !important;
+}
+
+*::-moz-meter-bar {
+  display:none !important;
+}
+
+:-moz-full-screen:not(:root)::backdrop {
+  display:none !important;
+}
+
+*::backdrop {
+  display:none !important;
+            }
+
+//:fullscreen:not(:root)        {
+//  display: none !important;
+//                              }
+//video::-webkit-media-controls-enclosure {
+//  display: none !important;
+//}
+//.videoUsualDiv:fullscreen {
+// z-index:2147483645;
+//}
+//.videoUsualDiv>video:fullscreen {
+//  z-index:2147483645;
+//}
+//video :fullscreen {
+//  z-index:10!important;
+//}
+//:fullscreen(video)  {
+//z-index: 10!important;
+//}
+
+
+
+//:fullscreen:
+.innerDiv                     {
+  float:left;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+//Progress Bar
+//Bottom Invis Buttons
+.span                         {
+  float: left;
+  //margin-right:15px;
+  margin-left:15px;
+}
+.videoOnButtonsDiv            {
+  position:relative;
+  top:50%;
+                              }
+//Done video styles
+.videoUsualDiv                {
+  //min-height:480px;
+  //min-width:720px;
+                              }
+.videoUsual                   {
+  align-self: center;
+  width:  100%;
+  height: 100vh;
+  top:0;
+  min-height:480px;
+  min-width:720px;
+                              }
+
+.videoFit {
+  object-fit: fill;
+}
+//#video {
+//  object-fit: fill;
+//}
+//#video:-moz-full-screen {
+//z-index:  2147483640;
+//position:absolute;
+//}
+
+.videoDiv16                   {
+  //left:0;
+  align-self: center;
+  position: absolute!important;
+  width: 100vw;
+  height: 90vh;
+  min-height:480px;
+  min-width:720px;
+                              }
+
+.video16                      {
+  -webkit-transform:scaleX(1.5)!important;
+  -moz-transform:scaleX(1.5);
+  -ms-transform:scaleX(1.5);
+  transform:scaleX(1.5);
+  position:relative;
+  align-self: center;
+  width:100%;
+  top:0;
+  height:100%; }
+
+.videoDiv4 {
+  //left:0;
+  align-self: center;
+  position: absolute;
+  width: 90vw;
+  height: 100vh;
+  min-height:480px;
+  min-width:720px;
+}
+.video4                       {
+  -webkit-transform:scaleY(1.5);
+  -moz-transform:scaleY(1.5);
+  -ms-transform:scaleY(1.5);
+  transform:scaleY(1.5);
+  position:relative;
+  align-self: center;
+  width:100%;
+  top:0;
+  height:100%;                }
+//Done video styles
+
+
+#scrollBarDiv                 {
+  width:  80%;
+  height: 80%;
+  display: none;
+  top:0;
+  overflow:scroll;
+
+                              }
+.errorsDiv                    {
+  position:absolute;
+  align-self: center;
+  width:100vw;
+  height:100vh;
+  top:0;
+  font:30px Times New Roman bold;
+  color:white;
+  text-align: center;
+                              }
+.playBackDiv                  {
+  position: fixed;
+  top:80%;
+  z-index:2147483647;
+}
+.panelDiv                     {
+  position: absolute;
+  top:60%;
+  width:100%;
+  height:40%;
+}

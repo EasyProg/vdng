@@ -1,0 +1,88 @@
+.homeButton       {
+  position:absolute;
+  width:50px;
+  height:50px;
+  right:10px;
+  text-align: center;
+  line-height: 5.5em;
+  margin-top: 10px;
+}
+
+.homeButton:hover {
+  @extend .homeButton;
+  cursor: pointer;
+  border-radius: 50px;
+  background: rgba(87, 87, 87, 0.6)
+}
+.homeDiv          {
+  text-align: center;
+  color:white;
+  position:absolute;
+  right:0;
+  display: block;
+  width:345px;
+  max-width:345px;
+  min-width:200px;
+  height:1000px;
+  max-height: 1200px;
+  min-height: 500px;
+  background: $backMenuColor;
+  transition: all 0.5s ease 100ms;
+  opacity: 1;
+}
+.homeDivLeft
+{
+  @extend .homeDiv;
+  right:345px;
+}
+.homeDivNone      {
+  @extend .homeDiv;
+  opacity: 0;
+  left: 2000px;
+  transition: all 0.5s ease 100ms;
+}
+.imgStyle         {
+  float: left;
+  left: 10px;
+  top:30px;
+  width:50px;
+  height:50px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+hr                {
+  border: none; /* Убираем границу */
+  background-color: white; /* Цвет линии */
+  color: white; /* Цвет линии для IE6-7 */
+  height: 1px; /* Толщина линии */
+}
+.loginDiv         {
+  margin:20px;
+  display:flex;   display:-webkit-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  -webkit-justify-content:space-between;
+}
+.photoDiv         {
+  width:60px;
+}
+.imgDiv           {
+  text-align:center;
+  margin-left: 20px;
+  width:200px;
+}
+.logoutButton     {
+  cursor:pointer;
+  font: 15px Comfortaa-Light bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 140px;
+  height: 35px;
+  border: 1px solid grey;
+  background: $main_color;
+  color:white;
+}
+.logoutButton:hover {
+  color: #d7d7d7;
+  border-color: #d4d4d4;
+}
