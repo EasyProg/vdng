@@ -69,7 +69,7 @@
 
 .menuItemStyleChosen {
   background: #575757;
-  width: 90%; }
+  width: 30vw; }
 
 .circleButtonSpan {
   width: 40px;
@@ -190,9 +190,6 @@ video::-internal-media-controls-download-button {
   display: none !important; }
 
 *::backdrop {
-  display: none !important; }
-
-:fullscreen:not(:root) {
   display: none !important; }
 
 .innerDiv {
@@ -883,12 +880,14 @@ hr {
 
 .iconResDiv, .iconResDivFull, .iconResDiv:hover, .iconResDiv:focus {
   text-align: center;
-  padding-top: 15px;
   width: 60px;
   height: 55px;
-  position: absolute;
-  right: 5%;
-  display: block; }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 12%; }
 
 .iconResDivFull {
   left: 110%; }

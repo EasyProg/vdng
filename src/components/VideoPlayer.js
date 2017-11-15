@@ -5,6 +5,7 @@ import  {ReactTransitionGroup} from 'react-transition-group';
 import  VideoBottomMenu from '../components/VideoBottomMenu';
 import  VideoUpperMenu from '../components/VideoUpperMenu'  ;
 import  Video from '../components/Video';
+import  Menu from '../components/ui/Menu';
 import  Hls from 'hls.js';
 //import Event Listener
 import {bindActionCreators} from 'redux';
@@ -203,6 +204,8 @@ class VideoPlayer extends Component         {
                                             }
         changeSize()                        {
             var vd = document.getElementById('video');
+            var videoBlock = document.getElementById('centerDiv');
+            var menu = document.getElementById('menu');
             if (   !document.fullscreenElement
                 && !document.mozFullScreenElement
                 && !document.webkitFullscreenElement
@@ -213,19 +216,19 @@ class VideoPlayer extends Component         {
                 if (vd.webkitEnterFullscreen)       {
                     vd.webkitEnterFullscreen();
                     this.props.dispatch(toggleFullScreen(true));
-                }
+                                                    }
                 else if (vd.mozRequestFullScreen)   {
-                    vd.mozRequestFullScreen();
+                    videoBlock.mozRequestFullScreen();
                     this.props.dispatch(toggleFullScreen(true));
-                }
+                                                    }
                 else if (vd.msRequestFullscreen)    {
                     vd.msRequestFullscreen();
                     this.props.dispatch(toggleFullScreen(true));
-                }
+                                                    }
                 else if (vd.requestFullscreen)      {
-                    vd.requestFullscreen();
+                    videoBlock.requestFullscreen();
                     this.props.dispatch(toggleFullScreen(true));
-                }
+                                                    }
                 document.addEventListener ("webkitfullscreenchange", this.escFullScreen, false);
                 $('#video').focus();
                 this.setState({fullScreen:true});
@@ -318,6 +321,7 @@ class VideoPlayer extends Component         {
 
                 />
             {/*</div>*/}
+                <Menu/>
             </div>                            )
 
                                               }

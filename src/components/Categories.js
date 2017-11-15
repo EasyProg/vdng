@@ -64,7 +64,7 @@ class  Categories extends Component                     {
                     settingsVisible: false
                 }, true));
         }
-    };
+                                                        };
     filterChannels(channels,category)                   {
         var cat = category?category.toString():'All channels';
         let filteredChannels = [];
@@ -101,7 +101,9 @@ class  Categories extends Component                     {
                 break;}
             case 39:{
                 $('#channels').focus();
-                $('.menuItemStyle:first').focus();
+                if ($('.menuItemStyleChosen').length)
+                $('.menuItemStyleChosen').focus();
+                else $('.menuItemStyle:first').focus();
                 //console.log($(':focus'));
                 break;
                     }
@@ -177,7 +179,9 @@ class  Categories extends Component                     {
                             this.props.categories.map        ((item,i)=>
                                 <div key={i} className=      {this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
                                      onClick={e=>this.handleClick (i,item.name)} tabIndex={i}>
-                                    <div         className="categoryImage"><img src={item.src} width="40" height="40"/></div>
+                                    <div         className="categoryImage">
+                                    <img src={item.src} width="40" height="40"/>
+                                    </div>
                                     <div         className="categoryText">
                                         {item.name}
                                     </div>
