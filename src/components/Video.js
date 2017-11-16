@@ -40,7 +40,7 @@ class Video extends Component
                 }},3000 );
 //console.log(this.video.prop('autoPlay'));
     }
-    handleKey(e)        {
+    handleKey(e)    {
         if (e.keyCode === 13)
             this.handleClick();
     }

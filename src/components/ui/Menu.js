@@ -61,37 +61,31 @@ class  Menu extends Component               {
                 if (response.status!==200)  {
                     console.log('Looks like it was some error ' + response.status);
                     return;
-                }
+                                            }
                 response.json().then(function(data)
                 {
                     let f = [];
                     c.props.channels.forEach
-                    (
+                                            (
                         (e,i)=>
-                        {
+                                            {
                             data.forEach(function (elem)
-                                {
+                                            {
                                     if (Number(elem['channel_id']) === e['channelId'])
                                         f.push(elem);
-                                }
-                            )
-                        }
-                    );
+                                            }
+                                            )
+                                            }
+                                            );
                     c.props.dispatch(setProgram(c.props.channels,f));
                 });
             });
     }
     componentDidMount()                     {
-        //this.getChannels('https://admin.hls.tv/play/9762be960fd8d0586edfe1b14e391583.m3u');
-        //set href
         var href   = document.location.href;
         var parsed = href.substring(href.indexOf('/',10)+1);
-        //alert(parsed);
-        //this.getJsonChannels(href+'/list.json');
         this.getJsonChannels('https://cdnua01.hls.tv/play/'+parsed+'/list.json');
-        //67afdc3ad5b664e5af80ef36e7a9e3d2/53/stream.m3u8
-        //var repeat setInterval(this.getPrograms(href+'channels.json'),43200000);
-        var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
+        var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/"+parsed+'/channels.json'),43200000);
                                             }
     firstToUpperCase( str )                 {
         return str.substr(0, 1).toUpperCase() + str.substr(1);
@@ -214,4 +208,4 @@ export default connect (
         autoPlay:  state.videoReducer.autoPlay
     }),
     mapDispatchToProps
-)(Menu);
+                        )(Menu);

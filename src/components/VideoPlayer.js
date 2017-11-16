@@ -14,8 +14,8 @@ import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 //var    hls = new Hls();
 var hls = new Hls();
-class VideoPlayer extends Component         {
-        constructor(props)                  {
+class VideoPlayer extends Component                 {
+        constructor(props)                          {
         super(props);
         //Bind functions
         this.changeSize    = this.changeSize.bind(this);

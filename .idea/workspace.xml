@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/components/ui/Menu.js" line="164" />
+    <bookmark url="file://$PROJECT_DIR$/src/components/ui/Menu.js" line="158" />
     <bookmark url="file://$PROJECT_DIR$/src/components/Video.js" line="10" />
     <bookmark url="file://$PROJECT_DIR$/src/components/ProgramList.js" line="209" />
-    <bookmark url="file://$PROJECT_DIR$/src/components/ui/Menu.js" line="97" />
+    <bookmark url="file://$PROJECT_DIR$/src/components/ui/Menu.js" line="91" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2309f941-4b33-4db9-a988-0b031d5a3870" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Video.js" afterPath="$PROJECT_DIR$/src/components/Video.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoPlayer.js" afterPath="$PROJECT_DIR$/src/components/VideoPlayer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/VideoUpperMenu.js" afterPath="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/Menu.js" afterPath="$PROJECT_DIR$/src/components/ui/Menu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/css/main_styles.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" afterPath="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/main_styles.scss" afterPath="$PROJECT_DIR$/src/styles/scss/main_styles.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/scss/video.scss" afterPath="$PROJECT_DIR$/src/styles/scss/video.scss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,89 +35,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VideoPlayer.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/VideoPlayer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="213" column="53" lean-forward="true" selection-start-line="213" selection-start-column="53" selection-end-line="213" selection-end-column="53" />
-              <folding>
-                <element signature="n#!!block;n#componentDidMount#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#toggle#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#changeRes#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#videoOnLoad#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#handleCurrTime#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#handleCurrPlayback#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#handlePlay#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#componentWillReceiveProps#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#menuFullScreenAppears#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#escFullScreen#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#componentWillUnmount#0;n#VideoPlayer#0" expanded="false" />
-                <element signature="n#!!block;n#shouldComponentUpdate#0;n#VideoPlayer#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Menu.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-578">
-              <caret line="83" column="45" lean-forward="true" selection-start-line="83" selection-start-column="45" selection-end-line="83" selection-end-column="45" />
+            <state relative-caret-position="493">
+              <caret line="53" column="45" lean-forward="true" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoUpperMenu.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VideoUpperMenu.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="56" column="22" lean-forward="true" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+            <state relative-caret-position="289">
+              <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
               <folding>
                 <element signature="e#1046#1156#0" expanded="false" />
+                <element signature="n#!!block;n#constructor#0;n#VideoUpperMenu#0" expanded="false" />
                 <element signature="e#1644#1749#0" expanded="false" />
-                <element signature="e#2440#2576#0" expanded="false" />
-                <element signature="e#2589#2664#0" expanded="false" />
-                <element signature="e#2677#2752#0" expanded="false" />
-                <element signature="e#3985#4632#0" expanded="false" />
+                <element signature="n#!!block;n#componentDidMount#0;n#VideoUpperMenu#0" expanded="false" />
                 <element signature="n#!!block;n#switchChannel#0;n#VideoUpperMenu#0" expanded="false" />
                 <element signature="n#!!block;n#currentProgram#0;n#VideoUpperMenu#0" expanded="false" />
                 <element signature="n#!!block;n#currentTime#0;n#VideoUpperMenu#0" expanded="false" />
                 <element signature="n#!!block;n#setProgressValue#0;n#VideoUpperMenu#0" expanded="false" />
-                <element signature="n#!!block;n#switchPlayback#0;n#VideoUpperMenu#0" expanded="false" />
+                <element signature="n#!!block;n#render#0;n#VideoUpperMenu#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video_upper_menu.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="691">
-              <caret line="159" column="1" lean-forward="true" selection-start-line="159" selection-start-column="1" selection-end-line="159" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Video.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Video.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-              <folding>
-                <element signature="n#!!block;n#handleKey#0;n#Video#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/scss/video.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1927">
-              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -218,13 +164,13 @@
         <option value="$PROJECT_DIR$/src/components/mobileapp/MobileChannel.js" />
         <option value="$PROJECT_DIR$/src/components/mobileapp/MobileCategories.js" />
         <option value="$PROJECT_DIR$/src/components/mobileapp/MobileChannels.js" />
-        <option value="$PROJECT_DIR$/src/components/Video.js" />
-        <option value="$PROJECT_DIR$/src/styles/scss/main_styles.scss" />
-        <option value="$PROJECT_DIR$/src/styles/scss/video.scss" />
-        <option value="$PROJECT_DIR$/src/components/ui/Menu.js" />
         <option value="$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss" />
-        <option value="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
         <option value="$PROJECT_DIR$/src/components/VideoPlayer.js" />
+        <option value="$PROJECT_DIR$/src/styles/scss/video.scss" />
+        <option value="$PROJECT_DIR$/src/styles/scss/main_styles.scss" />
+        <option value="$PROJECT_DIR$/src/components/Video.js" />
+        <option value="$PROJECT_DIR$/src/components/ui/Menu.js" />
+        <option value="$PROJECT_DIR$/src/components/VideoUpperMenu.js" />
       </list>
     </option>
   </component>
@@ -407,18 +353,18 @@
       <workItem from="1510565817698" duration="18093000" />
       <workItem from="1510587182456" duration="34124000" />
       <workItem from="1510678258051" duration="17460000" />
-      <workItem from="1510761089043" duration="28033000" />
+      <workItem from="1510761089043" duration="31698000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="983227000" />
+    <option name="totallyTimeSpent" value="986892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14895834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13467656" sideWeight="0.6197917" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26193002" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -852,40 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/scss/main_styles.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1842">
-          <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Video.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-          <folding>
-            <element signature="n#!!block;n#handleKey#0;n#Video#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="83" column="45" lean-forward="true" selection-start-line="83" selection-start-column="45" selection-end-line="83" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/scss/video.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1927">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/scss/video_upper_menu.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="691">
@@ -894,30 +806,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="56" column="22" lean-forward="true" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-          <folding>
-            <element signature="e#1046#1156#0" expanded="false" />
-            <element signature="e#1644#1749#0" expanded="false" />
-            <element signature="e#2440#2576#0" expanded="false" />
-            <element signature="e#2589#2664#0" expanded="false" />
-            <element signature="e#2677#2752#0" expanded="false" />
-            <element signature="e#3985#4632#0" expanded="false" />
-            <element signature="n#!!block;n#switchChannel#0;n#VideoUpperMenu#0" expanded="false" />
-            <element signature="n#!!block;n#currentProgram#0;n#VideoUpperMenu#0" expanded="false" />
-            <element signature="n#!!block;n#currentTime#0;n#VideoUpperMenu#0" expanded="false" />
-            <element signature="n#!!block;n#setProgressValue#0;n#VideoUpperMenu#0" expanded="false" />
-            <element signature="n#!!block;n#switchPlayback#0;n#VideoUpperMenu#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/VideoPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="213" column="53" lean-forward="true" selection-start-line="213" selection-start-column="53" selection-end-line="213" selection-end-column="53" />
+        <state relative-caret-position="527">
+          <caret line="120" column="29" lean-forward="true" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
           <folding>
             <element signature="n#!!block;n#componentDidMount#0;n#VideoPlayer#0" expanded="false" />
             <element signature="n#!!block;n#toggle#0;n#VideoPlayer#0" expanded="false" />
@@ -931,6 +823,58 @@
             <element signature="n#!!block;n#escFullScreen#0;n#VideoPlayer#0" expanded="false" />
             <element signature="n#!!block;n#componentWillUnmount#0;n#VideoPlayer#0" expanded="false" />
             <element signature="n#!!block;n#shouldComponentUpdate#0;n#VideoPlayer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/scss/video.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="140" column="24" lean-forward="true" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/scss/main_styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Video.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="72" column="14" lean-forward="true" selection-start-line="72" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!block;n#handleKey#0;n#Video#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ui/Menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="53" column="45" lean-forward="true" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/VideoUpperMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+          <folding>
+            <element signature="e#1046#1156#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#VideoUpperMenu#0" expanded="false" />
+            <element signature="e#1644#1749#0" expanded="false" />
+            <element signature="n#!!block;n#componentDidMount#0;n#VideoUpperMenu#0" expanded="false" />
+            <element signature="n#!!block;n#switchChannel#0;n#VideoUpperMenu#0" expanded="false" />
+            <element signature="n#!!block;n#currentProgram#0;n#VideoUpperMenu#0" expanded="false" />
+            <element signature="n#!!block;n#currentTime#0;n#VideoUpperMenu#0" expanded="false" />
+            <element signature="n#!!block;n#setProgressValue#0;n#VideoUpperMenu#0" expanded="false" />
+            <element signature="n#!!block;n#render#0;n#VideoUpperMenu#0" expanded="false" />
           </folding>
         </state>
       </provider>

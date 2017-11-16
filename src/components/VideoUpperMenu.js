@@ -45,9 +45,13 @@ class VideoUpperMenu extends Component                         {
             //event.preventDefault();
             func(event);
                                                                });
+        $(document).keypress(function (e) {
+            if(e.which === 8) {
+                    e.preventDefault();
+                }
+                });
                                                                }
     switchKeyPress(event)                                      {
-
         event.stopPropagation();
         event.preventDefault();
         switch (event.keyCode)                                 {
@@ -105,7 +109,7 @@ class VideoUpperMenu extends Component                         {
                 break;
             }
             case 8:
-            {   alert('keyPresssssss');
+            {
                 if (this.props.fullScreen)
                 {
 
@@ -177,8 +181,6 @@ class VideoUpperMenu extends Component                         {
         let id = this.state.focus;
         let nextElem = id + 1 >= items.length ? id :  id + 1;
         let prevElem = id - 1 < 0 ? id : id - 1;
-        //console.log(nextElem+':::::::'+prevElem);
-        //.props.onMouseEnter();
         switch (event.keyCode){
             case 37 :
                 items[prevElem].focus();
@@ -214,7 +216,6 @@ class VideoUpperMenu extends Component                         {
                 break;
 
                                 }
-        console.log(this.state.focus)
 
 
     }
@@ -255,8 +256,8 @@ class VideoUpperMenu extends Component                         {
             </div>
         );
     }
-}
-const mapDispatchToProps = (dispatch) => bindActionCreators({
+                                                                }
+const mapDispatchToProps = (dispatch) => bindActionCreators     ({
     dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);
 export default connect      (
@@ -268,6 +269,6 @@ export default connect      (
         isTimeShift:state.settingsReducer.timeShift,
         isOpened:  state.menuReducer.isOpened,
 
-    }),
+                            }),
     mapDispatchToProps
 )(VideoUpperMenu);
