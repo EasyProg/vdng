@@ -219,7 +219,7 @@ class VideoUpperMenu extends Component                         {
 
 
     }
-    render()   {
+    render()                                                   {
         return (
             <div id="vduppermenu"
                  onKeyDown={(e)=>this.switchKeyPress(e)}
@@ -256,8 +256,8 @@ class VideoUpperMenu extends Component                         {
             </div>
         );
     }
-                                                                }
-const mapDispatchToProps = (dispatch) => bindActionCreators     ({
+                                                               }
+const mapDispatchToProps =  (dispatch) => bindActionCreators   ({
     dispatch,changeVideo,toggleCategory,setMenusVisible,toggleFullScreen
 }, dispatch);
 export default connect      (
@@ -268,7 +268,6 @@ export default connect      (
         menus:state.menuReducer.menus,
         isTimeShift:state.settingsReducer.timeShift,
         isOpened:  state.menuReducer.isOpened,
-
                             }),
     mapDispatchToProps
-)(VideoUpperMenu);
+                            )(VideoUpperMenu);

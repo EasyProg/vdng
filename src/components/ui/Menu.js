@@ -185,6 +185,7 @@ class  Menu extends Component               {
     }
 
 }
+
 const mapDispatchToProps = (dispatch) => bindActionCreators ({
     dispatch,
     setMenusVisible,

@@ -267,7 +267,6 @@ class VideoPlayer extends Component                 {
         else return true
         }
         changeRatio (rat)                   {
-            console.log(rat);
             switch(rat)                     {
                 case 0:
                 this.setState({ratio:1});
