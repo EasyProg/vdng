@@ -32,7 +32,7 @@ class VideoPlayer extends Component         {
         this.state = {fullScreen:false,networkError:false,ratio:0};
         this.hls = new Hls();
         this.int = null;
-                                            }
+                                                    }
         //Component Functions
         componentDidMount()                 {
         this.videoOnLoad ();
@@ -202,7 +202,7 @@ class VideoPlayer extends Component         {
                 this.props.dispatch(toggleFullScreen(false));
                 this.setState({fullScreen:false})}
                                             }
-        changeSize()                        {
+        changeSize()                                {
             var vd = document.getElementById('video');
             var videoBlock = document.getElementById('centerDiv');
             var menu = document.getElementById('menu');
@@ -222,10 +222,11 @@ class VideoPlayer extends Component         {
                     this.props.dispatch(toggleFullScreen(true));
                                                     }
                 else if (vd.msRequestFullscreen)    {
-                    vd.msRequestFullscreen();
+                    videoBlock.msRequestFullscreen();
                     this.props.dispatch(toggleFullScreen(true));
                                                     }
                 else if (vd.requestFullscreen)      {
+                    vd.requestFullscreen();
                     videoBlock.requestFullscreen();
                     this.props.dispatch(toggleFullScreen(true));
                                                     }

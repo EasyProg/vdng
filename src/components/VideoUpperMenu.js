@@ -47,6 +47,7 @@ class VideoUpperMenu extends Component                         {
                                                                });
                                                                }
     switchKeyPress(event)                                      {
+
         event.stopPropagation();
         event.preventDefault();
         switch (event.keyCode)                                 {
@@ -104,7 +105,7 @@ class VideoUpperMenu extends Component                         {
                 break;
             }
             case 8:
-            {
+            {   alert('keyPresssssss');
                 if (this.props.fullScreen)
                 {
 

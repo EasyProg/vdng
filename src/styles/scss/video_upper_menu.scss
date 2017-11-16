@@ -159,7 +159,9 @@ $plButtonsLeft:10%;
   background:white;
 }
 #progress-bar::-moz-progress-bar   {
+  //background:$main_color;
   background:$main_color;
+  //color:black;
 }
 .progressDiv                       {
   border-radius:5px;
