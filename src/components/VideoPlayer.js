@@ -267,7 +267,7 @@ class VideoPlayer extends Component         {
         }
         changeRatio (rat)                   {
             console.log(rat);
-            switch(rat) {
+            switch(rat)                     {
                 case 0:
                 this.setState({ratio:1});
                 break;
@@ -283,7 +283,7 @@ class VideoPlayer extends Component         {
                 case 4:
                 this.setState({ratio:0});
                 break;
-                        }
+                                              }
                                               }
 
         //Element render
