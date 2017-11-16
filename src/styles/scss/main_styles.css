@@ -176,6 +176,9 @@ video::-webkit-media-controls-fullscreen-button {
   display: none !important; }
 
 video::-internal-media-controls-download-button {
+  display: none; }
+
+video::-webkit-media-controls-panel-container {
   display: none !important; }
 
 /* Firefox Shadow DOM Fix */
@@ -205,16 +208,27 @@ video::-internal-media-controls-download-button {
   position: relative;
   top: 50%; }
 
+.videoUsualDiv {
+  text-align: center; }
+
 .videoUsual {
   align-self: center;
   width: 100%;
   height: 100vh;
-  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   min-height: 480px;
   min-width: 720px; }
 
 .videoFit {
+  width: 100%;
   object-fit: fill; }
+
+.videoContain {
+  width: 100%;
+  object-fit: contain; }
 
 .videoDiv16 {
   align-self: center;
@@ -236,10 +250,10 @@ video::-internal-media-controls-download-button {
   height: 100%; }
 
 .videoDiv4 {
-  align-self: center;
-  position: absolute;
-  width: 90vw;
-  height: 100vh;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
   min-height: 480px;
   min-width: 720px; }
 
@@ -250,7 +264,7 @@ video::-internal-media-controls-download-button {
   transform: scaleY(1.5);
   position: relative;
   align-self: center;
-  width: 100%;
+  width: 90%;
   top: 0;
   height: 100%; }
 
@@ -1338,7 +1352,7 @@ hr {
   align-items: center;
   font-size: 1.8rem; }
 
-.mobileMenuHeader > div {
+.mobileMenuHeaderDiv {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1346,6 +1360,16 @@ hr {
   width: 31%;
   height: 100%;
   justify-content: center; }
+
+.mobileMenuHeaderDiv:hover {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  width: 31%;
+  height: 100%;
+  justify-content: center;
+  cursor: pointer; }
 
 .mobileHr {
   display: block;
@@ -1382,7 +1406,7 @@ hr {
   position: relative;
   background: black; }
 
-.mobileItem {
+.mobileItem, .mobileItemAct {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1394,6 +1418,9 @@ hr {
   height: 7rem;
   text-align: center;
   vertical-align: middle; }
+
+.mobileItemAct {
+  background: #575757; }
 
 * {
   outline: 0;
@@ -1411,7 +1438,9 @@ body {
 
 #root {
   min-width: 1000px;
-  width: 100%; }
+  min-height: 740px;
+  width: 100vw;
+  height: 100vh; }
 
 div [data-reactroot] {
   position: relative;

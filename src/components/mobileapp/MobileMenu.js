@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {setMenusVisible,getChannels,receiveData,setProgram,setElemsVis} from '../../actions/actions';
 import MobileCategories from './MobileCategories';
+import MobileChannels from './MobileChannels';
 import parse from '../Parsing';
 import hlsArray from '../../hls';
 import all from '../../img/categ/all.svg';
@@ -156,7 +157,10 @@ class MobileApp extends Component                {
             <div className={this.getClassNameChosenMenu()}/>
             </div>
             <div className="dataCont">
-                {this.state.itemChosen===0?<MobileCategories categories={this.parseCategories()}/>:''}
+                {
+                    this.state.itemChosen===0?<MobileCategories categories={this.parseCategories()}/>:
+                    this.state.itemChosen===1?<MobileChannels/>:null
+                }
             </div>
         </div>                                   )}}
 

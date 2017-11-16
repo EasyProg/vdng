@@ -7,72 +7,60 @@ import * as $ from 'jquery';
 import arrow from '../img/angle-arrow-pointing-to-right.svg';
 export default class Channel extends Component      {
 
-    constructor(props)   {
+        constructor(props)   {
         super(props);
         this.state = {visible:false};
-        this.checkFocus= this.checkFocus.bind(this);
                          }
-    static propTypes =   {
-        progress:       PropTypes.number,
-        img:            PropTypes.string,
-        channelId:      PropTypes.number.isRequired,
-        channelNum:     PropTypes.number.isRequired,
-        programName:    PropTypes.string.isRequired,
-        hiddenChannel:  PropTypes.bool.isRequired,
-        chosen:         PropTypes.bool.isRequired,
-        favorite:       PropTypes.bool.isRequired,
-                        };
-    runningString(param) {
-        if (param==='hover') {
-        var str     = $('.pname_hover:hover');
-        var strCont = $('.pname:hover');
+        static propTypes =   {
+            progress:       PropTypes.number,
+            img:            PropTypes.string,
+            channelId:      PropTypes.number.isRequired,
+            channelNum:     PropTypes.number.isRequired,
+            programName:    PropTypes.string.isRequired,
+            hiddenChannel:  PropTypes.bool.isRequired,
+            chosen:         PropTypes.bool.isRequired,
+            favorite:       PropTypes.bool.isRequired,
+                            };
+        runningString(param) {
+            if (param==='hover') {
+            var str     = $('.pname_hover:hover');
+            var strCont = $('.pname:hover');
+                                 }
+            if (param==='focus') {
+            var str     = $('.menuItemStyle:focus>.staticItem>.pname>.pname_hover');
+            var strCont = $('.menuItemStyle:focus>.staticItem>.pname');
+                                 }
+            var width = str.width();
+            var con_w = str.css('left');
+
+            function run () {
+                var con_len = parseInt(con_w) - (width - strCont.width());
+
+                str.animate
+                ({left:con_len + 'px'},
+                    {duration: 2000,
+                        complete: function ()
+                        {
+                            str.css('left',con_w);
+                            //run();
+                        }});}
+            if (width>strCont.width())
+            {
+            run();
+            }                    }
+        stopRun      ()      {
+            $('.pname_hover').stop(true,true);
+                            }
+        circleVisible(param) {
+            console.log('changeState');
+            if (param) this.setState({visible: true});
+            else this.setState({visible: false})
                              }
-        if (param==='focus') {
-        var str     = $('.menuItemStyle:focus>.staticItem>.pname>.pname_hover');
-        var strCont = $('.menuItemStyle:focus>.staticItem>.pname');
-                             }
-        var width = str.width();
-        var con_w = str.css('left');
-
-        function run () {
-            var con_len = parseInt(con_w) - (width - strCont.width());
-
-            str.animate
-            ({left:con_len + 'px'},
-                {duration: 2000,
-                    complete: function ()
-                    {
-                        str.css('left',con_w);
-                        //run();
-                    }});}
-        if (width>strCont.width())
-        {
-        run();
-        }                    }
-    stopRun      ()      {
-        $('.pname_hover').stop(true,true);
-                        }
-    circleVisible(param) {
-        console.log('changeState');
-        if (param) this.setState({visible: true});
-        else this.setState({visible: false})
-                         }
-    // onBlur (e)           {
-    //     if (!e.currentTarget.contains(document.activeElement))
-    //     {
-    //     this.circleVisible(false);
-    //     }
-    //                      };
-    // checkFocus ()
-    // {
-    //
-    //    console.log('Shit!!!!!');
-    // }
 
 
 
 
-    render()             {
+        render()             {
         return           (
             <div  className={this.props.chosen?'menuItemStyleChosen':'menuItemStyle'}
                   onClick={this.props.onClick}
@@ -82,8 +70,8 @@ export default class Channel extends Component      {
                   ref={(channel)=>this.channel=channel}
                   onMouseEnter={e=>this.circleVisible(true)}
                   onMouseLeave={e=>this.circleVisible(false)}
-                  onFocus={e=>this.checkFocus()}
-                  //onFocusOut=
+                  onFocus={e=>this.circleVisible(true)}
+                  onBlur={e=>this.circleVisible(false)}
             >
             <div className="staticItem">
                   <span className="spanChannelid">{this.props.channelNum}</span>
@@ -95,7 +83,6 @@ export default class Channel extends Component      {
                   <div className="pname"
                   onMouseOver={(e)=>this.runningString('hover')}
                   onMouseLeave={(e)=>this.stopRun()}
-                  //onKeyDown={(e)=>this.runningString('focus')}
                  >
                  <span className="pname_hover">
                  {this.props.programName}

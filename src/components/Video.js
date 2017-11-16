@@ -44,14 +44,15 @@ class Video extends Component
         if (e.keyCode === 13)
             this.handleClick();
     }
-    handleClick (e)      {
+    handleClick (e) {
         e.stopPropagation();
         this.video.play();
         this.setState({playing:true});
         this.props.dispatch(toggleAutoPlay(true));
         this.video.focus();
-    }
+                   }
     setRatio(num)  {
+    console.log(num);
     switch (num)   {
         case 0:
             return {
@@ -73,8 +74,14 @@ class Video extends Component
             break;
         case 3:
             return {
-            videoDivClass:'videoUsualDiv',
+            videoDivClass:'videoUsual',
             videoClass:'videoFit',
+            };
+            break;
+        case 4:
+            return {
+            videoDivClass:'videoUsual',
+            videoClass:'videoCover',
             };
             break;
                     }
@@ -85,7 +92,7 @@ class Video extends Component
     render()            {
         if (this.props.video!=='none')
         {return(
-            <div className={this.setRatio(this.props.ratio).videoDivClass}
+            <div       className={this.setRatio(this.props.ratio).videoDivClass}
                 //className="videoDiv16"
             >
                 <video id="video"
@@ -93,7 +100,6 @@ class Video extends Component
                        autoPlay={this.props.isPlaying}
                        controls={false}
                        className={this.setRatio(this.props.ratio).videoClass}
-                       //className="video16"
                        playsInline
                        tabIndex={1}
                        onDoubleClick={this.props.onDblClick}

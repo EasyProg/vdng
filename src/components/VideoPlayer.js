@@ -32,7 +32,7 @@ class VideoPlayer extends Component         {
         this.state = {fullScreen:false,networkError:false,ratio:0};
         this.hls = new Hls();
         this.int = null;
-                                                }
+                                            }
         //Component Functions
         componentDidMount()                 {
         this.videoOnLoad ();
@@ -278,10 +278,13 @@ class VideoPlayer extends Component         {
                 this.setState({ratio:3});
                 break;
                 case 3:
+                this.setState({ratio:4});
+                break;
+                case 4:
                 this.setState({ratio:0});
                 break;
                         }
-        }
+                                              }
 
         //Element render
         render()                              {
@@ -302,7 +305,6 @@ class VideoPlayer extends Component         {
 
 
                 />
-                {/*<div className="playBackDivMain">*/}
                 <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                  toggleContext={this.toggle}
                                  handleOnPlayContext={this.handleOnPlay}

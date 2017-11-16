@@ -72,7 +72,7 @@ class  Categories extends Component                     {
             filteredChannels =  channels.filter(function(item)
             {
                 if (cat !== 'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
-                    return       item.category.toUpperCase() === cat.toUpperCase();
+                return   item.category.toUpperCase() === cat.toUpperCase();
                 else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
                 else return  item.category
             })
@@ -126,26 +126,26 @@ class  Categories extends Component                     {
             case 27: {
                 this.props.dispatch(setMenusVisible(
 
-                    {
+                     {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false
-                    },false));
+                     },false));
                 $('#video').focus();
                 $('#menuCenterText').fadeOut(100);
-            }
+                     }
                 break;
-            case 8: {
+            case 8:  {
                 this.props.dispatch(setMenusVisible(
-                    {
+                     {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false
-                    },false));
+                     },false));
                 $('#video').focus();
                 $('#menuCenterText').fadeOut(100);
 
-            }
+                    }
                 break;
             default:
         }
@@ -160,7 +160,7 @@ class  Categories extends Component                     {
                 },true                              ));
     }
     render()                                            {
-        return                                       (
+        return                                          (
             <div className="hoverDiv">
                 {/*<MainMenu/>*/}
                 <div className={this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories"
