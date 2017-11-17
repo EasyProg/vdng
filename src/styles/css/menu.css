@@ -1,17 +1,29 @@
+.menuChannel, .menuChannelLeft, .menuChannelNone {
+  display: block;
+  width: 30vw;
+  min-width: 350px;
+  height: 89vh;
+  min-height: 30vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  float: right;
+  z-index: 2147483641;
+  transition: left 0.3s ease 50ms; }
+
 .menuItemStyle, .menuItemStyle:focus, .menuItemStyle:hover, .menuItemStyleChosen {
+  font-size: 1.3vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   cursor: pointer;
   align-items: center;
-  width: 30vw;
+  width: 100%;
   font-family: "ComfortaaRegular";
-  font-size: 1.4em;
-  min-font-size: 1em;
-  max-font-size: 2em;
+  min-font-size: 10px;
   letter-spacing: 1px;
   color: white;
-  height: 110px;
+  height: 12vh;
   vertical-align: middle;
   padding-left: 20px; }
 
@@ -28,14 +40,14 @@
   overflow-x: visible; }
 
 .customMenuScrollDiv {
-  height: 92vh;
+  height: 89vh;
   position: absolute;
   width: 110%;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden; }
 
 .customMenuFirefoxScrollDiv {
-  height: 92vh;
+  height: 89vh;
   position: absolute;
   width: 115%;
   margin-right: -30px;
@@ -59,16 +71,16 @@
   bottom: 0; }
 
 .menuItemStyle:focus, .menuItemStyleChosen:focus {
-  width: 110%;
+  width: 100%;
   background: #9677ff; }
 
 .menuItemStyle:hover, .menuItemStyleChosen:hover {
-  width: 110%;
+  width: 100%;
   background: #9677ff; }
 
 .menuItemStyleChosen {
   background: #575757;
-  width: 80%; }
+  width: 91%; }
 
 .circleButtonSpan {
   width: 40px;
@@ -81,20 +93,9 @@
 .circleButtonSpanNone {
   visibility: hidden; }
 
-.menuChannel, .menuChannelLeft, .menuChannelNone {
-  display: block;
-  width: 30vw;
-  min-width: 300px;
-  height: 100vh;
-  min-height: 30vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2147483641;
-  transition: left 0.3s ease 50ms; }
-
 .menuChannelLeft {
-  left: 30vw; }
+  left: 30vw;
+  float: right; }
 
 .menuChannelNone {
   left: -6000px; }
@@ -104,6 +105,7 @@
   margin-left: 30px;
   text-align: center;
   width: 70px;
+  min-width: 60px;
   height: 60px;
   pointer-events: auto;
   display: flex;

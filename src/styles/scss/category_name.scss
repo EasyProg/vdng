@@ -1,9 +1,18 @@
 .divCateg
-{
+              {
+  margin-top: 1vh;
   position: relative;
-  font-size: 1.5rem;
+  pointer-events:auto;
   display:flex;
+  top:0;
+  flex-direction: row;
   width:100%;
   align-items: center;
-  height: 50px;
-}
+  height: 10vh;
+  font-family: "ComfortaaRegular";
+  color:white;
+  font-size:$font_size_header;
+              }
+.categoryName {
+  margin-left: 1vw;
+              }

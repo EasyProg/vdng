@@ -15,7 +15,6 @@ import * as $ from 'jquery';
 import ReactDOM from 'react-dom';
 import hlsArray from '../hls';
 import parse from './Parsing';
-import CategoryName from './ui/CategoryName';
 import CustomScroll from './ui/CustomScroll';
 import parseProgram from '../components/ParseProgramLight';
 class  Categories extends Component                     {
@@ -27,14 +26,14 @@ class  Categories extends Component                     {
             category:'Все жанры',
             Menu:[],
             channels:this.props.channels
-                                                        };
+        };
         this.filterChannels = this.filterChannels.bind(this);
-        this.categVisible = this.categVisible.bind(this);
     }
     static propTypes =                                  {
         visible:PropTypes.bool.isRequired,
         channelVisible:PropTypes.bool.isRequired,       };
     handleClick (index,cat)                             {
+        this.props.dispatch(toggleCategory(cat));
         this.setState   (
             {
                 itemChosen:index,
@@ -44,7 +43,6 @@ class  Categories extends Component                     {
         //this.props.dispatch(toggleCategory(cat));
         var filtered = this.filterChannels(this.state.channels,cat);
         this.props.dispatch(getChannels(filtered));
-
         //this.props.dispatch(getChannels(this.filterChannels(parse(hlsArray),cat)));
         if (filtered.length>0)
         {
@@ -64,7 +62,7 @@ class  Categories extends Component                     {
                     settingsVisible: false
                 }, true));
         }
-                                                        };
+    };
     filterChannels(channels,category)                   {
         var cat = category?category.toString():'All channels';
         let filteredChannels = [];
@@ -72,18 +70,18 @@ class  Categories extends Component                     {
             filteredChannels =  channels.filter(function(item)
             {
                 if (cat !== 'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
-                return   item.category.toUpperCase() === cat.toUpperCase();
+                    return   item.category.toUpperCase() === cat.toUpperCase();
                 else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
                 else return  item.category
             })
-                                                        }
+        }
         this.props.dispatch(getChannels(filteredChannels));
         return filteredChannels;
     };
     componentWillReceiveProps(nextProps)                {
         if (nextProps.channels.length===0)
             this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
-                                                        }
+    }
     switchCateg(event,cat)                              {
         let elems = this.props.categories;
         var i = elems.map(x => x.name).indexOf(cat);
@@ -102,11 +100,11 @@ class  Categories extends Component                     {
             case 39:{
                 $('#channels').focus();
                 if ($('.menuItemStyleChosen').length)
-                $('.menuItemStyleChosen').focus();
+                    $('.menuItemStyleChosen').focus();
                 else $('.menuItemStyle:first').focus();
                 //console.log($(':focus'));
                 break;
-                    }
+            }
             case 38:
                 items[prevElem].focus();
                 this.setState(
@@ -126,70 +124,60 @@ class  Categories extends Component                     {
             case 27: {
                 this.props.dispatch(setMenusVisible(
 
-                     {
+                    {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false
-                     },false));
+                    },false));
                 $('#video').focus();
                 $('#menuCenterText').fadeOut(100);
-                     }
+            }
                 break;
             case 8:  {
                 this.props.dispatch(setMenusVisible(
-                     {
+                    {
                         channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false
-                     },false));
+                    },false));
                 $('#video').focus();
                 $('#menuCenterText').fadeOut(100);
 
-                    }
+            }
                 break;
             default:
         }
     }
-    categVisible()                                      {
-        if (this.props.channels.length>0)
-            this.props.dispatch(setMenusVisible     (
-                {
-                    channelsMenuVisible:true,
-                    categoryMenuVisible:false,
-                    settingsVisible:false
-                },true                              ));
-    }
     render()                                            {
         return                                          (
             <div className="hoverDiv">
-                {/*<MainMenu/>*/}
                 <div className={this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories"
                      onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
-                    <div className="menuHeaderCat">
-                        <CategoryName visible ={true}
-                                      categ   ={this.state.category}
-                                      categVisibleContext = {this.categVisible}
-                                      reversed={true}
-                        />
-                    </div>
+                    {/*<div className="menuHeaderCat">*/}
+                    {/*<CategoryName visible ={true}*/}
+                    {/*categ   ={this.state.category}*/}
+                    {/*categVisibleContext = {this.categVisible}*/}
+                    {/*reversed={true}*/}
+                    {/*/>*/}
+                    {/*</div>*/}
                     <div className="customMenuFirefoxScrollDiv">
-                    <CustomScroll>
-                    {/*>*/}
-                                                             {
-                            this.props.categories.map        ((item,i)=>
-                                <div key={i} className=      {this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
-                                     onClick={e=>this.handleClick (i,item.name)} tabIndex={i}>
-                                    <div         className="categoryImage">
-                                    <img src={item.src} width="40" height="40"/>
+                        <CustomScroll>
+                            {/*>*/}
+                            {
+                                this.props.categories.map        ((item,i)=>
+                                    <div key={i} className=      {this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
+                                         onClick={e=>this.handleClick (i,item.name)} tabIndex={i}>
+                                        <div         className="categoryImage">
+                                            <img src={item.src} width="40" height="40"/>
+                                        </div>
+                                        <div         className="categoryText">
+                                            {item.name}
+                                        </div>
+                                        {i===0?<img src={underline} height={5} width={400} className={'categoryLine'}/>:null}
                                     </div>
-                                    <div         className="categoryText">
-                                        {item.name}
-                                    </div>
-                                    {i===0?<img src={underline} height={5} width={400} className={'categoryLine'}/>:null}
-                                </div>
-                                                              )
-                                                              }
-                    </CustomScroll>
+                                )
+                            }
+                        </CustomScroll>
                     </div>
                 </div>
                 <div className="innerDiv">
@@ -200,11 +188,10 @@ class  Categories extends Component                     {
                         tabIndex={1}
                     />
                 </div>
-                <MainMenu/>
             </div>
         )
     }
-                                                        }
+}
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,setMenusVisible,getChannels,toggleCategory

@@ -73,7 +73,8 @@ export default class Channel extends Component      {
                   onFocus={e=>this.circleVisible(true)}
                   onBlur={e=>this.circleVisible(false)}
             >
-            <div className="staticItem">
+                  <div className="channelDivName">
+                  <div className="staticItem">
                   <span className="spanChannelid">{this.props.channelNum}</span>
                   <img src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
                   <div className="menuChannelName">
@@ -94,13 +95,17 @@ export default class Channel extends Component      {
                  {/*<Rating maxRate={5} rate={3} chosen={this.props.chosen}/>*/}
                  {/*{this.props.favorite ? <span className="pnameFav"><img src={book} width={20} height={20}/></span> : ''}*/}
                  </div>
-                 </div>
+                  </div>
+                  {/*{(this.state.visible||this.props.elemChosen)&&this.props.progress!==-1?*/}
+                    {/*<div className="epgShowButton" onClick={e=>this.props.setProgramVisibleContext(e,this.props.program)}>*/}
+                        {/*<img src={arrow} width={15} height={15}/>*/}
+                    {/*</div>:null*/}
+                  {/*}*/}
                  {/*this.props.elemChosen*/}
-                 {(this.state.visible||this.props.elemChosen)&&this.props.progress!==-1?
-                 <div className="epgShowButton" onClick={e=>this.props.setProgramVisibleContext(e,this.props.program)}>
-                    <img src={arrow} width={15} height={15}/>
-                 </div>:null}
-
+                      <div className={(this.state.visible||this.props.elemChosen)&&this.props.progress!==-1?"epgShowButton":"epgShowButtonInvis"} onClick={e=>this.props.setProgramVisibleContext(e,this.props.program)}>
+                          <img src={arrow} width={15} height={15}/>
+                      </div>
+                      </div>
             </div>
         )
     }

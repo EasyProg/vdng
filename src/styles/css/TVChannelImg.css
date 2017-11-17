@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$main_color".
-        on line 134 of ./src/styles/scss/TVChannelImg.scss
+        on line 144 of ./src/styles/scss/TVChannelImg.scss
 
-129: .rateDivFilled  {
-130:   width: 7px;
-131:   height: 7px;
-132:   margin-right: 3px;
-133:   border-radius: 5px;
-134:   background: $main_color;
-135: }
-136: .rateDivFilledChosen {
-137:   @extend .rateDivFilled;
-138:   background: white;
-139: }
+139: .rateDivFilled  {
+140:   width: 7px;
+141:   height: 7px;
+142:   margin-right: 3px;
+143:   border-radius: 5px;
+144:   background: $main_color;
+145: }
+146: .rateDivFilledChosen {
+147:   @extend .rateDivFilled;
+148:   background: white;
+149: }
 
 Backtrace:
-./src/styles/scss/TVChannelImg.scss:134
+./src/styles/scss/TVChannelImg.scss:144
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/node.rb:50:in `perform'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -69,4 +69,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/interna
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$main_color\".\A         on line 134 of ./src/styles/scss/TVChannelImg.scss\A \A 129: .rateDivFilled  {\A 130:   width: 7px;\A 131:   height: 7px;\A 132:   margin-right: 3px;\A 133:   border-radius: 5px;\A 134:   background: $main_color;\A 135: }\A 136: .rateDivFilledChosen {\A 137:   @extend .rateDivFilled;\A 138:   background: white;\A 139: }"; }
+  content: "Error: Undefined variable: \"$main_color\".\A         on line 144 of ./src/styles/scss/TVChannelImg.scss\A \A 139: .rateDivFilled  {\A 140:   width: 7px;\A 141:   height: 7px;\A 142:   margin-right: 3px;\A 143:   border-radius: 5px;\A 144:   background: $main_color;\A 145: }\A 146: .rateDivFilledChosen {\A 147:   @extend .rateDivFilled;\A 148:   background: white;\A 149: }"; }

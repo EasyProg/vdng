@@ -1,15 +1,28 @@
 .categoryPanel, .categoryPanelNone {
-  height: 87.3vh;
+  height: 89vh;
   top: -20px;
   width: 30vw;
   max-width: 30vw;
-  min-width: 30vw;
+  min-width: 300px;
   margin-top: 20px;
-  position: absolute;
   left: 0;
   transition: left 0.2s ease 10ms;
   z-index: 2147483641;
-  overflow: hidden; }
+  overflow: hidden;
+  position: absolute; }
+
+.categoryItem, .categoryItemChosen, .workMotherFucker {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  font-family: "ComfortaaRegular";
+  font-size: 1.3vw;
+  color: white;
+  height: 12vh;
+  text-align: center;
+  vertical-align: middle; }
 
 .categoryLine, .categoryLineNone {
   position: absolute;
@@ -24,20 +37,6 @@
 .categoryPanelNone {
   left: -6000px;
   transition: left 0.2s ease 10ms; }
-
-.categoryItem, .categoryItemChosen, .workMotherFucker {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  cursor: pointer;
-  width: 30vw;
-  min-width: 30vw;
-  font-family: "ComfortaaRegular";
-  font-size: 1.4rem;
-  color: white;
-  height: 110px;
-  text-align: center;
-  vertical-align: middle; }
 
 .categoryItemChosen {
   background: #575757; }
@@ -87,9 +86,9 @@
   border-radius: 58px;
   width: 58px;
   height: 58px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 1vh;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
   text-align: center;
   vertical-align: middle;
   display: flex;

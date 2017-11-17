@@ -1,33 +1,19 @@
 .programList            {
-  height: 92vh;
+  height: 95%;
   position: absolute;
+  //margin-top: 2vh;
   top:0;
   left:33vw;
   width:27vw;
                         }
 .dayListItem            {
-  margin-top: 40px;
+  margin-top: 5vh;
   display: block;
   font-family: "ComfortaaRegular";
-  font-size:1.4rem;
+  font-size:1.2vw;
   letter-spacing: 2px;
-  margin-bottom: 50px;
-}
-.programListItem        {
-  //display:flex;
-  //flex-direction: row;
-  //justify-content:space-between;
-  width:100%;
-  //height:auto;
-  height:57px;
-  position:relative;
-  color:white;
-  padding-bottom:15px;
-  padding-left:20px;
-  padding-right:30px;
-  padding-top: 18px;
-  text-align: left;
-}
+  margin-bottom: 50px;}
+
 .programListItemChosen  {
   @extend .programListItem;
   background:$menuActiveColor;
@@ -62,29 +48,53 @@
   left:-5px;
                         }
 .programName            {
-  height: 50px;
-  margin-left: 40px;
+  //height: 30px;
+  height: 100%;
+  //margin-left: 3vw;
   overflow:hidden;
   white-space:nowrap;
   width:70%;
-  position: absolute;
-  padding-top: 3px;
+  //position: absolute;
+  margin: auto;
+  position: relative;
+  //padding-top: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.programListItem        {
+  //display:flex;
+  //flex-direction: row;
+  //justify-content:space-between;
+  width:100%;
+  //height:auto;
+  height:5vh;
+  position:relative;
+  color:white;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1vh;
+}
+.programTime            {
+  //left:0;
+  position:relative;
+  width:30px;
+  height:auto;
+  color: #696969;
+  margin-left:1vw;
 }
 .programName_hover      {
   //@extend .programName;
-  height: 45px;
+  height: auto;
   left:0;
   position: absolute;
 }
 
-.programTime            {
-  position:relative;
-  display: inline-block;
-  width:30px;
-  color: #696969;
-}
 .blockChainDiv          {
   font-family: "ComfortaaRegular";
-  font-size:20px;
+  font-size:1.4vw;
   letter-spacing:1px;
+  margin-top: 1vh;
 }

@@ -165,9 +165,9 @@ class ProgramList extends Component
         if (this.props.programs.length>0&&this.props.menus.programsVisible)
             return                          (
                 <div className="programList" id="programList" onKeyDown={(e)=>this.handleKey(e)} tabIndex={1}>
-                    <div className="menuHeaderCh">
-                        <HomeButton visible={true}/>
-                    </div>
+                    {/*<div className="menuHeaderCh">*/}
+                        {/*<HomeButton visible={true}/>*/}
+                    {/*</div>*/}
                     <CustomScroll>
                                 {this.props.programs.map((e,i)=>
                                     <div className="blockChainDiv" key={i} tabIndex={1}>
@@ -193,12 +193,12 @@ class ProgramList extends Component
                                                         onMouseLeave={(e)=>this.stopRun()}
                                                         onKeyDown={(e)=>this.handleKey(e,elem)}
                                                 >
-                                                        <span className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),
+                                                    <div className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),
                                                             elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}
-                                                        </span>
-                                                    <span className="programName">
+                                                    </div>
+                                                    <div className="programName">
                                                     <span className="programName_hover">{elem.title}</span>
-                                                    </span>
+                                                    </div>
                                                 </div>
                                         )
                                 }
@@ -206,7 +206,7 @@ class ProgramList extends Component
                             </div>
                         )}
                     </CustomScroll>
-                    <div className="menuBottom"/>
+                    {/*<div className="menuBottom"/>*/}
                 </div>
             );
         else return null

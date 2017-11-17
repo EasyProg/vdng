@@ -1,18 +1,30 @@
 @charset "UTF-8";
+.menuChannel, .menuChannelLeft, .menuChannelNone {
+  display: block;
+  width: 30vw;
+  min-width: 350px;
+  height: 89vh;
+  min-height: 30vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  float: right;
+  z-index: 2147483641;
+  transition: left 0.3s ease 50ms; }
+
 .menuItemStyle, .menuItemStyle:focus, .menuItemStyle:hover, .menuItemStyleChosen {
+  font-size: 1.3vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   cursor: pointer;
   align-items: center;
-  width: 30vw;
+  width: 100%;
   font-family: "ComfortaaRegular";
-  font-size: 1.4em;
-  min-font-size: 1em;
-  max-font-size: 2em;
+  min-font-size: 10px;
   letter-spacing: 1px;
   color: white;
-  height: 110px;
+  height: 12vh;
   vertical-align: middle;
   padding-left: 20px; }
 
@@ -29,14 +41,14 @@
   overflow-x: visible; }
 
 .customMenuScrollDiv {
-  height: 92vh;
+  height: 89vh;
   position: absolute;
   width: 110%;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden; }
 
 .customMenuFirefoxScrollDiv {
-  height: 92vh;
+  height: 89vh;
   position: absolute;
   width: 115%;
   margin-right: -30px;
@@ -60,16 +72,16 @@
   bottom: 0; }
 
 .menuItemStyle:focus, .menuItemStyleChosen:focus {
-  width: 110%;
+  width: 100%;
   background: #9677ff; }
 
 .menuItemStyle:hover, .menuItemStyleChosen:hover {
-  width: 110%;
+  width: 100%;
   background: #9677ff; }
 
 .menuItemStyleChosen {
   background: #575757;
-  width: 80%; }
+  width: 91%; }
 
 .circleButtonSpan {
   width: 40px;
@@ -82,20 +94,9 @@
 .circleButtonSpanNone {
   visibility: hidden; }
 
-.menuChannel, .menuChannelLeft, .menuChannelNone {
-  display: block;
-  width: 30vw;
-  min-width: 300px;
-  height: 100vh;
-  min-height: 30vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2147483641;
-  transition: left 0.3s ease 50ms; }
-
 .menuChannelLeft {
-  left: 30vw; }
+  left: 30vw;
+  float: right; }
 
 .menuChannelNone {
   left: -6000px; }
@@ -105,6 +106,7 @@
   margin-left: 30px;
   text-align: center;
   width: 70px;
+  min-width: 60px;
   height: 60px;
   pointer-events: auto;
   display: flex;
@@ -538,17 +540,30 @@ hr {
   background: #434343; }
 
 .categoryPanel, .categoryPanelNone {
-  height: 87.3vh;
+  height: 89vh;
   top: -20px;
   width: 30vw;
   max-width: 30vw;
-  min-width: 30vw;
+  min-width: 300px;
   margin-top: 20px;
-  position: absolute;
   left: 0;
   transition: left 0.2s ease 10ms;
   z-index: 2147483641;
-  overflow: hidden; }
+  overflow: hidden;
+  position: absolute; }
+
+.categoryItem, .categoryItemChosen, .workMotherFucker {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  font-family: "ComfortaaRegular";
+  font-size: 1.3vw;
+  color: white;
+  height: 12vh;
+  text-align: center;
+  vertical-align: middle; }
 
 .categoryLine, .categoryLineNone {
   position: absolute;
@@ -563,20 +578,6 @@ hr {
 .categoryPanelNone {
   left: -6000px;
   transition: left 0.2s ease 10ms; }
-
-.categoryItem, .categoryItemChosen, .workMotherFucker {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  cursor: pointer;
-  width: 30vw;
-  min-width: 30vw;
-  font-family: "ComfortaaRegular";
-  font-size: 1.4rem;
-  color: white;
-  height: 110px;
-  text-align: center;
-  vertical-align: middle; }
 
 .categoryItemChosen {
   background: #575757; }
@@ -626,9 +627,9 @@ hr {
   border-radius: 58px;
   width: 58px;
   height: 58px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 1vh;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
   text-align: center;
   vertical-align: middle;
   display: flex;
@@ -948,17 +949,24 @@ hr {
   margin-right: 10px;
   margin-left: 15px;
   margin-top: 7px;
-  width: 6rem;
-  height: 4rem;
-  min-height: 30px;
-  min-width: 50px; }
+  width: 5vw;
+  height: 3.5vw;
+  min-height: 40px;
+  min-width: 40px; }
+
+.channelDivName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; }
 
 .pname {
   margin-left: 20px;
   height: 60px;
   position: relative;
   white-space: nowrap;
-  width: 70%;
+  width: 90%;
   line-height: 3em;
   overflow: hidden;
   display: flex;
@@ -966,8 +974,7 @@ hr {
   align-items: center; }
 
 .staticItem {
-  width: 100%;
-  min-width: 100px;
+  width: 90%;
   display: flex;
   height: 100%;
   flex-direction: row;
@@ -993,7 +1000,7 @@ hr {
 .divForFavorite {
   height: 30px;
   min-width: 100px;
-  right: 40px;
+  width: 95%;
   display: block;
   position: relative; }
 
@@ -1036,7 +1043,7 @@ hr {
   display: flex;
   flex-direction: column;
   height: 100px;
-  width: 100%;
+  width: 95%;
   position: relative;
   justify-content: space-between; }
 
@@ -1054,21 +1061,26 @@ hr {
   width: 100%;
   position: relative;
   height: 40px;
-  vertical-align: middle;
-  padding-left: 20px; }
+  padding-left: 20px;
+  top: -15%; }
 
-.epgShowButton {
+.epgShowButton, .epgShowButtonInvis {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-right: 25%;
-  width: 70px;
-  height: 50px;
+  margin-right: 2vw;
+  min-width: 60px;
+  width: 60px;
+  height: 60px;
   background: #6c4ad1;
   border-radius: 50px;
   position: relative;
-  text-align: center; }
+  text-align: center;
+  visibility: visible; }
+
+.epgShowButtonInvis {
+  visibility: hidden; }
 
 .archDiv {
   top: 0;
@@ -1151,12 +1163,21 @@ hr {
   width: 100px; }
 
 .divCateg {
+  margin-top: 1vh;
   position: relative;
-  font-size: 1.5rem;
+  pointer-events: auto;
   display: flex;
+  top: 0;
+  flex-direction: row;
   width: 100%;
   align-items: center;
-  height: 50px; }
+  height: 10vh;
+  font-family: "ComfortaaRegular";
+  color: white;
+  font-size: 1.4vw; }
+
+.categoryName {
+  margin-left: 1vw; }
 
 .nonPlayingDiv {
   align-self: center;
@@ -1195,30 +1216,19 @@ hr {
   letter-spacing: 1px; }
 
 .programList {
-  height: 92vh;
+  height: 95%;
   position: absolute;
   top: 0;
   left: 33vw;
   width: 27vw; }
 
 .dayListItem {
-  margin-top: 40px;
+  margin-top: 5vh;
   display: block;
   font-family: "ComfortaaRegular";
-  font-size: 1.4rem;
+  font-size: 1.2vw;
   letter-spacing: 2px;
   margin-bottom: 50px; }
-
-.programListItem, .programListItemChosen {
-  width: 100%;
-  height: 57px;
-  position: relative;
-  color: white;
-  padding-bottom: 15px;
-  padding-left: 20px;
-  padding-right: 30px;
-  padding-top: 18px;
-  text-align: left; }
 
 .programListItemChosen {
   background: #575757; }
@@ -1249,29 +1259,44 @@ hr {
   left: -5px; }
 
 .programName {
-  height: 50px;
-  margin-left: 40px;
+  height: 100%;
   overflow: hidden;
   white-space: nowrap;
   width: 70%;
-  position: absolute;
-  padding-top: 3px; }
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
-.programName_hover {
-  height: 45px;
-  left: 0;
-  position: absolute; }
+.programListItem, .programListItemChosen {
+  width: 100%;
+  height: 5vh;
+  position: relative;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1vh; }
 
 .programTime {
   position: relative;
-  display: inline-block;
   width: 30px;
-  color: #696969; }
+  height: auto;
+  color: #696969;
+  margin-left: 1vw; }
+
+.programName_hover {
+  height: auto;
+  left: 0;
+  position: absolute; }
 
 .blockChainDiv {
   font-family: "ComfortaaRegular";
-  font-size: 20px;
-  letter-spacing: 1px; }
+  font-size: 1.4vw;
+  letter-spacing: 1px;
+  margin-top: 1vh; }
 
 .smKindOfMenu_Channels, .smKindOfMenu_Group {
   position: absolute;
@@ -1422,6 +1447,18 @@ hr {
 .mobileItemAct {
   background: #575757; }
 
+.menuContainer, .twoMenuContainer {
+  position: absolute;
+  width: 30vw;
+  min-width: 350px;
+  height: 100vh;
+  transition: width 0.3s ease-in;
+  background: rgba(0, 0, 0, 0.8); }
+
+.twoMenuContainer {
+  width: 60vw;
+  min-width: 600px; }
+
 * {
   outline: 0;
   border: 0; }
@@ -1437,10 +1474,9 @@ body {
   width: 99vw; }
 
 #root {
-  min-width: 1000px;
-  min-height: 740px;
+  top: 0;
   width: 100vw;
-  height: 100vh; }
+  height: 101vh; }
 
 div [data-reactroot] {
   position: relative;
@@ -1520,7 +1556,7 @@ div [data-reactroot] {
   line-height: 1em;
   letter-spacing: 1px;
   font-family: "ComfortaaRegular";
-  font-size: 2em; }
+  font-size: 2vw; }
 
 .lowerText {
   margin-top: 5px;
@@ -1530,7 +1566,7 @@ div [data-reactroot] {
   align-items: center;
   letter-spacing: 1px;
   font-family: "ComfortaaRegular";
-  font-size: 1.5em; }
+  font-size: 1.5vw; }
 
 .textBlock {
   display: flex;

@@ -45,7 +45,7 @@ class Video extends Component
             this.handleClick();
     }
     handleClick (e) {
-        e.stopPropagation();
+        if (e)  e.stopPropagation();
         this.video.play();
         this.setState({playing:true});
         this.props.dispatch(toggleAutoPlay(true));
