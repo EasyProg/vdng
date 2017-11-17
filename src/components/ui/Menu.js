@@ -35,7 +35,7 @@ class  Menu extends Component               {
         this.getPrograms = this.getPrograms.bind(this);
         this.menuWidthChange = this.menuWidthChange.bind(this);
         this.categVisible = this.categVisible.bind(this);
-    }
+                                            }
     getJsonChannels(url)                    {
         let context = this;
         fetch(url).then(function(response)  {

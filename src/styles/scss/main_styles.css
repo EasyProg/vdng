@@ -918,12 +918,14 @@ hr {
 .iconResDiv:hover, .iconResDivFull:hover {
   cursor: pointer;
   background: #9677ff;
-  border-radius: 40px; }
+  border-radius: 40px;
+  min-width: 50px; }
 
 .iconResDiv:focus, .iconResDivFull:focus {
   cursor: pointer;
   background: #9677ff;
-  border-radius: 40px; }
+  border-radius: 40px;
+  min-width: 50px; }
 
 .upper_buttons_res, .upper_buttons_live {
   margin: auto;

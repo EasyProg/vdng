@@ -140,6 +140,7 @@
   cursor:pointer;
   background:$main_color;
   border-radius:40px;
+  min-width: 50px;
   //position: inherit;
 }
 .iconResDiv:focus             {
@@ -147,6 +148,7 @@
   cursor:pointer;
   background:$main_color;
   border-radius:40px;
+  min-width: 50px;
   //position: inherit;
 }
 //
