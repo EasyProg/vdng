@@ -1,0 +1,90 @@
+.programList            {
+  height: 92vh;
+  position: absolute;
+  top:0;
+  left:33vw;
+  width:27vw;
+                        }
+.dayListItem            {
+  margin-top: 40px;
+  display: block;
+  font-family: "ComfortaaRegular";
+  font-size:1.4rem;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+}
+.programListItem        {
+  //display:flex;
+  //flex-direction: row;
+  //justify-content:space-between;
+  width:100%;
+  //height:auto;
+  height:57px;
+  position:relative;
+  color:white;
+  padding-bottom:15px;
+  padding-left:20px;
+  padding-right:30px;
+  padding-top: 18px;
+  text-align: left;
+}
+.programListItemChosen  {
+  @extend .programListItem;
+  background:$menuActiveColor;
+                        }
+
+.programListItem:hover  {
+  background:$main_color;
+  cursor:pointer;
+                        }
+.programListItem:focus  {
+  background:$menuHoverColor;
+                        }
+.headerProgramDate      {
+  color:white;
+  text-align: left;
+  margin-left:  20px;
+  margin-right: 20px
+                        }
+.textSpan               {
+  color:$main_color;
+  padding-left:10px;
+  //text-align: left;
+                        }
+.hrProgram              {
+  background:$main_color;
+  //color:$main_color;
+  //left: 15px;
+  height: 2px;
+  width: 100%;
+  display: block;
+  position: relative;
+  left:-5px;
+                        }
+.programName            {
+  height: 50px;
+  margin-left: 40px;
+  overflow:hidden;
+  white-space:nowrap;
+  width:70%;
+  position: absolute;
+  padding-top: 3px;
+}
+.programName_hover      {
+  //@extend .programName;
+  height: 45px;
+  left:0;
+  position: absolute;
+}
+
+.programTime            {
+  position:relative;
+  display: inline-block;
+  width:30px;
+  color: #696969;
+}
+.blockChainDiv          {
+  font-family: "ComfortaaRegular";
+  font-size:20px;
+  letter-spacing:1px;
+}

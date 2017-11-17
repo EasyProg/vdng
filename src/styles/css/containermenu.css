@@ -1,0 +1,27 @@
+.smKindOfMenu_Channels, .smKindOfMenu_Group {
+  position: absolute;
+  height: 101vh;
+  background: rgba(0, 0, 0, 0.8);
+  width: 250px;
+  transition: width 0.5s ease 100ms; }
+
+.smKindOfMenu_Group {
+  width: 500px; }
+
+.menu_header {
+  width: 100%;
+  color: white;
+  top: 0;
+  background: yellow; }
+
+.track-vertical {
+  position: absolute;
+  width: 1px;
+  display: block !important;
+  right: 2px;
+  bottom: 2px;
+  top: 2px;
+  border-radius: 3px;
+  background-color: yellowgreen; }
+
+/*# sourceMappingURL=containermenu.css.map */

@@ -1,0 +1,13 @@
+.divCateg
+{  //display: block;
+  position: relative;
+  //position: absolute;
+  pointer-events:auto;
+  font-size: 1.5rem;
+  display:flex;
+  top:0;
+  flex-direction: row;
+  width:100%;
+  align-items: center;
+  height: 10vh;
+}

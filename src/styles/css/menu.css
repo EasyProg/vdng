@@ -1,0 +1,143 @@
+.menuItemStyle, .menuItemStyle:focus, .menuItemStyle:hover, .menuItemStyleChosen {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  width: 30vw;
+  font-family: "ComfortaaRegular";
+  font-size: 1.4em;
+  min-font-size: 1em;
+  max-font-size: 2em;
+  letter-spacing: 1px;
+  color: white;
+  height: 110px;
+  vertical-align: middle;
+  padding-left: 20px; }
+
+.menuItemStyleReroved {
+  width: 30vw;
+  min-width: 30vw;
+  height: 110px;
+  line-height: 5.7em;
+  padding-left: 20px; }
+
+.customMenuDiv {
+  height: 92vh;
+  width: 100%;
+  overflow-x: visible; }
+
+.customMenuScrollDiv {
+  height: 92vh;
+  position: absolute;
+  width: 110%;
+  overflow-y: hidden;
+  overflow-x: hidden; }
+
+.customMenuFirefoxScrollDiv {
+  height: 92vh;
+  position: absolute;
+  width: 115%;
+  margin-right: -30px;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.customMenuScrollDiv::-webkit-scrollbar {
+  width: 0; }
+
+.customMenuScrollDiv::-webkit-scrollbar-track {
+  -webkit-border-radius: 6px;
+  background-color: transparent; }
+
+.customMenuScrollDiv::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 6px;
+  background-color: transparent; }
+
+.menuBottom {
+  width: 30vw;
+  height: 5vh;
+  bottom: 0; }
+
+.menuItemStyle:focus, .menuItemStyleChosen:focus {
+  width: 110%;
+  background: #9677ff; }
+
+.menuItemStyle:hover, .menuItemStyleChosen:hover {
+  width: 110%;
+  background: #9677ff; }
+
+.menuItemStyleChosen {
+  background: #575757;
+  width: 80%; }
+
+.circleButtonSpan {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: -53px;
+  left: 285px;
+  visibility: visible; }
+
+.circleButtonSpanNone {
+  visibility: hidden; }
+
+.menuChannel, .menuChannelLeft, .menuChannelNone {
+  display: block;
+  width: 30vw;
+  min-width: 300px;
+  height: 100vh;
+  min-height: 30vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2147483641;
+  transition: left 0.3s ease 50ms; }
+
+.menuChannelLeft {
+  left: 30vw; }
+
+.menuChannelNone {
+  left: -6000px; }
+
+.divSideBar, .divSideBar:hover {
+  margin-right: 30px;
+  margin-left: 30px;
+  text-align: center;
+  width: 70px;
+  height: 60px;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+
+.divSideBar:hover {
+  cursor: pointer;
+  border-radius: 50px;
+  background: rgba(87, 87, 87, 0.6); }
+
+.divSideBar_menu, .divSideBar_menu:hover {
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  right: 20px;
+  position: absolute; }
+
+.divSideBar_menu:hover {
+  cursor: pointer;
+  border-radius: 40px;
+  background: rgba(87, 87, 87, 0.6); }
+
+.numberSpan {
+  width: 20px;
+  margin-left: 10px;
+  margin-right: 20px; }
+
+.-reactjs-scrollbar-area {
+  overflow-x: visible; }
+
+/*# sourceMappingURL=menu.css.map */

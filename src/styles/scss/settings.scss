@@ -1,0 +1,85 @@
+.select_your_device {
+margin:20px;
+display:flex;
+height:50px;
+flex-direction: row;
+justify-content: space-between;
+-webkit-justify-content:space-between;
+}
+.usualImg {
+  align-self: center;
+}
+.divUsualImg {
+  width:55px;
+  height: 55px;
+  line-height: 5em;
+}
+.divUsualImg:hover {
+  @extend .divUsualImg;
+  cursor: pointer;
+  border-radius: 65px;
+  background: #4c4c4c;
+}
+.divUsualImgFocus {
+  @extend .divUsualImg;
+  cursor: pointer;
+  border-radius: 65px;
+  background: $main_color;
+}
+.settingsDiv {
+  position:relative;
+  width:320px;
+  height:230px;
+  margin-top:20px;
+}
+.languageDiv {
+  margin:20px;
+  display:flex;
+  display:-webkit-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  -webkit-justify-content:space-around;
+  height: 50px;
+}
+.languageButton {
+width:100px;
+line-height: 3em;
+border:none;
+}
+.languageButton:hover {
+  @extend .languageButton;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #4c4c4c;
+}
+.languageButtonFocus {
+  @extend .languageButton;
+  cursor: pointer;
+  border-radius: 5px;
+  background: $main_color;
+}
+.switchClass {
+  height: 20px;
+  background: $main_color;
+}
+.resetToDefault {
+  border-radius: 5px;
+  cursor:pointer;
+  position:relative;
+  width:90%;
+  margin:10px;
+  height:50px;
+  background: $main_color;
+  color:      white;
+  font-family: "Comfortaa Light";
+  text-align: center;
+}
+#flip {
+  margin: 15px;
+}
+.toggleClass.react-toggle--checked .react-toggle-track {
+  background-color: $main_color;
+}
+.toggleClass.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: $main_color;
+}

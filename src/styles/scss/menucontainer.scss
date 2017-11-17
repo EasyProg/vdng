@@ -1,0 +1,16 @@
+.menuContainer
+{
+position:absolute;
+width:30vw;
+min-width:350px;
+height:100vh;
+transition: width 0.2s ease-in;
+//z-index:2147483640;
+background: rgba(0,0,0,0.8);
+
+}
+.twoMenuContainer {
+  @extend .menuContainer;
+  width:60vw;
+  min-width:700px;
+}
