@@ -1,0 +1,13 @@
+.menuContainer, .twoMenuContainer {
+  position: absolute;
+  width: 30vw;
+  min-width: 350px;
+  height: 100vh;
+  transition: width 0.3s ease-in;
+  background: rgba(0, 0, 0, 0.8); }
+
+.twoMenuContainer {
+  width: 60vw;
+  min-width: 600px; }
+
+/*# sourceMappingURL=menucontainer.css.map */
