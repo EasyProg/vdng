@@ -34,7 +34,8 @@ const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,toggleAutoPlay
     }, dispatch);
-export default connect      (
+export default connect
+(
     state => ({
               }),
     mapDispatchToProps
