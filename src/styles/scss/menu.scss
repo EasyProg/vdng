@@ -1,0 +1,199 @@
+@import 'variables';
+
+
+.menuChannel           {
+  display: block;
+  width:30vw;
+  min-width:300px;
+  height:89vh;
+  min-height: 400px;
+  position: relative;
+  float: right;
+  z-index:2147483641;
+  pointer-events: auto;
+  //margin-left:1000px;
+
+}
+.menuChannelProgram   {
+  @extend .menuChannel;
+  float:left;
+}
+.menuItemStyle        {
+  //display: block;
+  font-size:$font_size;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  width:91%;
+  font-family: "ComfortaaRegular";
+  //font-size:$font_size;
+  min-font-size:10px;
+  letter-spacing: 1px;
+  color: white;
+  //height: 110px;
+  height: 12vh;
+  min-height: 100px;
+  vertical-align: middle;
+  padding-left: 20px;
+  position: relative;
+
+}
+.menuItemStyleReroved {
+  width:30vw;
+  min-width:30vw;
+  height: 110px;
+  line-height: 5.7em;
+  padding-left: 20px;
+}
+.customMenuDiv          {
+  height:92vh;
+  width:100%;
+  overflow-x:visible;
+
+}
+.customMenuScrollDiv  {
+  height:89vh;
+  position:relative;
+  width:110%;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+.customMenuScrollDivN {
+  @extend .customMenuScrollDiv;
+  width:100%;
+}
+
+.customMenuFirefoxScrollDiv
+{
+  height:89vh;
+  position:relative;
+  width:115%;
+  margin-right: -30px;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+.customMenuScrollDiv::-webkit-scrollbar
+{
+  width:0;
+}
+.customMenuScrollDiv::-webkit-scrollbar-track
+{
+  -webkit-border-radius: 6px;
+  background-color: transparent;
+}
+.customMenuScrollDiv::-webkit-scrollbar-thumb
+{
+  -webkit-border-radius: 6px;
+  background-color: transparent;
+}
+
+.menuBottom           {
+  width:$menuItemWidth;
+  height:5vh;
+  //background: rgba(0,0,0,0.8);
+  bottom:0;
+}
+.menuItemStyle:focus {
+  @extend .menuItemStyle;
+  width:100%;
+  background:$menuHoverColor;
+}
+//.menuItemStyle>.staticItem>.divForFavorite:hover {
+//  @extend .divForFavorite;
+//  //width:90%;
+//  //background:$menuHoverColor;
+//}
+
+
+.menuItemStyle:hover //div>.staticItem:not(:hover)
+{
+  @extend .menuItemStyle;
+  width:100%;
+  background:$menuHoverColor;
+}
+.menuItemStyleChosen   {
+  @extend .menuItemStyle;
+  background:$menuActiveColor;
+  //width:91%;
+  //overflow-x: hidden;
+
+}
+.circleButtonSpan      {
+  width:40px;
+  height:40px;
+  position: relative;
+  top:-53px;
+  left:285px;
+  visibility: visible;
+}
+.circleButtonSpanNone  {
+  visibility: hidden;
+}
+//.menuChannelLeft      {
+//  @extend .menuChannel;
+//  left:30vw;
+//}
+//.menuChannelNone      {
+//  @extend .menuChannel;
+//  left:-5000px;
+//}
+.divSideBar           {
+  margin-right: 30px;
+  margin-left:30px;
+  //margin-t: 10px;
+  text-align: center;
+  width:70px;
+  min-width:60px;
+  height:60px;
+  //margin-top: 1vh;
+  pointer-events: auto;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  //pointer-events: auto;
+  //visibility: hidden;
+  //display: none;
+}
+.divSideBar:hover     {
+  @extend .divSideBar;
+  //margin-top: 3vh;
+  cursor: pointer;
+  border-radius: 50px;
+  //width:50px;
+  //height:50px;
+  background: rgba(87, 87, 87, 0.6);
+
+}
+.divSideBar_menu
+{ text-align: center;
+  width:60px;
+  height:60px;
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  //line-height:5.5em;
+  right:20px;
+  position: absolute;
+}
+.divSideBar_menu:hover {
+  @extend .divSideBar_menu;
+  cursor: pointer;
+  border-radius: 40px;
+  background: rgba(87, 87, 87, 0.6);
+}
+
+
+.numberSpan           {
+  width:20px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+
+.-reactjs-scrollbar-area {
+  overflow-x:visible;
+}

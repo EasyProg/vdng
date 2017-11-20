@@ -1,0 +1,105 @@
+@import 'variables';
+.mobileMenuContainer
+{
+position:absolute;
+height:70vh;
+width:100vw;
+background: violet;
+top:30vh;
+}
+.mobileMenuHeader {
+position:relative;
+height:6vh;
+width:100%;
+color:white;
+background: yellowgreen;
+display:flex;
+flex-direction: row;
+justify-content: space-between;
+font-family: "ComfortaaRegular";
+align-items: center;
+font-size:1.8rem;
+}
+
+.mobileMenuHeaderDiv
+{
+display: flex;
+flex-direction: row;
+align-items: center;
+position:relative;
+width:31%;
+height:100%;
+justify-content: center;
+}
+.mobileMenuHeaderDiv:hover
+{ display: flex;
+  flex-direction: row;
+  align-items: center;
+  position:relative;
+  width:31%;
+  height:100%;
+  justify-content: center;
+  //@extend .mobileMenuHeader >div;
+  cursor:pointer;
+}
+
+//background:$menuActiveColor;
+.mobileHr   {
+display: block;
+position: relative;
+width:100%;
+height: 0.5vh;
+background:grey;
+}
+.menu_state_0 {
+  display: block;
+  position: relative;
+  width:32%;
+  left:1%;
+  height:100%;
+  background: white;
+}
+.menu_state_1 {
+  position: relative;
+  width:32%;
+  left:34%;
+  height:100%;
+  background: white;
+}
+.menu_state_2 {
+  position: relative;
+  width:32%;
+  left:67%;
+  height:100%;
+  background: white;
+}
+.dataCont {
+  height:55vh;
+  width:100%;
+  position: relative;
+  background: black;
+
+}
+
+.mobileItem  {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  width:100%;
+  //min-width:30vw;
+  font-family: "ComfortaaRegular";
+  //font-size:1.3em;
+  font-size:1.4rem;
+  color:white;
+  height: 7rem;
+  //line-height: 6em;
+  text-align: center;
+  vertical-align: middle;
+
+}
+
+.mobileItemAct {
+  @extend .mobileItem;
+  background:$menuActiveColor;
+}

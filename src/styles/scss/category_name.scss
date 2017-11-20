@@ -1,0 +1,46 @@
+.divCateg
+{
+  margin-top: 1vh;
+  position: relative;
+  pointer-events:auto;
+  display:flex;
+  top:0;
+  flex-direction: row;
+  width:100%;
+  align-items: center;
+  height: 10vh;
+  font-family: "ComfortaaRegular";
+  color:white;
+  font-size:$font_size_header;
+  //display: none;
+}
+.categoryName {
+  margin-left: 1vw;
+  position: relative;
+  //width:40%;
+}
+
+.menuHeaderCircleDiv  {
+  background: #4a4a4a;
+  border-radius: 58px;
+  position: relative;
+  width: 58px;
+  min-width:58px;
+  height: 58px;
+  margin-left: 10px;
+  margin-right:10px;
+  cursor:pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  //margin-top: 20px;
+}
+
+.categDisplay {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}

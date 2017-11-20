@@ -1,0 +1,115 @@
+.programList            {
+  display: block;
+  height:89vh;
+  //height: auto;
+  position: relative;
+  float: right;
+  margin-left: 10px;
+  //left:33vw;
+  width:27vw;
+  min-width:300px;
+  pointer-events: auto;
+  top:0;
+}
+.dayListItem            {
+  margin-top: 5vh;
+  display: block;
+  font-family: "ComfortaaRegular";
+  font-size:1.2vw;
+  letter-spacing: 2px;
+  margin-bottom: 50px;}
+
+.programListItemChosen  {
+  @extend .programListItem;
+  background:$menuActiveColor;
+}
+
+.programListItem:hover  {
+  background:$main_color;
+  cursor:pointer;
+}
+.programListItem:focus  {
+  background:$menuHoverColor;
+}
+.headerProgramDate      {
+  color:white;
+  text-align: left;
+  margin-left:  20px;
+  margin-right: 20px
+}
+.textSpan               {
+  color:$main_color;
+  padding-left:10px;
+  //text-align: left;
+}
+.hrProgram              {
+  background:$main_color;
+  //color:$main_color;
+  //left: 15px;
+  height: 2px;
+  width: 100%;
+  display: block;
+  position: relative;
+  left:-5px;
+}
+.programName            {
+  //height: 30px;
+  height: 100%;
+  //margin-left: 3vw;
+  overflow:hidden;
+  white-space:nowrap;
+  width:70%;
+  //position: absolute;
+  margin: auto;
+  position: relative;
+  //padding-top: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.programListItem        {
+  //display:flex;
+  //flex-direction: row;
+  //justify-content:space-between;
+  width:100%;
+  //height:auto;
+  height:6vh;
+  min-height: 30px;
+  position:relative;
+  color:white;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  //margin-bottom: 1vh;
+}
+.programTime            {
+  //left:0;
+  position:relative;
+  width:30px;
+  height:auto;
+  color: #696969;
+  margin-left:1vw;
+}
+.programName_hover      {
+  //@extend .programName;
+  //align-self: center;
+  height: auto;
+  left:0;
+  //position: absolute;
+}
+
+.programName_hover:hover      {
+  align-self: center;
+  height: auto;
+  left:0;
+  position: absolute;
+  top:2vh;
+}
+
+.blockChainDiv          {
+  font-family: "ComfortaaRegular";
+  font-size:1.4vw;
+  letter-spacing:1px;
+  margin-top: 1vh;
+}
