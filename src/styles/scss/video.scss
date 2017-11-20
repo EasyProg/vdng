@@ -184,9 +184,9 @@ video::-webkit-media-controls-panel-container {
 
 .videoDiv16                   {
   position: absolute!important;
-  top: 25vh!important;
+  top: 15vh!important;
   left:0!important;
-  height:50vh!important;
+  height:70vh!important;
   width:100%!important;
   overflow: hidden!important;
 }
@@ -196,17 +196,17 @@ video::-webkit-media-controls-panel-container {
   height:100%!important;
   position: relative;
   object-fit: cover!important;
-}
+                              }
 
 
-.videoDiv4                   {
+.videoDiv4                    {
   position: absolute!important;
   top: 0!important;
   left:10vw!important;
   height:100vh!important;
   width:80%!important;
   overflow: hidden!important;
-}
+                              }
 
 //.video16                      {
 //  width:100%!important;
