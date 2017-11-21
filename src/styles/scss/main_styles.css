@@ -1229,7 +1229,8 @@ hr {
   height: 10vh;
   font-family: "ComfortaaRegular";
   color: white;
-  font-size: 1.4vw; }
+  font-size: 1.4vw;
+  min-height: 50px; }
 
 .categoryName {
   margin-left: 1vw;

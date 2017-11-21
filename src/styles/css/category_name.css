@@ -8,11 +8,11 @@ Error: Undefined variable: "$font_size_header".
 12:   font-family: "ComfortaaRegular";
 13:   color:white;
 14:   font-size:$font_size_header;
-15:   //display: none;
-16: }
-17: .categoryName {
-18:   margin-left: 1vw;
-19:   position: relative;
+15:   min-height:50px;
+16:   //display: none;
+17: }
+18: .categoryName {
+19:   margin-left: 1vw;
 
 Backtrace:
 ./src/styles/scss/category_name.scss:14
@@ -69,4 +69,4 @@ C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/interna
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$font_size_header\".\A         on line 14 of ./src/styles/scss/category_name.scss\A \A 9:   width:100%;\A 10:   align-items: center;\A 11:   height: 10vh;\A 12:   font-family: \"ComfortaaRegular\";\A 13:   color:white;\A 14:   font-size:$font_size_header;\A 15:   //display: none;\A 16: }\A 17: .categoryName {\A 18:   margin-left: 1vw;\A 19:   position: relative;"; }
+  content: "Error: Undefined variable: \"$font_size_header\".\A         on line 14 of ./src/styles/scss/category_name.scss\A \A 9:   width:100%;\A 10:   align-items: center;\A 11:   height: 10vh;\A 12:   font-family: \"ComfortaaRegular\";\A 13:   color:white;\A 14:   font-size:$font_size_header;\A 15:   min-height:50px;\A 16:   //display: none;\A 17: }\A 18: .categoryName {\A 19:   margin-left: 1vw;"; }
