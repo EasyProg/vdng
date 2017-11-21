@@ -61,7 +61,7 @@ class MenuButton extends Component                      {
                 <div
                 className={this.setPositionClass()}
                 onClick={(e) => this.toggleMenuState()}>
-                <img src={menu} height={40} width={50} id="menubutton"/>
+                <img src={menu} className="divSideBarMenuImg" id="menubutton"/>
                 </div>);
         else return null
                       }

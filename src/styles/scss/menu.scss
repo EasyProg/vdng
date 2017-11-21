@@ -150,10 +150,10 @@
   margin-left:30px;
   //margin-t: 10px;
   text-align: center;
-  width:70px;
-  min-width:60px;
-  height:60px;
-  //margin-top: 1vh;
+  width:4vw;
+  height:3.5vw;
+  min-height: 25px;
+  min-width: 25px;
   pointer-events: auto;
   display:flex;
   flex-direction: row;
@@ -175,9 +175,13 @@
 }
 .divSideBar_menu
 { text-align: center;
-  width:60px;
-  height:60px;
+  //width:60px;
+  //height:60px;
   display:flex;
+  width:3.8vw;
+  height:3.5vw;
+  min-height: 25px;
+  min-width: 25px;
   flex-direction:row;
   align-items: center;
   justify-content: center;
@@ -186,6 +190,12 @@
   margin-right: 10px;
   position: relative;
   //align-self: flex-end;
+}
+.divSideBarMenuImg {
+  width:3vw;
+  height:2.5vw;
+  min-height: 20px;
+  min-width: 20px;
 }
 .divSideBar_menu:hover {
   @extend .divSideBar_menu;

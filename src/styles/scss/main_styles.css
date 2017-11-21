@@ -108,9 +108,10 @@
   margin-right: 30px;
   margin-left: 30px;
   text-align: center;
-  width: 70px;
-  min-width: 60px;
-  height: 60px;
+  width: 4vw;
+  height: 3.5vw;
+  min-height: 25px;
+  min-width: 25px;
   pointer-events: auto;
   display: flex;
   flex-direction: row;
@@ -124,15 +125,23 @@
 
 .divSideBar_menu, .divSideBar_menu:hover {
   text-align: center;
-  width: 60px;
-  height: 60px;
   display: flex;
+  width: 3.8vw;
+  height: 3.5vw;
+  min-height: 25px;
+  min-width: 25px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-left: auto;
   margin-right: 10px;
   position: relative; }
+
+.divSideBarMenuImg {
+  width: 3vw;
+  height: 2.5vw;
+  min-height: 20px;
+  min-width: 20px; }
 
 .divSideBar_menu:hover {
   cursor: pointer;
@@ -1116,10 +1125,10 @@ hr {
     justify-content: center;
     align-items: center;
     margin-right: 5vw;
-    min-width: 55px;
-    min-height: 55px;
-    width: 55px;
-    height: 55px;
+    min-width: 25px;
+    min-height: 25px;
+    width: 4vw;
+    height: 3.5vw;
     background: #6c4ad1;
     border-radius: 55px;
     position: relative;
@@ -1230,9 +1239,10 @@ hr {
   background: #4a4a4a;
   border-radius: 58px;
   position: relative;
-  width: 58px;
-  min-width: 58px;
-  height: 58px;
+  width: 3.8vw;
+  height: 3.5vw;
+  min-width: 25px;
+  min-height: 25px;
   margin-left: 10px;
   margin-right: 10px;
   cursor: pointer;
@@ -1241,6 +1251,12 @@ hr {
   flex-direction: row;
   align-items: center;
   justify-content: center; }
+
+.menuHeaderCircleDivImg {
+  width: 1.5vw;
+  height: 1.2vw;
+  min-width: 10px;
+  min-height: 10px; }
 
 .categDisplay {
   display: flex;
