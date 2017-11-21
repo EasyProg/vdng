@@ -308,6 +308,7 @@ class VideoPlayer extends Component                 {
 
 
                 />
+                {/*<div className="bottomPlayback">*/}
                 <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                  toggleContext={this.toggle}
                                  handleOnPlayContext={this.handleOnPlay}
@@ -325,6 +326,7 @@ class VideoPlayer extends Component                 {
                                  ratio=       {this.state.ratio}
 
                 />
+                {/*</div>*/}
                 {/*</div>*/}
                 <Menu/>
             </div>                            )

@@ -4,7 +4,7 @@
   margin-right: 10px;
   margin-left: 15px;
   margin-top: 7px;
-  width:5vw;
+  width:4vw;
   height:3.5vw;
   min-height: 40px;
   min-width: 40px;
@@ -24,8 +24,8 @@
   height: 60px;
   position: relative;
   white-space:nowrap;
-  width:90%;
-  line-height: 3em;
+  width:85%;
+  line-height: 3.5rem;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -33,7 +33,7 @@
 }
 .staticItem     {
   position: relative;
-  width:100%;
+  width:90%;
   display:flex;
   height:100%;
   flex-direction: row;
@@ -44,6 +44,23 @@
 .pname_hover
 {
   position: absolute;
+  margin: auto;
+  top:0;bottom:10px;
+  //top: 0; left: 0; bottom: 0; right: 0;
+  //height: auto;
+  //left:0;
+}
+
+.pname_hover:hover
+{ //position:absolute;
+  //margin-top: -5vh;
+  //margin-right:-14vw;
+  //position: absolute;
+}
+.pname_hover:target
+{ //position:absolute;
+  //margin-right:-14vw;
+  //position: absolute;
 }
 
 
@@ -257,7 +274,8 @@
     justify-content: center;
     align-items: center;
     //margin-right: 25%;
-    margin-right:1.5vw;
+    //margin-right:1.5vw;
+    margin-right:5vw;
     //width:4.5vw;
     //height:3vw;
     min-width: 55px;

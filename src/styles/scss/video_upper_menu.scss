@@ -19,7 +19,7 @@ $plButtonsLeft:10%;
   -webkit-justify-content:center;
   //z-index:2147483647;
                                     }
-.playBackDivMain  {
+ .playBackDivMain  {
   position: absolute;
   display:flex;
   flex-direction: column;
@@ -36,7 +36,7 @@ $plButtonsLeft:10%;
 //  left:30%;
 //}
 
-.divPlayer                         {
+ .divPlayer                         {
   align-self: center;
   position: absolute;
   bottom:115px;
@@ -55,8 +55,8 @@ $plButtonsLeft:10%;
   justify-content: space-between;
   -webkit-justify-content:space-between;
   z-index:2147483646;
-}
-.divPlayer:fullscreen {
+                                    }
+ .divPlayer:fullscreen {
   position: absolute;
   z-index:2147483647;
 }
@@ -191,3 +191,7 @@ $plButtonsLeft:10%;
   opacity:0.3;
   background:transparent;
 }
+//.bottomPlayback {
+//position: fixed;
+//
+//}

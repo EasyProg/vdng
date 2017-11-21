@@ -93,9 +93,9 @@ video::-webkit-media-controls-panel-container {
 //Done video styles
 .videoUsualDiv                {
   text-align:center;
-  //width:100%;
-  //min-height:480px;
-  //min-width:720px;
+  //
+  min-height:480px;
+  min-width:720px;
 }
 .videoUsual                   {
   align-self: center;
@@ -108,8 +108,8 @@ video::-webkit-media-controls-panel-container {
   //top:0;
   //margin: auto;
   //text-align: center;
-  min-height:480px;
-  min-width:720px;
+  //min-height:480px;
+  //min-width:720px;
 }
 .videoContainDiv {
   @extend .videoUsual;

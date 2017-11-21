@@ -4,7 +4,7 @@
   width: 30vw;
   min-width: 300px;
   height: 89vh;
-  min-height: 400px;
+  min-height: inherit;
   position: relative;
   float: right;
   z-index: 2147483641;
@@ -47,8 +47,11 @@
   height: 89vh;
   position: relative;
   width: 110%;
+  overflow: -moz-scrollbars-none;
   overflow-y: auto;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  min-height: inherit; }
 
 .customMenuScrollDivN {
   width: 100%; }
@@ -56,10 +59,11 @@
 .customMenuFirefoxScrollDiv {
   height: 89vh;
   position: relative;
-  width: 115%;
+  width: 110%;
   margin-right: -30px;
   overflow-y: auto;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  min-height: inherit; }
 
 .customMenuScrollDiv::-webkit-scrollbar, .customMenuScrollDivN::-webkit-scrollbar {
   width: 0; }
@@ -86,7 +90,8 @@
   background: #9677ff; }
 
 .menuItemStyleChosen {
-  background: #575757; }
+  background: #575757;
+  width: 83%; }
 
 .circleButtonSpan {
   width: 40px;
@@ -125,8 +130,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  right: 20px;
-  position: absolute; }
+  margin-left: auto;
+  margin-right: 10px;
+  position: relative; }
 
 .divSideBar_menu:hover {
   cursor: pointer;
@@ -209,7 +215,9 @@ video::-webkit-media-controls-panel-container {
   top: 50%; }
 
 .videoUsualDiv {
-  text-align: center; }
+  text-align: center;
+  min-height: 480px;
+  min-width: 720px; }
 
 .videoUsual, .videoContainDiv {
   align-self: center;
@@ -218,9 +226,7 @@ video::-webkit-media-controls-panel-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  min-height: 480px;
-  min-width: 720px; }
+  align-items: center; }
 
 .videoContainDiv {
   margin: auto;
@@ -545,7 +551,8 @@ hr {
   overflow: hidden;
   display: block;
   position: relative;
-  transition: left 0.2s ease; }
+  transition: left 0.2s ease;
+  min-height: 500px; }
 
 .categoryPanelNone {
   left: -3000px;
@@ -932,7 +939,7 @@ hr {
   margin-right: 10px;
   margin-left: 15px;
   margin-top: 7px;
-  width: 5vw;
+  width: 4vw;
   height: 3.5vw;
   min-height: 40px;
   min-width: 40px; }
@@ -950,8 +957,8 @@ hr {
   height: 60px;
   position: relative;
   white-space: nowrap;
-  width: 90%;
-  line-height: 3em;
+  width: 85%;
+  line-height: 3.5rem;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -959,7 +966,7 @@ hr {
 
 .staticItem {
   position: relative;
-  width: 100%;
+  width: 90%;
   display: flex;
   height: 100%;
   flex-direction: row;
@@ -968,7 +975,10 @@ hr {
   margin-right: 20px; }
 
 .pname_hover {
-  position: absolute; }
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 10px; }
 
 .pnameShadow, .divShadow {
   position: absolute;
@@ -1105,7 +1115,7 @@ hr {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-right: 1.5vw;
+    margin-right: 5vw;
     min-width: 55px;
     min-height: 55px;
     width: 55px;
@@ -1280,7 +1290,8 @@ hr {
   float: right;
   margin-left: 10px;
   width: 27vw;
-  min-width: 300px;
+  min-width: 270px;
+  min-height: 500px;
   pointer-events: auto;
   top: 0; }
 
@@ -1527,14 +1538,15 @@ hr {
   width: 30vw;
   min-width: 300px;
   height: 101vh;
-  min-height: 400px;
+  min-height: 500px;
   background: rgba(0, 0, 0, 0.8);
   transition: min-width 0.5s ease;
   -webkit-transition: min-width 0.5s ease; }
 
 .twoMenuContainer {
   width: 60vw;
-  min-width: 630px;
+  min-width: 600px;
+  min-height: 500px;
   transition: min-width 0.5s ease; }
 
 * {

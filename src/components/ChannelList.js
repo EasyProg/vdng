@@ -308,7 +308,7 @@ class   ChannelList extends Component               {
                     {/*/>*/}
                     {/*</div>:''*/}
                     {/*}*/}
-                    {/*<div className="customMenuFirefoxScrollDiv">*/}
+                    <div className={this.props.menus.channelsMenuVisible?"customMenuFirefoxScrollDiv":'customMenuScrollDivN'}>
                     <div className={this.props.menus.channelsMenuVisible?"customMenuScrollDiv":'customMenuScrollDivN'}>
                         {this.props.playList.map(  (elem, i) =>
                             <Channel
@@ -332,7 +332,7 @@ class   ChannelList extends Component               {
                         )
                         }
                     </div>
-                    {/*</div>*/}
+                    </div>
                     {/*<ProgramList*/}
                     {/*visible         = {this.props.menus.programsVisible}*/}
                     {/*programs        = {this.state.programs}*/}

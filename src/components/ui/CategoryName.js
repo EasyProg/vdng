@@ -21,8 +21,8 @@ export default class CategoryName extends Component {
                         <img src={this.props.reversed?point_right:point} width={20} height={20}/>
                     </div>
                     <div className="categoryName">{this.props.categ}</div>
-                    <MenuButton  visible  = {this.props.visible}/>
                 </div>
+                <MenuButton  visible  = {this.props.visible}/>
             </div>
         )
     }

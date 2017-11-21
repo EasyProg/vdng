@@ -3,7 +3,7 @@
   width: 30vw;
   min-width: 300px;
   height: 89vh;
-  min-height: 400px;
+  min-height: inherit;
   position: relative;
   float: right;
   z-index: 2147483641;
@@ -46,8 +46,11 @@
   height: 89vh;
   position: relative;
   width: 110%;
+  overflow: -moz-scrollbars-none;
   overflow-y: auto;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  min-height: inherit; }
 
 .customMenuScrollDivN {
   width: 100%; }
@@ -55,10 +58,11 @@
 .customMenuFirefoxScrollDiv {
   height: 89vh;
   position: relative;
-  width: 115%;
+  width: 110%;
   margin-right: -30px;
   overflow-y: auto;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  min-height: inherit; }
 
 .customMenuScrollDiv::-webkit-scrollbar, .customMenuScrollDivN::-webkit-scrollbar {
   width: 0; }
@@ -85,7 +89,8 @@
   background: #9677ff; }
 
 .menuItemStyleChosen {
-  background: #575757; }
+  background: #575757;
+  width: 83%; }
 
 .circleButtonSpan {
   width: 40px;
@@ -124,8 +129,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  right: 20px;
-  position: absolute; }
+  margin-left: auto;
+  margin-right: 10px;
+  position: relative; }
 
 .divSideBar_menu:hover {
   cursor: pointer;

@@ -9,7 +9,8 @@
   overflow: hidden;
   display: block;
   position: relative;
-  transition: left 0.2s ease; }
+  transition: left 0.2s ease;
+  min-height: 500px; }
 
 .categoryPanelNone {
   left: -3000px;

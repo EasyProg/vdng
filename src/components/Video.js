@@ -56,7 +56,7 @@ class Video extends Component
             case 0:
                 return {
                     videoDivClass:'videoUsualDiv',
-                    videoClass:'videoContain',
+                    videoClass:'videoUsual',
                 };
                 break;
             case 1:
