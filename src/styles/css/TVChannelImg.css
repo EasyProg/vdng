@@ -65,12 +65,13 @@
   height: auto;
   min-width: 100px;
   width: 90%;
-  display: block;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
   position: relative; }
 
 .imgFav {
   position: static;
-  left: 1520px;
   height: 1vw;
   width: 1vw; }
 
