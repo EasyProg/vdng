@@ -1,0 +1,279 @@
+@import 'variables';
+
+.tvimg          {
+  margin-right: 10px;
+  margin-left: 15px;
+  margin-top: 7px;
+  width:3.5vw;
+  height:3.5vw;
+  min-height: 40px;
+  min-width: 40px;
+}
+.channelDivName {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 3;
+  justify-content: space-between  ;
+  align-items:center;
+  width:100%;
+
+
+}
+.pname          {
+  margin-left: 20px;
+  height: 60px;
+  position: relative;
+  white-space:nowrap;
+  width:90%;
+  line-height: 3em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.staticItem     {
+  position: relative;
+  width:100%;
+  display:flex;
+  height:100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right:20px;
+}
+.pname_hover
+{
+  //align-self: center;
+  position: absolute;
+}
+
+
+.pnameShadow
+{
+  position: absolute;
+  left:90%;
+  height: 110%;
+  z-index: 30;
+}
+//.pgDiv       {
+//margin-left: 10px;
+//             }
+
+.divShadow
+{
+  @extend .pnameShadow;
+  background: -webkit-linear-gradient(bottom, rgba(47, 79, 79, 0), #2f4f4f 5em, #2f4f4f);
+  background: linear-gradient(0deg, rgba(47, 79, 79, 0), #2f4f4f 5em, #2f4f4f);
+  background-size: contain;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.divForFavorite
+{
+  //width:24vw;
+  //max-width: 100%;
+  height:30px;
+  min-width: 100px;
+  width: 90%;
+  //right:40px;
+  ///background: yellow;
+  //display: flex;
+  //flex-direction: row;
+  //justify-content: flex-end;
+  //align-items: center;
+  display: block;
+  position: relative;
+  //pointer-events:none;
+
+}
+.imgFav           {
+  position: relative;
+  float:right;
+  //position: static;
+  //right:10px;
+}
+//.pnameFav       {
+//  position:absolute;
+//  right:30px;
+//  align-self: center;
+//  height:100%;
+//  display: flex;
+//  flex-direction: row;
+//  justify-content: flex-end;
+//  align-items: center;
+//}
+.rateContainer  {
+  position: relative;
+  top:45px;
+  left:-5px;
+  margin-right: 20px;
+  float: right;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:15px;
+  width:50px;
+  z-index: 31;
+}
+.rateDivFilled  {
+  width: 7px;
+  height: 7px;
+  margin-right: 3px;
+  border-radius: 5px;
+  background: $main_color;
+}
+.rateDivFilledChosen {
+  @extend .rateDivFilled;
+  background: white;
+}
+.rateDivEmpty   {
+  width: 7px;
+  height: 7px;
+  margin-right: 2px;
+  border-radius: 5px;
+  background: #686868;
+}
+.menuChannelName {
+  position: relative;
+  margin-top: 7px;
+  display:flex;
+  flex-direction: column;
+  height:100px;
+  width:70%;
+  //min-width:350px;
+  position:relative;
+  justify-content: space-between;
+}
+.progresses
+{
+  //max-width:300px;
+  //max-width: 100%;
+  position: inherit;
+  width:100%;
+  //min-width: 100px;
+  //min-width: 10%;
+  height:3px;
+  //position: relative;
+  background: #575757;
+  display: block;
+  //margin: auto;
+
+}
+.progressDives
+{ display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  //align-self: flex-end;
+  //background: blue;
+  width:100%;
+  position:relative;
+  height:2vh;
+  padding-left: 20px;
+  top:-15px;
+  //margin-bottom:10px;
+}
+@media only screen and (max-width: 900px) {
+  .epgShowButton {
+    //top:0;
+    //right:10px;
+    //margin-left: 20px;
+    //margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    //margin-right: 25%;
+    margin-right:1.5vw;
+    //width:4.5vw;
+    //height:3vw;
+    min-width: 25px;
+    min-height: 25px;
+    width:25px;
+    height:25px;
+    background: #6c4ad1;
+    border-radius: 55px;
+    position: relative;
+    text-align: center;
+    visibility: visible;
+  }
+  }
+@media only screen and (max-width: 1200px) {
+  .epgShowButton {
+    //top:0;
+    //right:10px;
+    //margin-left: 20px;
+    //margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    //margin-right: 25%;
+    margin-right:1.5vw;
+    //width:4.5vw;
+    //height:3vw;
+    min-width: 35px;
+    min-height: 35px;
+    width:35px;
+    height:35px;
+    background: #6c4ad1;
+    border-radius: 55px;
+    position: relative;
+    text-align: center;
+    visibility: visible;
+  }
+}
+@media only screen and (max-width: 1600px) {
+  .epgShowButton {
+    //top:0;
+    //right:10px;
+    //margin-left: 20px;
+    //margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    //margin-right: 25%;
+    margin-right:1.5vw;
+    //width:4.5vw;
+    //height:3vw;
+    min-width: 45px;
+    min-height: 45px;
+    width:45px;
+    height:45px;
+    background: #6c4ad1;
+    border-radius: 55px;
+    position: relative;
+    text-align: center;
+    visibility: visible;
+  }
+}
+@media only screen and (max-width: 1920px) {
+  .epgShowButton {
+    //top:0;
+    //right:10px;
+    //margin-left: 20px;
+    //margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    //margin-right: 25%;
+    margin-right:1.5vw;
+    //width:4.5vw;
+    //height:3vw;
+    min-width: 55px;
+    min-height: 55px;
+    width:55px;
+    height:55px;
+    background: #6c4ad1;
+    border-radius: 55px;
+    position: relative;
+    text-align: center;
+    visibility: visible;
+  }
+}
+.epgShowButtonInvis
+{
+  @extend .epgShowButton;
+  visibility: hidden;
+}
