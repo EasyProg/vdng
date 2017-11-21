@@ -73,6 +73,8 @@ video::-webkit-media-controls-panel-container {
 .videoUsual, .videoContainDiv {
   align-self: center;
   width: 100%;
+  min-height: 480px;
+  min-width: 720px;
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -88,7 +90,9 @@ video::-webkit-media-controls-panel-container {
   object-fit: cover; }
 
 .videoFill {
-  object-fit: fill; }
+  object-fit: fill;
+  top: 50%;
+  left: 50%; }
 
 .videoContain {
   object-fit: contain; }

@@ -54,11 +54,11 @@ class  Menu extends Component               {
                             if (data[0])
                                 context.props.dispatch(getChannels(newParse(data)));
                         }
-                    );
-                }
-            }
-        )
-    }
+                        );
+                        }
+                        }
+                        )
+                        }
     getPrograms (url)                       {
         var c = this;
         fetch(url)
@@ -225,9 +225,9 @@ class  Menu extends Component               {
                                     id="menuCenterText">
                             <MenuButton
                                 visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
-                            <img    src={this.props.channelImg} width={50} height={50}
-                                    className="imgChannelStyle"/>
-                            <div    className="textBlock">
+                            <img     src={this.props.channelImg}
+                                     className="imgChannelStyle"/>
+                            <div     className="textBlock">
                                 <div className="upperText">
                                     {this.props.category}
                                     <img src={prev_button} width={20} height={20} className="arrowImg"/>

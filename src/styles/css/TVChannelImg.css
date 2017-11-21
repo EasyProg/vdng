@@ -1,11 +1,12 @@
 .tvimg {
   margin-right: 10px;
   margin-left: 15px;
-  margin-top: 7px;
-  width: 4vw;
-  height: 3.5vw;
-  min-height: 40px;
-  min-width: 40px; }
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 6.2vw;
+  height: 5vw;
+  min-height: 30px;
+  min-width: 30px; }
 
 .channelDivName {
   display: flex;
@@ -21,11 +22,12 @@
   position: relative;
   white-space: nowrap;
   width: 85%;
-  line-height: 3.5rem;
+  line-height: 3rem;
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  align-items: center; }
+  align-items: center;
+  padding-bottom: 1vh; }
 
 .staticItem {
   position: relative;
@@ -41,7 +43,10 @@
   position: absolute;
   margin: auto;
   top: 0;
-  bottom: 10px; }
+  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
 .pnameShadow, .divShadow {
   position: absolute;
@@ -57,15 +62,17 @@
   -webkit-text-fill-color: transparent; }
 
 .divForFavorite {
-  height: 30px;
+  height: auto;
   min-width: 100px;
   width: 90%;
   display: block;
   position: relative; }
 
 .imgFav {
-  position: relative;
-  float: right; }
+  position: static;
+  left: 1520px;
+  height: 1vw;
+  width: 1vw; }
 
 .rateContainer {
   position: relative;
@@ -102,14 +109,15 @@
   margin-top: 7px;
   display: flex;
   flex-direction: column;
-  height: 100px;
+  height: 6vw;
+  min-height: 50px;
   width: 90%;
   position: relative;
   justify-content: space-between; }
 
 .progresses {
   position: inherit;
-  width: 100%;
+  width: 95%;
   height: 3px;
   background: #575757;
   display: block; }
@@ -120,74 +128,26 @@
   justify-content: flex-end;
   width: 100%;
   position: relative;
-  height: 2vh;
+  height: 1vh;
   padding-left: 20px;
-  top: -15px; }
+  top: -1rem; }
 
-@media only screen and (max-width: 900px) {
-  .epgShowButton, .epgShowButtonInvis {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1.5vw;
-    min-width: 25px;
-    min-height: 25px;
-    width: 25px;
-    height: 25px;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible; } }
-@media only screen and (max-width: 1200px) {
-  .epgShowButton, .epgShowButtonInvis {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1.5vw;
-    min-width: 35px;
-    min-height: 35px;
-    width: 35px;
-    height: 35px;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible; } }
-@media only screen and (max-width: 1600px) {
-  .epgShowButton, .epgShowButtonInvis {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1.5vw;
-    min-width: 45px;
-    min-height: 45px;
-    width: 45px;
-    height: 45px;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible; } }
-@media only screen and (max-width: 1920px) {
-  .epgShowButton, .epgShowButtonInvis {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-right: 5vw;
-    min-width: 25px;
-    min-height: 25px;
-    width: 4vw;
-    height: 3.5vw;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible; } }
+.epgShowButton, .epgShowButtonInvis {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5vw;
+  min-width: 25px;
+  min-height: 25px;
+  width: 4.2vw;
+  height: 3.5vw;
+  background: #6c4ad1;
+  border-radius: 55px;
+  position: relative;
+  text-align: center;
+  visibility: visible; }
+
 .epgShowButtonInvis {
   visibility: hidden; }
 

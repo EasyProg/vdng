@@ -35,7 +35,7 @@ class VideoPlayer extends Component                 {
     }
     //Component Functions
     componentDidMount()                 {
-        this.videoOnLoad ();
+        //this.videoOnLoad ();
         $(window).resize(function()         {
 
             if (window.innerWidth<=720)
@@ -278,20 +278,14 @@ class VideoPlayer extends Component                 {
                 this.setState({ratio:3});
                 break;
             case 3:
-                this.setState({ratio:4});
-                break;
-            case 4:
-                this.setState({ratio:5});
-                break;
-            case 5:
                 this.setState({ratio:0});
                 break;
         }
     }
 
     //Element render
-    render()                              {
-        this.videoOnLoad();
+    render()                                  {
+        //this.videoOnLoad();
         return                                (
             <div                 ref=         {(dv)=>this.div=dv}
                                  className="centerDiv" id="centerDiv">

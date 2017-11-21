@@ -60,32 +60,21 @@ class Video extends Component
                 };
                 break;
             case 1:
-                return  {
-                    videoDivClass:'videoUsualDiv',
-                    videoClass:'videoFill',
-                };
-                break;
-            case 2:
-                return {
-                    videoDivClass:'videoUsualDiv',
-                    videoClass:'videoNone',
-                };
-                break;
-            case 3:
-                return {
-                    videoDivClass:'videoUsualDiv',
-                    videoClass:'videoCover',
-                };
-            case 4:
                 return {
                     videoDivClass:'videoDiv16',
                     videoClass:'video16',
                 };
                 break;
-            case 5:
+            case 2:
                 return {
-                    videoDivClass:'videoDiv4',
-                    videoClass:'video16',
+                    videoDivClass:'videoUsual',
+                    videoClass:'videoFill',
+                };
+                break;
+            case 3:
+                return {
+                    videoDivClass:'videoUsualDiv',
+                    videoClass:'videoContain',
                 };
                 break;
         }
@@ -112,11 +101,11 @@ class Video extends Component
                        src={navigator.userAgent.search(/iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i)!== -1?this.props.video.link:''}
 
                 />
-                {   !this.state.playing&&!this.props.networkError?
-                <HoldScreen onClick={(e)=>this.handleClick(e)}
-                onKeyDown={(e)=>this.handleKey(e)}/>
-                :null
-                }
+                {/*{   !this.state.playing&&!this.props.networkError?*/}
+                {/*<HoldScreen onClick={(e)=>this.handleClick(e)}*/}
+                {/*onKeyDown={(e)=>this.handleKey(e)}/>*/}
+                {/*:null*/}
+                {/*}*/}
                 {
                     this.props.networkError?
                         <ChannelUnavailable

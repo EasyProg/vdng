@@ -3,11 +3,12 @@
 .tvimg          {
   margin-right: 10px;
   margin-left: 15px;
-  margin-top: 7px;
-  width:4vw;
-  height:3.5vw;
-  min-height: 40px;
-  min-width: 40px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width:6.2vw;
+  height:5vw;
+  min-height: 30px;
+  min-width: 30px;
 }
 .channelDivName {
   display: flex;
@@ -25,11 +26,14 @@
   position: relative;
   white-space:nowrap;
   width:85%;
-  line-height: 3.5rem;
+  line-height: 3rem;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-bottom: 1vh;
+  //margin-top: 2vh;
+  //margin-bottom: 1vh;
 }
 .staticItem     {
   position: relative;
@@ -46,22 +50,11 @@
   position: absolute;
   margin: auto;
   top:0;bottom:10px;
-  //top: 0; left: 0; bottom: 0; right: 0;
-  //height: auto;
-  //left:0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.pname_hover:hover
-{ //position:absolute;
-  //margin-top: -5vh;
-  //margin-right:-14vw;
-  //position: absolute;
-}
-.pname_hover:target
-{ //position:absolute;
-  //margin-right:-14vw;
-  //position: absolute;
-}
 
 
 .pnameShadow
@@ -71,9 +64,6 @@
   height: 110%;
   z-index: 30;
 }
-//.pgDiv       {
-//margin-left: 10px;
-//             }
 
 .divShadow
 {
@@ -86,37 +76,23 @@
 }
 .divForFavorite
 {
-  //width:24vw;
-  //max-width: 100%;
-  height:30px;
+  height:auto;
+  //min-height: 30px;
   min-width: 100px;
   width: 90%;
-  //right:40px;
-  ///background: yellow;
-  //display: flex;
-  //flex-direction: row;
-  //justify-content: flex-end;
-  //align-items: center;
   display: block;
   position: relative;
-  //pointer-events:none;
 
 }
 .imgFav           {
-  position: relative;
-  float:right;
-  //position: static;
-  //right:10px;
+  position: static;
+  left:1520px;
+  //float:right;
+  height: 1vw;
+  width:1vw;
 }
-//.pnameFav       {
-//  position:absolute;
-//  right:30px;
-//  align-self: center;
-//  height:100%;
-//  display: flex;
-//  flex-direction: row;
-//  justify-content: flex-end;
-//  align-items: center;
+//.imgFav:hover      {
+//  position: fixed;
 //}
 .rateContainer  {
   position: relative;
@@ -154,7 +130,9 @@
   margin-top: 7px;
   display:flex;
   flex-direction: column;
-  height:100px;
+  height:6vw;
+  //height: 100px;
+  min-height: 50px;
   width:90%;
   //min-width:350px;
   position:relative;
@@ -165,7 +143,7 @@
   //max-width:300px;
   //max-width: 100%;
   position: inherit;
-  width:100%;
+  width:95%;
   //min-width: 100px;
   //min-width: 10%;
   height:3px;
@@ -183,110 +161,27 @@
   //background: blue;
   width:100%;
   position:relative;
-  height:2vh;
+  height:1vh;
   padding-left: 20px;
-  top:-15px;
+  top:-1rem;
   //margin-bottom:10px;
 }
-@media only screen and (max-width: 900px) {
-  .epgShowButton {
-    //top:0;
-    //right:10px;
-    //margin-left: 20px;
-    //margin-top: 30px;
+    .epgShowButton  {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    //margin-right: 25%;
-    margin-right:1.5vw;
-    //width:4.5vw;
-    //height:3vw;
-    min-width: 25px;
-    min-height: 25px;
-    width:25px;
-    height:25px;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible;
-  }
-  }
-@media only screen and (max-width: 1200px) {
-  .epgShowButton {
-    //top:0;
-    //right:10px;
-    //margin-left: 20px;
-    //margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    //margin-right: 25%;
-    margin-right:1.5vw;
-    //width:4.5vw;
-    //height:3vw;
-    min-width: 35px;
-    min-height: 35px;
-    width:35px;
-    height:35px;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible;
-  }
-}
-@media only screen and (max-width: 1600px) {
-  .epgShowButton {
-    //top:0;
-    //right:10px;
-    //margin-left: 20px;
-    //margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    //margin-right: 25%;
-    margin-right:1.5vw;
-    //width:4.5vw;
-    //height:3vw;
-    min-width: 45px;
-    min-height: 45px;
-    width:45px;
-    height:45px;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible;
-  }
-}
-@media only screen and (max-width: 1920px) {
-  .epgShowButton {
-    //top:0;
-    //right:10px;
-    //margin-left: 20px;
-    //margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    //margin-right: 25%;
-    //margin-right:1.5vw;
     margin-right:5vw;
     min-width: 25px;
     min-height: 25px;
-    width:4vw;
+    width:4.2vw;
     height:3.5vw;
     background: #6c4ad1;
     border-radius: 55px;
     position: relative;
     text-align: center;
     visibility: visible;
-  }
-}
+                    }
 .epgShowButtonInvis
 {
   @extend .epgShowButton;

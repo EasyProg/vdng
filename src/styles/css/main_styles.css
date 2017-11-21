@@ -3,7 +3,7 @@
   display: block;
   width: 30vw;
   min-width: 300px;
-  height: 89vh;
+  height: 80vh;
   min-height: inherit;
   position: relative;
   float: right;
@@ -108,7 +108,7 @@
   margin-right: 30px;
   margin-left: 30px;
   text-align: center;
-  width: 4vw;
+  width: 4.2vw;
   height: 3.5vw;
   min-height: 25px;
   min-width: 25px;
@@ -231,6 +231,8 @@ video::-webkit-media-controls-panel-container {
 .videoUsual, .videoContainDiv {
   align-self: center;
   width: 100%;
+  min-height: 480px;
+  min-width: 720px;
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -246,7 +248,9 @@ video::-webkit-media-controls-panel-container {
   object-fit: cover; }
 
 .videoFill {
-  object-fit: fill; }
+  object-fit: fill;
+  top: 50%;
+  left: 50%; }
 
 .videoContain {
   object-fit: contain; }
@@ -550,7 +554,7 @@ hr {
   background: #434343; }
 
 .categoryPanel, .categoryPanelNone {
-  height: 89vh;
+  height: 85vh;
   top: 0;
   float: left;
   width: 30vw;
@@ -947,11 +951,12 @@ hr {
 .tvimg {
   margin-right: 10px;
   margin-left: 15px;
-  margin-top: 7px;
-  width: 4vw;
-  height: 3.5vw;
-  min-height: 40px;
-  min-width: 40px; }
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 6.2vw;
+  height: 5vw;
+  min-height: 30px;
+  min-width: 30px; }
 
 .channelDivName {
   display: flex;
@@ -967,11 +972,12 @@ hr {
   position: relative;
   white-space: nowrap;
   width: 85%;
-  line-height: 3.5rem;
+  line-height: 3rem;
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  align-items: center; }
+  align-items: center;
+  padding-bottom: 1vh; }
 
 .staticItem {
   position: relative;
@@ -987,7 +993,10 @@ hr {
   position: absolute;
   margin: auto;
   top: 0;
-  bottom: 10px; }
+  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
 .pnameShadow, .divShadow {
   position: absolute;
@@ -1003,15 +1012,17 @@ hr {
   -webkit-text-fill-color: transparent; }
 
 .divForFavorite {
-  height: 30px;
+  height: auto;
   min-width: 100px;
   width: 90%;
   display: block;
   position: relative; }
 
 .imgFav {
-  position: relative;
-  float: right; }
+  position: static;
+  left: 1520px;
+  height: 1vw;
+  width: 1vw; }
 
 .rateContainer {
   position: relative;
@@ -1048,14 +1059,15 @@ hr {
   margin-top: 7px;
   display: flex;
   flex-direction: column;
-  height: 100px;
+  height: 6vw;
+  min-height: 50px;
   width: 90%;
   position: relative;
   justify-content: space-between; }
 
 .progresses {
   position: inherit;
-  width: 100%;
+  width: 95%;
   height: 3px;
   background: #575757;
   display: block; }
@@ -1066,74 +1078,26 @@ hr {
   justify-content: flex-end;
   width: 100%;
   position: relative;
-  height: 2vh;
+  height: 1vh;
   padding-left: 20px;
-  top: -15px; }
+  top: -1rem; }
 
-@media only screen and (max-width: 900px) {
-  .epgShowButton, .epgShowButtonInvis {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1.5vw;
-    min-width: 25px;
-    min-height: 25px;
-    width: 25px;
-    height: 25px;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible; } }
-@media only screen and (max-width: 1200px) {
-  .epgShowButton, .epgShowButtonInvis {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1.5vw;
-    min-width: 35px;
-    min-height: 35px;
-    width: 35px;
-    height: 35px;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible; } }
-@media only screen and (max-width: 1600px) {
-  .epgShowButton, .epgShowButtonInvis {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1.5vw;
-    min-width: 45px;
-    min-height: 45px;
-    width: 45px;
-    height: 45px;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible; } }
-@media only screen and (max-width: 1920px) {
-  .epgShowButton, .epgShowButtonInvis {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-right: 5vw;
-    min-width: 25px;
-    min-height: 25px;
-    width: 4vw;
-    height: 3.5vw;
-    background: #6c4ad1;
-    border-radius: 55px;
-    position: relative;
-    text-align: center;
-    visibility: visible; } }
+.epgShowButton, .epgShowButtonInvis {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5vw;
+  min-width: 25px;
+  min-height: 25px;
+  width: 4.2vw;
+  height: 3.5vw;
+  background: #6c4ad1;
+  border-radius: 55px;
+  position: relative;
+  text-align: center;
+  visibility: visible; }
+
 .epgShowButtonInvis {
   visibility: hidden; }
 
@@ -1218,19 +1182,17 @@ hr {
   width: 100px; }
 
 .divCateg {
-  margin-top: 1vh;
   position: relative;
   pointer-events: auto;
   display: flex;
-  top: 0;
   flex-direction: row;
   width: 100%;
   align-items: center;
-  height: 10vh;
+  height: 15vh;
   font-family: "ComfortaaRegular";
   color: white;
   font-size: 1.4vw;
-  min-height: 50px; }
+  min-height: 130px; }
 
 .categoryName {
   margin-left: 1vw;
@@ -1240,7 +1202,7 @@ hr {
   background: #4a4a4a;
   border-radius: 58px;
   position: relative;
-  width: 3.8vw;
+  width: 3.6vw;
   height: 3.5vw;
   min-width: 25px;
   min-height: 25px;
@@ -1267,7 +1229,7 @@ hr {
 .nonPlayingDiv {
   align-self: center;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   top: 0;
   display: flex;
   position: absolute;
@@ -1302,7 +1264,7 @@ hr {
 
 .programList {
   display: block;
-  height: 89vh;
+  height: 85vh;
   position: relative;
   float: right;
   margin-left: 10px;
@@ -1570,20 +1532,27 @@ hr {
   outline: 0;
   border: 0; }
 
+html {
+  width: 100%;
+  min-height: 480px;
+  min-width: 720px; }
+
 body {
   background: black;
   outline: 0;
   border: 0;
   overflow: hidden;
-  min-height: 400px;
-  min-width: 600px;
+  min-height: 480px;
+  min-width: 720px;
   height: 99vh;
   width: 99vw; }
 
 #root {
   top: 0;
-  width: 100vw;
-  height: 100vh; }
+  min-height: 480px;
+  min-width: 720px;
+  width: 100%;
+  height: 100%; }
 
 div [data-reactroot] {
   position: relative;
@@ -1655,6 +1624,7 @@ html, body, .container {
   align-items: center;
   letter-spacing: 1px;
   font-family: "ComfortaaRegular";
+  padding-top: 1vw;
   color: white;
   background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0)); }
 
@@ -1669,7 +1639,7 @@ html, body, .container {
   font-size: 2vw; }
 
 .lowerText {
-  margin-top: 5px;
+  margin-top: 0.5vw;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -1689,6 +1659,10 @@ html, body, .container {
   z-index: 2147483647; }
 
 .imgChannelStyle {
+  width: 4vw;
+  height: 3.5vw;
+  min-height: 25px;
+  min-width: 25px;
   top: 25px;
   margin: 15px;
   left: 0; }

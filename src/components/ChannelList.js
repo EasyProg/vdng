@@ -21,17 +21,17 @@ import ReactScroll from 'react-scrollbar-js';
 //var    ScrollbarWrapper = require('react-scrollbar');
 class   ChannelList extends Component               {
     constructor(props)                          {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-        this.categVisible = this.categVisible.bind(this);
-        this.menuFullScreenAppears = this.menuFullScreenAppears.bind(this);
-        this.switchChannel = this.switchChannel.bind(this);
-        this.setMenusVisibleFalse = this.setMenusVisibleFalse.bind(this);
-        this.setProgramsVisible = this.setProgramsVisible.bind(this);
-        this.disableFocus = this.disableFocus.bind(this);
-        this.timer = '';
-        this.menuTimer = '';
-        this.state =                                {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.categVisible = this.categVisible.bind(this);
+    this.menuFullScreenAppears = this.menuFullScreenAppears.bind(this);
+    this.switchChannel = this.switchChannel.bind(this);
+    this.setMenusVisibleFalse = this.setMenusVisibleFalse.bind(this);
+    this.setProgramsVisible = this.setProgramsVisible.bind(this);
+    this.disableFocus = this.disableFocus.bind(this);
+    this.timer = '';
+    this.menuTimer = '';
+    this.state =                                {
             itemChosen:0,
             channelId:0,
             isClicked:false,
@@ -39,7 +39,7 @@ class   ChannelList extends Component               {
             programs:[],
             currentProgram:'',
         }
-    }
+                                                }
     static propTypes  =                         {
         playList:   PropTypes.array.isRequired,
         category:   PropTypes.string.isRequired,
@@ -209,11 +209,11 @@ class   ChannelList extends Component               {
 
     }
     menuFullScreenAppears()                     {
-        clearTimeout(this.timer);
-        clearTimeout(this.menuTimer);
-        $("#vduppermenu,#vdbottommenu").fadeIn(1);
+    clearTimeout(this.timer);
+    clearTimeout(this.menuTimer);
+    $("#vduppermenu,#vdbottommenu").fadeIn(1);
         //Запустить скрытие
-        this.handlePlay();
+    this.handlePlay();
     }
     handleClick (elem,e)                        {
         e.stopPropagation();
@@ -266,8 +266,7 @@ class   ChannelList extends Component               {
         $('#channels').focus();
         this.setState({itemChosen:false});
     }
-    componentDidUpdate(prevProps)
-    {
+    componentDidUpdate(prevProps)               {
         if  (
 
             ((prevProps.channelsMenuVisible!==
@@ -286,11 +285,11 @@ class   ChannelList extends Component               {
         }
 
     }
-    componentDidMount()                                     {
+    componentDidMount()                         {
         this.setState({channelId: this.props.channels[0].channelId,itemChosen:this.props.channels[0].channelId});
         this.props.dispatch(changeVideo(this.props.channels[0]));
     }
-    render()                                                {
+    render()                                    {
         //this.switchChannel();
         if (this.props.playList.length)
             return                                          (
@@ -343,30 +342,30 @@ class   ChannelList extends Component               {
             );
         else return (null)
     }
-}
-const mapDispatchToProps = (dispatch) => bindActionCreators
-(
+    }
+    const mapDispatchToProps = (dispatch) => bindActionCreators
+    (
     {
-        dispatch,
-        changeVideo,
-        toggleCategory,
-        togglePlay,
-        getChannels,
-        setMenusVisible,
-        setChannelProgram,
-        setPrograms
+    dispatch,
+    changeVideo,
+    toggleCategory,
+    togglePlay,
+    getChannels,
+    setMenusVisible,
+    setChannelProgram,
+    setPrograms
     }, dispatch);
-export default
-connect                 (
+    export default
+    connect                 (
     state =>            ({
-        video:state.videoReducer.video,
-        channelCategory:state.channelReducer.chosenCategory,
-        autoPlay:state.videoReducer.autoPlay,
-        channelsMenuVisible:state.menuReducer.menus.channelsMenuVisible,
-        catMenuVisible:state.menuReducer.menus.categoryMenuVisible,
-        menus:state.menuReducer.menus,
-        channels:state.channelReducer.channels,
-        currentChannel:state.channelReducer.channelProgram
+    video:state.videoReducer.video,
+    channelCategory:state.channelReducer.chosenCategory,
+    autoPlay:state.videoReducer.autoPlay,
+    channelsMenuVisible:state.menuReducer.menus.channelsMenuVisible,
+    catMenuVisible:state.menuReducer.menus.categoryMenuVisible,
+    menus:state.menuReducer.menus,
+    channels:state.channelReducer.channels,
+    currentChannel:state.channelReducer.channelProgram
     }),
     mapDispatchToProps
-)(ChannelList);
+    )(ChannelList);

@@ -8,18 +8,18 @@ import {connect} from 'react-redux';
 import {setMenusVisible} from '../actions/actions';
 import {bindActionCreators} from 'redux';
 class ProgramList extends Component
-{
+                                        {
     constructor(props)                  {
         super(props);
         this.state={itemChosen:0};
         this.switchProgram = this.switchProgram.bind(this);
         this.handleKey =     this.handleKey.bind(this);
-    }
+                                        }
     static propTypes =                  {
         programs: PropTypes.array.isRequired,
         visible:  PropTypes.bool.isRequired
 
-    };
+                                        };
     handleKey(e,elem)                   {
         e.stopPropagation();
         switch (e.keyCode)                  {
@@ -72,8 +72,11 @@ class ProgramList extends Component
                 break;
         }
     }
-    switchProgram(param='next',chosen)
-    {
+    disableFocus()                      {
+        $('#programlist').focus();
+        this.setState({itemChosen:-1});
+    }
+    switchProgram(param='next',chosen)  {
         var items = $('.programListItem,.programListItemChosen');
         var i = chosen||0;
         var nextElem = i + 1 >=    items.length ?  0 : i + 1;
@@ -145,18 +148,15 @@ class ProgramList extends Component
     stopRun ()                          {
         $('.programName_hover').stop(true,true);
     }
-    componentDidMount()                 {
-        console.log(this.props.programs);
-    }
     componentWillReceiveProps(nextProps){
         this.setState({itemChosen:nextProps.currentProgramId-1});
     }
     componentDidUpdate ()               {
-        //if (this.state.itemChosen===0)
+        if (this.state.itemChosen!==-1)
         $('.programListItemChosen').focus();
     }
     shouldComponentUpdate(nextProps,nextState)
-    {
+                                        {
         if  (this.state.itemChosen!==nextState.itemChosen&&nextState.itemChosen!==nextProps.currentProgramId-1)
             return false;
         else return true
@@ -164,7 +164,10 @@ class ProgramList extends Component
     render()                            {
         if (this.props.programs.length>0&&this.props.menus.programsVisible)
             return                          (
-                <div className="programList" id="programList" onKeyDown={(e)=>this.handleKey(e)} tabIndex={1}>
+                <div className="programList" id="programlist"
+                     onKeyDown={(e)=>this.handleKey(e)} tabIndex={1}
+                     onMouseOver={e=>this.disableFocus()}
+                >
                     {/*<div className="menuHeaderCh">*/}
                     {/*<HomeButton visible={true}/>*/}
                     {/*</div>*/}
@@ -211,12 +214,12 @@ class ProgramList extends Component
             );
         else return null
     }
-}
-const mapDispatchToProps = (dispatch) =>
+                                        }
+    const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,setMenusVisible
     }, dispatch);
-export default connect              (
+    export default connect              (
     state =>                        ({menus:state.menuReducer.menus}),
     mapDispatchToProps
-)(ProgramList);
+    )(ProgramList);
