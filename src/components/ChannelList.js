@@ -83,8 +83,13 @@ class   ChannelList extends Component               {
         if (param==='focus')
         {
             this.stopRun();
-            var str     = $('.menuItemStyle:focus>.staticItem>.menuChannelName>.pname>.pname_hover');
-            var strCont = $('.menuItemStyle:focus>.staticItem>.menuChannelName>.pname');
+            var str =     $('.menuItemStyle:focus>.channelDivName>.staticItem>.menuChannelName>.pname>.pname_hover');
+            var strCont = $('.menuItemStyle:focus>.channelDivName>.staticItem>.menuChannelName>.pname');
+            if (str.length===0)
+            {
+            var str =     $('.menuItemStyleChosen:focus>.channelDivName>.staticItem>.menuChannelName>.pname>.pname_hover');
+            var strCont = $('.menuItemStyleChosen:focus>.channelDivName>.staticItem>.menuChannelName>.pname');
+            }
         }
         var width = str.width();
         var con_w = str.css('left');
@@ -93,7 +98,7 @@ class   ChannelList extends Component               {
             var con_len = parseInt(con_w) - (width - strCont.width());
             str.animate
             ({left:con_len + 'px'},
-                {duration: 2000,
+                    {duration: 2000,
                     complete: function ()
                     {
                         str.css('left',con_w);

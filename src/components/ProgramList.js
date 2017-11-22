@@ -47,11 +47,9 @@ class ProgramList extends Component
                 break;
             case 40:
                 this.switchProgram('next', this.state.itemChosen);
-                console.log(this.state.itemChosen);
                 break;
             case 38:
                 this.switchProgram('prev', this.state.itemChosen);
-                console.log(this.state.itemChosen);
                 break;
             case 37: {
                 this.props.dispatch(setMenusVisible(

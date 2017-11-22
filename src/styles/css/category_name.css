@@ -5,12 +5,13 @@
   margin-left: 1vw;
   flex-direction: row;
   width: 100%;
-  align-items: center;
-  height: 10vh;
+  align-items: flex-end;
+  height: 13vh;
   font-family: "ComfortaaRegular";
   color: white;
   font-size: 1.4vw;
-  min-height: 60px; }
+  min-height: 100px;
+  margin-bottom: 3vh; }
 
 .categoryName {
   margin-left: 1vw;

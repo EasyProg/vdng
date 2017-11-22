@@ -43,7 +43,7 @@
   overflow-x: visible; }
 
 .customMenuScrollDiv, .customMenuScrollDivN {
-  height: 89vh;
+  height: 83.5vh;
   position: relative;
   width: 110%;
   overflow: -moz-scrollbars-none;
@@ -52,17 +52,18 @@
   -ms-overflow-style: none;
   min-height: inherit; }
 
-.customMenuScrollDivN {
-  width: 100%; }
-
 .customMenuFirefoxScrollDiv {
-  height: 89vh;
+  height: 83vh;
   position: relative;
   width: 110%;
-  margin-right: -30px;
-  overflow-y: auto;
+  margin-right: -300px;
+  overflow-y: hidden;
   overflow-x: hidden;
   min-height: inherit; }
+
+.customMenuScrollDivN {
+  overflow: hidden;
+  width: 100%; }
 
 .customMenuScrollDiv::-webkit-scrollbar, .customMenuScrollDivN::-webkit-scrollbar {
   width: 0; }
@@ -90,7 +91,8 @@
 
 .menuItemStyleChosen {
   background: #575757;
-  width: 83%; }
+  width: 30vw;
+  min-width: 300px; }
 
 .circleButtonSpan {
   width: 40px;
@@ -107,10 +109,10 @@
   margin-right: 30px;
   margin-left: 30px;
   text-align: center;
-  width: 4.2vw;
+  width: 4.1vw;
   height: 3.5vw;
   min-height: 25px;
-  min-width: 25px;
+  min-width: 27px;
   pointer-events: auto;
   display: flex;
   flex-direction: row;
@@ -128,7 +130,7 @@
   width: 3.6vw;
   height: 3.5vw;
   min-height: 25px;
-  min-width: 25px;
+  min-width: 27px;
   flex-direction: row;
   align-items: center;
   justify-content: center;

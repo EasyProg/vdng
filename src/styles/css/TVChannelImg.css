@@ -30,16 +30,28 @@
 
 .staticItem {
   position: relative;
-  width: 90%;
+  width: 29vw;
+  min-width: 270px;
   display: flex;
   height: 100%;
+  flex-shrink: 0;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-right: 20px; }
 
 .pname_hover {
-  position: absolute;
+  position: absolute; }
+
+.pname_hover:hover {
+  margin: auto;
+  top: 0;
+  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.pname_hover:focus {
   margin: auto;
   top: 0;
   bottom: 10px;
@@ -118,7 +130,7 @@
 .progresses {
   position: inherit;
   width: 95%;
-  height: 3px;
+  height: 2px;
   background: #575757;
   display: block; }
 
@@ -137,16 +149,22 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-right: 5vw;
-  min-width: 3.2vw;
-  min-height: 3vw;
-  width: 3.2vw;
-  height: 2.5vw;
+  right: 4vw;
+  min-width: 30px;
+  min-height: 30px;
+  width: 3.5vw;
+  height: 3.5vw;
   background: #6c4ad1;
   border-radius: 55px;
-  position: relative;
+  position: absolute;
   text-align: center;
-  visibility: visible; }
+  visibility: visible;
+  flex-shrink: 0;
+  z-index: 100; }
+
+.epgArrow {
+  width: 1vw;
+  height: 1vw; }
 
 .epgShowButtonInvis {
   visibility: hidden; }

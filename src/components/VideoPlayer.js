@@ -15,7 +15,7 @@ import '../styles/css/main_styles.css';
 //var    hls = new Hls();
 var hls = new Hls();
 class VideoPlayer extends Component                 {
-    constructor(props)                          {
+    constructor(props)                              {
         super(props);
         //Bind functions
         this.changeSize    = this.changeSize.bind(this);
@@ -70,17 +70,17 @@ class VideoPlayer extends Component                 {
     videoOnLoad()                           {
         var vd = document.getElementById('video');
         var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
-        // if (this.int)   {
-        //     clearInterval(this.int);
-        //                 }
-        // this.int = setInterval      (
-        //         function () {
-        //             if (this.hls)   {
-        //                 this.hls.destroy();
-        //                             }
-        //                     this.hls = new Hls();
-        //                     }, 3000);
-        if (this.hls) this.hls.stopLoad();
+        if (this.int)   {
+            clearInterval(this.int);
+                        }
+        this.int = setInterval              (
+                function () {
+                    if (this.hls)           {
+                        this.hls.stopLoad();
+                        this.hls.destroy();
+                                            }
+                            this.hls = new Hls();
+                             }, 30000    );
         if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
         {   //hls.destroy();
             this.hls.loadSource(this.props.video.link);
@@ -91,7 +91,8 @@ class VideoPlayer extends Component                 {
                     {
                         if (this.state.video.isPlaying)
                             vd.play();
-                        else {
+                            else
+                        {
                             this.hls.stopLoad();
                         }
                     }
@@ -104,12 +105,12 @@ class VideoPlayer extends Component                 {
                     switch (data.type)
                     {
                         case Hls.ErrorTypes.NETWORK_ERROR:
-                        {    //funcCnt.hls.stopLoad();
+                        {
                             funcCnt.hls.destroy();
                             funcCnt.setState({networkError:true});
                         }
                             break;
-                        default:
+                            default:
                             break;
                     }
                 }

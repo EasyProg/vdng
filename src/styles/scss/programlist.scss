@@ -95,12 +95,43 @@
 .programName_hover      {
   //@extend .programName;
   //align-self: center;
-  height: auto;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  height: 90%;
   left:0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  //position: absolute;
   //position: absolute;
 }
 
 .programName_hover:hover      {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 90%;
+  left:0;
+  position: absolute;
+  //top:2vh;
+}
+//.programNameHoverHover {
+//  align-self: center;
+//  height: auto;
+//  left:0;
+//  position: absolute;
+//  top:2vh;
+//}
+.programListItem:focus>.programName>.programName_hover     {
+  align-self: center;
+  height: auto;
+  left:0;
+  position: absolute;
+  top:2vh;
+}
+.programListItemChosen:focus>.programName>.programName_hover {
   align-self: center;
   height: auto;
   left:0;

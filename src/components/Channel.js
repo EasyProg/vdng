@@ -21,29 +21,34 @@ export default class Channel extends Component      {
         chosen:         PropTypes.bool.isRequired,
         favorite:       PropTypes.bool.isRequired,
     };
-    runningString(param) {
-        if (param==='hover') {
+    runningString(param)           {
+        if (param==='hover')       {
             var str     = $('.pname_hover:hover');
             var strCont = $('.pname:hover');
-        }
-        if (param==='focus') {
-            var str     = $('.menuItemStyle:focus>.staticItem>.pname>.pname_hover');
-            var strCont = $('.menuItemStyle:focus>.staticItem>.pname');
-        }
+            //console.log(str);
+                                   }
+        if (param==='focus')       {
+            // if (this.props.chosen) {
+            //     var str =     $('.menuItemStyleChosen:focus>.channelDivName>.staticItem>.menuChannelName>.pname>.pname_hover');
+            //     var strCont = $('.menuItemStyleChosen:focus>.channelDivName>.staticItem>.menuChannelName>.pname');
+            //                        }
+                var str =     $('.menuItemStyle:focus>.channelDivName>.staticItem>.menuChannelName>.pname>.pname_hover');
+                var strCont = $('.menuItemStyle:focus>.channelDivName>.staticItem>.menuChannelName>.pname');
+                                   }
         var width = str.width();
         var con_w = str.css('left');
 
         function run () {
             var con_len = parseInt(con_w) - (width - strCont.width());
 
-            str.animate
+                str.animate
             ({left:con_len + 'px'},
                 {duration: 2000,
-                    complete: function ()
-                    {
-                        str.css('left',con_w);
-                        //run();
-                    }});}
+                complete: function ()
+            {
+                str.css('left',con_w);
+
+            }});}
         if (width>strCont.width())
         {
             run();
@@ -97,7 +102,7 @@ export default class Channel extends Component      {
                     </div>
                     {(this.state.visible||this.props.elemChosen)&&this.props.progress!==-1?
                         <div className="epgShowButton" onClick={e=>this.props.setProgramVisibleContext(e,this.props.program)}>
-                            <img src={arrow} width={15} height={15}/>
+                            <img src={arrow} className="epgArrow"/>
                         </div>
                         :null}
                     {/*this.props.elemChosen*/}
