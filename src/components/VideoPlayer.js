@@ -34,8 +34,8 @@ class VideoPlayer extends Component                 {
         this.int = null;
     }
     //Component Functions
-    componentDidMount()                 {
-        //this.videoOnLoad ();
+    componentDidMount()                     {
+        this.videoOnLoad ();
         $(window).resize(function()         {
 
             if (window.innerWidth<=720)
@@ -48,8 +48,8 @@ class VideoPlayer extends Component                 {
                 $('body').css('overflow-y','auto');
             }
             else $('body').css('overflow-y','hidden');
-        });
-    }
+                                            });
+                                            }
     toggle(isPlaying)                   {
         var  vd = document.getElementById('video');
         //this.video.video;
@@ -67,10 +67,9 @@ class VideoPlayer extends Component                 {
     }
     changeRes(res)                      {
     }
-    videoOnLoad()                       {
+    videoOnLoad()                           {
         var vd = document.getElementById('video');
         var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
-        console.log('Channel changed');
         // if (this.int)   {
         //     clearInterval(this.int);
         //                 }
@@ -285,7 +284,7 @@ class VideoPlayer extends Component                 {
 
     //Element render
     render()                                  {
-        //this.videoOnLoad();
+        this.videoOnLoad();
         return                                (
             <div                 ref=         {(dv)=>this.div=dv}
                                  className="centerDiv" id="centerDiv">

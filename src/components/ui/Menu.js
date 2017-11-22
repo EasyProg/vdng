@@ -90,9 +90,9 @@ class  Menu extends Component               {
         var href   = document.location.href;
         var parsed = href.substring(href.indexOf('/',10)+1);
         this.getJsonChannels('https://cdnua01.hls.tv/play/'+parsed+'/list.json');
-        var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
-        //var repeat = setInterval(this.getPrograms("https://cdnua01.hls.tv/epg/"+parsed+'/channels.json'),43200000);
-    }
+        //var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
+        var repeat = setInterval(this.getPrograms("https://cdnua01.hls.tv/epg/"+parsed+'/channels.json'),43200000);
+                                            }
     firstToUpperCase( str )                 {
         return str.substr(0, 1).toUpperCase() + str.substr(1);
     }

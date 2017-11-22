@@ -2,14 +2,15 @@
   position: relative;
   pointer-events: auto;
   display: flex;
+  margin-left: 1vw;
   flex-direction: row;
   width: 100%;
   align-items: center;
-  height: 15vh;
+  height: 10vh;
   font-family: "ComfortaaRegular";
   color: white;
   font-size: 1.4vw;
-  min-height: 130px; }
+  min-height: 60px; }
 
 .categoryName {
   margin-left: 1vw;

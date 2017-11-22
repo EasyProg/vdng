@@ -6,15 +6,16 @@
   position: relative;
   pointer-events:auto;
   display:flex;
+  margin-left:1vw;
   //top:0;
   flex-direction: row;
   width:100%;
   align-items: center;
-  height: 15vh;
+  height: 10vh;
   font-family: "ComfortaaRegular";
   color:white;
   font-size:$font_size_header;
-  min-height:130px;
+  min-height:60px;
   //display: none;
 }
 .categoryName {

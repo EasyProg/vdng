@@ -52,7 +52,6 @@ export default class Channel extends Component      {
         $('.pname_hover').stop(true,true);
     }
     circleVisible(param) {
-        console.log('changeState');
         if (param) this.setState({visible: true});
         else this.setState({visible: false})
     }
