@@ -148,8 +148,8 @@ class  Categories extends Component                     {
             default:
         }
     }
-    render()                                            {
-        return                                          (
+    render()                                                {
+        return                                              (
             <div className="hoverDiv">
                 <div className={this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories"
                      onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
@@ -175,8 +175,8 @@ class  Categories extends Component                     {
                     </div>
                 </div>
             </div>
-        )
-    }
+                                                            )
+                                                            }
 }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({

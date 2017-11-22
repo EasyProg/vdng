@@ -1125,14 +1125,14 @@ hr {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  right: 5vw;
+  right: 2.5vw;
   min-width: 30px;
   min-height: 30px;
   width: 3.5vw;
   height: 3.5vw;
   background: #6c4ad1;
   border-radius: 55px;
-  position: absolute;
+  position: relative;
   text-align: center;
   visibility: visible;
   flex-shrink: 0;

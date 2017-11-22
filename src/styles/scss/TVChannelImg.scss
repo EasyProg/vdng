@@ -87,6 +87,7 @@
 .divForFavorite
 {
   height:auto;
+  //min-height: 20px;
   //min-height: 30px;
   min-width: 100px;
   width: 90%;
@@ -151,49 +152,49 @@
 }
 .progresses
 {
-  //max-width:300px;
-  //max-width: 100%;
-  position: inherit;
-  width:95%;
-  //min-width: 100px;
-  //min-width: 10%;
-  height:2px;
-  //position: relative;
-  background: #575757;
-  display: block;
-  //margin: auto;
+    //max-width:300px;
+    //max-width: 100%;
+    position: inherit;
+    width:95%;
+    //min-width: 100px;
+    //min-width: 10%;
+    height:2px;
+    //position: relative;
+    background: #575757;
+    display: block;
+    //margin: auto;
 
 }
 .progressDives
-{ display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  //align-self: flex-end;
-  //background: blue;
-  width:100%;
-  position:relative;
-  height:1vh;
-  padding-left: 20px;
-  top:-1rem;
-  //margin-bottom:10px;
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    //align-self: flex-end;
+    //background: blue;
+    width:100%;
+    position:relative;
+    height:1vh;
+    padding-left: 20px;
+    top:-1rem;
 }
     .epgShowButton  {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    right:5vw;
+    right:2.5vw;
     min-width: 30px;
     min-height:30px;
     width:3.5vw;
     height:3.5vw;
     background: #6c4ad1;
     border-radius: 55px;
-    position: absolute;
+    position: relative;
     text-align: center;
     visibility: visible;
     flex-shrink: 0;
-    z-index: 100;
+    z-index:100;
                     }
 .epgArrow           {
   width:1vw;

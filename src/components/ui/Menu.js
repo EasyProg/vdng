@@ -154,9 +154,10 @@ class  Menu extends Component               {
     menuWidthChange()                       {
         if (this.props.isOpened===false)
             return  'menuContainerNone';
-        else if   (this.props.menus.channelsMenuVisible&&
+        else if   ((this.props.menus.channelsMenuVisible&&
             !this.props.menus.categoryMenuVisible&&
-            !this.props.menus.programsVisible
+            !this.props.menus.programsVisible)||
+            (this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible&&!this.props.menus.channelsMenuVisible)
         )
             return  'menuContainer';
         else if  (
@@ -165,7 +166,7 @@ class  Menu extends Component               {
                 this.props.menus.programsVisible)
         )
             return  "twoMenuContainer"
-    }
+                                            }
     categVisible()                          {
         if (this.props.menus.categoryMenuVisible)
         {

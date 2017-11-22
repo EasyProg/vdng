@@ -1,7 +1,7 @@
 import React, {Component,PropTypes} from 'react';
 import {connect} from 'react-redux';
 import  menu from '../../img/main-menu-icon.svg';
-import {setMenusVisible,getChannels} from '../../actions/actions';
+import {setMenusVisible,getChannels,toggleCategory} from '../../actions/actions';
 import {bindActionCreators} from 'redux';
 import hlsArray from '../../hls';
 import parse from '../Parsing';
@@ -31,16 +31,18 @@ class MenuButton extends Component                      {
             $('#video').focus();
             if (!channelsState===true)
             {
-                $('#channels').focus();
-                $('.menuItemStyleChosen').focus();
+            $('#channels').focus();
+            $('.menuItemStyleChosen').focus();
+            //SHIT!! FUCK SHIT  !!!
             }
                                                         }
-        else                                            {
+            else                                        {
 
             {
+                //this.props.dispatch(toggleCategory('Все жанры'));
                 this.props.dispatch(setMenusVisible
                 ({
-                    channelsMenuVisible: false,
+                    channelsMenuVisible: true,
                     categoryMenuVisible: true,
                     settingsVisible: false
 
@@ -68,7 +70,7 @@ class MenuButton extends Component                      {
 }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
-        dispatch,setMenusVisible,getChannels
+        dispatch,setMenusVisible,getChannels,toggleCategory
     },  dispatch);
 export default   connect (
     state => ({  menus:state.menuReducer.menus,
