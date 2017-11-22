@@ -17,9 +17,7 @@
   justify-content: space-between ;
   align-items:center;
   width:95%;
-
-
-}
+                }
 .pname          {
   margin-left: 20px;
   height: 60px;
@@ -32,7 +30,7 @@
   flex-direction: row;
   align-items: center;
   padding-bottom: 1vh;
-}
+                }
 .staticItem     {
   position: relative;
   //width:90%;
@@ -45,8 +43,7 @@
   justify-content: space-between;
   align-items: center;
   margin-right:20px;
-  //background: yellowgreen;
-}
+                }
 .pname_hover
 {
   position: absolute;
@@ -185,8 +182,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    //margin-right:15vw;
-    right:4vw;
+    right:5vw;
     min-width: 30px;
     min-height:30px;
     width:3.5vw;

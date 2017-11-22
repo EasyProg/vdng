@@ -77,6 +77,12 @@ class Video extends Component
                     videoClass:'videoContain',
                 };
                 break;
+            case 4:
+                return {
+                    videoDivClass:'videoDiv4',
+                    videoClass:'video4',
+                };
+                break;
         }
     }
 
