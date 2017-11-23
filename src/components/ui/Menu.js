@@ -132,7 +132,7 @@ class  Menu extends Component               {
         for (var key in Object.keys(obj))
         {
             grpArr.push({name:this.firstToUpperCase(Object.keys(obj)[key]),
-                src:this.chooseSrc(this.firstToUpperCase(Object.keys(obj)[key]))});
+            src:this.chooseSrc(this.firstToUpperCase(Object.keys(obj)[key]))});
         }
         if  (localStorage.length>2)         {
             console.log(localStorage.length);

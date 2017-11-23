@@ -82,7 +82,7 @@ class VideoPlayer extends Component                 {
                                             }
                             this.hls = new Hls();
                             console.log('hls Created');
-                             }, 60000       );
+                             }, 30000       );
         if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
                                             {
             this.hls.loadSource(this.props.video.link);
@@ -94,7 +94,7 @@ class VideoPlayer extends Component                 {
                         if (this.state.video.isPlaying)
                             vd.play();
                             else
-                        {
+                        {   vd.pause();
                             this.hls.stopLoad();
                         }
                     }
@@ -178,9 +178,8 @@ class VideoPlayer extends Component                 {
                 //Запустить скрытие
                 this.handlePlay();
             }
-            if (this.props.fullScreen)   {
-                this.toggle(this.props.isPlaying);
-            }
+            this.toggle(this.props.isPlaying);
+            $('#playpause').focus();
         }
         //Отобразить плей
         else if (this.props.isOpened===false&&this.props.autoPlay)
@@ -194,7 +193,7 @@ class VideoPlayer extends Component                 {
         else if (param==='visible')     {
             clearTimeout(this.timer);
         }
-    }
+                                        }
     escFullScreen()                     {
         if (!document.fullscreenElement
             && !document.mozFullScreenElement
