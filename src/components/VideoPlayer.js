@@ -74,15 +74,17 @@ class VideoPlayer extends Component                 {
             clearInterval(this.int);
                         }
         this.int = setInterval              (
-                function () {
+                function ()                 {
                     if (this.hls)           {
                         this.hls.stopLoad();
                         this.hls.destroy();
+                            console.log('hls Destroyed');
                                             }
                             this.hls = new Hls();
-                             }, 30000    );
+                            console.log('hls Created');
+                             }, 60000       );
         if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
-        {   //hls.destroy();
+                                            {
             this.hls.loadSource(this.props.video.link);
             this.hls.attachMedia(vd);
             this.hls.on(Hls.Events.MANIFEST_PARSED,
@@ -253,6 +255,7 @@ class VideoPlayer extends Component                 {
             document.removeEventListener("webkitfullscreenchange",this.escFullScreen);
         }}
     componentWillUnmount()              {
+        if (this.hls)
         this.hls.destroy();
     }
     shouldComponentUpdate(nextProps,nextState)

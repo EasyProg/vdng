@@ -16,13 +16,13 @@ class MenuButton extends Component                      {
         var channelsState = this.props.menus.channelsMenuVisible;
         var settingsState = this.props.menus.settingsVisible;
         //Туггл кнопок если стейт изменился
-        //this.props.dispatch(getChannels(parse(hlsArray)));
-        if (this.props.channels.length>0)               {
+            if (this.props.channels.length===0)
+            {this.props.dispatch(toggleCategory('Все жанры'));}
             this.props.dispatch(setMenusVisible
             ({
-                channelsMenuVisible: !channelsState,
-                categoryMenuVisible: false,
-                settingsVisible: false
+            channelsMenuVisible: !channelsState,
+            categoryMenuVisible: false,
+            settingsVisible: false
 
             },!channelsState));
             //Set focus to menu
@@ -33,23 +33,9 @@ class MenuButton extends Component                      {
             {
             $('#channels').focus();
             $('.menuItemStyleChosen').focus();
-            //SHIT!! FUCK SHIT  !!!
             }
-                                                        }
-            else                                        {
 
-            {
-                //this.props.dispatch(toggleCategory('Все жанры'));
-                this.props.dispatch(setMenusVisible
-                ({
-                    channelsMenuVisible: true,
-                    categoryMenuVisible: true,
-                    settingsVisible: false
-
-                }, true));
-            }
                                                         }
-    }
     setPositionClass()                                  {
         if (this.props.isOpened!==true)
         {
@@ -73,7 +59,8 @@ const mapDispatchToProps = (dispatch) =>
         dispatch,setMenusVisible,getChannels,toggleCategory
     },  dispatch);
 export default   connect (
-    state => ({  menus:state.menuReducer.menus,
+    state => ({
+        menus:state.menuReducer.menus,
         isOpened:state.menuReducer.isOpened,
         channels:state.channelReducer.channels,
     }),

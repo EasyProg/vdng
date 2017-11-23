@@ -38,7 +38,6 @@ class  Categories extends Component                     {
             {
                 itemChosen:index,
                 category:cat,
-                //channels:this.props.channels
             });
         //this.props.dispatch(toggleCategory(cat));
         var filtered = this.filterChannels(this.state.channels,cat);
@@ -68,20 +67,20 @@ class  Categories extends Component                     {
         let filteredChannels = [];
         if  (channels)                                  {
             filteredChannels =  channels.filter(function(item)
-            {
+                                                        {
                 if (cat !== 'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
-                    return   item.category.toUpperCase() === cat.toUpperCase();
+                return      item.category.toUpperCase() === cat.toUpperCase();
                 else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
                 else return  item.category
-            })
-        }
+                                                        })
+                                                        }
         this.props.dispatch(getChannels(filteredChannels));
         return filteredChannels;
     };
     componentWillReceiveProps(nextProps)                {
         if (nextProps.channels.length===0)
-            this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
-    }
+             this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
+                                                        }
     switchCateg(event,cat)                              {
         let elems = this.props.categories;
         var i = elems.map(x => x.name).indexOf(cat);
@@ -157,18 +156,18 @@ class  Categories extends Component                     {
                         <CustomScroll>
                             {
                                 this.props.categories.map        ((item,i)=>
-                                    <div>
-                                    <div key={i} className=      {this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
-                                         onClick={e=>this.handleClick (i,item.name)} tabIndex={i}>
+                                        <div>
+                                        <div key={i} className=      {this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
+                                        onClick={e=>this.handleClick (i,item.name)} tabIndex={i}>
                                         <div         className="categoryImage">
-                                            <img src={item.src} width="40" height="40"/>
+                                        <img src={item.src} width="40" height="40"/>
                                         </div>
-                                        <div         className="categoryText">
-                                            {item.name}
+                                        <div className="categoryText">
+                                        {item.name}
                                         </div>
-                                    </div>
-                            {i===0?<div><img src={underline} height={5} width={400} className='categoryLine'/></div>:null}
-                                    </div>
+                                        </div>
+                                        {i===0?<div><img src={underline} height={5} width={400} className='categoryLine'/></div>:null}
+                                        </div>
                                 )
                             }
                         </CustomScroll>

@@ -37,9 +37,12 @@ class  Menu extends Component               {
         this.getPrograms = this.getPrograms.bind(this);
         this.menuWidthChange = this.menuWidthChange.bind(this);
         this.categVisible = this.categVisible.bind(this);
-    }
+        this.state = ({channels:[]});
+                                            }
     getJsonChannels(url)                    {
+        this.setState({channels:parse(hlsArray)});
         let context = this;
+
         fetch(url).then(function(response)  {
                 if (response.status !== 200)
                 {
@@ -48,17 +51,19 @@ class  Menu extends Component               {
                 }
                 if  (response.headers.get("content-type").indexOf("application/json") !== -1)
                 {
-                    response.json().then   (
+                    response.json().then    (
                         function (data)     {
-                            console.log(data);
                             if (data[0])
-                                context.props.dispatch(getChannels(newParse(data)));
-                        }
-                        );
-                        }
-                        }
-                        )
-                        }
+                            {   let channels = getChannels(newParse(data));
+                                context.setState({channels:channels});
+                                context.props.dispatch(channels);
+                            }
+                                            }
+                                            );
+                                            }
+                                            }
+                                            )
+                                            }
     getPrograms (url)                       {
         var c = this;
         fetch(url)
@@ -129,7 +134,8 @@ class  Menu extends Component               {
             grpArr.push({name:this.firstToUpperCase(Object.keys(obj)[key]),
                 src:this.chooseSrc(this.firstToUpperCase(Object.keys(obj)[key]))});
         }
-        if  (localStorage.length>1)         {
+        if  (localStorage.length>2)         {
+            console.log(localStorage.length);
             grpArr.unshift({name: 'Любимые', src: favorites});
         }
         grpArr.unshift({name:'Все жанры',src:all});
@@ -204,14 +210,14 @@ class  Menu extends Component               {
                                               categVisibleContext = {this.categVisible}
                                               reversed={!this.props.menus.categoryMenuVisible?true:false}
                             />
-                            <Categories visible={this.props.menus.categoryMenuVisible}
-                                        channelVisible={this.props.menus.channelsMenuVisible}
-                                        toggleMenuStateContext={this.toggleMenuState}
-                                        channels=  {this.props.channels}
-                                        categories={this.parseCategories()}
+                            <Categories       visible={this.props.menus.categoryMenuVisible}
+                                              channelVisible={this.props.menus.channelsMenuVisible}
+                                              toggleMenuStateContext={this.toggleMenuState}
+                                              channels=  {this.props.channels}
+                                              categories={this.parseCategories()}
                             />
                             <ChannelList
-                                playList={this.props.channels}
+                                playList={this.props.channels.length===0?this.state.channels:this.props.channels}
                                 category={this.props.category}
                                 visibleSetContext={this.toggleMenuState}
                                 tabIndex={1}
@@ -222,25 +228,27 @@ class  Menu extends Component               {
                                 currentProgramId= {getCurrentProgram(this.props.prog).current.id}
                             />
                         </div>
-                        <div        className='menuCenterText'
-                                    id="menuCenterText">
-                            <MenuButton
-                                visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>
-                            <img     src={this.props.channelImg}
+                        { !this.props.isOpened?
+                            <div className='menuCenterText'
+                                 id="menuCenterText">
+                                <MenuButton visible={true}/>
+                                {/*visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>*/}
+                                <img src={this.props.channelImg}
                                      className="imgChannelStyle"/>
-                            <div     className="textBlock">
-                                <div className="upperText">
-                                    {this.props.category}
-                                    <img src={prev_button} width={20} height={20} className="arrowImg"/>
-                                    <span>{this.props.channelNum}{'. '}{this.props.channel}
+                                <div className="textBlock">
+                                    <div className="upperText">
+                                        {this.props.category}
+                                        <img src={prev_button} width={20} height={20} className="arrowImg"/>
+                                        <span>{this.props.channelNum}{'. '}{this.props.channel}
                                 </span>
+                                    </div>
+                                    <div className="lowerText">
+                                        {this.props.program ? getCurrentProgram(this.props.program, this.props.channel).title : ''}
+                                    </div>
                                 </div>
-                                <div className="lowerText">
-                                    {this.props.program?getCurrentProgram(this.props.program,this.props.channel).title:''}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                </div>:null
+                         }
+                </div>
                 </div>
             );
         else return null
@@ -265,7 +273,7 @@ export default connect (
         channelImg:state.videoReducer.video.img,
         category:  state.channelReducer.chosenCategory,
         programs:  state.channelReducer.programs,
-        prog:  state.channelReducer.program,
+        prog:      state.channelReducer.program,
         menus:     state.menuReducer.menus,
         isOpened:  state.menuReducer.isOpened,
         program:   state.videoReducer.video.program,
