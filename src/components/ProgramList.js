@@ -150,14 +150,14 @@ class ProgramList extends Component
         this.setState({itemChosen:nextProps.currentProgramId-1});
     }
     componentDidUpdate ()               {
-        if (this.state.itemChosen!==-1)
+        //if (this.state.itemChosen!==-1)
         $('.programListItemChosen').focus();
     }
     shouldComponentUpdate(nextProps,nextState)
                                         {
         if  (this.state.itemChosen!==nextState.itemChosen&&nextState.itemChosen!==nextProps.currentProgramId-1)
             return false;
-        else return true
+            else return true
     }
     render()                            {
         if (this.props.programs.length>0&&this.props.menus.programsVisible)
@@ -169,7 +169,7 @@ class ProgramList extends Component
                     {/*<div className="menuHeaderCh">*/}
                     {/*<HomeButton visible={true}/>*/}
                     {/*</div>*/}
-                    <CustomScroll>
+                    <CustomScroll onScroll={(e)=>this.setState({itemChosen:-1})}>
                         {this.props.programs.map((e,i)=>
                             <div className="blockChainDiv" key={i} tabIndex={1}>
                                 <div className="headerProgramDate">
@@ -207,7 +207,6 @@ class ProgramList extends Component
                             </div>
                         )}
                     </CustomScroll>
-                    {/*<div className="menuBottom"/>*/}
                 </div>
             );
         else return null

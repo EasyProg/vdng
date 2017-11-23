@@ -45,6 +45,7 @@ export default class CustomScrollbars extends Component
                 //renderTrackHorizontal={props => <div {...props} className={{display:'none'}}/>}
                 renderThumbHorizontal={()=> <div className={{display:'none'}}/>}
                 renderView={this.renderView}
+                onScroll={this.props.onScroll}
             >
                 {this.props.children}
             </Scrollbars>

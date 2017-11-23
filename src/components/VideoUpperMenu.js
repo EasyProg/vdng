@@ -220,7 +220,6 @@ class VideoUpperMenu extends Component                         {
 
     }
     render()                                                   {
-        console.log(this.props.video.program);
         return (
             <div id="vduppermenu"
                  onKeyDown={(e)=>this.switchKeyPress(e)}

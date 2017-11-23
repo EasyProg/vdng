@@ -25,10 +25,11 @@
   letter-spacing: 1px;
   color: white;
   height: 12vh;
-  min-height: 50px;
+  min-height: 60px;
   vertical-align: middle;
   padding-left: 20px;
-  position: relative; }
+  position: relative;
+  margin-top: 1em; }
 
 .menuItemStyleReroved {
   width: 30vw;
@@ -1124,7 +1125,7 @@ hr {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  right: 3.5rem;
+  right: 2.8rem;
   min-width: 45px;
   min-height: 45px;
   width: 3.5vw;
@@ -1689,7 +1690,7 @@ html, body, .container {
   position: absolute;
   height: 20vh;
   width: 100%;
-  min-height: 100px;
+  min-height: 150px;
   justify-content: space-between;
   display: flex;
   flex-direction: row;

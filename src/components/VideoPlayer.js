@@ -95,7 +95,7 @@ class VideoPlayer extends Component         {
         this.int = setInterval              (
                 function ()                 {
                     if (this.hls)           {
-                        this.hls.stopLoad();
+                        //this.hls.stopLoad();
                         this.hls.destroy();
                         console.log('hls Destroyed');
                         if (hls.bufferTimer)
@@ -112,18 +112,19 @@ class VideoPlayer extends Component         {
             console.log('Channel switched');
             this.hls.loadSource(this.props.video.link);
             this.hls.attachMedia(vd);
+            //this.hls.startLoad();
             this.hls.on(Hls.Events.MANIFEST_PARSED,
                 function ()
                 {
                     {
                         if (this.state.video.isPlaying)
-                        {   this.hls.startLoad();
+                        {
                             vd.play()
 
                         ;}
                             else
                         {   vd.pause();
-                            this.hls.stopLoad();
+                            //this.hls.stopLoad();
                         }
                     }
                 });
@@ -136,7 +137,8 @@ class VideoPlayer extends Component         {
                     {
                         case Hls.ErrorTypes.NETWORK_ERROR:
                         {
-                            funcCnt.hls.destroy();
+                            //funcCnt.hls.destroy();
+                            funcCnt.hls.stopLoad();
                             funcCnt.setState({networkError:true});
                         }
                             break;
