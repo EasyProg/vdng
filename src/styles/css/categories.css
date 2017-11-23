@@ -10,7 +10,9 @@
   display: block;
   position: relative;
   transition: left 0.2s ease;
-  min-height: 500px; }
+  min-height: 500px;
+  font-family: "ComfortaaRegular";
+  font-size: 1.3vw; }
 
 .categoryPanelNone {
   left: -3000px;
@@ -22,11 +24,9 @@
   align-items: center;
   cursor: pointer;
   width: 100%;
-  font-family: "ComfortaaRegular";
-  font-size: 1.3vw;
   color: white;
   height: 12vh;
-  min-height: 100px;
+  min-height: 50px;
   text-align: center;
   vertical-align: middle;
   position: relative; }

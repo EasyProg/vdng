@@ -1,3 +1,4 @@
+@import 'variables';
 $divPlayerWidth:80%;
 $divPlayerWidthPx:1000px;
 $plButtonsLeft:10%;
@@ -119,7 +120,7 @@ $plButtonsLeft:10%;
   width:100%;
   max-width:100%;
   min-width:350px;
-  background:white;
+  background:$main_color;
 }
 .divForProgress                    {
   position: absolute;
@@ -160,7 +161,7 @@ $plButtonsLeft:10%;
 }
 #progress-bar::-moz-progress-bar   {
   //background:$main_color;
-  background:$main_color;
+  background:white;
   //color:black;
 }
 .progressDiv                       {
@@ -177,8 +178,8 @@ $plButtonsLeft:10%;
 {
   background:$main_color;
 }
-.progresses::-moz-progress-bar     {
-  background-color:$main_color;
+.progresses::-moz-progress-bar {
+  background: $main_color;
   //background: #575757;
   //color:$main_color;
 }

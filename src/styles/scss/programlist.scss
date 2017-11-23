@@ -1,6 +1,6 @@
 .programList            {
   display: block;
-  height:85vh;
+  height:80vh;
   //height: auto;
   position: relative;
   float: right;
@@ -8,17 +8,25 @@
   //left:33vw;
   width:27vw;
   min-width:270px;
-  min-height: 500px;
+  min-height: 380px;
   pointer-events: auto;
   top:0;
+  //transition: width linear 0.5s;
 }
+.programListNone        {
+  @extend .programList;
+  width:0;
+  min-width:0 ;
+  //transition: width linear 0.5s;
+                        }
 .dayListItem            {
   margin-top: 5vh;
   display: block;
+  height: auto;
   font-family: "ComfortaaRegular";
   font-size:1.2vw;
   letter-spacing: 2px;
-  margin-bottom: 50px;}
+  margin-bottom: 50px;  }
 
 .programListItemChosen  {
   @extend .programListItem;

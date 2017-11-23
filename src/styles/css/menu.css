@@ -3,29 +3,28 @@
   width: 30vw;
   min-width: 300px;
   height: 80vh;
-  min-height: inherit;
+  min-height: 380px;
   position: relative;
   float: right;
   z-index: 2147483641;
-  pointer-events: auto; }
+  pointer-events: auto;
+  font-size: 1.3vw;
+  font-family: "ComfortaaRegular"; }
 
 .menuChannelProgram {
   float: left; }
 
 .menuItemStyle, .menuItemStyle:focus, .menuItemStyle:hover, .menuItemStyleChosen {
-  font-size: 1.3vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   cursor: pointer;
   align-items: center;
   width: 91%;
-  font-family: "ComfortaaRegular";
-  min-font-size: 10px;
   letter-spacing: 1px;
   color: white;
   height: 12vh;
-  min-height: 100px;
+  min-height: 50px;
   vertical-align: middle;
   padding-left: 20px;
   position: relative; }

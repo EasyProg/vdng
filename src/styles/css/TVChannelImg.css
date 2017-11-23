@@ -4,8 +4,8 @@
   margin-bottom: 1rem;
   width: 5.5vw;
   height: 5vw;
-  min-height: 30px;
-  min-width: 30px; }
+  min-height: 35px;
+  min-width: 35px; }
 
 .channelDivName {
   display: flex;
@@ -149,9 +149,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  right: 2.5vw;
-  min-width: 30px;
-  min-height: 30px;
+  right: 3.5rem;
+  min-width: 45px;
+  min-height: 45px;
   width: 3.5vw;
   height: 3.5vw;
   background: #6c4ad1;

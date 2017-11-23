@@ -212,7 +212,8 @@ const mapDispatchToProps = (dispatch) => bindActionCreators
     setFavor,getChannels
 },  dispatch);
 export default connect  (
-    state =>            ({fullScreen:state.videoReducer.fullScreen,
+    state =>            ({
+        fullScreen:state.videoReducer.fullScreen,
         channelId: state.videoReducer.video.channelId,
         channelCategory:state.channelReducer.chosenCategory,
         channels:state.channelReducer.channels,

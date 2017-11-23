@@ -220,6 +220,7 @@ class VideoUpperMenu extends Component                         {
 
     }
     render()                                                   {
+        console.log(this.props.video.program);
         return (
             <div id="vduppermenu"
                  onKeyDown={(e)=>this.switchKeyPress(e)}
@@ -265,6 +266,7 @@ export default connect      (
         fullScreen:state.videoReducer.fullScreen,
         channels:state.channelReducer.channels,
         video:state.videoReducer.video,
+        program:state.videoReducer.video.program,
         menus:state.menuReducer.menus,
         isTimeShift:state.settingsReducer.timeShift,
         isOpened:  state.menuReducer.isOpened,
