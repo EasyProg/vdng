@@ -3,22 +3,14 @@ $divPlayerWidth:80%;
 $divPlayerWidthPx:1000px;
 $plButtonsLeft:10%;
 .centerDiv                         {
-  //text-align: center;
-  //position:absolute;
-  //top:20%;
-  //height: 100%;
-  //height: 100rem;
-  //height: 100vh;
   height: 100%;
   width: 100%;
-  //top:0;
   display:flex;
   display:-webkit-flex;
   flex-direction:column;
   -webkit-flex-direction:column;
   justify-content: center;
   -webkit-justify-content:center;
-  //z-index:2147483647;
                                     }
  .playBackDivMain  {
   position: absolute;
@@ -29,13 +21,6 @@ $plButtonsLeft:10%;
   height:20vh;
   top:80%;
 }
-//.centerDivFull                     {
-//  @extend .centerDiv;
-//  position: absolute;
-//  z-index:2147483647;
-//  top:85%;
-//  left:30%;
-//}
 
  .divPlayer                         {
   align-self: center;
@@ -45,7 +30,6 @@ $plButtonsLeft:10%;
   width: $divPlayerWidth;
   max-width:$divPlayerWidth;
   min-width:0;
-  //margin-bottom: 5vh;
   height: 70px;
   background: #805EE0;
   display:flex;
@@ -181,11 +165,11 @@ $plButtonsLeft:10%;
 {
   background:$main_color;
 }
-.progresses::-moz-progress-bar {
+.progresses::-moz-progress-bar     {
   background: $main_color;
   //background: #575757;
   //color:$main_color;
-}
+                                   }
 
 .backwardActiveButton              {
   opacity:0.3;

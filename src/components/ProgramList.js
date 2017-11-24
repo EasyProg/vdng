@@ -22,8 +22,8 @@ class ProgramList extends Component
                                         };
     handleKey(e,elem)                   {
         e.stopPropagation();
-        switch (e.keyCode)                  {
-            case 8:                             {
+        switch (e.keyCode)              {
+            case 8:                     {
                 this.props.dispatch(setMenusVisible(
                     {channelsMenuVisible: false,
                         categoryMenuVisible: false,
@@ -32,7 +32,7 @@ class ProgramList extends Component
 
                     },false));
                 $('#video').focus();
-            }
+                                        }
                 break;
             case 27:                            {
                 this.props.dispatch(setMenusVisible(
@@ -78,7 +78,7 @@ class ProgramList extends Component
     switchProgram(param='next',chosen)  {
         var items = $('.programListItem,.programListItemChosen');
         var i = chosen||0;
-        var nextElem = i + 1 >=    items.length ?  0 : i + 1;
+        var nextElem = i + 1 >=    items.length ?  0 :i + 1;
         var prevElem = i - 1 <= 0 ?items.length - 1 : i - 1;
         if (param === 'next'&&items[nextElem])
         {
@@ -113,24 +113,24 @@ class ProgramList extends Component
             case 6 : return 'Субота';
                 break;
 
-        }
+                                        }
 
-    }
+                                        }
     runningString(param)                {
-        if (param==='hover')         {
+        if (param==='hover')            {
             var str =     $('.programName_hover:hover');
             var strCont = $('.programName:hover');
-        }
-        if (param==='focus')         {
+                                        }
+        if (param==='focus')            {
             this.stopRun();
             var str =     $('.programListItem:focus>.programName>.programName_hover');
             var strCont = $('.programListItem:focus>.programName');
             console.log(strCont);
-        }
+                                        }
         var width = str.width();
         var con_w = str.css('left');
 
-        function run ()               {
+        function run ()                 {
             var con_len = parseInt(con_w) - (width - strCont.width());
             str.animate
             ({left:con_len + 'px'},
@@ -139,18 +139,18 @@ class ProgramList extends Component
                     {
                         str.css('left',con_w);
                         //run();
-                    }});              }
+                    }});                }
         if (width>strCont.width())
         {
             run();
         }}
     stopRun ()                          {
         $('.programName_hover').stop(true,true);
-    }
+                                        }
     componentWillReceiveProps(nextProps){
         this.setState({itemChosen:nextProps.currentProgramId-1});
         //console.log(nextProps.currentProgramId-1);
-    }
+                                        }
     componentDidUpdate (prevProps,prevState)
                                         {
          if (this.state.itemChosen!==-1)
@@ -159,10 +159,10 @@ class ProgramList extends Component
     shouldComponentUpdate(nextProps,nextState)
                                         {
         if  (this.state.itemChosen!==nextState.itemChosen&&nextState.itemChosen!==nextProps.currentProgramId-1)
-        {
+                                        {
          //console.log('SHIT!!!');
          //console.log(nextState.itemChosen+' ss '+ nextProps.currentProgramId);
-            return false;}
+            return false;               }
             else return true
                                         }
     render()                            {
@@ -201,12 +201,12 @@ class ProgramList extends Component
                                                         onMouseLeave={(e)=>this.stopRun()}
                                                         onKeyDown={(e)=>this.handleKey(e,elem)}
                                                 >
-                                                    <div className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),
-                                                        elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}
-                                                    </div>
-                                                    <div className="programName">
-                                                        <span className="programName_hover">{elem.title}</span>
-                                                    </div>
+                                                <div className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),
+                                                elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}
+                                                </div>
+                                                <div className="programName">
+                                                <span className="programName_hover">{elem.title}</span>
+                                                </div>
                                                 </div>
                                         )
                                     }
