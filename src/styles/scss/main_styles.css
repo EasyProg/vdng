@@ -816,6 +816,9 @@ hr {
 #progress-bar::-webkit-progress-bar {
   background: #9677ff; }
 
+#progress-bar[value] {
+  color: white; }
+
 #progress-bar::-webkit-progress-value {
   background: white; }
 
@@ -1121,6 +1124,9 @@ hr {
   height: 2px;
   background: #575757;
   display: block; }
+
+.progresses[value] {
+  color: #9677ff; }
 
 .progressDives {
   display: flex;

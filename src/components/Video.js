@@ -83,7 +83,7 @@ class Video extends Component
                     videoClass:'video4',
                 };
                 break;
-        }
+                        }
     }
 
 

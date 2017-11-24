@@ -13,25 +13,25 @@ import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 class VideoPlayer extends Component                 {
-    constructor(props)                              {
-        super(props);
+    constructor(props)                  {
+    super(props);
         //Bind functions
-        this.changeSize    =         this.changeSize.bind(this);
-        this.changeRes     =         this.changeRes.bind(this);
-        this.handleCurrTime=         this.handleCurrTime.bind(this);
-        this.handleCurrPlayback =    this.handleCurrPlayback.bind(this);
-        this.toggle        =         this.toggle.bind(this);
-        this.menuFullScreenAppears = this.menuFullScreenAppears.bind(this);
-        this.handlePlay    =         this.handlePlay.bind(this);
-        this.escFullScreen =         this.escFullScreen.bind(this);
-        this.videoOnLoad   =         this.videoOnLoad.bind(this);
-        this.changeRatio   =         this.changeRatio.bind(this);
-        this.timer = '';
-        this.state = {fullScreen:false,networkError:false,ratio:0};
-        this.hls = new Hls();
-        this.int = null;
+    this.changeSize    =         this.changeSize.bind(this);
+    this.changeRes     =         this.changeRes.bind(this);
+    this.handleCurrTime=         this.handleCurrTime.bind(this);
+    this.handleCurrPlayback =    this.handleCurrPlayback.bind(this);
+    this.toggle        =         this.toggle.bind(this);
+    this.menuFullScreenAppears = this.menuFullScreenAppears.bind(this);
+    this.handlePlay    =         this.handlePlay.bind(this);
+    this.escFullScreen =         this.escFullScreen.bind(this);
+    this.videoOnLoad   =         this.videoOnLoad.bind(this);
+    this.changeRatio   =         this.changeRatio.bind(this);
+    this.timer = '';
+    this.state = {fullScreen:false,networkError:false,ratio:0};
+    this.hls = new Hls();
+    this.int = null;
                                                     }
-        windowResize()                              {
+    windowResize()                      {
                 if (window.innerWidth>=720)
             //Issue with font fixed
                 $('.menuChannel').css({"fontSize":'1.3vw'});
@@ -77,7 +77,7 @@ class VideoPlayer extends Component                 {
                 $('.tvimg').css({"height":'5vw'})
                                                     }
                                                     }
-                componentDidMount()                 {
+    componentDidMount()                 {
                 this.videoOnLoad ();
                 var f = this;
                 $(document).ready(function()        {
@@ -89,7 +89,7 @@ class VideoPlayer extends Component                 {
 
                                                     );
                                                     }
-                toggle(isPlaying)                   {
+    toggle(isPlaying)                   {
                     var  vd = document.getElementById('video');
                     //this.video.video;
                     //console.log(vd);
@@ -104,9 +104,9 @@ class VideoPlayer extends Component                 {
                     }
 
                 }
-                changeRes(res)                      {
+    changeRes(res)                      {
                 }
-                videoOnLoad()                       {
+    videoOnLoad()                       {
                 var vd = document.getElementById('video');
                 var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
                 if (this.int)                       {
@@ -337,9 +337,9 @@ class VideoPlayer extends Component                 {
         }
     }
     //Element render
-    render()                                  {
+    render()                            {
         this.videoOnLoad();
-        return                                (
+        return                          (
             <div                 ref=         {(dv)=>this.div=dv}
                                  className="centerDiv" id="centerDiv">
                 <Video           isPlaying  = {this.props.isPlaying}
@@ -381,12 +381,12 @@ class VideoPlayer extends Component                 {
     }
 }
 const mapDispatchToProps = (dispatch) =>
-    bindActionCreators(                       {
+        bindActionCreators(                   {
         dispatch,togglePlay,toggleButtons,
         toggleFullScreen,setMenusVisible,setFavor
                                               }, dispatch);
-export default connect      (
-    state =>                ({
+export default connect                        (
+    state =>                                  ({
         video:                state.videoReducer.video,
         isPlaying:            state.videoReducer.isPlaying,
         autoPlay:             state.videoReducer.autoPlay,
@@ -394,6 +394,6 @@ export default connect      (
         isOpened:             state.menuReducer.isOpened,
         isVisible:            state.menuReducer.elemsVisible,
         //networkError:       state.videoReducer.networkError
-    }),
+                                                }),
     mapDispatchToProps
 )(VideoPlayer);

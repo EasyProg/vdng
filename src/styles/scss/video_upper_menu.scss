@@ -155,6 +155,9 @@ $plButtonsLeft:10%;
 {
   background: $main_color;
 }
+#progress-bar[value] {
+  color:white;
+}
 #progress-bar::-webkit-progress-value
 {
   background:white;

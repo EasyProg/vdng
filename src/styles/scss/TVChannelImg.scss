@@ -49,6 +49,7 @@
 .pname_hover
 {
   position: absolute;
+  //position: absolute;
 }
 .pname_hover:hover
 {
@@ -168,6 +169,10 @@
     //margin: auto;
 
 }
+.progresses[value] {
+ color:$main_color;
+}
+
 .progressDives
 {
     display: flex;

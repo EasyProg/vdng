@@ -136,6 +136,9 @@
   background: #575757;
   display: block; }
 
+.progresses[value] {
+  color: #9677ff; }
+
 .progressDives {
   display: flex;
   flex-direction: column;

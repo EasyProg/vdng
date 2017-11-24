@@ -153,8 +153,8 @@ class ProgramList extends Component
     }
     componentDidUpdate (prevProps,prevState)
                                         {
-         //if (this.state.itemChosen!==-1)
-         //$('.programListItemChosen').focus();
+         if (this.state.itemChosen!==-1)
+         $('.programListItemChosen').focus();
                                         }
     shouldComponentUpdate(nextProps,nextState)
                                         {

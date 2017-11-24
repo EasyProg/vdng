@@ -45,7 +45,8 @@ class VideoUpperMenu extends Component                         {
             //event.preventDefault();
             func(event);
                                                                });
-        $(document).keypress(function (e) {
+        $(document).keypress(function (e)
+                {
             if(e.which === 8) {
                     e.preventDefault();
                 }
