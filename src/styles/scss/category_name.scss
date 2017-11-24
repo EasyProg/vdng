@@ -2,19 +2,20 @@
 
 .divCateg
 {
+  margin-top:53px;
   position: relative;
   pointer-events:auto;
   display:flex;
   margin-left:1vw;
   flex-direction: row;
   width:100%;
-  align-items:flex-end;
-  height: 13vh;
+  align-items:flex-start;
+  height: 6vh;
   font-family: "ComfortaaRegular";
   color:white;
   font-size:$font_size_header;
-  min-height:100px;
-  margin-bottom: 3vh;
+  min-height:50px;
+  margin-bottom: 2rem;
   //display: none;
 }
 .categoryName {

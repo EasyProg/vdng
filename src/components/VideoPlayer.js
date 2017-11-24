@@ -33,38 +33,60 @@ class VideoPlayer extends Component         {
         this.hls = new Hls();
         this.int = null;
                                             }
-    //Component Functions
-    componentDidMount()                     {
-        this.videoOnLoad ();
-        $(window).resize(function()         {
+    windowResize()                      {
             if (window.innerWidth>=720)
             //Issue with font fixed
-            $('.menuChannel').css({"fontSize":'1.3vw'});
-            $('.menuChannelProgram').css({"fontSize":'1.3vw'});
-            $('.divCateg').css({"fontSize":'1.6vw'});
-            $('.categoryPanel').css({"fontSize":'1.3vw'});
-            $('.epgShowButton').css({"right":"3vw"});
-            $('.dayListItem').css({"fontSize":'1.2vw'});
-            $('.blockChainDiv').css({"fontSize":'1.4vw'});
-            //blockChainDiv
+                $('.menuChannel').css({"fontSize":'1.3vw'});
+                $('.menuChannelProgram').css({"fontSize":'1.3vw'});
+                $('.divCateg').css({"fontSize":'1.6vw'});
+                $('.categoryPanel').css({"fontSize":'1.3vw'});
+                $('.epgShowButton').css({"right":"3vw"});
+                $('.dayListItem').css({"fontSize":'1.2vw'});
+                $('.blockChainDiv').css({"fontSize":'1.4vw'});
             if  (window.innerWidth<=720)
             {
-            $('body').css('overflow-x','scroll');
-            $('.menuChannel').css({"fontSize":'9px'});
-            $('.divCateg').css({"fontSize":'12px'});
-            $('.categoryPanel').css({"fontSize":'9px'});
-            $('.epgShowButton').css({"right":"200rem"});
-            $('.dayListItem').css({"fontSize":'7px'});
-            $('.menuChannelProgram').css({"fontSize":'9px'});
-            $('.blockChainDiv').css({"fontSize":'11px'});
+                $('body').css('overflow-x','scroll');
+                $('.menuChannel').css({"fontSize":'9px'});
+                $('.divCateg').css({"fontSize":'12px'});
+                $('.categoryPanel').css({"fontSize":'9px'});
+                $('.epgShowButton').css({"right":"2rem"});
+                $('.dayListItem').css({"fontSize":'7px'});
+                $('.menuChannelProgram').css({"fontSize":'9px'});
+                $('.blockChainDiv').css({"fontSize":'11px'});
             }
             else $('body').css('overflow-x','hidden');
             if (window.innerHeight<=480)
             {
-            $('body').css('overflow-y','auto');
+                $('body').css('overflow-y','auto');
             }
             else
-            $('body').css('overflow-y','hidden');
+                $('body').css('overflow-y','hidden');
+            if (window.innerHeight<=720)    {
+                //console.log('Shit');
+                $('.epgShowButton').css({"width":'3.5vh'});
+                $('.epgShowButton').css({"height":'3.5vh'});
+                $('.epgShowButton').css({"right":'2rem'});
+                $('.menuChannelName').css({"height":'7vh'});
+                $('.tvimg').css({"width":'5.5vh'});
+                $('.tvimg').css({"height":'5vh'})
+            }
+            if (window.innerHeight>=720){
+                //console.log('Shit');
+                $('.epgShowButton').css({"width":'3.5vw'});
+                $('.epgShowButton').css({"height":'3.5vw'});
+                $('.menuChannelName').css({"height":'6vw'});
+                $('.tvimg').css({"width":'5.5vw'});
+                $('.tvimg').css({"height":'5vw'})
+            }
+        }
+    componentDidMount()                 {
+        this.videoOnLoad ();
+        var f = this;
+        $(document).ready(function()        {
+        f.windowResize();
+        });
+        $(window).resize (function()        {
+        f.windowResize();
                                             }
 
                                             );
@@ -86,7 +108,7 @@ class VideoPlayer extends Component         {
     }
     changeRes(res)                      {
     }
-    videoOnLoad()                           {
+    videoOnLoad()                       {
         var vd = document.getElementById('video');
         var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
         if (this.int)   {
@@ -124,15 +146,14 @@ class VideoPlayer extends Component         {
                         ;}
                             else
                         {   vd.pause();
-                            //this.hls.stopLoad();
                         }
                     }
                 });
             var funcCnt = this;
             this.hls.on(Hls.Events.ERROR, function
                 (event, data)
-            {
-                {
+                    {
+                    {
                     switch (data.type)
                     {
                         case Hls.ErrorTypes.NETWORK_ERROR:
@@ -145,8 +166,8 @@ class VideoPlayer extends Component         {
                             default:
                             break;
                     }
-                }
-            });
+                    }
+                    });
                                             }
         this.hls=hls;
     }
@@ -291,7 +312,7 @@ class VideoPlayer extends Component         {
         this.hls.destroy();
     }
     shouldComponentUpdate(nextProps,nextState)
-    {
+                                        {
         //&& nextProps.isOpened!==false
         if  (nextProps.isOpened!==this.props.isOpened||nextProps.isVisible!==this.props.isVisible)
 //&& (nextProps.isOpened!==false||nextProps.isOpened!==true)
@@ -301,7 +322,7 @@ class VideoPlayer extends Component         {
 
         else return true
     }
-    changeRatio (rat)                    {
+    changeRatio (rat)                   {
         switch(rat)                      {
             case 0:
                 this.setState({ratio:1});
@@ -320,7 +341,6 @@ class VideoPlayer extends Component         {
                 break;
         }
     }
-
     //Element render
     render()                                  {
         this.videoOnLoad();

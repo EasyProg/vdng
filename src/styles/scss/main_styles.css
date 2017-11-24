@@ -29,7 +29,7 @@
   vertical-align: middle;
   padding-left: 20px;
   position: relative;
-  margin-top: 1em; }
+  margin-top: 0.5rem; }
 
 .menuItemStyleReroved {
   width: 30vw;
@@ -157,6 +157,16 @@
 
 .-reactjs-scrollbar-area {
   overflow-x: visible; }
+
+.shitDiv {
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 38px; }
 
 video::-webkit-media-controls {
   display: none; }
@@ -989,6 +999,8 @@ hr {
   flex-shrink: 3;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  height: 100%;
   width: 95%; }
 
 .pname {
@@ -1118,6 +1130,7 @@ hr {
   position: relative;
   height: 1vh;
   padding-left: 20px;
+  padding-right: 10px;
   top: -1rem; }
 
 .epgShowButton, .epgShowButtonInvis {
@@ -1126,8 +1139,10 @@ hr {
   justify-content: center;
   align-items: center;
   right: 2.8rem;
-  min-width: 45px;
-  min-height: 45px;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 65px;
+  max-height: 65px;
   width: 3.5vw;
   height: 3.5vw;
   background: #6c4ad1;
@@ -1226,19 +1241,20 @@ hr {
   width: 100px; }
 
 .divCateg {
+  margin-top: 53px;
   position: relative;
   pointer-events: auto;
   display: flex;
   margin-left: 1vw;
   flex-direction: row;
   width: 100%;
-  align-items: flex-end;
-  height: 13vh;
+  align-items: flex-start;
+  height: 6vh;
   font-family: "ComfortaaRegular";
   color: white;
   font-size: 1.4vw;
-  min-height: 100px;
-  margin-bottom: 3vh; }
+  min-height: 50px;
+  margin-bottom: 2rem; }
 
 .categoryName {
   margin-left: 1vw;
@@ -1688,16 +1704,15 @@ html, body, .container {
 .menuCenterText {
   pointer-events: none;
   position: absolute;
-  height: 20vh;
+  height: 21vh;
   width: 100%;
-  min-height: 150px;
-  justify-content: space-between;
+  min-height: 50px;
+  justify-content: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   letter-spacing: 1px;
   font-family: "ComfortaaRegular";
-  padding-top: 1vw;
   color: white;
   background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0)); }
 

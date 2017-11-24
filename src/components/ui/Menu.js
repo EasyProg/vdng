@@ -140,7 +140,7 @@ class  Menu extends Component               {
         }
         grpArr.unshift({name:'Все жанры',src:all});
         return grpArr;
-    }
+                                            }
     toggleMenuState(menuType = 'left')      {
         //e.stopPropagation();
         //console.log('Event Log');
@@ -156,7 +156,7 @@ class  Menu extends Component               {
                 settingsVisible:!settingsState
             }));
         }
-    }
+                                            }
     menuWidthChange()                       {
         if (this.props.isOpened===false)
             return  'menuContainerNone';
@@ -231,6 +231,7 @@ class  Menu extends Component               {
                         { !this.props.isOpened?
                             <div className='menuCenterText'
                                  id="menuCenterText">
+                                <div className="shitDiv">
                                 <MenuButton visible={true}/>
                                 {/*visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>*/}
                                 <img src={this.props.channelImg}
@@ -245,6 +246,7 @@ class  Menu extends Component               {
                                     <div className="lowerText">
                                         {this.props.program ? getCurrentProgram(this.props.program, this.props.channel).title : ''}
                                     </div>
+                                </div>
                                 </div>
                                 </div>:null
                          }

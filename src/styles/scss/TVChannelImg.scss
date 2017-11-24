@@ -16,6 +16,8 @@
   flex-shrink: 3;
   justify-content: space-between ;
   align-items:center;
+  position: relative;
+  height: 100%;
   width:95%;
                 }
 .pname          {
@@ -177,6 +179,7 @@
     position:relative;
     height:1vh;
     padding-left: 20px;
+    padding-right:10px;
     top:-1rem;
 }
     .epgShowButton  {
@@ -186,8 +189,10 @@
     justify-content: center;
     align-items: center;
     right:2.8rem;
-    min-width: 45px;
-    min-height:45px;
+    min-width: 40px;
+    min-height:40px;
+    max-width: 65px;
+    max-height:65px;
     width:3.5vw;
     height:3.5vw;
     background: #6c4ad1;
@@ -202,7 +207,6 @@
   width:1vw;
   height:1vw;
                     }
-//flex-shrink - 0 added folder
 
 
 .epgShowButtonInvis

@@ -73,6 +73,7 @@ class ProgramList extends Component
     disableFocus()                      {
         $('#programlist').focus();
         this.setState({itemChosen:-1});
+        console.log('disbleFocus');
     }
     switchProgram(param='next',chosen)  {
         var items = $('.programListItem,.programListItemChosen');
@@ -148,17 +149,22 @@ class ProgramList extends Component
     }
     componentWillReceiveProps(nextProps){
         this.setState({itemChosen:nextProps.currentProgramId-1});
+        //console.log(nextProps.currentProgramId-1);
     }
-    componentDidUpdate ()               {
-        //if (this.state.itemChosen!==-1)
-        $('.programListItemChosen').focus();
-    }
+    componentDidUpdate (prevProps,prevState)
+                                        {
+         if (this.state.itemChosen!==-1)
+         $('.programListItemChosen').focus();
+                                        }
     shouldComponentUpdate(nextProps,nextState)
                                         {
         if  (this.state.itemChosen!==nextState.itemChosen&&nextState.itemChosen!==nextProps.currentProgramId-1)
-            return false;
+        {
+         //console.log('SHIT!!!');
+         //console.log(nextState.itemChosen+' ss '+ nextProps.currentProgramId);
+            return false;}
             else return true
-    }
+                                        }
     render()                            {
         if (this.props.programs.length>0&&this.props.menus.programsVisible)
             return                          (
@@ -169,7 +175,8 @@ class ProgramList extends Component
                     {/*<div className="menuHeaderCh">*/}
                     {/*<HomeButton visible={true}/>*/}
                     {/*</div>*/}
-                    <CustomScroll onScroll={(e)=>this.setState({itemChosen:-1})}>
+                    <CustomScroll //onScroll={(e)=>this.setState({itemChosen:-1})}
+                    >
                         {this.props.programs.map((e,i)=>
                             <div className="blockChainDiv" key={i} tabIndex={1}>
                                 <div className="headerProgramDate">

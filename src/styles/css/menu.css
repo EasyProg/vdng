@@ -28,7 +28,7 @@
   vertical-align: middle;
   padding-left: 20px;
   position: relative;
-  margin-top: 1em; }
+  margin-top: 0.5rem; }
 
 .menuItemStyleReroved {
   width: 30vw;
@@ -156,5 +156,15 @@
 
 .-reactjs-scrollbar-area {
   overflow-x: visible; }
+
+.shitDiv {
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 38px; }
 
 /*# sourceMappingURL=menu.css.map */
