@@ -1291,7 +1291,7 @@ hr {
 .nonPlayingDiv {
   align-self: center;
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   top: 0;
   display: flex;
   position: absolute;

@@ -12,10 +12,8 @@ import {bindActionCreators} from 'redux';
 import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
-//var    hls = new Hls();
-var hls = new Hls();
-class VideoPlayer extends Component         {
-    constructor(props)                      {
+class VideoPlayer extends Component                 {
+    constructor(props)                              {
         super(props);
         //Bind functions
         this.changeSize    =         this.changeSize.bind(this);
@@ -32,9 +30,9 @@ class VideoPlayer extends Component         {
         this.state = {fullScreen:false,networkError:false,ratio:0};
         this.hls = new Hls();
         this.int = null;
-                                            }
-    windowResize()                      {
-            if (window.innerWidth>=720)
+                                                    }
+        windowResize()                              {
+                if (window.innerWidth>=720)
             //Issue with font fixed
                 $('.menuChannel').css({"fontSize":'1.3vw'});
                 $('.menuChannelProgram').css({"fontSize":'1.3vw'});
@@ -43,25 +41,25 @@ class VideoPlayer extends Component         {
                 $('.epgShowButton').css({"right":"3vw"});
                 $('.dayListItem').css({"fontSize":'1.2vw'});
                 $('.blockChainDiv').css({"fontSize":'1.4vw'});
-            if  (window.innerWidth<=720)
-            {
+                if  (window.innerWidth<=720)
+                {
                 $('body').css('overflow-x','scroll');
                 $('.menuChannel').css({"fontSize":'9px'});
                 $('.divCateg').css({"fontSize":'12px'});
                 $('.categoryPanel').css({"fontSize":'9px'});
-                $('.epgShowButton').css({"right":"2rem"});
+                $('.epgShowButton').css({"right":"1rem"});
                 $('.dayListItem').css({"fontSize":'7px'});
                 $('.menuChannelProgram').css({"fontSize":'9px'});
                 $('.blockChainDiv').css({"fontSize":'11px'});
-            }
-            else $('body').css('overflow-x','hidden');
-            if (window.innerHeight<=480)
-            {
+                }
+                else $('body').css('overflow-x','hidden');
+                if (window.innerHeight<=480)
+                                                    {
                 $('body').css('overflow-y','auto');
-            }
-            else
+                                                    }
+                else
                 $('body').css('overflow-y','hidden');
-            if (window.innerHeight<=720)    {
+                if (window.innerHeight<=720)        {
                 //console.log('Shit');
                 $('.epgShowButton').css({"width":'3.5vh'});
                 $('.epgShowButton').css({"height":'3.5vh'});
@@ -69,107 +67,104 @@ class VideoPlayer extends Component         {
                 $('.menuChannelName').css({"height":'7vh'});
                 $('.tvimg').css({"width":'5.5vh'});
                 $('.tvimg').css({"height":'5vh'})
-            }
-            if (window.innerHeight>=720){
+                                                    }
+                if (window.innerHeight>=720)        {
                 //console.log('Shit');
                 $('.epgShowButton').css({"width":'3.5vw'});
                 $('.epgShowButton').css({"height":'3.5vw'});
                 $('.menuChannelName').css({"height":'6vw'});
                 $('.tvimg').css({"width":'5.5vw'});
                 $('.tvimg').css({"height":'5vw'})
-            }
-        }
-    componentDidMount()                 {
-        this.videoOnLoad ();
-        var f = this;
-        $(document).ready(function()        {
-        f.windowResize();
-        });
-        $(window).resize (function()        {
-        f.windowResize();
-                                            }
+                                                    }
+                                                    }
+                componentDidMount()                 {
+                this.videoOnLoad ();
+                var f = this;
+                $(document).ready(function()        {
+                f.windowResize();
+                });
+                $(window).resize (function()        {
+                f.windowResize();
+                                                    }
 
-                                            );
-                                            }
-    toggle(isPlaying)                   {
-        var  vd = document.getElementById('video');
-        //this.video.video;
-        //console.log(vd);
-        this.props.dispatch(togglePlay(isPlaying));
-        if (isPlaying)                   {
-            vd.play();
+                                                    );
+                                                    }
+                toggle(isPlaying)                   {
+                    var  vd = document.getElementById('video');
+                    //this.video.video;
+                    //console.log(vd);
+                    this.props.dispatch(togglePlay(isPlaying));
+                    if (isPlaying)                   {
+                        vd.play();
 
-        }
-        else {
-            vd.pause();
-            //hls.stopLoad();
-        }
+                    }
+                    else {
+                        vd.pause();
+                        //hls.stopLoad();
+                    }
 
-    }
-    changeRes(res)                      {
-    }
-    videoOnLoad()                       {
-        var vd = document.getElementById('video');
-        var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
-        if (this.int)   {
-            clearInterval(this.int);
-                        }
-        this.int = setInterval              (
-                function ()                 {
-                    if (this.hls)           {
-                        //this.hls.stopLoad();
+                }
+                changeRes(res)                      {
+                }
+                videoOnLoad()                       {
+                var vd = document.getElementById('video');
+                var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
+                if (this.int)                       {
+                    clearInterval(this.int);
+                                                    }
+                this.int = setInterval              (
+                function ()                         {
+                    if (this.hls)                   {
                         this.hls.destroy();
                         console.log('hls Destroyed');
-                        if (hls.bufferTimer)
-                        {
-                            clearInterval(hls.bufferTimer);
-                            hls.bufferTimer = undefined;
-                        }
-                                            }
+                        if (this.hls.bufferTimer)
+                                                    {
+                            clearInterval(this.hls.bufferTimer);
+                            this.hls.bufferTimer = undefined;
+                                                    }
+                                                    }
                         this.hls = new Hls();
                         console.log('hls Created');
-                             }, 30000       );
-        if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
-                                            {
-            console.log('Channel switched');
-            this.hls.loadSource(this.props.video.link);
-            this.hls.attachMedia(vd);
-            //this.hls.startLoad();
-            this.hls.on(Hls.Events.MANIFEST_PARSED,
+                                                    }, 30000);
+                if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
+                                                    {
+                this.hls.loadSource(this.props.video.link);
+                this.hls.attachMedia(vd);
+                //this.hls.startLoad();
+                this.hls.on(Hls.Events.MANIFEST_PARSED,
                 function ()
-                {
-                    {
+                                                    {
+                                                    {
                         if (this.state.video.isPlaying)
-                        {
-                            vd.play()
-
-                        ;}
+                                                    {
+                        vd.play();
+                                                    }
                             else
-                        {   vd.pause();
-                        }
-                    }
-                });
-            var funcCnt = this;
-            this.hls.on(Hls.Events.ERROR, function
+                                                    {
+                        vd.pause();
+                                                    }
+                                                    }
+                                                    });
+                var funcCnt = this;
+                this.hls.on(Hls.Events.ERROR, function
                 (event, data)
-                    {
-                    {
+                                                    {
+                                                    {
                     switch (data.type)
-                    {
+                                                    {
                         case Hls.ErrorTypes.NETWORK_ERROR:
-                        {
-                            //funcCnt.hls.destroy();
-                            //funcCnt.hls.stopLoad();
+                        {   console.log('Network error , try to reload...');
+                            //funcCnt.hls.startLoad();
                             funcCnt.setState({networkError:true});
-                        }
+                                                    }
                             break;
                             default:
                             break;
-                    }
-                    }
-                    });
-                                            }
-        this.hls=hls;
+                                                    }
+                                                    }
+                                                    });
+                                                    }
+        //this.hls=hls;
     }
     handleCurrTime(param)               {
         var vd = this.video.video;
