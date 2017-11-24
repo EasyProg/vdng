@@ -302,6 +302,7 @@ class   ChannelList extends Component               {
                      onClick={this.props.onClick} id="channels" tabIndex={1}
                      onKeyDown=  {e=>this.handleKey(e)}
                      onMouseOver={e=>this.disableFocus()}
+                     onBlur={e=>this.setState({itemChosen:false})}
                 >
                     {/*{this.props.playList.length?*/}
                     {/*<div className="menuHeaderCh">*/}

@@ -192,6 +192,7 @@ class  Menu extends Component               {
                     categoryMenuVisible:true,
                     settingsVisible:false
                 },true));
+            $('.categoryItemChosen').focus();
 
         }
     }

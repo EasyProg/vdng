@@ -159,7 +159,7 @@ class VideoPlayer extends Component         {
                         case Hls.ErrorTypes.NETWORK_ERROR:
                         {
                             //funcCnt.hls.destroy();
-                            funcCnt.hls.stopLoad();
+                            //funcCnt.hls.stopLoad();
                             funcCnt.setState({networkError:true});
                         }
                             break;

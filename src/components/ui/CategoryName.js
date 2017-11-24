@@ -18,7 +18,7 @@ export default class CategoryName extends Component {
                 {/*<div className={this.props.visible?'divCateg':'displayNone'}>*/}
                 <div className={this.props.visible?'categDisplay':'displayNone'}>
                     <div className="menuHeaderCircleDiv" onClick={(e)=>this.props.categVisibleContext()}>
-                        <img src={!this.props.reversed?point_right:point}className="menuHeaderCircleDivImg"/>
+                        <img src={!this.props.reversed?point_right:point} className="menuHeaderCircleDivImg"/>
                     </div>
                     <div className="categoryName">{this.props.categ}</div>
                 </div>
