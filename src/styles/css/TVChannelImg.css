@@ -1,0 +1,172 @@
+.tvimg {
+  margin-right: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 5.5vw;
+  height: 5vw;
+  min-height: 35px;
+  min-width: 35px; }
+
+.channelDivName {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 3;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%; }
+
+.pname {
+  margin-left: 20px;
+  height: 60px;
+  position: relative;
+  white-space: nowrap;
+  width: 85%;
+  line-height: 3rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 1vh; }
+
+.staticItem {
+  position: relative;
+  width: 29vw;
+  min-width: 270px;
+  display: flex;
+  height: 100%;
+  flex-shrink: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px; }
+
+.pname_hover {
+  position: absolute; }
+
+.pname_hover:hover {
+  margin: auto;
+  top: 0;
+  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.pname_hover:focus {
+  margin: auto;
+  top: 0;
+  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.pnameShadow, .divShadow {
+  position: absolute;
+  left: 90%;
+  height: 110%;
+  z-index: 30; }
+
+.divShadow {
+  background: -webkit-linear-gradient(bottom, rgba(47, 79, 79, 0), #2f4f4f 5em, #2f4f4f);
+  background: linear-gradient(0deg, rgba(47, 79, 79, 0), #2f4f4f 5em, #2f4f4f);
+  background-size: contain;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
+.divForFavorite {
+  height: auto;
+  min-width: 100px;
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  position: relative; }
+
+.imgFav {
+  position: static;
+  height: 1vw;
+  width: 1vw; }
+
+.rateContainer {
+  position: relative;
+  top: 45px;
+  left: -5px;
+  margin-right: 20px;
+  float: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 15px;
+  width: 50px;
+  z-index: 31; }
+
+.rateDivFilled, .rateDivFilledChosen {
+  width: 7px;
+  height: 7px;
+  margin-right: 3px;
+  border-radius: 5px;
+  background: #9677ff; }
+
+.rateDivFilledChosen {
+  background: white; }
+
+.rateDivEmpty {
+  width: 7px;
+  height: 7px;
+  margin-right: 2px;
+  border-radius: 5px;
+  background: #686868; }
+
+.menuChannelName {
+  position: relative;
+  margin-top: 7px;
+  display: flex;
+  flex-direction: column;
+  height: 6vw;
+  flex-shrink: 4;
+  min-height: 50px;
+  width: 90%;
+  justify-content: space-between; }
+
+.progresses {
+  position: inherit;
+  width: 95%;
+  height: 2px;
+  background: #575757;
+  display: block; }
+
+.progressDives {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  position: relative;
+  height: 1vh;
+  padding-left: 20px;
+  top: -1rem; }
+
+.epgShowButton, .epgShowButtonInvis {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  right: 2.8rem;
+  min-width: 45px;
+  min-height: 45px;
+  width: 3.5vw;
+  height: 3.5vw;
+  background: #6c4ad1;
+  border-radius: 55px;
+  position: relative;
+  text-align: center;
+  visibility: visible;
+  flex-shrink: 0;
+  z-index: 100; }
+
+.epgArrow {
+  width: 1vw;
+  height: 1vw; }
+
+.epgShowButtonInvis {
+  visibility: hidden; }
+
+/*# sourceMappingURL=TVChannelImg.css.map */

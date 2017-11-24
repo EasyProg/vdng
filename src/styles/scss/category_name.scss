@@ -1,0 +1,58 @@
+@import 'variables';
+
+.divCateg
+{ margin-top:53px;
+  position: relative;
+  pointer-events:auto;
+  display:flex;
+  margin-left:1vw;
+  flex-direction: row;
+  width:100%;
+  align-items:flex-start;
+  height: 6vh;
+  font-family: "ComfortaaRegular";
+  color:white;
+  font-size:$font_size_header;
+  min-height:50px;
+  //margin-bottom: 3vh;
+  //display: none;
+}
+.categoryName {
+  margin-left: 1vw;
+  position: relative;
+  //width:40%;
+}
+
+.menuHeaderCircleDiv  {
+  background: #4a4a4a;
+  border-radius: 58px;
+  position: relative;
+  width:3.6vw;
+  height:3.5vw;
+  min-width:25px;
+  min-height:25px;
+  margin-left: 10px;
+  margin-right:10px;
+  cursor:pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  //margin-top: 20px;
+}
+.menuHeaderCircleDivImg {
+  width:1.5vw;
+  height:1.2vw;
+  min-width:10px;
+  min-height:10px;
+}
+
+//width:3.8vw;
+//height:3.5vw;
+
+.categDisplay {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
