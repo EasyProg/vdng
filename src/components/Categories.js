@@ -26,57 +26,58 @@ class  Categories extends Component                     {
             category:'Все жанры',
             Menu:[],
             channels:this.props.channels
-        };
+                                                        };
         this.filterChannels = this.filterChannels.bind(this);
-    }
+                                                        }
     static propTypes =                                  {
         visible:PropTypes.bool.isRequired,
         channelVisible:PropTypes.bool.isRequired,       };
     handleClick (index,cat)                             {
         this.props.dispatch(toggleCategory(cat));
-        this.setState   (
-            {
+        this.setState(
+                     {
                 itemChosen:index,
                 category:cat,
-            });
+                     });
         //this.props.dispatch(toggleCategory(cat));
         var filtered = this.filterChannels(this.state.channels,cat);
         this.props.dispatch(getChannels(filtered));
         //this.props.dispatch(getChannels(this.filterChannels(parse(hlsArray),cat)));
         if (filtered.length>0)
-        {
+                                                        {
             this.props.dispatch(setMenusVisible(
                 {
                     channelsMenuVisible: true,
                     categoryMenuVisible: true,
                     settingsVisible: false
                 }, true));
-        }
+                                                        }
         else
-        {
+                                                        {
             this.props.dispatch(setMenusVisible(
                 {
                     channelsMenuVisible: false,
                     categoryMenuVisible: true,
                     settingsVisible: false
                 }, true));
-        }
-    };
+                                                        }
+                                                        };
     filterChannels(channels,category)                   {
         var cat = category?category.toString():'All channels';
+        var myfavor = JSON.parse(localStorage["myfavor"])||[];
         let filteredChannels = [];
         if  (channels)                                  {
             filteredChannels =  channels.filter(function(item)
                                                         {
                 if (cat !== 'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
-                return      item.category.toUpperCase() === cat.toUpperCase();
-                else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
+                return       item.category.toUpperCase() === cat.toUpperCase();
+                else if      (cat ==='Любимые') return item.channelId && myfavor.find(x=>x.id ===item.channelId);
                 else return  item.category
                                                         })
                                                         }
         this.props.dispatch(getChannels(filteredChannels));
         return filteredChannels;
-    };
+                                                        };
     componentWillReceiveProps(nextProps)                {
         if (nextProps.channels.length===0)
              this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
@@ -147,8 +148,8 @@ class  Categories extends Component                     {
             default:
         }
     }
-    render()                                                {
-        return                                              (
+    render()                                            {
+        return                                          (
             <div className="hoverDiv">
                 <div className={this.props.visible?"categoryPanel":"categoryPanelNone"} tabIndex={1} id="categories"
                      onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
@@ -174,8 +175,8 @@ class  Categories extends Component                     {
                     </div>
                 </div>
             </div>
-                                                            )
-                                                            }
+                                                         )
+                                                         }
 }
 const mapDispatchToProps = (dispatch) =>
     bindActionCreators({

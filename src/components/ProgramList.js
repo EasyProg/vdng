@@ -72,8 +72,8 @@ class ProgramList extends Component
     }
     disableFocus()                      {
         $('#programlist').focus();
-        this.setState({itemChosen:-1});
-        console.log('disbleFocus');
+        //this.setState({itemChosen:-1});
+        //console.log('disbleFocus');
     }
     switchProgram(param='next',chosen)  {
         var items = $('.programListItem,.programListItemChosen');
@@ -166,8 +166,6 @@ class ProgramList extends Component
                                         {
         if  (this.state.itemChosen!==nextState.itemChosen&&nextState.itemChosen!==nextProps.currentProgramId-1)
                                         {
-         //console.log('SHIT!!!');
-         //console.log(nextState.itemChosen+' ss '+ nextProps.currentProgramId);
             return false;               }
             else return true
                                         }

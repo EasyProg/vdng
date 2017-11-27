@@ -125,6 +125,9 @@ class  Menu extends Component                   {
             let grpArr = [];
             let c = parse(hlsArray);
             let obj = {};
+            console.log(localStorage["myfavor"]);
+            if (localStorage["myfavor"]!==undefined)
+            {var favor = JSON.parse(localStorage["myfavor"]);}
             c.forEach(function(e,i){
                 let str = e['category'];
                 obj[str] = true;
@@ -134,7 +137,7 @@ class  Menu extends Component                   {
                 grpArr.push({name:this.firstToUpperCase(Object.keys(obj)[key]),
                 src:this.chooseSrc(this.firstToUpperCase(Object.keys(obj)[key]))});
             }
-            if  (localStorage.length>2)         {
+            if  (favor.length>0)         {
                 console.log(localStorage.length);
                 grpArr.unshift({name: 'Любимые', src: favorites});
             }
@@ -201,7 +204,7 @@ class  Menu extends Component                   {
                 return  (
                     <div                id="menu"
                                         className="mainMenuDiv">
-                        <div
+                            <div
                             className="menuDives"
                             onMouseEnter={e=>this.props.dispatch(setElemsVis(true))}
                             onMouseLeave={e=>this.props.dispatch(setElemsVis(false))}>
@@ -258,7 +261,8 @@ class  Menu extends Component                   {
         }
                                                 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators ({
+const mapDispatchToProps = (dispatch) => bindActionCreators
+                                                ({
         dispatch,
         setMenusVisible,
         getChannels,
@@ -266,8 +270,8 @@ const mapDispatchToProps = (dispatch) => bindActionCreators ({
         setProgram,
         setElemsVis
     }, dispatch);
-export default connect (
-    state =>           ({
+export default connect                          (
+    state =>                                    ({
         fullScreen:state.videoReducer.fullScreen,
         channel:   state.videoReducer.video.channel,
         channels:  state.channelReducer.channels,
@@ -282,6 +286,6 @@ export default connect (
         isParentControl:
         state.settingsReducer.parentalControl,
         autoPlay:  state.videoReducer.autoPlay
-    }),
+                                                }),
     mapDispatchToProps
-)(Menu);
+                                                )(Menu);

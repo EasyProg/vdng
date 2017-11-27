@@ -40,9 +40,9 @@ class VideoBottomMenu extends Component
     shouldComponentUpdate (nextProps,nextState)
                                         {
         if (this.props.channelId!==nextProps.channelId||this.state.Favorite!==nextState.Favorite)
-        {   console.log(nextProps.channelId);
+        {
             this.setState({Favorite:this.isFavorite(this.props.channelId)});
-
+            console.log('changed');
             return true;
         }
         else return false
@@ -65,14 +65,17 @@ class VideoBottomMenu extends Component
         )
     }
     isFavorite(channelId)               {
-        if (localStorage.getItem(channelId)!==null)
-        {
-            return true;
-        }
-        else
-            return false
+        let f =false;
+        let b = JSON.parse(localStorage["myfavor"]);
+        if (b)
+        b.forEach((e,i)=>
+        { console.log('SHIT!!!');
+        if (e['id']===channelId)
+        f = true
+        });
+        return f
 
-    }
+                                        }
     filterChannels(channels,category)   {
         var cat = category?category.toString():'All channels';
         let filteredChannels = [];
@@ -89,16 +92,28 @@ class VideoBottomMenu extends Component
         this.props.dispatch(getChannels(filteredChannels));
                                         };
     toggleFavorite()                    {
-        if  (localStorage.getItem(this.props.channelId)===null)
+    var myfavor = JSON.parse(localStorage["myfavor"])||[];
+    let  present = false;
+    if  (myfavor.length>0)
         {
-             localStorage.setItem(this.props.channelId, 'true');
+        myfavor.forEach((e,i) =>
+        {
+        if (e['id']===this.props.channelId)
+        present = i;
         }
-
-        else localStorage.removeItem(this.props.channelId);
+        );
+        }
+        if (present||present===0)
+        {
+        myfavor.splice(present,1);
+        }
+        else myfavor.push({id:this.props.channelId});
+        localStorage['myfavor']=JSON.stringify(myfavor);
+        console.log(myfavor);
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         this.filterChannels(this.props.channels,this.props.channelCategory);
         }
-    switchPlayback(event)               {
+        switchPlayback(event)               {
 
         event.stopPropagation();
         let items = $('#iconRes,.playerButtonsBottomDiv>.iconsDiv');
@@ -145,7 +160,7 @@ class VideoBottomMenu extends Component
 
 
     }
-    render ()                           {
+        render ()                           {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         {if (this.state.showResolution  === false)
         {
@@ -171,7 +186,7 @@ class VideoBottomMenu extends Component
                             </div>
                             <div className="iconsDisabledDiv">
                                 <div className="upper_buttons_res">
-                                    {this.state.resolution}
+                                        {this.state.resolution}
                                 </div>
                             </div>
                             <div className="iconsDiv" onClick={(e)=>this.props.changeRatioContext(this.props.ratio)} tabIndex={1}>

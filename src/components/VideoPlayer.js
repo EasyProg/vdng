@@ -17,64 +17,7 @@ var config =
     capLevelToPlayerSize: true,
     maxBufferSize: 2,
     maxBufferLength: 5
-};
-// var config1 = {
-//     autoStartLoad: true,
-//     startPosition : -1,
-//     capLevelToPlayerSize: false,
-//     debug: false,
-//     defaultAudioCodec: undefined,
-//     initialLiveManifestSize: 1,
-//     maxBufferLength: 30,
-//     maxMaxBufferLength: 600,
-//     maxBufferSize: 60*1000*1000,
-//     maxBufferHole: 0.5,
-//     maxSeekHole: 2,
-//     lowBufferWatchdogPeriod: 0.5,
-//     highBufferWatchdogPeriod: 3,
-//     nudgeOffset: 0.1,
-//     nudgeMaxRetry : 3,
-//     maxFragLookUpTolerance: 0.2,
-//     liveSyncDurationCount: 3,
-//     liveMaxLatencyDurationCount: 10,
-//     enableWorker: true,
-//     enableSoftwareAES: true,
-//     manifestLoadingTimeOut: 10000,
-//     manifestLoadingMaxRetry: 1,
-//     manifestLoadingRetryDelay: 500,
-//     manifestLoadingMaxRetryTimeout : 64000,
-//     startLevel: undefined,
-//     levelLoadingTimeOut: 10000,
-//     levelLoadingMaxRetry: 4,
-//     levelLoadingRetryDelay: 500,
-//     levelLoadingMaxRetryTimeout: 64000,
-//     fragLoadingTimeOut: 20000,
-//     fragLoadingMaxRetry: 6,
-//     fragLoadingRetryDelay: 500,
-//     fragLoadingMaxRetryTimeout: 64000,
-//     startFragPrefetch: false,
-//     appendErrorMaxRetry: 3,
-//     loader: customLoader,
-//     fLoader: customFragmentLoader,
-//     pLoader: customPlaylistLoader,
-//     xhrSetup: XMLHttpRequestSetupCallback,
-//     fetchSetup: FetchSetupCallback,
-//     abrController: customAbrController,
-//     timelineController: TimelineController,
-//     enableWebVTT: true,
-//     enableCEA708Captions: true,
-//     stretchShortVideoTrack: false,
-//     maxAudioFramesDrift : 1,
-//     forceKeyFrameOnDiscontinuity: true,
-//     abrEwmaFastLive: 5.0,
-//     abrEwmaSlowLive: 9.0,
-//     abrEwmaFastVoD: 4.0,
-//     abrEwmaSlowVoD: 15.0,
-//     abrEwmaDefaultEstimate: 500000,
-//     abrBandWidthFactor: 0.95,
-//     abrBandWidthUpFactor: 0.7,
-//     minAutoBitrate: 0
-// };
+    };
 class VideoPlayer extends Component                 {
     constructor(props)                  {
     super(props);
@@ -152,7 +95,7 @@ class VideoPlayer extends Component                 {
 
                                                     );
                                                     }
-    toggle(isPlaying)                           {
+    toggle(isPlaying)                   {
                     var  vd = document.getElementById('video');
                     //this.video.video;
                     //console.log(vd);
@@ -167,9 +110,9 @@ class VideoPlayer extends Component                 {
                     }
 
                 }
-    changeRes(res)                              {
+    changeRes(res)                      {
                 }
-    videoOnLoad()                                   {
+    videoOnLoad()                       {
                 var vd = document.getElementById('video');
                 var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
                 if (this.int)                       {
@@ -183,8 +126,6 @@ class VideoPlayer extends Component                 {
                         b.hls.destroy();
                         //b.hls.stopLoad();
                         b.hls = null;
-                        console.log('hls Destroyed');
-                        console.log('Hls media players responsive tag');
                                                     }
                         b.hls = new Hls({
                             maxBufferHole: 1,
@@ -374,7 +315,7 @@ class VideoPlayer extends Component                 {
             this.setState({fullScreen:false});
             document.removeEventListener("webkitfullscreenchange",this.escFullScreen);
         }}
-    componentWillUnmount()              {
+    componentWillUnmount()                      {
         if (this.hls)
         this.hls.destroy();
     }
@@ -409,9 +350,9 @@ class VideoPlayer extends Component                 {
         }
     }
     //Element render
-    render()                            {
+    render()                                    {
         this.videoOnLoad();
-        return                          (
+        return                                  (
             <div                 ref=         {(dv)=>this.div=dv}
                                  className="centerDiv" id="centerDiv">
                 <Video           isPlaying  = {this.props.isPlaying}
@@ -448,17 +389,17 @@ class VideoPlayer extends Component                 {
                 {/*</div>*/}
                 {/*</div>*/}
                 <Menu/>
-            </div>                            )
+            </div>                              )
 
     }
 }
 const mapDispatchToProps = (dispatch) =>
-        bindActionCreators(                   {
+        bindActionCreators(                     {
         dispatch,togglePlay,toggleButtons,
         toggleFullScreen,setMenusVisible,setFavor
-                                              }, dispatch);
-export default connect                        (
-    state =>                                  ({
+                                                }, dispatch);
+export default connect                          (
+    state =>                                    ({
         video:                state.videoReducer.video,
         isPlaying:            state.videoReducer.isPlaying,
         autoPlay:             state.videoReducer.autoPlay,
@@ -466,6 +407,6 @@ export default connect                        (
         isOpened:             state.menuReducer.isOpened,
         isVisible:            state.menuReducer.elemsVisible,
         //networkError:       state.videoReducer.networkError
-                                                }),
+                                                    }),
     mapDispatchToProps
 )(VideoPlayer);
