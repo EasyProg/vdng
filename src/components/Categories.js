@@ -156,7 +156,7 @@ class  Categories extends Component                     {
                         <CustomScroll>
                             {
                                 this.props.categories.map        ((item,i)=>
-                                        <div>
+                                        <div key={i}>
                                         <div key={i} className=      {this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
                                         onClick={e=>this.handleClick (i,item.name)} tabIndex={i}>
                                         <div         className="categoryImage">

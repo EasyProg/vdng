@@ -12,6 +12,69 @@ import {bindActionCreators} from 'redux';
 import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
+var config =
+    {
+    capLevelToPlayerSize: true,
+    maxBufferSize: 2,
+    maxBufferLength: 5
+};
+// var config1 = {
+//     autoStartLoad: true,
+//     startPosition : -1,
+//     capLevelToPlayerSize: false,
+//     debug: false,
+//     defaultAudioCodec: undefined,
+//     initialLiveManifestSize: 1,
+//     maxBufferLength: 30,
+//     maxMaxBufferLength: 600,
+//     maxBufferSize: 60*1000*1000,
+//     maxBufferHole: 0.5,
+//     maxSeekHole: 2,
+//     lowBufferWatchdogPeriod: 0.5,
+//     highBufferWatchdogPeriod: 3,
+//     nudgeOffset: 0.1,
+//     nudgeMaxRetry : 3,
+//     maxFragLookUpTolerance: 0.2,
+//     liveSyncDurationCount: 3,
+//     liveMaxLatencyDurationCount: 10,
+//     enableWorker: true,
+//     enableSoftwareAES: true,
+//     manifestLoadingTimeOut: 10000,
+//     manifestLoadingMaxRetry: 1,
+//     manifestLoadingRetryDelay: 500,
+//     manifestLoadingMaxRetryTimeout : 64000,
+//     startLevel: undefined,
+//     levelLoadingTimeOut: 10000,
+//     levelLoadingMaxRetry: 4,
+//     levelLoadingRetryDelay: 500,
+//     levelLoadingMaxRetryTimeout: 64000,
+//     fragLoadingTimeOut: 20000,
+//     fragLoadingMaxRetry: 6,
+//     fragLoadingRetryDelay: 500,
+//     fragLoadingMaxRetryTimeout: 64000,
+//     startFragPrefetch: false,
+//     appendErrorMaxRetry: 3,
+//     loader: customLoader,
+//     fLoader: customFragmentLoader,
+//     pLoader: customPlaylistLoader,
+//     xhrSetup: XMLHttpRequestSetupCallback,
+//     fetchSetup: FetchSetupCallback,
+//     abrController: customAbrController,
+//     timelineController: TimelineController,
+//     enableWebVTT: true,
+//     enableCEA708Captions: true,
+//     stretchShortVideoTrack: false,
+//     maxAudioFramesDrift : 1,
+//     forceKeyFrameOnDiscontinuity: true,
+//     abrEwmaFastLive: 5.0,
+//     abrEwmaSlowLive: 9.0,
+//     abrEwmaFastVoD: 4.0,
+//     abrEwmaSlowVoD: 15.0,
+//     abrEwmaDefaultEstimate: 500000,
+//     abrBandWidthFactor: 0.95,
+//     abrBandWidthUpFactor: 0.7,
+//     minAutoBitrate: 0
+// };
 class VideoPlayer extends Component                 {
     constructor(props)                  {
     super(props);
@@ -89,7 +152,7 @@ class VideoPlayer extends Component                 {
 
                                                     );
                                                     }
-    toggle(isPlaying)                   {
+    toggle(isPlaying)                           {
                     var  vd = document.getElementById('video');
                     //this.video.video;
                     //console.log(vd);
@@ -104,28 +167,36 @@ class VideoPlayer extends Component                 {
                     }
 
                 }
-    changeRes(res)                      {
+    changeRes(res)                              {
                 }
-    videoOnLoad()                       {
+    videoOnLoad()                                   {
                 var vd = document.getElementById('video');
                 var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
                 if (this.int)                       {
                     clearInterval(this.int);
                                                     }
+                var b = this;
                 this.int = setInterval              (
                 function ()                         {
-                    if (this.hls)                   {
-                        this.hls.destroy();
+                    if (b.hls)                      {
+                        b.hls.detachMedia();
+                        b.hls.destroy();
+                        //b.hls.stopLoad();
+                        b.hls = null;
                         console.log('hls Destroyed');
-                        if (this.hls.bufferTimer)
-                                                    {
-                            clearInterval(this.hls.bufferTimer);
-                            this.hls.bufferTimer = undefined;
+                        console.log('Hls media players responsive tag');
                                                     }
-                                                    }
-                        this.hls = new Hls();
+                        b.hls = new Hls({
+                            maxBufferHole: 1,
+                            manifestLoadingTimeOut: 10000,
+                            manifestLoadingMaxRetry: 4,
+                            manifestLoadingRetryDelay: 500,
+                            maxBufferSize:60*1000*500
+                        });
                         console.log('hls Created');
-                                                    }, 30000);
+                        funcCnt.setState({networkError:false});
+                                                    }, 75000);
+
                 if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
                                                     {
                 this.hls.loadSource(this.props.video.link);
@@ -196,6 +267,7 @@ class VideoPlayer extends Component                 {
     }
     componentWillReceiveProps(nextProps){
         this.setState({networkError:false});
+        //this.videoOnLoad();
         if (nextProps.isVisible===true)
             this.menuFullScreenAppears('mouseEnter');
     }

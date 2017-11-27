@@ -54,33 +54,39 @@ class Video extends Component
     setRatio(num)  {
         switch (num)   {
             case 0:
-                return {
-                    videoDivClass:'videoUsualDiv',
-                    videoClass:'videoUsual',
-                };
-                break;
+            return {
+                videoDivClass:'videoUsualDiv',
+                videoClass:'videoUsual',
+            };
+            break;
             case 1:
                 return {
-                    videoDivClass:'videoDiv16',
-                    videoClass:'video16',
+                videoDivClass:'videoUsualDiv',
+                videoClass:'videoWidth',
                 };
                 break;
             case 2:
                 return {
-                    videoDivClass:'videoUsual',
-                    videoClass:'videoFill',
+                    videoDivClass:'videoUsualDiv',
+                    videoClass:'videoHeight',
                 };
                 break;
             case 3:
                 return {
                     videoDivClass:'videoUsualDiv',
-                    videoClass:'videoContain',
+                    videoClass:'video16_9',
                 };
                 break;
             case 4:
                 return {
-                    videoDivClass:'videoDiv4',
-                    videoClass:'video4',
+                    videoDivClass:'videoUsualDiv',
+                    videoClass:'video4_3',
+                };
+                break;
+            case 5:
+                return {
+                    videoDivClass:'videoUsualDiv',
+                    videoClass:'videoUsual',
                 };
                 break;
                         }

@@ -97,7 +97,7 @@ class ProgramList extends Component
     getDayOfWeek (dt)                   {
         //var date_parse = new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,dt.substr(0,2).indexOf('.')===-1?dt.substr(0,2):dt.substr(0,1));
         var date_parse = dt.substr(0,2).indexOf('.')===1?new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,dt.substr(0,1)):new Date(dt.substr(6,4),Number(dt.substr(3,2))-1,dt.substr(0,2));
-        switch (date_parse.getDay())        {
+        switch (date_parse.getDay())    {
             case 0 : return 'Неділя';
                 break;
             case 1 : return 'Понеділок';
@@ -125,7 +125,11 @@ class ProgramList extends Component
             this.stopRun();
             var str =     $('.programListItem:focus>.programName>.programName_hover');
             var strCont = $('.programListItem:focus>.programName');
-            console.log(strCont);
+                                        }
+        if (param==='focusChosen')      {
+            this.stopRun();
+            var str =     $('.programListItemChosen:focus>.programName>.programName_hover');
+            var strCont = $('.programListItemChosen:focus>.programName');
                                         }
         var width = str.width();
         var con_w = str.css('left');
@@ -154,7 +158,9 @@ class ProgramList extends Component
     componentDidUpdate (prevProps,prevState)
                                         {
          if (this.state.itemChosen!==-1)
-         $('.programListItemChosen').focus();
+             setTimeout(y,1000);
+         function y()
+         {$('.programListItemChosen').focus();}
                                         }
     shouldComponentUpdate(nextProps,nextState)
                                         {
@@ -171,6 +177,7 @@ class ProgramList extends Component
                 <div className="programList" id="programlist"
                      onKeyDown={(e)=>this.handleKey(e)} tabIndex={1}
                      onMouseOver={e=>this.disableFocus()}
+                     onFocus={e=>this.runningString('focusChosen')}
                 >
                     {/*<div className="menuHeaderCh">*/}
                     {/*<HomeButton visible={true}/>*/}
@@ -200,6 +207,7 @@ class ProgramList extends Component
                                                         onMouseOver={(e)=>this.runningString('hover')}
                                                         onMouseLeave={(e)=>this.stopRun()}
                                                         onKeyDown={(e)=>this.handleKey(e,elem)}
+                                                        //onFocus={this.runningString('focus')}
                                                 >
                                                 <div className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),
                                                 elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}
