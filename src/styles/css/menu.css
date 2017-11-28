@@ -2,7 +2,7 @@
   display: block;
   width: 30vw;
   min-width: 300px;
-  height: 80vh;
+  height: 83vh;
   min-height: 380px;
   position: relative;
   float: right;
@@ -28,7 +28,7 @@
   vertical-align: middle;
   padding-left: 20px;
   position: relative;
-  margin-top: 0.5rem; }
+  margin-bottom: 0.3rem; }
 
 .menuItemStyleReroved {
   width: 30vw;
@@ -43,7 +43,7 @@
   overflow-x: visible; }
 
 .customMenuScrollDiv, .customMenuScrollDivN {
-  height: 83.5vh;
+  height: 83vh;
   position: relative;
   width: 110%;
   overflow: -moz-scrollbars-none;

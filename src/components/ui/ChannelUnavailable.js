@@ -12,9 +12,9 @@ import {toggleAutoPlay} from '../../actions/actions';
 export default class ChannelUnavailable extends Component
 {
     constructor(props)
-    {
+                {
         super(props);
-    }
+                }
 
     render()    {
         return  (

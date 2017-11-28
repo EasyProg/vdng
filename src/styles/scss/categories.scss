@@ -30,7 +30,7 @@
   width:100%;
   //min-width:30vw;
   color:white;
-  height:12vh;
+  height:100%;
   min-height: 50px;
   //line-height: 6em;
   text-align: center;
@@ -146,4 +146,10 @@
   left:0;
   height:89vh;
   background: rgba(0,0,0,0.8);
+}
+.categoryDiv {
+@extend .categoryItem;
+display: block;
+height:12vh;
+margin-bottom: 0.3rem;
 }

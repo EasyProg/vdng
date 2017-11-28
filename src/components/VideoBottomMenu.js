@@ -17,10 +17,6 @@ import {setFavor,getChannels} from '../actions/actions';
 
 class VideoBottomMenu extends Component
 {
-    static propTypes =
-        {
-            //setFavoriteContext:PropTypes.func.isRequired,
-        };
     resolutions = ['360р','480р','720р','1080р','1440р'];
     constructor(props)                  {
         super(props);
@@ -66,10 +62,11 @@ class VideoBottomMenu extends Component
     }
     isFavorite(channelId)               {
         let f =false;
-        let b = JSON.parse(localStorage["myfavor"]);
+        if (localStorage["myfavor"])
+        var b = $.parseJSON(localStorage["myfavor"]);
         if (b)
         b.forEach((e,i)=>
-        { console.log('SHIT!!!');
+        {
         if (e['id']===channelId)
         f = true
         });
@@ -92,7 +89,9 @@ class VideoBottomMenu extends Component
         this.props.dispatch(getChannels(filteredChannels));
                                         };
     toggleFavorite()                    {
-    var myfavor = JSON.parse(localStorage["myfavor"])||[];
+    var myfavor = [];
+    if (localStorage["myfavor"])
+    myfavor = $.parseJSON(localStorage["myfavor"]);
     let  present = false;
     if  (myfavor.length>0)
         {
@@ -109,11 +108,10 @@ class VideoBottomMenu extends Component
         }
         else myfavor.push({id:this.props.channelId});
         localStorage['myfavor']=JSON.stringify(myfavor);
-        console.log(myfavor);
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         this.filterChannels(this.props.channels,this.props.channelCategory);
         }
-        switchPlayback(event)               {
+        switchPlayback(event)           {
 
         event.stopPropagation();
         let items = $('#iconRes,.playerButtonsBottomDiv>.iconsDiv');
@@ -160,7 +158,7 @@ class VideoBottomMenu extends Component
 
 
     }
-        render ()                           {
+        render ()                               {
         this.setState({Favorite:this.isFavorite(this.props.channelId)});
         {if (this.state.showResolution  === false)
         {

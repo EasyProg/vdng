@@ -21,13 +21,6 @@ function getSettings(url)                {
 
 const   initialState  = {
     video:{
-        // link:'https://cdnua01.hls.tv/hls/79fe07520e89862e02b2d00fecf02ca9/51/stream.m3u8',
-        // channelNum:1,
-        // channel: '1+1',
-        // img:'https://admin.hls.tv/cdn/logo/746d07c80571189d7d991e6810c9d34d.jpg',
-        // itemChosen:null,
-        // category:"Все жанры",
-        // channelId:51
     },
     //Global state variables
     isPlaying:true,
@@ -45,11 +38,11 @@ const   channelState =  {
 };
 const   menuState =    {
     menus:             {
-        channelsMenuVisible:false,
-        categoryMenuVisible:false,
-        programsVisible:false,
-        settingsVisible:false,
-        vdArchVisible:false
+    channelsMenuVisible:false,
+    categoryMenuVisible:false,
+    programsVisible:false,
+    settingsVisible:false,
+    vdArchVisible:false
     },
     isOpened:false,
     elemsVisible:false
@@ -78,6 +71,8 @@ function videoReducer(state=initialState,action=null)       {
             return {...state, isControlElemsVisible: action.isControlElemsVisible};
         case 'TOGGLE_FULLSCREEN':
             return {...state, fullScreen: action.fullScreen};
+        case 'SET_ERROR':
+            return {...state, networkError: action.networkError}
         default:
             return state;
     }

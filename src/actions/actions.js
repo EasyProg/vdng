@@ -1,7 +1,13 @@
-export function changeVideo(video)          {
-    return  {
+export function changeVideo(video) {
+    return {
         type: 'CHANGE',
         video: video
+    }
+}
+export function networkError (param) {
+    return  {
+        type:'SET_ERROR',
+        networkError:param
     }
 }
 export function togglePlay(isPlaying)       {
@@ -43,7 +49,7 @@ export function toggleCategory(category)    {
 export function getChannels (channelsArr)   {
     return {
         type:'GET_CHANNELS',
-        channelsArr
+        channelsArr:channelsArr
     }
 
 }

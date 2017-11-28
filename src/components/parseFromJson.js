@@ -4,7 +4,8 @@ function newParse(arr)
 //Parsing new json
 
     arr.map((e, i) =>   {
-            if (e['type']==='hls') {
+            if (e['type']==='hls')
+                        {
                 channels.push
                         (
                         {
@@ -13,7 +14,8 @@ function newParse(arr)
                         link: e['link'],
                         img: e['logo'],
                         aspect: e['aspect'],
-                        favorite: false
+                        favorite: false,
+                        category:{id:e['ganre']['id'],name:e['ganre']['name']}
                         });
                         }
                         }

@@ -82,6 +82,7 @@ class  Categories extends Component                     {
         if (nextProps.channels.length===0)
              this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
                                                         }
+
     switchCateg(event,cat)                              {
         let elems = this.props.categories;
         var i = elems.map(x => x.name).indexOf(cat);
@@ -157,7 +158,7 @@ class  Categories extends Component                     {
                         <CustomScroll>
                             {
                                 this.props.categories.map        ((item,i)=>
-                                        <div key={i}>
+                                        <div className="categoryDiv">
                                         <div key={i} className=      {this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
                                         onClick={e=>this.handleClick (i,item.name)} tabIndex={i}>
                                         <div         className="categoryImage">

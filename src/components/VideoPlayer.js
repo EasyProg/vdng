@@ -9,7 +9,7 @@ import  Menu from '../components/ui/Menu';
 import  Hls from 'hls.js';
 //import Event Listener
 import {bindActionCreators} from 'redux';
-import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,setFavor} from '../actions/actions';
+import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,networkError,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
 var config =
@@ -18,10 +18,10 @@ var config =
     maxBufferSize: 2,
     maxBufferLength: 5
     };
-class VideoPlayer extends Component                 {
+class VideoPlayer extends Component     {
     constructor(props)                  {
     super(props);
-        //Bind functions
+    //Bind functions
     this.changeSize    =         this.changeSize.bind(this);
     this.changeRes     =         this.changeRes.bind(this);
     this.handleCurrTime=         this.handleCurrTime.bind(this);
@@ -32,11 +32,12 @@ class VideoPlayer extends Component                 {
     this.escFullScreen =         this.escFullScreen.bind(this);
     this.videoOnLoad   =         this.videoOnLoad.bind(this);
     this.changeRatio   =         this.changeRatio.bind(this);
+    this.setError =              this.setError.bind(this);
     this.timer = '';
     this.state = {fullScreen:false,networkError:false,ratio:0};
     this.hls = new Hls();
     this.int = null;
-                                                    }
+                                        }
     windowResize()                      {
                 if (window.innerWidth>=720)
             //Issue with font fixed
@@ -95,87 +96,83 @@ class VideoPlayer extends Component                 {
 
                                                     );
                                                     }
+    componentDidUpdate()                {
+        this.videoOnLoad();
+                                                    }
     toggle(isPlaying)                   {
                     var  vd = document.getElementById('video');
                     //this.video.video;
                     //console.log(vd);
                     this.props.dispatch(togglePlay(isPlaying));
-                    if (isPlaying)                   {
+                    if (isPlaying)                  {
                         vd.play();
 
-                    }
+                                                    }
                     else {
                         vd.pause();
                         //hls.stopLoad();
                     }
 
-                }
+                                                    }
     changeRes(res)                      {
                 }
+    setError(param)                     {
+    this.setState({networkError:param});
+    }
     videoOnLoad()                       {
-                var vd = document.getElementById('video');
-                var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
-                if (this.int)                       {
-                    clearInterval(this.int);
-                                                    }
-                var b = this;
-                this.int = setInterval              (
-                function ()                         {
-                    if (b.hls)                      {
-                        b.hls.detachMedia();
-                        b.hls.destroy();
-                        //b.hls.stopLoad();
-                        b.hls = null;
-                                                    }
-                        b.hls = new Hls({
-                            maxBufferHole: 1,
-                            manifestLoadingTimeOut: 10000,
-                            manifestLoadingMaxRetry: 4,
-                            manifestLoadingRetryDelay: 500,
-                            maxBufferSize:60*1000*500
-                        });
-                        console.log('hls Created');
-                        funcCnt.setState({networkError:false});
-                                                    }, 75000);
+        var vd = document.getElementById('video');
+        var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
+        if (this.int)                           {
+            clearInterval(this.int);
+                                                }
+        var b = this;
+                if (b.hls)                      {
+                    b.hls.detachMedia();
+                    b.hls.destroy();
+                    //b.hls.stopLoad();
+                    b.hls = new Hls();
+                }
+        console.log('hls Created');
 
-                if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
-                                                    {
-                this.hls.loadSource(this.props.video.link);
-                this.hls.attachMedia(vd);
-                //this.hls.startLoad();
-                this.hls.on(Hls.Events.MANIFEST_PARSED,
+        if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
+        {
+            this.hls.loadSource(this.props.video.link);
+            this.hls.attachMedia(vd);
+            this.props.dispatch(networkError(false));
+            //this.hls.startLoad();
+            this.hls.on(Hls.Events.MANIFEST_PARSED,
                 function ()
-                                                    {
-                                                    {
+                {
+                    {
                         if (this.state.video.isPlaying)
-                                                    {
-                        vd.play();
-                                                    }
-                            else
-                                                    {
-                        vd.pause();
-                                                    }
-                                                    }
-                                                    });
-                var funcCnt = this;
-                this.hls.on(Hls.Events.ERROR, function
+                        {
+                            vd.play();
+                        }
+                        else
+                        {
+                            vd.pause();
+                        }
+                    }
+                });
+            var funcCnt = this;
+            this.hls.on(Hls.Events.ERROR, function
                 (event, data)
-                                                    {
-                                                    {
+            {
+                {
                     switch (data.type)
-                                                    {
+                    {
                         case Hls.ErrorTypes.NETWORK_ERROR:
                         {   console.log('Network error , try to reload...');
                             //funcCnt.hls.startLoad();
-                            funcCnt.setState({networkError:true});
-                                                    }
+                            funcCnt.props.dispatch(networkError(true));
+                        }
                             break;
-                            default:
+                        default:
                             break;
-                                                    }
-                                                    }
-                                                    });
-                                                    }
+                    }
+                }
+            });
+        }
         //this.hls=hls;
     }
     handleCurrTime(param)               {
@@ -315,7 +312,7 @@ class VideoPlayer extends Component                 {
             this.setState({fullScreen:false});
             document.removeEventListener("webkitfullscreenchange",this.escFullScreen);
         }}
-    componentWillUnmount()                      {
+    componentWillUnmount()              {
         if (this.hls)
         this.hls.destroy();
     }
@@ -329,7 +326,7 @@ class VideoPlayer extends Component                 {
         }
 
         else return true
-    }
+                                        }
     changeRatio (rat)                   {
         switch(rat)                      {
             case 0:
@@ -349,10 +346,9 @@ class VideoPlayer extends Component                 {
                 break;
         }
     }
-    //Element render
-    render()                                    {
+    render()                            {
         this.videoOnLoad();
-        return                                  (
+        return                          (
             <div                 ref=         {(dv)=>this.div=dv}
                                  className="centerDiv" id="centerDiv">
                 <Video           isPlaying  = {this.props.isPlaying}
@@ -363,10 +359,9 @@ class VideoPlayer extends Component                 {
                                  onMouseMove= {e=>this.menuFullScreenAppears()}
                                  onDblClick = {e=>this.changeSize()}
                                  isOpened   = {this.props.isOpened}
-                                 networkError={this.state.networkError}
+                                 //networkError={this.state.networkError}
                                  ratio=       {this.state.ratio}
-
-
+                                 videoOnLoadContext = {this.videoOnLoad}
                 />
                 {/*<div className="bottomPlayback">*/}
                 <VideoUpperMenu  isPlaying={this.props.isPlaying}
@@ -386,8 +381,6 @@ class VideoPlayer extends Component                 {
                                  ratio=       {this.state.ratio}
 
                 />
-                {/*</div>*/}
-                {/*</div>*/}
                 <Menu/>
             </div>                              )
 
@@ -396,7 +389,7 @@ class VideoPlayer extends Component                 {
 const mapDispatchToProps = (dispatch) =>
         bindActionCreators(                     {
         dispatch,togglePlay,toggleButtons,
-        toggleFullScreen,setMenusVisible,setFavor
+        toggleFullScreen,setMenusVisible,setFavor,networkError
                                                 }, dispatch);
 export default connect                          (
     state =>                                    ({
@@ -407,6 +400,6 @@ export default connect                          (
         isOpened:             state.menuReducer.isOpened,
         isVisible:            state.menuReducer.elemsVisible,
         //networkError:       state.videoReducer.networkError
-                                                    }),
+                                                 }),
     mapDispatchToProps
 )(VideoPlayer);

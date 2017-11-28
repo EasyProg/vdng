@@ -241,14 +241,18 @@ class   ChannelList extends Component               {
 
     }
     isFavorite(channelId)                       {
-        if (localStorage.getItem(channelId)!==null)
-        {
-            return true;
-        }
-        else
-            return false
+        let f =false;
+        if (localStorage["myfavor"])
+        var b = $.parseJSON(localStorage["myfavor"]);
+        if (b)
+            b.forEach((e,i)=>
+            {
+                if (e['id']===channelId)
+                    f = true
+            });
+        return f
 
-    }
+                                                }
     setProgramsVisible(e,program)               {
         e.stopPropagation();
         if (program)                            {
@@ -304,15 +308,6 @@ class   ChannelList extends Component               {
                      onMouseOver={e=>this.disableFocus()}
                      onBlur={e=>this.setState({itemChosen:false})}
                 >
-                    {/*{this.props.playList.length?*/}
-                    {/*<div className="menuHeaderCh">*/}
-                    {/*<CategoryName visible = {this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible}*/}
-                    {/*categ   = {this.props.channelCategory}*/}
-                    {/*categVisibleContext = {this.categVisible}*/}
-                    {/*reversed= {false}*/}
-                    {/*/>*/}
-                    {/*</div>:''*/}
-                    {/*}*/}
                     <div className={this.props.menus.channelsMenuVisible?"customMenuFirefoxScrollDiv":'customMenuScrollDivN'}>
                     <div className={this.props.menus.channelsMenuVisible?"customMenuScrollDiv":'customMenuScrollDivN'}>
                         {this.props.playList.map(  (elem, i) =>
@@ -338,12 +333,6 @@ class   ChannelList extends Component               {
                         }
                     </div>
                     </div>
-                    {/*<ProgramList*/}
-                    {/*visible         = {this.props.menus.programsVisible}*/}
-                    {/*programs        = {this.state.programs}*/}
-                    {/*currentProgramId= {getCurrentProgram(this.state.program).current.id}*/}
-                    {/*/>*/}
-                    {/*<div className="menuBottom"/>*/}
                 </div>
             );
         else return (null)

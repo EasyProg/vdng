@@ -54,9 +54,9 @@ class  Menu extends Component                   {
                         response.json().then    (
                             function (data)     {
                                 if (data[0])
-                                {   let channels = getChannels(newParse(data));
+                                {   let channels = newParse(data);
                                     context.setState({channels:channels});
-                                    context.props.dispatch(channels);
+                                    context.props.dispatch(getChannels(channels));
                                 }
                                                 }
                                                 );
@@ -123,25 +123,29 @@ class  Menu extends Component                   {
         }
         parseCategories   ()                    {
             let grpArr = [];
-            let c = parse(hlsArray);
             let obj = {};
-            console.log(localStorage["myfavor"]);
+            var favor = [];
             if (localStorage["myfavor"]!==undefined)
-            {var favor = JSON.parse(localStorage["myfavor"]);}
-            c.forEach(function(e,i){
-                let str = e['category'];
-                obj[str] = true;
-            });
-            for (var key in Object.keys(obj))
             {
-                grpArr.push({name:this.firstToUpperCase(Object.keys(obj)[key]),
-                src:this.chooseSrc(this.firstToUpperCase(Object.keys(obj)[key]))});
+            favor = $.parseJSON(localStorage["myfavor"]);
             }
-            if  (favor.length>0)         {
-                console.log(localStorage.length);
-                grpArr.unshift({name: 'Любимые', src: favorites});
+            if (this.state.channels.length>0)
+            {
+                this.state.channels.forEach(function (e, i) {
+                    let str = e['category']['name']||e['category'];
+                    obj[str] = true;
+                });
             }
-            grpArr.unshift({name:'Все жанры',src:all});
+                for (var key in Object.keys(obj)) {
+                    grpArr.push({
+                        name: this.firstToUpperCase(Object.keys(obj)[key]),
+                        src: this.chooseSrc(this.firstToUpperCase(Object.keys(obj)[key]))
+                    });
+                }
+                if (favor.length > 0) {
+                    grpArr.unshift({name: 'Любимые', src: favorites});
+                }
+                grpArr.unshift({name: 'Все жанры', src: all});
             return grpArr;
                                                 }
         toggleMenuState(menuType = 'left')      {

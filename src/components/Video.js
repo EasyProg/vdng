@@ -13,20 +13,18 @@ class Video extends Component
         super(props);
         this.state =    {
             playing:true
-        };
+                        };
         this.isVideoPlaying = this.isVideoPlaying.bind(this);
         this.handleClick = this.handleClick.bind(this);
-    }
-
+                        }
     static propTypes =  {
         fullSize: PropTypes.bool.isRequired,
         isPlaying: PropTypes.bool.isRequired,
         video: PropTypes.object.isRequired
     };
-
     componentDidMount() {
         this.isVideoPlaying();
-    }
+                        }
     isVideoPlaying ()   {
         var b = this;
         setTimeout      (
@@ -40,18 +38,18 @@ class Video extends Component
                 }},3000 );
 //console.log(this.video.prop('autoPlay'));
     }
-    handleKey(e)    {
+    handleKey(e)        {
         if (e.keyCode === 13)
             this.handleClick();
     }
-    handleClick (e) {
+    handleClick (e)     {
         if (e)  e.stopPropagation();
         this.video.play();
         this.setState({playing:true});
         this.props.dispatch(toggleAutoPlay(true));
         this.video.focus();
     }
-    setRatio(num)  {
+    setRatio(num)       {
         switch (num)   {
             case 0:
             return {
@@ -91,16 +89,20 @@ class Video extends Component
                 break;
                         }
     }
+    componentDidUpdate(){
+    //if (this.props.networkError)
+    //var c = setInterval(this.props.videoOnLoadContext(),15000);
+    //else clearInterval(c);
+                        }
 
 
-
-    render()            {
+    render()           {
         if (this.props.video!=='none')
-        {return(
-            <div       className={this.setRatio(this.props.ratio).videoDivClass}
+                       {return(
+                       <div       className={this.setRatio(this.props.ratio).videoDivClass}
                 //className="videoDiv16"
-            >
-                <video id="video"
+                       >
+                       <video id="video"
                        ref={(video) => this.video = video}
                        autoPlay={this.props.isPlaying}
                        controls={false}
@@ -112,17 +114,17 @@ class Video extends Component
                        onMouseMove={this.props.onMouseMove}
                        src={navigator.userAgent.search(/iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i)!== -1?this.props.video.link:''}
 
-                />
-                {   !this.state.playing&&!this.props.networkError?
-                <HoldScreen onClick={(e)=>this.handleClick(e)}
-                onKeyDown={(e)=>this.handleKey(e)}/>
-                :null
-                }
-                {
-                    this.props.networkError?
-                        <ChannelUnavailable
-                            onMouseMove={this.props.onMouseMove}
-                        />:null
+                        />
+                        {   !this.state.playing&&!this.props.networkError?
+                        <HoldScreen onClick={(e)=>this.handleClick(e)}
+                        onKeyDown={(e)=>this.handleKey(e)}/>
+                        :null
+                        }
+                        {
+                            this.props.networkError?
+                                <ChannelUnavailable
+                                    onMouseMove={this.props.onMouseMove}
+                                />:null
 
                 }
             </div>
@@ -138,6 +140,7 @@ const mapDispatchToProps = (dispatch) =>
     },  dispatch);
 export default connect  (
     state => ({
+        networkError:       state.videoReducer.networkError
     }),
     mapDispatchToProps
 )(Video);
