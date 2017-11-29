@@ -34,7 +34,7 @@
   -webkit-align-items: center;
   justify-content: space-between;
   -webkit-justify-content: space-between;
-  z-index: 2147483646; }
+  z-index: 2147483647; }
 
 .divPlayer:fullscreen {
   position: absolute;

@@ -15,12 +15,10 @@
   position:absolute;
   width:30vw;
   min-width:300px;
-  height:100vh;
-  //min-height:500
-  min-height: 480px;
-  //transition: width 1s ease 1s,min-width 1s ease 1s;
-  //transition: width 0.3s ease 0.3s,min-width 0.3s ease 0.3s;
-  //z-index:2147483640;
+  height:101vh;
+  //height: auto;
+  //min-height:auto;
+  min-height: 700px;
   background: rgba(0,0,0,0.8);
   transition: min-width 0.5s ease;
   -webkit-transition:min-width 0.5s ease;
@@ -32,6 +30,6 @@
   width:60vw;
   min-width:600px;
   //min-height:500
-  min-height: 480px;
+  min-height: 700px;
   transition: min-width 0.5s ease;
 }

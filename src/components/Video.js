@@ -29,15 +29,14 @@ class Video extends Component
         var b = this;
         setTimeout      (
             function    ()
-            {
+                 {
                 let vd = document.getElementById('video');
-                if      (vd.paused)
+                if      (vd.paused&&!b.props.networkError)
                 {
                     b.setState({playing:false});
                     vd.pause();
                 }},3000 );
-//console.log(this.video.prop('autoPlay'));
-    }
+                        }
     handleKey(e)        {
         if (e.keyCode === 13)
             this.handleClick();
@@ -89,18 +88,12 @@ class Video extends Component
                 break;
                         }
     }
-    componentDidUpdate(){
-    //if (this.props.networkError)
-    //var c = setInterval(this.props.videoOnLoadContext(),15000);
-    //else clearInterval(c);
-                        }
 
 
     render()           {
         if (this.props.video!=='none')
                        {return(
                        <div       className={this.setRatio(this.props.ratio).videoDivClass}
-                //className="videoDiv16"
                        >
                        <video id="video"
                        ref={(video) => this.video = video}
@@ -115,15 +108,15 @@ class Video extends Component
                        src={navigator.userAgent.search(/iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i)!== -1?this.props.video.link:''}
 
                         />
-                        {   !this.state.playing&&!this.props.networkError?
-                        <HoldScreen onClick={(e)=>this.handleClick(e)}
-                        onKeyDown={(e)=>this.handleKey(e)}/>
-                        :null
-                        }
+                        {/*{   !this.state.playing&&!this.props.networkError?*/}
+                        {/*<HoldScreen onClick={(e)=>this.handleClick(e)}*/}
+                        {/*onKeyDown={(e)=>this.handleKey(e)}/>*/}
+                        {/*:null*/}
+                        {/*}*/}
                         {
                             this.props.networkError?
                                 <ChannelUnavailable
-                                    onMouseMove={this.props.onMouseMove}
+                                onMouseMove={this.props.onMouseMove}
                                 />:null
 
                 }

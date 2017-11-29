@@ -12,12 +12,6 @@ import {bindActionCreators} from 'redux';
 import {togglePlay,toggleButtons,toggleFullScreen,setMenusVisible,networkError,setFavor} from '../actions/actions';
 import * as $ from 'jquery';
 import '../styles/css/main_styles.css';
-var config =
-    {
-    capLevelToPlayerSize: true,
-    maxBufferSize: 2,
-    maxBufferLength: 5
-    };
 class VideoPlayer extends Component     {
     constructor(props)                  {
     super(props);
@@ -85,7 +79,7 @@ class VideoPlayer extends Component     {
                                                     }
                                                     }
     componentDidMount()                 {
-                this.videoOnLoad ();
+                //this.videoOnLoad ();
                 var f = this;
                 $(document).ready(function()        {
                 f.windowResize();
@@ -95,9 +89,6 @@ class VideoPlayer extends Component     {
                                                     }
 
                                                     );
-                                                    }
-    componentDidUpdate()                {
-        this.videoOnLoad();
                                                     }
     toggle(isPlaying)                   {
                     var  vd = document.getElementById('video');
@@ -122,23 +113,39 @@ class VideoPlayer extends Component     {
     videoOnLoad()                       {
         var vd = document.getElementById('video');
         var reg = /iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i;
-        if (this.int)                           {
-            clearInterval(this.int);
-                                                }
-        var b = this;
-                if (b.hls)                      {
-                    b.hls.detachMedia();
-                    b.hls.destroy();
+            if (!this.props.networkError) {
+                if (this.int)             {
+                    clearInterval(this.int);
+                    this.hls = new Hls();
+                                          }
+                                          }
+        if (this.hls)                     {
+                    this.hls.detachMedia();
+                    this.hls.destroy();
                     //b.hls.stopLoad();
-                    b.hls = new Hls();
-                }
-        console.log('hls Created');
-
-        if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
-        {
+                    this.hls = new Hls();
+                    console.log('hls Created');
+                    this.props.dispatch(networkError(false));
+                                          }
+            // if (this.props.networkError)  {
+            //     this.int = setInterval(
+            //         function () {
+            //             if (this.hls) {
+            //                 this.hls.detachMedia();
+            //                 this.hls.destroy();
+            //                 //b.hls.stopLoad();
+            //                 this.hls = new Hls();
+            //                 console.log('hls Created');
+            //                 this.props.dispatch(networkError(false));
+            //             }
+            //         }, 5000);
+            //                               }
+            if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
+            {
             this.hls.loadSource(this.props.video.link);
+            console.log(this.props.video.link);
             this.hls.attachMedia(vd);
-            this.props.dispatch(networkError(false));
+            //this.props.dispatch(networkError(false));
             //this.hls.startLoad();
             this.hls.on(Hls.Events.MANIFEST_PARSED,
                 function ()
@@ -166,6 +173,12 @@ class VideoPlayer extends Component     {
                             //funcCnt.hls.startLoad();
                             funcCnt.props.dispatch(networkError(true));
                         }
+                            break;
+                        case Hls.ErrorTypes.MEDIA_ERROR:
+                            console.log('Media error , try to reload...');
+                            break;
+                        case Hls.ErrorTypes.FRAG_LOAD_ERROR:
+                            console.log('FRAG LOAD ERROR error , try to reload...');
                             break;
                         default:
                             break;
@@ -202,7 +215,7 @@ class VideoPlayer extends Component     {
                 $("#vduppermenu,#vdbottommenu,#menuCenterText,.bottomShadowDiv").fadeOut(1000);
             },5000);
         $('#video').focus();
-    }
+                                        }
     componentWillReceiveProps(nextProps){
         this.setState({networkError:false});
         //this.videoOnLoad();
@@ -210,6 +223,7 @@ class VideoPlayer extends Component     {
             this.menuFullScreenAppears('mouseEnter');
     }
     menuFullScreenAppears(param)        {
+        //console.log('SHIT!!!!!!');
         if (param==='mouseEnter')
         {
             clearTimeout(this.timer);
@@ -346,8 +360,11 @@ class VideoPlayer extends Component     {
                 break;
         }
     }
+    componentDidUpdate() {
+    this.videoOnLoad ();
+    }
     render()                            {
-        this.videoOnLoad();
+        //this.videoOnLoad();
         return                          (
             <div                 ref=         {(dv)=>this.div=dv}
                                  className="centerDiv" id="centerDiv">
@@ -363,7 +380,6 @@ class VideoPlayer extends Component     {
                                  ratio=       {this.state.ratio}
                                  videoOnLoadContext = {this.videoOnLoad}
                 />
-                {/*<div className="bottomPlayback">*/}
                 <VideoUpperMenu  isPlaying={this.props.isPlaying}
                                  toggleContext={this.toggle}
                                  handleOnPlayContext={this.handleOnPlay}
@@ -392,14 +408,14 @@ const mapDispatchToProps = (dispatch) =>
         toggleFullScreen,setMenusVisible,setFavor,networkError
                                                 }, dispatch);
 export default connect                          (
-    state =>                                    ({
+        state =>                                ({
         video:                state.videoReducer.video,
         isPlaying:            state.videoReducer.isPlaying,
         autoPlay:             state.videoReducer.autoPlay,
         fullScreen:           state.videoReducer.fullScreen,
         isOpened:             state.menuReducer.isOpened,
         isVisible:            state.menuReducer.elemsVisible,
-        //networkError:       state.videoReducer.networkError
+        networkError:         state.videoReducer.networkError
                                                  }),
     mapDispatchToProps
 )(VideoPlayer);

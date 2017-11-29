@@ -226,16 +226,15 @@ class VideoUpperMenu extends Component                         {
                  onKeyDown={(e)=>this.switchKeyPress(e)}
                  tabIndex={1}
                  className="displayNone"
-                 onMouseLeave={this.props.onMouseLeave}
                  onMouseEnter={this.props.onMouseEnter}
-
+                 onMouseLeave={this.props.onMouseLeave}
             >
-                {this.props.video.program?<CustomProgress value={this.state.progressValue} fullScreen={this.props.fullScreen}/>:null}
                 {/*<div className="circleProgressDiv"/>*/}
                 {/*<progress id='progress-bar' min='0' max='100'*/}
                 {/*value={this.state.progressValue}*/}
                 {/*className={this.props.fullScreen?'progressBarFull':'progressBar'}/>*/}
-                <div  className="divPlayer">
+                <div  className="divPlayer"
+                >
                     {/*<Timer isWholeProgramTime={true}/>*/}
                     {this.props.video.program?<CurrentTime startTime={this.currentTime()}
                              videoChannel={this.props.video.channel}
@@ -254,6 +253,7 @@ class VideoUpperMenu extends Component                         {
                     </div>
                 {this.props.video.program?<ProgramTime time={this.currentProgram()}/>:null}
                 </div>
+                {this.props.video.program?<CustomProgress value={this.state.progressValue} fullScreen={this.props.fullScreen}/>:null}
             </div>
         );
     }

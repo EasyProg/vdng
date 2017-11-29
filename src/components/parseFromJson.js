@@ -15,7 +15,7 @@ function newParse(arr)
                         img: e['logo'],
                         aspect: e['aspect'],
                         favorite: false,
-                        category:{id:e['ganre']['id'],name:e['ganre']['name']}
+                        category:{id:e['ganre']['id'],name:e['ganre']['name'],icon:e['ganre']['icon']}
                         });
                         }
                         }

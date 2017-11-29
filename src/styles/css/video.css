@@ -173,7 +173,7 @@ video::-webkit-media-controls-panel-container {
   height: 100%; }
 
 .video4_3:-webkit-full-screen {
-  padding-left: 18% !important;
+  padding-left: 17% !important;
   padding-right: 17% !important;
   position: relative !important;
   object-fit: fill;

@@ -4,7 +4,7 @@
   width: 30vw;
   min-width: 300px;
   height: 83vh;
-  min-height: 380px;
+  min-height: 480px;
   position: relative;
   float: right;
   z-index: 2147483641;
@@ -343,7 +343,7 @@ video::-webkit-media-controls-panel-container {
   height: 100%; }
 
 .video4_3:-webkit-full-screen {
-  padding-left: 18% !important;
+  padding-left: 17% !important;
   padding-right: 17% !important;
   position: relative !important;
   object-fit: fill;
@@ -752,7 +752,7 @@ hr {
   -webkit-align-items: center;
   justify-content: space-between;
   -webkit-justify-content: space-between;
-  z-index: 2147483646; }
+  z-index: 2147483647; }
 
 .divPlayer:fullscreen {
   position: absolute;
@@ -1345,7 +1345,7 @@ hr {
   margin-left: 10px;
   width: 27vw;
   min-width: 270px;
-  min-height: 380px;
+  min-height: 480px;
   pointer-events: auto;
   top: 0; }
 
@@ -1618,8 +1618,8 @@ hr {
   position: absolute;
   width: 30vw;
   min-width: 300px;
-  height: 100vh;
-  min-height: 480px;
+  height: 101vh;
+  min-height: 700px;
   background: rgba(0, 0, 0, 0.8);
   transition: min-width 0.5s ease;
   -webkit-transition: min-width 0.5s ease; }
@@ -1627,7 +1627,7 @@ hr {
 .twoMenuContainer {
   width: 60vw;
   min-width: 600px;
-  min-height: 480px;
+  min-height: 700px;
   transition: min-width 0.5s ease; }
 
 * {

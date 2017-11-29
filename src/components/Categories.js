@@ -39,10 +39,8 @@ class  Categories extends Component                     {
                 itemChosen:index,
                 category:cat,
                      });
-        //this.props.dispatch(toggleCategory(cat));
-        var filtered = this.filterChannels(this.state.channels,cat);
+        var filtered = this.filterChannels(this.props.channels,cat);
         this.props.dispatch(getChannels(filtered));
-        //this.props.dispatch(getChannels(this.filterChannels(parse(hlsArray),cat)));
         if (filtered.length>0)
                                                         {
             this.props.dispatch(setMenusVisible(
@@ -64,13 +62,15 @@ class  Categories extends Component                     {
                                                         };
     filterChannels(channels,category)                   {
         var cat = category?category.toString():'All channels';
-        var myfavor = JSON.parse(localStorage["myfavor"])||[];
+        if (localStorage["myfavor"])
+        var myfavor = $.parseJSON(localStorage["myfavor"])||[];
         let filteredChannels = [];
         if  (channels)                                  {
             filteredChannels =  channels.filter(function(item)
                                                         {
+                let categ =  item.category.name ? item.category.name:item.category;
                 if (cat !== 'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
-                return       item.category.toUpperCase() === cat.toUpperCase();
+                return       categ.toUpperCase() === cat.toUpperCase();
                 else if      (cat ==='Любимые') return item.channelId && myfavor.find(x=>x.id ===item.channelId);
                 else return  item.category
                                                         })
@@ -117,9 +117,6 @@ class  Categories extends Component                     {
             case 13:
             {
                 this.handleClick(this.state.itemFocus,this.state.category);
-                //$('#video').focus();
-                //if (this.props.channels.length>0)
-                //$('#channels').focus();
                 break;
             }
             case 27: {
@@ -185,7 +182,7 @@ const mapDispatchToProps = (dispatch) =>
     },  dispatch);
 export default connect(
     state =>
-        ({  channels:state.channelReducer.channels,
+        ({
             channelCategory:state.channelReducer.chosenCategory,
             isFavor:state.channelReducer.isFavor
         }),

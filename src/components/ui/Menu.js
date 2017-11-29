@@ -1,3 +1,4 @@
+'use strict';
 import React, {Component,PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -123,29 +124,48 @@ class  Menu extends Component                   {
         }
         parseCategories   ()                    {
             let grpArr = [];
-            let obj = {};
             var favor = [];
             if (localStorage["myfavor"]!==undefined)
             {
             favor = $.parseJSON(localStorage["myfavor"]);
             }
-            if (this.state.channels.length>0)
-            {
-                this.state.channels.forEach(function (e, i) {
-                    let str = e['category']['name']||e['category'];
-                    obj[str] = true;
+            if (!Array.prototype.find) {
+                Object.defineProperty(Array.prototype, "find", {
+                    value: function(predicate) {
+                        if (this === null) {
+                            throw new TypeError('Array.prototype.find called on null or undefined');
+                        }
+                        if (typeof predicate !== 'function') {
+                            throw new TypeError('predicate must be a function');
+                        }
+                        var list = Object(this);
+                        var length = list.length >>> 0;
+                        var thisArg = arguments[1];
+                        var value;
+
+                        for (var i = 0; i < length; i++) {
+                            value = list[i];
+                            if (predicate.call(thisArg, value, i, list)) {
+                                return value;
+                            }
+                        }
+                        return undefined;
+                    }
                 });
             }
-                for (var key in Object.keys(obj)) {
-                    grpArr.push({
-                        name: this.firstToUpperCase(Object.keys(obj)[key]),
-                        src: this.chooseSrc(this.firstToUpperCase(Object.keys(obj)[key]))
-                    });
-                }
-                if (favor.length > 0) {
-                    grpArr.unshift({name: 'Любимые', src: favorites});
-                }
-                grpArr.unshift({name: 'Все жанры', src: all});
+            if (this.state.channels.length>0)
+            {
+                var jCont = this;
+                this.state.channels.forEach(function (e, i)  {
+                    let cat = jCont.firstToUpperCase(e['category']['name']||e['category']);
+                    if (grpArr.find(x=>x.name===cat)===undefined)
+                        grpArr.push({name:cat,src:e['category']['icon']||jCont.chooseSrc(cat)});
+                                                             });
+            }
+                if (favor.length > 0)            {
+            grpArr.unshift({name: 'Любимые', src: favorites});
+                                                 }
+            grpArr.unshift({name: 'Все жанры', src: all});
             return grpArr;
                                                 }
         toggleMenuState(menuType = 'left')      {
@@ -221,7 +241,7 @@ class  Menu extends Component                   {
                                 <Categories       visible={this.props.menus.categoryMenuVisible}
                                                   channelVisible={this.props.menus.channelsMenuVisible}
                                                   toggleMenuStateContext={this.toggleMenuState}
-                                                  channels=  {this.props.channels}
+                                                  channels=  {this.state.channels}
                                                   categories={this.parseCategories()}
                                 />
                                 <ChannelList
@@ -236,8 +256,8 @@ class  Menu extends Component                   {
                                     currentProgramId= {getCurrentProgram(this.props.prog).current.id}
                                 />
                             </div>
-                            { !this.props.isOpened?
-                                <div className='menuCenterText'
+                            {       !this.props.isOpened?
+                                    <div className='menuCenterText'
                                      id="menuCenterText">
                                     <div className="shitDiv">
                                     <MenuButton visible={true}/>
@@ -245,21 +265,21 @@ class  Menu extends Component                   {
                                     <img src={this.props.channelImg}
                                          className="imgChannelStyle"/>
                                     <div className="textBlock">
-                                        <div className="upperText">
-                                            {this.props.category}
-                                            <img src={prev_button} width={20} height={20} className="arrowImg"/>
-                                            <span>{this.props.channelNum}{'. '}{this.props.channel}
+                                    <div className="upperText">
+                                    {this.props.category}
+                                    <img src={prev_button} width={20} height={20} className="arrowImg"/>
+                                    <span>{this.props.channelNum}{'. '}{this.props.channel}
                                     </span>
-                                        </div>
-                                        <div className="lowerText">
-                                            {this.props.program ? getCurrentProgram(this.props.program, this.props.channel).title : ''}
-                                        </div>
+                                    </div>
+                                    <div className="lowerText">
+                                    {this.props.program ? getCurrentProgram(this.props.program, this.props.channel).title : ''}
+                                    </div>
                                     </div>
                                     </div>
                                     </div>:null
                              }
-                    </div>
-                    </div>
+                            </div>
+                            </div>
                 );
             else return null
         }
