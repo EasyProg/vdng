@@ -1,3 +1,4 @@
+'use srict';
 import  React, {Component} from 'react';
 import  {connect} from 'react-redux';
 import  {ReactTransitionGroup} from 'react-transition-group';
@@ -120,12 +121,13 @@ class VideoPlayer extends Component     {
                                           }
                                           }
         if (this.hls)                     {
+
                     this.hls.detachMedia();
                     this.hls.destroy();
                     //b.hls.stopLoad();
                     this.hls = new Hls();
                     console.log('hls Created');
-                    this.props.dispatch(networkError(false));
+                    //this.props.dispatch(networkError(false));
                                           }
             // if (this.props.networkError)  {
             //     this.int = setInterval(
@@ -171,7 +173,8 @@ class VideoPlayer extends Component     {
                         case Hls.ErrorTypes.NETWORK_ERROR:
                         {   console.log('Network error , try to reload...');
                             //funcCnt.hls.startLoad();
-                            funcCnt.props.dispatch(networkError(true));
+                            funcCnt.props.dispatch(networkError(true))
+                            funcCnt.hls.stopLoad();
                         }
                             break;
                         case Hls.ErrorTypes.MEDIA_ERROR:
@@ -361,11 +364,11 @@ class VideoPlayer extends Component     {
         }
     }
     componentDidUpdate() {
+    this.props.dispatch(networkError(false));
     this.videoOnLoad ();
     }
-    render()                            {
-        //this.videoOnLoad();
-        return                          (
+    render()                                {
+        return                              (
             <div                 ref=         {(dv)=>this.div=dv}
                                  className="centerDiv" id="centerDiv">
                 <Video           isPlaying  = {this.props.isPlaying}
@@ -376,8 +379,7 @@ class VideoPlayer extends Component     {
                                  onMouseMove= {e=>this.menuFullScreenAppears()}
                                  onDblClick = {e=>this.changeSize()}
                                  isOpened   = {this.props.isOpened}
-                                 //networkError={this.state.networkError}
-                                 ratio=       {this.state.ratio}
+                                 ratio      =       {this.state.ratio}
                                  videoOnLoadContext = {this.videoOnLoad}
                 />
                 <VideoUpperMenu  isPlaying={this.props.isPlaying}
@@ -415,7 +417,7 @@ export default connect                          (
         fullScreen:           state.videoReducer.fullScreen,
         isOpened:             state.menuReducer.isOpened,
         isVisible:            state.menuReducer.elemsVisible,
-        networkError:         state.videoReducer.networkError
+        //networkError:         state.videoReducer.networkError
                                                  }),
     mapDispatchToProps
 )(VideoPlayer);

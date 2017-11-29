@@ -1422,7 +1422,7 @@ hr {
 .programName_hover {
   padding-top: 2px;
   padding-bottom: 2px;
-  height: 90%;
+  height: auto;
   left: 0;
   display: flex;
   flex-direction: row;
@@ -1618,8 +1618,8 @@ hr {
   position: absolute;
   width: 30vw;
   min-width: 300px;
-  height: 101vh;
-  min-height: 700px;
+  height: 100vh;
+  min-height: 480px;
   background: rgba(0, 0, 0, 0.8);
   transition: min-width 0.5s ease;
   -webkit-transition: min-width 0.5s ease; }
@@ -1627,7 +1627,7 @@ hr {
 .twoMenuContainer {
   width: 60vw;
   min-width: 600px;
-  min-height: 700px;
+  min-height: 480px;
   transition: min-width 0.5s ease; }
 
 * {

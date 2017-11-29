@@ -15,10 +15,10 @@
   position:absolute;
   width:30vw;
   min-width:300px;
-  height:101vh;
+  height:100vh;
   //height: auto;
   //min-height:auto;
-  min-height: 700px;
+  min-height: 480px;
   background: rgba(0,0,0,0.8);
   transition: min-width 0.5s ease;
   -webkit-transition:min-width 0.5s ease;
@@ -30,6 +30,6 @@
   width:60vw;
   min-width:600px;
   //min-height:500
-  min-height: 700px;
+  min-height: 480px;
   transition: min-width 0.5s ease;
 }

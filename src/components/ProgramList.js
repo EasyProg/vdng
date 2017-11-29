@@ -72,8 +72,6 @@ class ProgramList extends Component
     }
     disableFocus()                      {
         $('#programlist').focus();
-        //this.setState({itemChosen:-1});
-        //console.log('disbleFocus');
     }
     switchProgram(param='next',chosen)  {
         var items = $('.programListItem,.programListItemChosen');
@@ -93,10 +91,11 @@ class ProgramList extends Component
             this.runningString('focus');
 
         }
-    }
+                                        }
     getDayOfWeek (dt)                   {
         //var date_parse = new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,dt.substr(0,2).indexOf('.')===-1?dt.substr(0,2):dt.substr(0,1));
-        var date_parse = dt.substr(0,2).indexOf('.')===1?new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,dt.substr(0,1)):new Date(dt.substr(6,4),Number(dt.substr(3,2))-1,dt.substr(0,2));
+        var date_parse = dt.substr(0,2).indexOf('.')===1?new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,
+            dt.substr(0,1)):new Date(dt.substr(6,4),Number(dt.substr(3,2))-1,dt.substr(0,2));
         switch (date_parse.getDay())    {
             case 0 : return 'Неділя';
                 break;
@@ -180,7 +179,7 @@ class ProgramList extends Component
                     {/*<div className="menuHeaderCh">*/}
                     {/*<HomeButton visible={true}/>*/}
                     {/*</div>*/}
-                    <CustomScroll //onScroll={(e)=>this.setState({itemChosen:-1})}
+                    <CustomScroll
                     >
                         {this.props.programs.map((e,i)=>
                             <div className="blockChainDiv" key={i} tabIndex={1}>
@@ -195,7 +194,7 @@ class ProgramList extends Component
                                     <hr className="hrProgram"/>
                                 </div>
                                 <div className="dayListItem" tabIndex={1}>
-                                    {
+                                        {
                                         this.props.programs[i]['data'].map
                                         (
                                             (elem,i)=>
@@ -205,7 +204,6 @@ class ProgramList extends Component
                                                         onMouseOver={(e)=>this.runningString('hover')}
                                                         onMouseLeave={(e)=>this.stopRun()}
                                                         onKeyDown={(e)=>this.handleKey(e,elem)}
-                                                        //onFocus={this.runningString('focus')}
                                                 >
                                                 <div className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),
                                                 elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}
@@ -215,7 +213,7 @@ class ProgramList extends Component
                                                 </div>
                                                 </div>
                                         )
-                                    }
+                                        }
                                 </div>
                             </div>
                         )}
@@ -228,7 +226,7 @@ class ProgramList extends Component
     const mapDispatchToProps = (dispatch) =>
     bindActionCreators({
         dispatch,setMenusVisible
-    }, dispatch);
+    },  dispatch);
     export default connect              (
     state =>                        ({menus:state.menuReducer.menus}),
     mapDispatchToProps
