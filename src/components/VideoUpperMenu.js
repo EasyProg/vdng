@@ -105,6 +105,7 @@ class VideoUpperMenu extends Component                         {
                     ));
                 else if (!this.state.isOpened) {
                     $("#vduppermenu,#vdbottommenu").fadeIn(100);
+                    $('#playpause').focus();
                     this.props.toggleContext(this.props.isPlaying);
                 }
                 break;

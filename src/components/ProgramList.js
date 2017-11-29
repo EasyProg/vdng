@@ -7,6 +7,7 @@ import CustomScroll from './ui/CustomScroll';
 import {connect} from 'react-redux';
 import {setMenusVisible} from '../actions/actions';
 import {bindActionCreators} from 'redux';
+import ProgramItem from './ProgramItem';
 class ProgramList extends Component
                                         {
     constructor(props)                  {
@@ -92,8 +93,42 @@ class ProgramList extends Component
 
         }
                                         }
+                                            runningString(param)                {
+                                                if (param==='hover')            {
+                                                    var str =     $('.programName_hover:hover');
+                                                    var strCont = $('.programName:hover');
+                                                }
+                                                if (param==='focus')            {
+                                                    this.stopRun();
+                                                    var str =     $('.programListItem:focus>.programName>.programName_hover');
+                                                    var strCont = $('.programListItem:focus>.programName');
+                                                }
+                                                if (param==='focusChosen')      {
+                                                    this.stopRun();
+                                                    var str =     $('.programListItemChosen:focus>.programName>.programName_hover');
+                                                    var strCont = $('.programListItemChosen:focus>.programName');
+                                                }
+                                                var width = str.width();
+                                                var con_w = str.css('left');
+
+                                                function run ()                 {
+                                                    var con_len = parseInt(con_w) - (width - strCont.width());
+                                                    str.animate
+                                                    ({left:con_len + 'px'},
+                                                        {duration: 3000,
+                                                            complete: function ()
+                                                            {
+                                                                str.css('left',con_w);
+                                                                //run();
+                                                            }});                }
+                                                if (width>strCont.width())
+                                                {
+                                                    run();
+                                                }}
+                                            stopRun ()                          {
+                                                $('.programName_hover').stop(true,true);
+                                            }
     getDayOfWeek (dt)                   {
-        //var date_parse = new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,dt.substr(0,2).indexOf('.')===-1?dt.substr(0,2):dt.substr(0,1));
         var date_parse = dt.substr(0,2).indexOf('.')===1?new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,
             dt.substr(0,1)):new Date(dt.substr(6,4),Number(dt.substr(3,2))-1,dt.substr(0,2));
         switch (date_parse.getDay())    {
@@ -114,41 +149,6 @@ class ProgramList extends Component
 
                                         }
 
-                                        }
-    runningString(param)                {
-        if (param==='hover')            {
-            var str =     $('.programName_hover:hover');
-            var strCont = $('.programName:hover');
-                                        }
-        if (param==='focus')            {
-            this.stopRun();
-            var str =     $('.programListItem:focus>.programName>.programName_hover');
-            var strCont = $('.programListItem:focus>.programName');
-                                        }
-        if (param==='focusChosen')      {
-            this.stopRun();
-            var str =     $('.programListItemChosen:focus>.programName>.programName_hover');
-            var strCont = $('.programListItemChosen:focus>.programName');
-                                        }
-        var width = str.width();
-        var con_w = str.css('left');
-
-        function run ()                 {
-            var con_len = parseInt(con_w) - (width - strCont.width());
-            str.animate
-            ({left:con_len + 'px'},
-                {duration: 3000,
-                    complete: function ()
-                    {
-                        str.css('left',con_w);
-                        //run();
-                    }});                }
-        if (width>strCont.width())
-        {
-            run();
-        }}
-    stopRun ()                          {
-        $('.programName_hover').stop(true,true);
                                         }
     componentWillReceiveProps(nextProps){
         this.setState({itemChosen:nextProps.currentProgramId-1});
@@ -176,9 +176,6 @@ class ProgramList extends Component
                      onMouseOver={e=>this.disableFocus()}
                      onFocus={e=>this.runningString('focusChosen')}
                 >
-                    {/*<div className="menuHeaderCh">*/}
-                    {/*<HomeButton visible={true}/>*/}
-                    {/*</div>*/}
                     <CustomScroll
                     >
                         {this.props.programs.map((e,i)=>
@@ -193,27 +190,31 @@ class ProgramList extends Component
                                     {this.getDayOfWeek(e.date)}</span>
                                     <hr className="hrProgram"/>
                                 </div>
-                                <div className="dayListItem" tabIndex={1}>
+                                <div className="dayListItem" tabIndex={1} key={i}>
                                         {
                                         this.props.programs[i]['data'].map
                                         (
                                             (elem,i)=>
-                                                <div    key={i}
-                                                        tabIndex={i}
-                                                        className={elem.id===this.props.currentProgramId?"programListItemChosen":"programListItem"}
-                                                        onMouseOver={(e)=>this.runningString('hover')}
-                                                        onMouseLeave={(e)=>this.stopRun()}
-                                                        onKeyDown={(e)=>this.handleKey(e,elem)}
-                                                >
-                                                <div className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),
-                                                elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}
-                                                </div>
-                                                <div className="programName">
-                                                <span className="programName_hover">{elem.title}</span>
-                                                </div>
-                                                </div>
+                                                <ProgramItem item={elem} index={i}
+                                                             onKeyDown={(e)=>this.handleKey(e,elem)}
+                                                             currentProgramId={this.props.currentProgramId}
+                                                />
                                         )
                                         }
+                                                {/*<div    key={i}*/}
+                                                        {/*tabIndex={i}*/}
+                                                        {/*className={elem.id===this.props.currentProgramId?"programListItemChosen":"programListItem"}*/}
+                                                        {/*onMouseOver={(e)=>this.runningString('hover')}*/}
+                                                        {/*onMouseLeave={(e)=>this.stopRun()}*/}
+                                                        {/*onKeyDown={(e)=>this.handleKey(e,elem)}*/}
+                                                {/*>*/}
+                                                {/*<div className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),*/}
+                                                {/*elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}*/}
+                                                {/*</div>*/}
+                                                {/*<div className="programName">*/}
+                                                {/*<span className="programName_hover">{elem.title}</span>*/}
+                                                {/*</div>*/}
+                                                {/*</div>*/}
                                 </div>
                             </div>
                         )}
