@@ -2,8 +2,8 @@
   display: block;
   width: 30vw;
   min-width: 300px;
-  height: 83vh;
-  min-height: 480px;
+  height: 70vh;
+  min-height: 180px;
   position: relative;
   float: right;
   z-index: 2147483641;
@@ -43,7 +43,7 @@
   overflow-x: visible; }
 
 .customMenuScrollDiv, .customMenuScrollDivN {
-  height: 83vh;
+  height: inherit;
   position: relative;
   width: 110%;
   overflow: -moz-scrollbars-none;
@@ -53,13 +53,13 @@
   min-height: inherit; }
 
 .customMenuFirefoxScrollDiv {
-  height: 83vh;
+  height: inherit;
   position: relative;
   width: 110%;
   margin-right: -300px;
   overflow-y: hidden;
   overflow-x: hidden;
-  min-height: inherit; }
+  min-height: 480px; }
 
 .customMenuScrollDivN {
   overflow: hidden;

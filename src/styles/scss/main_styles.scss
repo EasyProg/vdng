@@ -29,14 +29,14 @@ html {
 }
 
 body                 {
-  background: black;
+  background: white;
   outline: 0;
   border: 0;
   overflow: hidden;
   min-height:480px;
   min-width:720px;
   height:auto;
-  width:99vw;
+  width:100vw;
 }
 #root                {
 
@@ -60,6 +60,7 @@ body                 {
 div [data-reactroot] {
   position: relative;
   //height:100vh;
+  min-height:480px;
   height:100%;
   width:100%;
 }
@@ -129,6 +130,7 @@ html, body, .container {
   bottom:0;
   width:100vw;
   position: absolute;
+  min-width:720px;
   background: linear-gradient(to top,rgba(0,0,0,1),rgba(0,0,0,0));
   pointer-events: none;
   z-index:2147483647;
@@ -142,6 +144,7 @@ html, body, .container {
   height:21vh;
   width:100%;
   min-height: 50px;
+  min-width:720px;
   //line-height:2em;
   //display: flex;
   justify-content: center;

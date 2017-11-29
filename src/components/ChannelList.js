@@ -300,7 +300,7 @@ class   ChannelList extends Component               {
     }
     render()                                    {
         //this.switchChannel();
-        if (this.props.playList.length)
+         if (this.props.playList.length)
             return                                          (
                 <div className={this.props.menus.programsVisible?'menuChannelProgram':'menuChannel'}
                      onClick={this.props.onClick} id="channels" tabIndex={1}

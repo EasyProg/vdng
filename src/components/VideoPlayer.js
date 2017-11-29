@@ -45,7 +45,7 @@ class VideoPlayer extends Component     {
                 $('.blockChainDiv').css({"fontSize":'1.4vw'});
                 if  (window.innerWidth<=720)
                 {
-                $('body').css('overflow-x','scroll');
+                $('html').css('overflow-x','scroll');
                 $('.menuChannel').css({"fontSize":'9px'});
                 $('.divCateg').css({"fontSize":'12px'});
                 $('.categoryPanel').css({"fontSize":'9px'});
@@ -54,13 +54,13 @@ class VideoPlayer extends Component     {
                 $('.menuChannelProgram').css({"fontSize":'9px'});
                 $('.blockChainDiv').css({"fontSize":'11px'});
                 }
-                else $('body').css('overflow-x','hidden');
+                else $('html').css('overflow-x','hidden');
                 if (window.innerHeight<=480)
                                                     {
-                $('body').css('overflow-y','auto');
+                $('html').css('overflow-y','scroll');
                                                     }
                 else
-                $('body').css('overflow-y','hidden');
+                $('html').css('overflow-y','hidden');
                 if (window.innerHeight<=720)        {
                 //console.log('Shit');
                 $('.epgShowButton').css({"width":'3.5vh'});

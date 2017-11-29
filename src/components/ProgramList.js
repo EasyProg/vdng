@@ -72,7 +72,7 @@ class ProgramList extends Component
         }
     }
     disableFocus()                      {
-        $('#programlist').focus();
+        //$('#programlist').focus();
     }
     switchProgram(param='next',chosen)  {
         var items = $('.programListItem,.programListItemChosen');
