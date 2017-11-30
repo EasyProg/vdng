@@ -25,13 +25,13 @@ class ProgramList extends Component
         e.stopPropagation();
         switch (e.keyCode)              {
             case 8:                     {
-                this.props.dispatch(setMenusVisible(
+                this.props.dispatch(setMenusVisible (
                     {channelsMenuVisible: false,
                         categoryMenuVisible: false,
                         settingsVisible: false,
                         programsVisible: false
 
-                    },false));
+                    },false ));
                 $('#video').focus();
                                         }
                 break;
@@ -64,8 +64,7 @@ class ProgramList extends Component
                 this.setState({itemChosen:-1});
                 $('.menuItemStyleChosen').focus();
 
-            }
-                //$('#channels').focus();
+                     }
                 break;
             default:
                 break;
@@ -119,7 +118,6 @@ class ProgramList extends Component
                                                             complete: function ()
                                                             {
                                                                 str.css('left',con_w);
-                                                                //run();
                                                             }});                }
                                                 if (width>strCont.width())
                                                 {
@@ -127,7 +125,7 @@ class ProgramList extends Component
                                                 }}
                                             stopRun ()                          {
                                                 $('.programName_hover').stop(true,true);
-                                            }
+                                                                                }
     getDayOfWeek (dt)                   {
         var date_parse = dt.substr(0,2).indexOf('.')===1?new Date(dt.substr(5,4),Number(dt.substr(2,2))-1,
             dt.substr(0,1)):new Date(dt.substr(6,4),Number(dt.substr(3,2))-1,dt.substr(0,2));
@@ -198,23 +196,10 @@ class ProgramList extends Component
                                                 <ProgramItem item={elem} index={i}
                                                              onKeyDown={(e)=>this.handleKey(e,elem)}
                                                              currentProgramId={this.props.currentProgramId}
+                                                             getProgramDetailContext={this.props.getProgramDetailContext}
                                                 />
                                         )
                                         }
-                                                {/*<div    key={i}*/}
-                                                        {/*tabIndex={i}*/}
-                                                        {/*className={elem.id===this.props.currentProgramId?"programListItemChosen":"programListItem"}*/}
-                                                        {/*onMouseOver={(e)=>this.runningString('hover')}*/}
-                                                        {/*onMouseLeave={(e)=>this.stopRun()}*/}
-                                                        {/*onKeyDown={(e)=>this.handleKey(e,elem)}*/}
-                                                {/*>*/}
-                                                {/*<div className="programTime">{elem.start_time_show.substring(elem.start_time_show.indexOf(':'),*/}
-                                                {/*elem.start_time_show.length-1).length===1?elem.start_time_show+'0':elem.start_time_show}*/}
-                                                {/*</div>*/}
-                                                {/*<div className="programName">*/}
-                                                {/*<span className="programName_hover">{elem.title}</span>*/}
-                                                {/*</div>*/}
-                                                {/*</div>*/}
                                 </div>
                             </div>
                         )}

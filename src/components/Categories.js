@@ -153,8 +153,8 @@ class  Categories extends Component                     {
                      onKeyDown={(e)=>this.switchCateg(e,this.state.category)}>
                     <div className="customMenuFirefoxScrollDiv">
                         <CustomScroll>
-                            {
-                                this.props.categories.map        ((item,i)=>
+                                                        {
+                                this.props.categories.map((item,i)=>
                                         <div className="categoryDiv">
                                         <div key={i} className=      {this.state.itemChosen===i?'categoryItemChosen':'categoryItem'}
                                         onClick={e=>this.handleClick (i,item.name)} tabIndex={i}>
@@ -167,8 +167,8 @@ class  Categories extends Component                     {
                                         </div>
                                         {i===0?<div><img src={underline} height={5} width={400} className='categoryLine'/></div>:null}
                                         </div>
-                                )
-                            }
+                                                         )
+                                                         }
                         </CustomScroll>
                     </div>
                 </div>

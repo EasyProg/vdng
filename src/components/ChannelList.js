@@ -276,34 +276,35 @@ class   ChannelList extends Component               {
         this.setState({itemChosen:false});
     }
     componentDidUpdate(prevProps)               {
-        if  (
+        if
+                                                (
 
-            ((prevProps.channelsMenuVisible!==
+                    ((prevProps.channelsMenuVisible!==
                     this.props.channelsMenuVisible &&this.props.channelsMenuVisible!==
                     false&&this.props.catMenuVisible===false)//||
 
-            )
+                                                )
 
 
-        )
+                                                )
 
-        {
+                                                {
             let chosen = $('.menuItemStyleChosen');
             chosen.focus();
             this.setState({itemChosen:Number(chosen.attr("tabIndex"))});
-        }
+                                                }
         if (this.props.channels.length!==prevProps.channels.length)
         {this.setState({channelId: this.props.channels[0].channelId,itemChosen:this.props.channels[0].channelId});
         this.props.dispatch(changeVideo(this.props.channels[0]));}
-    }
+                                                }
     componentDidMount()                         {
-        // this.setState({channelId: this.props.channels[0].channelId,itemChosen:this.props.channels[0].channelId});
-        // this.props.dispatch(changeVideo(this.props.channels[0]));
+         this.setState({channelId: this.props.channels[0].channelId,itemChosen:this.props.channels[0].channelId});
+         this.props.dispatch(changeVideo(this.props.channels[0]));
     }
     render()                                    {
         //this.switchChannel();
          if (this.props.playList.length)
-            return                                          (
+            return                              (
                 <div className={this.props.menus.programsVisible?'menuChannelProgram':'menuChannel'}
                      onClick={this.props.onClick} id="channels" tabIndex={1}
                      onKeyDown=  {e=>this.handleKey(e)}
@@ -315,7 +316,6 @@ class   ChannelList extends Component               {
                         {this.props.playList.map(  (elem, i) =>
                             <Channel
                                 key=                {i}
-
                                 img=                {elem.img}
                                 channelNum      =   {elem.channelNum}
                                 channelId       =   {elem.channelId}

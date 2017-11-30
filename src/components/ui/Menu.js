@@ -28,17 +28,19 @@ import getCurrentProgram from '../../components/workingDate';
 import newParse from '../../components/parseFromJson';
 import multidisciplinary from '../../img/categ/multidisciplinary.svg';
 import ProgramList from '../../components/ProgramList';
+import DetailView from '../../components/ui/DetailView';
 import {setMenusVisible,getChannels,receiveData,setProgram,setElemsVis} from '../../actions/actions';
 //import images
 class  Menu extends Component                   {
-    constructor(props)                          {
+        constructor(props)                      {
         super(props);
         this.toggleMenuState = this.toggleMenuState.bind(this);
         this.parseCategories = this.parseCategories.bind(this);
         this.getPrograms = this.getPrograms.bind(this);
         this.menuWidthChange = this.menuWidthChange.bind(this);
         this.categVisible = this.categVisible.bind(this);
-        this.state = ({channels:[]});
+        this.getProgramDetail = this.getProgramDetail.bind(this);
+        this.state = ({channels:[],details:{}});
                                                 }
         getJsonChannels(url)                    {
             //this.setState({channels:parse(hlsArray)});
@@ -101,8 +103,8 @@ class  Menu extends Component                   {
             var repeat = setInterval(this.getPrograms("https://cdnua02.hls.tv/epg/"+parsed+'/channels.json'),43200000);
                                                 }
         firstToUpperCase( str )                 {
-            return str.substr(0, 1).toUpperCase() + str.substr(1);
-        }
+        return str.substr(0, 1).toUpperCase() + str.substr(1);
+                                                }
         chooseSrc(categoryName)                 {
             switch (categoryName)               {
                 case 'Фильмы': return films;
@@ -155,14 +157,24 @@ class  Menu extends Component                   {
                     }
                 });
             }
+            var jCont = this;
             if (this.state.channels.length>0)
             {
-                var jCont = this;
+                //var jCont = this;
                 this.state.channels.forEach(function (e, i)  {
                     let cat = jCont.firstToUpperCase(e['category']['name']||e['category']);
                     if (grpArr.find(x=>x.name===cat)===undefined)
                         grpArr.push({name:cat,src:e['category']['icon']||jCont.chooseSrc(cat)});
                                                              });
+            }
+            else if (this.props.channels.length>0)
+            {
+                //var jCont = this;
+                this.props.channels.forEach(function (e, i)  {
+                    let cat = jCont.firstToUpperCase(e['category']['name']||e['category']);
+                    if (grpArr.find(x=>x.name===cat)===undefined)
+                        grpArr.push({name:cat,src:e['category']['icon']||jCont.chooseSrc(cat)});
+                });
             }
             //myfavor.find(x=>x.id ===item.channelId)
             if (favor.length > 0&&this.props.channels.find(x=>x.channelId === favor[0]['id']))
@@ -171,7 +183,7 @@ class  Menu extends Component                   {
                                                  }
             grpArr.unshift({name: 'Все жанры', src: all});
             return grpArr;
-                                                }
+                                                 }
         toggleMenuState(menuType = 'left')      {
             //e.stopPropagation();
             //console.log('Event Log');
@@ -233,48 +245,59 @@ class  Menu extends Component                   {
 
             }
         }
-        render()                                {
+        getProgramDetail(details,title)          {
+        this.setState({detail:details,title:title});
+                                                 }
+
+
+        render()                                 {
             if  (this.props.autoPlay)
-                return  (
-                    <div                id="menu"
-                                        className="mainMenuDiv">
-                            <div
-                            className="menuDives"
-                            onMouseEnter={e=>this.props.dispatch(setElemsVis(true))}
-                            onMouseLeave={e=>this.props.dispatch(setElemsVis(false))}>
-                            <div className={this.menuWidthChange()}>
-                                <CategoryName     visible ={this.props.menus.categoryMenuVisible||this.props.menus.channelsMenuVisible}
-                                                  categ   ={this.props.category}
-                                                  categVisibleContext = {this.categVisible}
-                                                  reversed={!this.props.menus.categoryMenuVisible?true:false}
-                                />
-                                <Categories       visible={this.props.menus.categoryMenuVisible}
-                                                  channelVisible={this.props.menus.channelsMenuVisible}
-                                                  toggleMenuStateContext={this.toggleMenuState}
-                                                  channels=  {this.state.channels}
-                                                  categories={this.parseCategories()}
-                                />
-                                <ChannelList
-                                    playList={this.props.channels.length===0?this.state.channels:this.props.channels}
-                                    category={this.props.category}
-                                    visibleSetContext={this.toggleMenuState}
-                                    tabIndex={1}
-                                />
-                                <ProgramList
-                                    visible         = {this.props.menus.programsVisible}
-                                    programs        = {this.props.programs}
-                                    currentProgramId= {getCurrentProgram(this.props.prog).current.id}
-                                    currentIndex=     {getCurrentProgram(this.props.prog).index}
-                                />
-                            </div>
-                            {       !this.props.isOpened?
+                 return                          (
+                                    <div id="menu"
+                                    className="mainMenuDiv">
+                                    <div
+                                    className="menuDives"
+                                    onMouseEnter={e=>this.props.dispatch(setElemsVis(true))}
+                                    onMouseLeave={e=>this.props.dispatch(setElemsVis(false))}>
+                                    <div className={this.menuWidthChange()}>
+                                    <CategoryName     visible ={this.props.menus.categoryMenuVisible||this.props.menus.channelsMenuVisible}
+                                                      categ   ={this.props.category}
+                                                      categVisibleContext = {this.categVisible}
+                                                      reversed={!this.props.menus.categoryMenuVisible?true:false}
+                                    />
+                                    <Categories       visible={this.props.menus.categoryMenuVisible}
+                                                      channelVisible={this.props.menus.channelsMenuVisible}
+                                                      toggleMenuStateContext={this.toggleMenuState}
+                                                      channels=  {this.state.channels.length===0?this.props.channels:this.state.channels}
+                                                      categories={this.parseCategories()}
+                                    />
+                                    <ChannelList
+                                                      playList={this.props.channels.length===0?this.state.channels:this.props.channels}
+                                                      category={this.props.category}
+                                                      visibleSetContext={this.toggleMenuState}
+                                                      tabIndex={1}
+                                    />
+                                    <ProgramList
+                                                      visible         = {this.props.menus.programsVisible}
+                                                      programs        = {this.props.programs}
+                                                      currentProgramId= {getCurrentProgram(this.props.prog).current.id}
+                                                      currentIndex=     {getCurrentProgram(this.props.prog).index}
+                                                      getProgramDetailContext={this.getProgramDetail}
+
+                                    />
+                                    <DetailView       visible={this.props.menus.detailMenuVisible}
+                                                      detail= {this.state.detail}
+                                                      title=  {this.state.title}
+                                    />
+                                    </div>
+                                    {!this.props.isOpened?
                                     <div className='menuCenterText'
                                      id="menuCenterText">
                                     <div className="shitDiv">
                                     <MenuButton visible={true}/>
                                     {/*visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>*/}
                                     <img src={this.props.channelImg}
-                                         className="imgChannelStyle"/>
+                                    className="imgChannelStyle"/>
                                     <div className="textBlock">
                                     <div className="upperText">
                                     {this.props.category}
@@ -288,15 +311,15 @@ class  Menu extends Component                   {
                                     </div>
                                     </div>
                                     </div>:null
-                             }
-                            </div>
-                            </div>
+                                    }
+                                    </div>
+                                    </div>
                 );
             else return null
         }
                                                 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators
+        const mapDispatchToProps = (dispatch) => bindActionCreators
                                                 ({
         dispatch,
         setMenusVisible,
@@ -304,9 +327,9 @@ const mapDispatchToProps = (dispatch) => bindActionCreators
         receiveData,
         setProgram,
         setElemsVis
-    }, dispatch);
-export default connect                          (
-    state =>                                    ({
+        }, dispatch);
+        export default connect                      (
+        state =>                                    ({
         fullScreen:state.videoReducer.fullScreen,
         channel:   state.videoReducer.video.channel,
         channels:  state.channelReducer.channels,
@@ -321,6 +344,6 @@ export default connect                          (
         isParentControl:
         state.settingsReducer.parentalControl,
         autoPlay:  state.videoReducer.autoPlay
-                                                }),
-    mapDispatchToProps
-                                                )(Menu);
+                                                    }),
+        mapDispatchToProps
+                                                    )(Menu);

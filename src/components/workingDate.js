@@ -16,10 +16,10 @@ export default function getCurrentProgram (arr,channelName)
                                              }
         );
         if (currentObj[0])  {
-            timeAfter = delta - currentObj[0]['start_at'];
-            timeLeft = currentObj[0]['stop_at'] - delta;
-            programTime = currentObj[0]['stop_at'] - currentObj[0]['start_at'];
-            var position = (timeAfter / (timeLeft + timeAfter)) * 100;
+                timeAfter = delta - currentObj[0]['start_at'];
+                timeLeft = currentObj[0]['stop_at'] - delta;
+                programTime = currentObj[0]['stop_at'] - currentObj[0]['start_at'];
+                var position = (timeAfter / (timeLeft + timeAfter)) * 100;
             //currentObj
             return          {
                 startTime: currentObj[0]['start_at'],

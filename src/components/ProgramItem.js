@@ -47,13 +47,14 @@ class ProgramItem extends Component {
         $('.programName_hover').stop(true,true);
     }
     makeDetailVisible() {
+        this.props.getProgramDetailContext(this.props.item.detail,this.props.item.title);
         this.props.dispatch(setMenusVisible
         ({
             channelsMenuVisible:true,
             programsVisible:true,
             detailMenuVisible:true
         },true));
-    }
+            }
  render () {
     return (
         <div    key={this.props.index}
