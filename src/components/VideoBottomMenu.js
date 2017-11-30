@@ -73,21 +73,24 @@ class VideoBottomMenu extends Component
         return f
 
                                         }
-    filterChannels(channels,category)   {
+    filterChannels(channels,category)                   {
         var cat = category?category.toString():'All channels';
+        if (localStorage["myfavor"])
+            var myfavor = $.parseJSON(localStorage["myfavor"])||[];
         let filteredChannels = [];
-        if   (channels)
-        {
+        if  (channels)                                  {
             filteredChannels =  channels.filter(function(item)
             {
-                if (cat !==  'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
-                return       item.category.toUpperCase() === cat.toUpperCase();
-                else if      (cat ==='Любимые') return item.channelId && localStorage.getItem(item.channelId);
+                let categ =  item.category.name ? item.category.name:item.category;
+                if (cat !== 'Все жанры'&&cat !=='Locked'&&cat!=='undefined'&&cat!=='Любимые')
+                    return       categ.toUpperCase() === cat.toUpperCase();
+                else if      (cat ==='Любимые') return item.channelId && myfavor.find(x=>x.id ===item.channelId);
                 else return  item.category
             })
         }
         this.props.dispatch(getChannels(filteredChannels));
-                                        };
+        return filteredChannels;
+    };
     toggleFavorite()                    {
     var myfavor = [];
     if (localStorage["myfavor"])

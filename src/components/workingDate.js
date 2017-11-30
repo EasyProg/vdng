@@ -5,9 +5,12 @@ export default function getCurrentProgram (arr,channelName)
     let timeAfter = 0;
     let timeLeft = 0;
     let programTime = 0;
+    let index = 0;
     if (arr)                {
         currentObj = arr.filter((item, i) => {
                 //
+            if (item['start_at'] < delta && item['stop_at'])
+                index = i;
                 //Определяем дельту
                 return item['start_at'] < delta && item['stop_at'] > delta;
                                              }
@@ -23,7 +26,8 @@ export default function getCurrentProgram (arr,channelName)
                 prTime: programTime,
                 current: currentObj[0],
                 progressValue: position,
-                title:currentObj[0].title
+                title:currentObj[0].title,
+                index:index
                             }
                             }
         else return         {

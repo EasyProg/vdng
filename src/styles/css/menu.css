@@ -3,7 +3,7 @@
   width: 30vw;
   min-width: 300px;
   height: 70vh;
-  min-height: 180px;
+  min-height: 280px;
   position: relative;
   float: right;
   z-index: 2147483641;
@@ -59,7 +59,7 @@
   margin-right: -300px;
   overflow-y: hidden;
   overflow-x: hidden;
-  min-height: 480px; }
+  min-height: 280px; }
 
 .customMenuScrollDivN {
   overflow: hidden;

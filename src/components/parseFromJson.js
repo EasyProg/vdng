@@ -9,6 +9,7 @@ function newParse(arr)
                 channels.push
                         (
                         {
+                        channelNum:e['key'],
                         channelId: e['id'],
                         channel: e['name'],
                         link: e['link'],

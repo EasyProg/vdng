@@ -78,8 +78,16 @@ class VideoPlayer extends Component     {
                 $('.tvimg').css({"width":'5.5vw'});
                 $('.tvimg').css({"height":'5vw'})
                                                     }
+                if (window.innerHeight<=600)        {
+                $('.menuChannel').css({"height":'70vh'});
+                $('.programList').css({"height":'70vh'});
                                                     }
-    componentDidMount()                 {
+                if (window.innerHeight>=600)        {
+                $('.menuChannel').css({"height":'80vh'});
+                $('.programList').css({"height":'80vh'});
+                                                    }
+                                                    }
+    componentDidMount()                             {
                 //this.videoOnLoad ();
                 var f = this;
                 $(document).ready(function()        {
@@ -93,8 +101,6 @@ class VideoPlayer extends Component     {
                                                     }
     toggle(isPlaying)                   {
                     var  vd = document.getElementById('video');
-                    //this.video.video;
-                    //console.log(vd);
                     this.props.dispatch(togglePlay(isPlaying));
                     if (isPlaying)                  {
                         vd.play();
@@ -102,7 +108,6 @@ class VideoPlayer extends Component     {
                                                     }
                     else {
                         vd.pause();
-                        //hls.stopLoad();
                     }
 
                                                     }
@@ -126,29 +131,12 @@ class VideoPlayer extends Component     {
                     this.hls.destroy();
                     //b.hls.stopLoad();
                     this.hls = new Hls();
-                    console.log('hls Created');
-                    //this.props.dispatch(networkError(false));
                                           }
-            // if (this.props.networkError)  {
-            //     this.int = setInterval(
-            //         function () {
-            //             if (this.hls) {
-            //                 this.hls.detachMedia();
-            //                 this.hls.destroy();
-            //                 //b.hls.stopLoad();
-            //                 this.hls = new Hls();
-            //                 console.log('hls Created');
-            //                 this.props.dispatch(networkError(false));
-            //             }
-            //         }, 5000);
-            //                               }
             if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
             {
             this.hls.loadSource(this.props.video.link);
             console.log(this.props.video.link);
             this.hls.attachMedia(vd);
-            //this.props.dispatch(networkError(false));
-            //this.hls.startLoad();
             this.hls.on(Hls.Events.MANIFEST_PARSED,
                 function ()
                 {

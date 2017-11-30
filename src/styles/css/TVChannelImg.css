@@ -43,10 +43,15 @@
   margin-right: 20px; }
 
 .pname_hover {
-  position: absolute; }
+  position: absolute;
+  top: 0;
+  bottom: 10px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
 .pname_hover:hover {
-  margin: auto;
   top: 0;
   bottom: 10px;
   display: flex;

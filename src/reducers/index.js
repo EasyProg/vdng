@@ -40,6 +40,7 @@ const   menuState =    {
     menus:             {
     channelsMenuVisible:false,
     categoryMenuVisible:false,
+    detailMenuVisible:false,
     programsVisible:false,
     settingsVisible:false,
     vdArchVisible:false

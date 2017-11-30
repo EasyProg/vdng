@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 import * as $ from 'jquery';
-export default class ProgramItem extends Component {
+import '../styles/css/main_styles.css';
+import point_right from '../img/arrow-pointing-to-right.gif';
+import {bindActionCreators} from 'redux';
+import {setMenusVisible} from '../actions/actions';
+import {connect} from 'react-redux';
+class ProgramItem extends Component {
     constructor(params) {
       super(params);
+      this.makeDetailVisible = this.makeDetailVisible.bind(this);
       //this.
-    }
-    runningString(param)                {
+                        }
+    runningString(param){
         if (param==='hover')            {
             var str =     $('.programName_hover:hover');
             var strCont = $('.programName:hover');
@@ -37,8 +43,16 @@ export default class ProgramItem extends Component {
         {
             run();
         }}
-    stopRun ()                          {
+    stopRun ()          {
         $('.programName_hover').stop(true,true);
+    }
+    makeDetailVisible() {
+        this.props.dispatch(setMenusVisible
+        ({
+            channelsMenuVisible:true,
+            programsVisible:true,
+            detailMenuVisible:true
+        },true));
     }
  render () {
     return (
@@ -53,9 +67,20 @@ export default class ProgramItem extends Component {
                 this.props.item.start_time_show.length-1).length===1?this.props.item.start_time_show+'0':this.props.item.start_time_show}
             </div>
             <div className="programName">
-                <span className="programName_hover">{this.props.item.title}</span>
+                <div className="programName_hover">{this.props.item.title}</div>
             </div>
+            {this.props.item.detail?<img src={point_right} className="imageArrow" onClick={(e)=>this.makeDetailVisible()}/>:null}
         </div>
     )
  }
 }
+
+
+const mapDispatchToProps = (dispatch) =>
+    bindActionCreators({
+    dispatch,setMenusVisible
+    },  dispatch);
+export default connect  (
+    state => ({}),
+    mapDispatchToProps
+)(ProgramItem);

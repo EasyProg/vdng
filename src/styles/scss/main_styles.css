@@ -4,7 +4,7 @@
   width: 30vw;
   min-width: 300px;
   height: 70vh;
-  min-height: 180px;
+  min-height: 280px;
   position: relative;
   float: right;
   z-index: 2147483641;
@@ -60,7 +60,7 @@
   margin-right: -300px;
   overflow-y: hidden;
   overflow-x: hidden;
-  min-height: 480px; }
+  min-height: 280px; }
 
 .customMenuScrollDivN {
   overflow: hidden;
@@ -1039,10 +1039,15 @@ hr {
   margin-right: 20px; }
 
 .pname_hover {
-  position: absolute; }
+  position: absolute;
+  top: 0;
+  bottom: 10px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
 .pname_hover:hover {
-  margin: auto;
   top: 0;
   bottom: 10px;
   display: flex;
@@ -1302,6 +1307,7 @@ hr {
   align-items: center; }
 
 .nonPlayingDiv {
+  pointer-events: none;
   align-self: center;
   width: 100vw;
   height: 100vh;
@@ -1337,17 +1343,21 @@ hr {
   top: 50vh;
   letter-spacing: 1px; }
 
-.programList, .programListNone {
+.programList, .programListLeft, .programListNone {
   display: block;
-  height: 50vh;
+  height: 80vh;
   position: relative;
   float: right;
   margin-left: 10px;
   width: 27vw;
   min-width: 270px;
-  min-height: 480px;
+  min-height: 330px;
   pointer-events: auto;
   top: 0; }
+
+.programListLeft {
+  float: left;
+  margin-left: 40px; }
 
 .programListNone {
   width: 0;
@@ -1420,9 +1430,8 @@ hr {
   margin-left: 1vw; }
 
 .programName_hover {
-  padding-top: 2px;
-  padding-bottom: 2px;
-  height: auto;
+  position: relative;
+  height: 100%;
   left: 0;
   display: flex;
   flex-direction: row;
@@ -1613,12 +1622,12 @@ hr {
   transition: min-width 0.3s ease;
   -webkit-transition: min-width 0.5s ease; }
 
-.menuContainer, .twoMenuContainer {
+.menuContainer, .twoMenuContainer, .threeMenuContainer {
   top: 0;
   position: absolute;
   width: 30vw;
   min-width: 300px;
-  height: 100vh;
+  height: 103vh;
   min-height: 480px;
   background: rgba(0, 0, 0, 0.8);
   transition: min-width 0.5s ease;
@@ -1629,6 +1638,43 @@ hr {
   min-width: 600px;
   min-height: 480px;
   transition: min-width 0.5s ease; }
+
+.threeMenuContainer {
+  width: 100vw;
+  min-width: 1000px;
+  min-height: 480px;
+  transition: min-width 0.5s ease; }
+
+.imageArrow {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 10px; }
+
+.detailEpgView {
+  display: block;
+  width: 40vw;
+  height: 80vh;
+  min-width: 400px;
+  min-height: 380px;
+  z-index: 2147483641;
+  pointer-events: auto;
+  font-family: "ComfortaaRegular";
+  font-size: 1vw; }
+
+.divForEpgImages {
+  position: relative;
+  height: 50%;
+  display: block;
+  width: 100%; }
+
+.divForSmallEpgImages {
+  height: 30%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
 
 * {
   outline: 0;

@@ -6,7 +6,7 @@
   width:30vw;
   min-width:300px;
   height:70vh;
-  min-height: 180px;
+  min-height: 280px;
   //min-height: inherit;
   position: relative;
   float: right;
@@ -75,7 +75,7 @@
   margin-right: -300px;
   overflow-y:hidden;
   overflow-x:hidden;
-  min-height: 480px;
+  min-height: 280px;
 }
 .customMenuScrollDivN {
   @extend .customMenuScrollDiv;

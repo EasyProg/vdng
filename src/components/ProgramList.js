@@ -72,7 +72,7 @@ class ProgramList extends Component
         }
     }
     disableFocus()                      {
-        //$('#programlist').focus();
+        $('#programlist').focus();
     }
     switchProgram(param='next',chosen)  {
         var items = $('.programListItem,.programListItemChosen');
@@ -93,23 +93,23 @@ class ProgramList extends Component
 
         }
                                         }
-                                            runningString(param)                {
-                                                if (param==='hover')            {
-                                                    var str =     $('.programName_hover:hover');
-                                                    var strCont = $('.programName:hover');
-                                                }
-                                                if (param==='focus')            {
-                                                    this.stopRun();
-                                                    var str =     $('.programListItem:focus>.programName>.programName_hover');
-                                                    var strCont = $('.programListItem:focus>.programName');
-                                                }
-                                                if (param==='focusChosen')      {
-                                                    this.stopRun();
-                                                    var str =     $('.programListItemChosen:focus>.programName>.programName_hover');
-                                                    var strCont = $('.programListItemChosen:focus>.programName');
-                                                }
-                                                var width = str.width();
-                                                var con_w = str.css('left');
+        runningString(param)            {
+        if (param==='hover')            {
+        var str =     $('.programName_hover:hover');
+        var strCont = $('.programName:hover');
+        }
+        if (param==='focus')            {
+        this.stopRun();
+        var str =     $('.programListItem:focus>.programName>.programName_hover');
+        var strCont = $('.programListItem:focus>.programName');
+                                        }
+        if (param==='focusChosen')      {
+        this.stopRun();
+        var str =     $('.programListItemChosen:focus>.programName>.programName_hover');
+        var strCont = $('.programListItemChosen:focus>.programName');
+                                        }
+        var width = str.width();
+        var con_w = str.css('left');
 
                                                 function run ()                 {
                                                     var con_len = parseInt(con_w) - (width - strCont.width());
@@ -151,8 +151,7 @@ class ProgramList extends Component
 
                                         }
     componentWillReceiveProps(nextProps){
-        this.setState({itemChosen:nextProps.currentProgramId-1});
-        //console.log(nextProps.currentProgramId-1);
+        this.setState({itemChosen:nextProps.currentIndex});
                                         }
     componentDidUpdate (prevProps,prevState)
                                         {
@@ -163,7 +162,7 @@ class ProgramList extends Component
                                         }
     shouldComponentUpdate(nextProps,nextState)
                                         {
-        if  (this.state.itemChosen!==nextState.itemChosen&&nextState.itemChosen!==nextProps.currentProgramId-1)
+        if  (this.state.itemChosen!==nextState.itemChosen&&nextState.itemChosen!==nextProps.currentIndex)
                                         {
             return false;               }
             else return true
@@ -171,7 +170,8 @@ class ProgramList extends Component
     render()                            {
         if (this.props.programs.length>0&&this.props.menus.programsVisible)
             return                          (
-                <div className="programList" id="programlist"
+                <div className={!this.props.menus.detailMenuVisible?"programList":"programListLeft"}
+                     id="programlist"
                      onKeyDown={(e)=>this.handleKey(e)} tabIndex={1}
                      onMouseOver={e=>this.disableFocus()}
                      onFocus={e=>this.runningString('focusChosen')}

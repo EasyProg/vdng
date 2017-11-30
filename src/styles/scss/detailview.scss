@@ -1,0 +1,45 @@
+.detailEpgView  {
+display: block;
+width:40vw;
+height:80vh;
+min-width:400px;
+min-height:380px;
+z-index:2147483641;
+pointer-events: auto;
+font-family: "ComfortaaRegular";
+font-size:1vw;
+                }
+.divForEpgImages {
+position:relative;
+height: 50%;
+display: block;
+width:100%;
+}
+.divForSmallEpgImages {
+height: 30%;
+position:relative;
+width:100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+
+
+.divForEpgText    {
+
+
+
+}
+
+.headerTextDiv {
+
+}
+
+.textEpgDiv    {
+
+}
+
+.buttonsEpgDiv {
+
+}

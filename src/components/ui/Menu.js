@@ -41,7 +41,8 @@ class  Menu extends Component                   {
         this.state = ({channels:[]});
                                                 }
         getJsonChannels(url)                    {
-            this.setState({channels:parse(hlsArray)});
+            //this.setState({channels:parse(hlsArray)});
+            //this.setState({channels:parse(hlsArray)});
             let context = this;
 
             fetch(url).then(function(response)  {
@@ -95,9 +96,9 @@ class  Menu extends Component                   {
         componentDidMount()                     {
             var href   = document.location.href;
             var parsed = href.substring(href.indexOf('/',10)+1);
-            this.getJsonChannels('https://cdnua01.hls.tv/play/'+parsed+'/list.json');
-            var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
-            //var repeat = setInterval(this.getPrograms("https://cdnua01.hls.tv/epg/"+parsed+'/channels.json'),43200000);
+            this.getJsonChannels('https://cdnua02.hls.tv/play/'+parsed+'/list.json');
+            //var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
+            var repeat = setInterval(this.getPrograms("https://cdnua02.hls.tv/epg/"+parsed+'/channels.json'),43200000);
                                                 }
         firstToUpperCase( str )                 {
             return str.substr(0, 1).toUpperCase() + str.substr(1);
@@ -120,17 +121,17 @@ class  Menu extends Component                   {
                     break;
                 case 'Познавательный':return cognitive;
 
-            }
-        }
+                                                }
+                                                }
         parseCategories   ()                    {
             let grpArr = [];
-            var favor = [];
+            var favor =  [];
             if (localStorage["myfavor"]!==undefined)
             {
             favor = $.parseJSON(localStorage["myfavor"]);
             }
             if (!Array.prototype.find) {
-                Object.defineProperty(Array.prototype, "find", {
+                Object.defineProperty(Array.prototype, "find",{
                     value: function(predicate) {
                         if (this === null) {
                             throw new TypeError('Array.prototype.find called on null or undefined');
@@ -143,12 +144,13 @@ class  Menu extends Component                   {
                         var thisArg = arguments[1];
                         var value;
 
-                        for (var i = 0; i < length; i++) {
+                        for (var i = 0; i < length; i++)
+                            {
                             value = list[i];
                             if (predicate.call(thisArg, value, i, list)) {
                                 return value;
                             }
-                        }
+                            }
                         return undefined;
                     }
                 });
@@ -162,7 +164,9 @@ class  Menu extends Component                   {
                         grpArr.push({name:cat,src:e['category']['icon']||jCont.chooseSrc(cat)});
                                                              });
             }
-                if (favor.length > 0)            {
+            //myfavor.find(x=>x.id ===item.channelId)
+            if (favor.length > 0&&this.props.channels.find(x=>x.channelId === favor[0]['id']))
+            {
             grpArr.unshift({name: 'Любимые', src: favorites});
                                                  }
             grpArr.unshift({name: 'Все жанры', src: all});
@@ -187,6 +191,12 @@ class  Menu extends Component                   {
         menuWidthChange()                       {
             if (this.props.isOpened===false)
                 return  'menuContainerNone';
+            else if  (
+                this.props.menus.channelsMenuVisible&&
+                this.props.menus.programsVisible&&
+                this.props.menus.detailMenuVisible
+            )
+                return  "threeMenuContainer";
             else if   ((this.props.menus.channelsMenuVisible&&
                 !this.props.menus.categoryMenuVisible&&
                 !this.props.menus.programsVisible)||
@@ -196,9 +206,9 @@ class  Menu extends Component                   {
             else if  (
                 this.props.menus.channelsMenuVisible&&
                 (this.props.menus.categoryMenuVisible||
-                    this.props.menus.programsVisible)
+                    this.props.menus.programsVisible)&&!this.props.menus.detailMenuVisible
             )
-                return  "twoMenuContainer"
+                return  "twoMenuContainer";
                                                 }
         categVisible()                          {
             if (this.props.menus.categoryMenuVisible)
@@ -254,6 +264,7 @@ class  Menu extends Component                   {
                                     visible         = {this.props.menus.programsVisible}
                                     programs        = {this.props.programs}
                                     currentProgramId= {getCurrentProgram(this.props.prog).current.id}
+                                    currentIndex=     {getCurrentProgram(this.props.prog).index}
                                 />
                             </div>
                             {       !this.props.isOpened?

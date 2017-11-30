@@ -13,6 +13,7 @@ export default function parseProgram (arr)   {
                     id: e['id'],
                     title: e['title'],
                     description: e['description'],
+                    detail:e['detail'],
                     start_date: startDt,
                     start_time_show: startTime,
                     start_time:e['start_at'],
