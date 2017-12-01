@@ -72,7 +72,7 @@ class  Menu extends Component                   {
                                                 }
                                                 })
                     .catch(function(err)        {
-                    c.props.dispatch(networkError(true));
+                    //c.props.dispatch(networkError(true));
                                                 });
 
                                                 }

@@ -1446,7 +1446,7 @@ hr {
   align-items: center;
   height: 90%;
   left: 0;
-  position: absolute; }
+  position: relative; }
 
 .programListItem:focus > .programName > .programName_hover, .programListItemChosen:focus > .programName > .programName_hover {
   align-self: center;
