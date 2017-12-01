@@ -12,7 +12,6 @@ import hlsArray from '../../hls';
 import MenuButton from '../ui/MenuButton';
 import CategoryName from '../ui/CategoryName';
 import * as $ from 'jquery';
-//Categories
 import all from '../../img/categ/all.svg';
 import inform from '../../img/categ/inform.svg';
 import kids from '../../img/categ/kids.svg';
@@ -29,7 +28,12 @@ import newParse from '../../components/parseFromJson';
 import multidisciplinary from '../../img/categ/multidisciplinary.svg';
 import ProgramList from '../../components/ProgramList';
 import DetailView from '../../components/ui/DetailView';
-import {setMenusVisible,getChannels,receiveData,setProgram,setElemsVis} from '../../actions/actions';
+import {setMenusVisible,
+        getChannels,
+        receiveData,
+        setProgram,
+        setElemsVis,
+        networkError} from '../../actions/actions';
 //import images
 class  Menu extends Component                   {
         constructor(props)                      {
@@ -40,21 +44,22 @@ class  Menu extends Component                   {
         this.menuWidthChange = this.menuWidthChange.bind(this);
         this.categVisible = this.categVisible.bind(this);
         this.getProgramDetail = this.getProgramDetail.bind(this);
-        this.state = ({channels:[],details:{}});
+        this.state = ({channels:this.props.channels,details:{}});
                                                 }
         getJsonChannels(url)                    {
-            //this.setState({channels:parse(hlsArray)});
-            //this.setState({channels:parse(hlsArray)});
+            var c = this;
             let context = this;
 
-            fetch(url).then(function(response)  {
+                    fetch(url).
+                    then(function(response)     {
+                    //alert(response.status);
                     if (response.status !== 200)
                     {
-                        console.log('Looks like it was some error ' + response.status);
+                        console.log('Looks like it was some error !!!!!!!!!!!!!!!!!' + response.status);
                         return;
                     }
-                    if  (response.headers.get("content-type").indexOf("application/json") !== -1)
-                    {
+                    else if  (response.headers.get("content-type").indexOf("application/json") !== -1)
+                                                {
                         response.json().then    (
                             function (data)     {
                                 if (data[0])
@@ -65,8 +70,11 @@ class  Menu extends Component                   {
                                                 }
                                                 );
                                                 }
-                                                }
-                                                )
+                                                })
+                    .catch(function(err)        {
+                    c.props.dispatch(networkError(true));
+                                                });
+
                                                 }
         getPrograms (url)                       {
             var c = this;
@@ -100,7 +108,7 @@ class  Menu extends Component                   {
             var parsed = href.substring(href.indexOf('/',10)+1);
             this.getJsonChannels('https://cdnua02.hls.tv/play/'+parsed+'/list.json');
             //var repeat = setInterval(this.getPrograms("https://dev.hls.tv/epg/get/webplayer?secret=67afdc3ad5b664e5af80ef36e7a9e3d2"),43200000);
-            var repeat = setInterval(this.getPrograms("https://cdnua02.hls.tv/epg/"+parsed+'/channels.json'),43200000);
+            var repeat = setInterval(this.getPrograms("https://cdnua01.hls.tv/epg/"+parsed+'/channels.json'),43200000);
                                                 }
         firstToUpperCase( str )                 {
         return str.substr(0, 1).toUpperCase() + str.substr(1);
@@ -174,7 +182,7 @@ class  Menu extends Component                   {
                     let cat = jCont.firstToUpperCase(e['category']['name']||e['category']);
                     if (grpArr.find(x=>x.name===cat)===undefined)
                         grpArr.push({name:cat,src:e['category']['icon']||jCont.chooseSrc(cat)});
-                });
+                                                             });
             }
             //myfavor.find(x=>x.id ===item.channelId)
             if (favor.length > 0&&this.props.channels.find(x=>x.channelId === favor[0]['id']))
@@ -245,13 +253,13 @@ class  Menu extends Component                   {
 
             }
         }
-        getProgramDetail(details,title)          {
+        getProgramDetail(details,title)         {
         this.setState({detail:details,title:title});
                                                  }
 
 
         render()                                 {
-            if  (this.props.autoPlay)
+                 if  (this.props.autoPlay)
                  return                          (
                                     <div id="menu"
                                     className="mainMenuDiv">
@@ -268,7 +276,7 @@ class  Menu extends Component                   {
                                     <Categories       visible={this.props.menus.categoryMenuVisible}
                                                       channelVisible={this.props.menus.channelsMenuVisible}
                                                       toggleMenuStateContext={this.toggleMenuState}
-                                                      channels=  {this.state.channels.length===0?this.props.channels:this.state.channels}
+                                                      channels=  {this.props.channels.length===0?this.state.channels:this.props.channels}
                                                       categories={this.parseCategories()}
                                     />
                                     <ChannelList
@@ -315,18 +323,19 @@ class  Menu extends Component                   {
                                     </div>
                                     </div>
                 );
-            else return null
-        }
+                else return null
+                }
                                                 }
 
         const mapDispatchToProps = (dispatch) => bindActionCreators
-                                                ({
+                                                    ({
         dispatch,
         setMenusVisible,
         getChannels,
         receiveData,
         setProgram,
-        setElemsVis
+        setElemsVis,
+        networkError
         }, dispatch);
         export default connect                      (
         state =>                                    ({

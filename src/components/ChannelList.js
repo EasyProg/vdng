@@ -19,7 +19,8 @@ import CustomScrollInvis from './ui/CustomScrollInvis';
 import ReactScrollBar from 'react-scrollbar-js';
 import ReactScroll from 'react-scrollbar-js';
 //var    ScrollbarWrapper = require('react-scrollbar');
-class   ChannelList extends Component               {
+//circle navi added
+class   ChannelList extends Component           {
     constructor(props)                          {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -59,7 +60,7 @@ class   ChannelList extends Component               {
     switchChannel(param='next',id,channelid)    {
         var items = $('.menuItemStyle,.menuItemStyleChosen');
         var nextElem = id + 1 >=    items.length ? 0 : id + 1;
-        var prevElem = id - 1 <= 0 ?0 :     id - 1;
+        var prevElem = id - 1 <= 0 ?items.length-1 :   id - 1;
         if (param === 'next' && items[nextElem]){
             items[nextElem].focus();
             this.props.dispatch(setPrograms(parseProgram(this.props.playList[nextElem].program),this.props.playList[nextElem].program));
@@ -326,7 +327,6 @@ class   ChannelList extends Component               {
                                 onClick         =   {e=>this.handleClick(elem,e)}
                                 tabIndex        =   {i}
                                 elemChosen      =   {this.state.itemChosen === i}
-                                //elemChosen      =   {this.state.channelId === elem.channelId}
                                 onKeyDown       =   {e=>this.handleKey(e,elem,i)}
                                 progress        =   {elem.program?getCurrentProgram(elem.program).progressValue===undefined?-1:getCurrentProgram(elem.program).progressValue:-1}
                                 setProgramVisibleContext =   {this.setProgramsVisible}

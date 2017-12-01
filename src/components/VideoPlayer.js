@@ -87,7 +87,7 @@ class VideoPlayer extends Component     {
                 $('.programList').css({"height":'80vh'});
                                                     }
                                                     }
-    componentDidMount()                             {
+    componentDidMount()                 {
                 //this.videoOnLoad ();
                 var f = this;
                 $(document).ready(function()        {
@@ -101,16 +101,21 @@ class VideoPlayer extends Component     {
                                                     }
     toggle(isPlaying)                   {
                     var  vd = document.getElementById('video');
+                    var playPromise = vd.play();
                     this.props.dispatch(togglePlay(isPlaying));
-                    if (isPlaying)                  {
+                    if (isPlaying&&vd.paused)
+                                        {
                         vd.play();
 
-                                                    }
-                    else {
-                        vd.pause();
-                    }
+                                        }
+                    if (!isPlaying&&!vd.paused)
+                                        {
+                        if (playPromise!==undefined)
+                        playPromise.then(_=>{vd.pause()});
+                        //vd.pause();
+                                        }
 
-                                                    }
+                                        }
     changeRes(res)                      {
                 }
     setError(param)                     {
@@ -131,11 +136,11 @@ class VideoPlayer extends Component     {
                     this.hls.destroy();
                     //b.hls.stopLoad();
                     this.hls = new Hls();
+            ;
                                           }
             if  (this.props.video&&navigator.userAgent.search(reg)===-1&&this.props.video.link)
             {
             this.hls.loadSource(this.props.video.link);
-            console.log(this.props.video.link);
             this.hls.attachMedia(vd);
             this.hls.on(Hls.Events.MANIFEST_PARSED,
                 function ()
@@ -153,16 +158,15 @@ class VideoPlayer extends Component     {
                 });
             var funcCnt = this;
             this.hls.on(Hls.Events.ERROR, function
-                (event, data)
+            (event, data)
             {
+                //funcCnt.props.dispatch(networkError(true));
                 {
                     switch (data.type)
                     {
                         case Hls.ErrorTypes.NETWORK_ERROR:
                         {   console.log('Network error , try to reload...');
-                            //funcCnt.hls.startLoad();
-                            funcCnt.props.dispatch(networkError(true))
-                            funcCnt.hls.stopLoad();
+                            funcCnt.props.dispatch(networkError(true));
                         }
                             break;
                         case Hls.ErrorTypes.MEDIA_ERROR:
@@ -405,7 +409,6 @@ export default connect                          (
         fullScreen:           state.videoReducer.fullScreen,
         isOpened:             state.menuReducer.isOpened,
         isVisible:            state.menuReducer.elemsVisible,
-        //networkError:         state.videoReducer.networkError
                                                  }),
     mapDispatchToProps
 )(VideoPlayer);

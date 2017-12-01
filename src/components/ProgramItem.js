@@ -63,6 +63,7 @@ class ProgramItem extends Component {
                 onMouseOver={(e)=>this.runningString('hover')}
                 onMouseLeave={(e)=>this.stopRun()}
                 onKeyDown={this.props.onKeyDown}
+
         >
             <div className="programTime">{this.props.item.start_time_show.substring(this.props.item.start_time_show.indexOf(':'),
                 this.props.item.start_time_show.length-1).length===1?this.props.item.start_time_show+'0':this.props.item.start_time_show}

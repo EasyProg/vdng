@@ -106,13 +106,12 @@ class Video extends Component
                        onClick={this.props.onClick}
                        onMouseMove={this.props.onMouseMove}
                        src={navigator.userAgent.search(/iP(ad|hone|od).+Version\/[\d\.]+.*Safari/i)!== -1?this.props.video.link:''}
-
                         />
-                        {/*{   !this.state.playing&&!this.props.networkError?*/}
-                        {/*<HoldScreen onClick={(e)=>this.handleClick(e)}*/}
-                        {/*onKeyDown={(e)=>this.handleKey(e)}/>*/}
-                        {/*:null*/}
-                        {/*}*/}
+                        {   !this.state.playing&&!this.props.networkError?
+                        <HoldScreen onClick={(e)=>this.handleClick(e)}
+                        onKeyDown={(e)=>this.handleKey(e)}/>
+                        :null
+                        }
                         {
                             this.props.networkError?
                                 <ChannelUnavailable

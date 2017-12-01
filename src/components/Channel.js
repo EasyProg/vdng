@@ -1,6 +1,7 @@
 import React, {Component,PropTypes} from 'react';
 import '../styles/css/main_styles.css';
 import hiddenchannel from '../img/nochannel.png';
+import nochannel from '../img/tv_icon.svg';
 import 'semantic-ui-css/semantic.min.css';
 import book from '../img/bookmark-orange.svg';
 import * as $ from 'jquery';
@@ -28,10 +29,6 @@ export default class Channel extends Component      {
             //console.log(str);
                                    }
         if (param==='focus')       {
-            // if (this.props.chosen) {
-            //     var str =     $('.menuItemStyleChosen:focus>.channelDivName>.staticItem>.menuChannelName>.pname>.pname_hover');
-            //     var strCont = $('.menuItemStyleChosen:focus>.channelDivName>.staticItem>.menuChannelName>.pname');
-            //                        }
                 var str =     $('.menuItemStyle:focus>.channelDivName>.staticItem>.menuChannelName>.pname>.pname_hover');
                 var strCont = $('.menuItemStyle:focus>.channelDivName>.staticItem>.menuChannelName>.pname');
                                    }
@@ -80,7 +77,7 @@ export default class Channel extends Component      {
                 <div className="channelDivName">
                     <div className="staticItem">
                         <span className="spanChannelid">{this.props.channelNum}</span>
-                        <img src={this.props.hiddenChannel?hiddenchannel:this.props.img} className="tvimg"/>
+                        <img src={this.props.img?this.props.img:nochannel} className="tvimg"/>
                         <div className="menuChannelName">
                             <div className="divForFavorite">
                                 {this.props.favorite ? <img className="imgFav" src={book} width={20} height={20}/> : ''}
@@ -105,11 +102,6 @@ export default class Channel extends Component      {
                             <img src={arrow} className="epgArrow"/>
                         </div>
                         :null}
-                    {/*this.props.elemChosen*/}
-                    {/*<div className={(this.state.visible||this.props.elemChosen)&&this.props.progress!==-1?"epgShowButton":"epgShowButtonInvis"} onClick={e=>this.props.setProgramVisibleContext(e,this.props.program)}>*/}
-                    {/*<img src={arrow} width={15} height={15}/>*/}
-                    {/*</div>*/}
-                    {/*</div>*/}
                 </div>
             </div>
         )

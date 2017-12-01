@@ -12,7 +12,9 @@
   background: black;
   font-family: "ComfortaaRegular";
   font-size: 3em;
-  color: white; }
+  color: white;
+  min-height: 480px;
+  min-width: 720px; }
 
 .playHoldImg, .playHoldImg:hover, .playHoldImg:target {
   margin: 0 auto;

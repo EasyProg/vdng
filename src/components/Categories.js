@@ -39,7 +39,7 @@ class  Categories extends Component                     {
                 itemChosen:index,
                 category:cat,
                      });
-        var filtered = this.filterChannels(this.props.channels,cat);
+        var filtered = this.filterChannels(this.state.channels,cat);
         this.props.dispatch(getChannels(filtered));
         if (filtered.length>0)
                                                         {

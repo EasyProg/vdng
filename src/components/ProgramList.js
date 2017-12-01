@@ -66,6 +66,20 @@ class ProgramList extends Component
 
                      }
                 break;
+            case 39: {
+                this.props.dispatch(setMenusVisible
+                ({
+                    channelsMenuVisible:true,
+                    programsVisible:true,
+                    detailMenuVisible:true
+                },true));
+                if ($('.divForEpgImages').length)
+                {
+                 $('.divForSmallEpgImages>img:first').focus();
+                }
+                }
+            break;
+
             default:
                 break;
         }
@@ -77,7 +91,7 @@ class ProgramList extends Component
         var items = $('.programListItem,.programListItemChosen');
         var i = chosen||0;
         var nextElem = i + 1 >=    items.length ?  0 :i + 1;
-        var prevElem = i - 1 <= 0 ?items.length - 1 : i - 1;
+        var prevElem = i - 1 <= 0 ?items.length -  1 :i - 1;
         if (param === 'next'&&items[nextElem])
         {
             items[nextElem].focus();

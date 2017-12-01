@@ -15,7 +15,6 @@ export default class CategoryName extends Component {
     render(){
         return  (
             <div className='divCateg'>
-                {/*<div className={this.props.visible?'divCateg':'displayNone'}>*/}
                 <div className={this.props.visible?'categDisplay':'displayNone'}>
                     <div className="menuHeaderCircleDiv" onClick={(e)=>this.props.categVisibleContext()}>
                         <img src={!this.props.reversed?point_right:point} className="menuHeaderCircleDivImg"/>
@@ -24,8 +23,8 @@ export default class CategoryName extends Component {
                 </div>
                 <MenuButton  visible  = {this.props.visible}/>
             </div>
-        )
-    }
+            )
+            }
 
 
 }
