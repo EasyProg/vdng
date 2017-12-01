@@ -1,72 +1,125 @@
-/*
-Error: Undefined variable: "$menuActiveColor".
-        on line 36 of ./src/styles/scss/programlist.scss
+.programList, .programListLeft, .programListNone {
+  display: block;
+  height: 80vh;
+  position: relative;
+  float: right;
+  margin-left: 10px;
+  width: 27vw;
+  min-width: 270px;
+  min-height: 330px;
+  pointer-events: auto;
+  top: 0; }
 
-31:   letter-spacing: 2px;
-32:   margin-bottom: 50px;  }
-33: 
-34: .programListItemChosen  {
-35:   @extend .programListItem;
-36:   background:$menuActiveColor;
-37:                         }
-38: 
-39: .programListItem:hover  {
-40:   background:$main_color;
-41:   cursor:pointer;
+.programListLeft {
+  float: left;
+  margin-left: 40px; }
 
-Backtrace:
-./src/styles/scss/programlist.scss:36
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/variable.rb:49:in `_perform'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `map'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:161:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:10:in `visit'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/plugin/compiler.rb:320:in `block in watch'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
-C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$menuActiveColor\".\A         on line 36 of ./src/styles/scss/programlist.scss\A \A 31:   letter-spacing: 2px;\A 32:   margin-bottom: 50px;  }\A 33: \A 34: .programListItemChosen  {\A 35:   @extend .programListItem;\A 36:   background:$menuActiveColor;\A 37:                         }\A 38: \A 39: .programListItem:hover  {\A 40:   background:$main_color;\A 41:   cursor:pointer;"; }
+.programListNone {
+  width: 0;
+  min-width: 0; }
+
+.dayListItem {
+  margin-top: 5vh;
+  display: block;
+  height: auto;
+  font-family: "ComfortaaRegular";
+  font-size: 1.2vw;
+  letter-spacing: 2px;
+  margin-bottom: 50px; }
+
+.programListItemChosen {
+  background: #575757; }
+
+.programListItem:hover, .programListItemChosen:hover {
+  background: #9677ff;
+  cursor: pointer; }
+
+.programListItem:focus, .programListItemChosen:focus {
+  background: #9677ff; }
+
+.headerProgramDate {
+  color: white;
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.textSpan {
+  color: #9677ff;
+  padding-left: 10px; }
+
+.hrProgram {
+  background: #9677ff;
+  height: 2px;
+  width: 100%;
+  display: block;
+  position: relative;
+  left: -5px; }
+
+.programName {
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 70%;
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.programListItem, .programListItemChosen {
+  width: 100%;
+  height: 6vh;
+  min-height: 30px;
+  position: relative;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+
+.programTime {
+  position: relative;
+  width: 30px;
+  height: auto;
+  color: #696969;
+  margin-left: 1vw; }
+
+.programName_hover {
+  position: relative;
+  height: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+
+.programName_hover:hover {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 90%;
+  left: 0;
+  position: relative; }
+
+.programListItem:focus > .programName > .programName_hover, .programListItemChosen:focus > .programName > .programName_hover {
+  align-self: center;
+  height: auto;
+  left: 0;
+  position: absolute;
+  top: 2vh; }
+
+.programListItemChosen:focus > .programName > .programName_hover {
+  align-self: center;
+  height: auto;
+  left: 0;
+  position: absolute;
+  top: 2vh; }
+
+.blockChainDiv {
+  font-family: "ComfortaaRegular";
+  font-size: 1.4vw;
+  letter-spacing: 1px;
+  margin-top: 1vh;
+  min-height: 370px; }
+
+/*# sourceMappingURL=programlist.css.map */
