@@ -291,9 +291,10 @@ class   ChannelList extends Component           {
             chosen.focus();
             this.setState({itemChosen:Number(chosen.attr("tabIndex"))});
         }
-        if (this.props.channels.length!==prevProps.channels.length)
-        {this.setState({channelId: this.props.channels[0].channelId,itemChosen:this.props.channels[0].channelId});
-            this.props.dispatch(changeVideo(this.props.channels[0]));}
+        //setChannel to first whan loaded
+        //if (this.props.channels.length!==prevProps.channels.length)
+        //{this.setState({channelId: this.props.channels[0].channelId,itemChosen:this.props.channels[0].channelId});
+        //this.props.dispatch(changeVideo(this.props.channels[0]));}
     }
     componentDidMount()                         {
         this.setState({channelId: this.props.channels[0].channelId,itemChosen:this.props.channels[0].channelId});

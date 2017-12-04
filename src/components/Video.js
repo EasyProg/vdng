@@ -35,7 +35,7 @@ class Video extends Component
                 {
                     b.setState({playing:false});
                     vd.pause();
-                }},3000 );
+                }},5000 );
     }
     handleKey(e)        {
         if (e.keyCode === 13)

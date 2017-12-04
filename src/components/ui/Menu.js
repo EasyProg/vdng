@@ -27,6 +27,7 @@ import newParse from '../../components/parseFromJson';
 import multidisciplinary from '../../img/categ/multidisciplinary.svg';
 import ProgramList from '../../components/ProgramList';
 import DetailView from '../../components/ui/DetailView';
+import nochannel from '../../img/tv_icon.svg';
 import {setMenusVisible,
     getChannels,
     receiveData,
@@ -43,7 +44,7 @@ class  Menu extends Component                   {
         this.menuWidthChange = this.menuWidthChange.bind(this);
         this.categVisible = this.categVisible.bind(this);
         this.getProgramDetail = this.getProgramDetail.bind(this);
-        this.state = ({channels:this.props.channels,details:{}});
+        this.state = ({details:{},channels:this.props.channels});
     }
     getJsonChannels(url)                    {
         var c = this;
@@ -54,7 +55,6 @@ class  Menu extends Component                   {
             //alert(response.status);
             if (response.status !== 200)
             {
-                console.log('Looks like it was some error !!!!!!!!!!!!!!!!!' + response.status);
                 return;
             }
             else if  (response.headers.get("content-type").indexOf("application/json") !== -1)
@@ -165,27 +165,16 @@ class  Menu extends Component                   {
             });
         }
         var jCont = this;
-        if (this.state.channels.length>0)
-        {
+        if (this.props.channels.length>0)
+        //{
             //var jCont = this;
             this.state.channels.forEach(function (e, i)  {
                 let cat = jCont.firstToUpperCase(e['category']['name']||e['category']);
-                if (grpArr.find(x=>x.name===cat)===undefined)
+                if (grpArr.find(x=>x.name===cat)===undefined) {
                     var f = e['category']['icon']?e['category']['icon']['hd']:false;
-                    grpArr.push({name:cat,src:f||jCont.chooseSrc(cat)});
+                    grpArr.push({name: cat, src: f || jCont.chooseSrc(cat)});
+                }
             });
-        }
-        else if (this.props.channels.length>0)
-        {
-            //var jCont = this;
-            this.props.channels.forEach(function (e, i)  {
-                let cat = jCont.firstToUpperCase(e['category']['name']||e['category']);
-                if (grpArr.find(x=>x.name===cat)===undefined)
-                    var f = e['category']['icon']?e['category']['icon']['hd']:false;
-                    grpArr.push({name:cat,src:f||jCont.chooseSrc(cat)});
-            });
-        }
-        //myfavor.find(x=>x.id ===item.channelId)
         if (favor.length > 0&&this.props.channels.find(x=>x.channelId === favor[0]['id']))
         {
             grpArr.unshift({name: 'Любимые', src: favorites});
@@ -194,8 +183,6 @@ class  Menu extends Component                   {
         return grpArr;
     }
     toggleMenuState(menuType = 'left')      {
-        //e.stopPropagation();
-        //console.log('Event Log');
         var channelsState = this.props.menus.channelsMenuVisible;
         var settingsState = this.props.menus.settingsVisible;
         //Туггл кнопок если стейт изменился
@@ -277,11 +264,12 @@ class  Menu extends Component                   {
                             <Categories       visible={this.props.menus.categoryMenuVisible}
                                               channelVisible={this.props.menus.channelsMenuVisible}
                                               toggleMenuStateContext={this.toggleMenuState}
-                                              channels=  {this.props.channels.length===0?this.state.channels:this.props.channels}
+                                              channels=  {this.props.channels}
+                                              statechannels={this.state.channels}
                                               categories={this.parseCategories()}
                             />
                             <ChannelList
-                                playList={this.props.channels.length===0?this.state.channels:this.props.channels}
+                                playList={this.props.channels}
                                 category={this.props.category}
                                 visibleSetContext={this.toggleMenuState}
                                 tabIndex={1}
@@ -305,7 +293,7 @@ class  Menu extends Component                   {
                                 <div className="shitDiv">
                                     <MenuButton visible={true}/>
                                     {/*visible={!this.props.menus.channelsMenuVisible&&!this.props.menus.categoryMenuVisible&&!this.props.menus.programsVisible}/>*/}
-                                    <img src={this.props.channelImg}
+                                    <img src={this.props.channelImg?this.props.channelImg:nochannel}
                                          className="imgChannelStyle"/>
                                     <div className="textBlock">
                                         <div className="upperText">

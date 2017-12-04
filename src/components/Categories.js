@@ -24,13 +24,15 @@ class  Categories extends Component                     {
             itemFocus:0,
             category:'Все жанры',
             Menu:[],
-            channels:this.props.channels
+            //channels:[]
         };
         this.filterChannels = this.filterChannels.bind(this);
     }
     static propTypes =                                  {
         visible:PropTypes.bool.isRequired,
-        channelVisible:PropTypes.bool.isRequired,       };
+        channelVisible:PropTypes.bool.isRequired,
+        statechannels:PropTypes.array.isRequired
+                                                        };
     handleClick (index,cat)                             {
         this.props.dispatch(toggleCategory(cat));
         this.setState(
@@ -38,7 +40,7 @@ class  Categories extends Component                     {
                 itemChosen:index,
                 category:cat,
             });
-        var filtered = this.filterChannels(this.state.channels,cat);
+        var filtered = this.filterChannels(this.props.statechannels,cat);
         this.props.dispatch(getChannels(filtered));
         if (filtered.length>0)
         {
@@ -78,8 +80,17 @@ class  Categories extends Component                     {
         return filteredChannels;
     };
     componentWillReceiveProps(nextProps)                {
-        if (nextProps.channels.length===0)
-            this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
+        //console.log('FFFFFFFFFFFFF');
+        //if ((nextProps.channels.length!==this.props.channels.length)&&nextProps.channels.length)
+        //{
+            //console.log(nextProps.channels.length+'SSSSSSSSSSSSSSSSSSSS'+this.props.channels.length);
+        //    this.setState({channels: nextProps.channels});
+        //}
+        //////if (nextProps.channels.length===0)
+            //this.setState({itemChosen:0,category:'Все жанры',channels:parse(hlsArray)});
+    }
+    componentDidUpdate() {
+
     }
 
     switchCateg(event,cat)                              {

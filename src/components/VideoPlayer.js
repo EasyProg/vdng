@@ -43,6 +43,8 @@ class VideoPlayer extends Component     {
         $('.epgShowButton').css({"right":"3vw"});
         $('.dayListItem').css({"fontSize":'1.2vw'});
         $('.blockChainDiv').css({"fontSize":'1.4vw'});
+        $('.upperText').css({"fontSize":'2vw'});
+        $('.lowerText').css({"fontSize":'1.5vw'});
         if  (window.innerWidth<=720)
         {
             $('html').css('overflow-x','scroll');
@@ -53,6 +55,8 @@ class VideoPlayer extends Component     {
             $('.dayListItem').css({"fontSize":'7px'});
             $('.menuChannelProgram').css({"fontSize":'9px'});
             $('.blockChainDiv').css({"fontSize":'11px'});
+            $('.upperText').css({"fontSize":'1rem'});
+            $('.lowerText').css({"fontSize":'0.5rem'});
         }
         else $('html').css('overflow-x','hidden');
         if (window.innerHeight<=480)
