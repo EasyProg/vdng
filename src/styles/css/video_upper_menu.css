@@ -1,0 +1,139 @@
+.centerDiv {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  justify-content: center;
+  -webkit-justify-content: center; }
+
+.playBackDivMain {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  left: 0;
+  height: 20vh;
+  top: 80%; }
+
+.divPlayer {
+  align-self: center;
+  position: absolute;
+  bottom: 115px;
+  left: 10%;
+  width: 80%;
+  max-width: 80%;
+  min-width: 0;
+  height: 70px;
+  background: #805EE0;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  z-index: 2147483647; }
+
+.divPlayer:fullscreen {
+  position: absolute;
+  z-index: 2147483647; }
+
+.playerButtonsDiv {
+  cursor: pointer;
+  display: flex;
+  display: -webkit-flex;
+  margin: auto;
+  width: 21.6216216216%;
+  min-width: 200px;
+  height: 40px;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center; }
+
+.playerButtonsDiv > i:hover {
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.3), 0 0 1em white; }
+
+.playerButtonsDiv > img:hover {
+  filter: drop-shadow(0 0 10px white);
+  background: transparent; }
+
+.playerButtonsDiv > img:focus {
+  filter: drop-shadow(0 0 10px white);
+  background: transparent; }
+
+.videoTime {
+  cursor: default;
+  line-height: 2.9em;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 60px;
+  width: 80px;
+  font-size: 1.4em;
+  font-family: "ComfortaaRegular";
+  letter-spacing: 1px;
+  color: white; }
+
+.progressBar, .progressBarFull {
+  position: absolute;
+  height: 10px;
+  top: 50%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 350px;
+  background: #9677ff; }
+
+.divForProgress {
+  position: absolute;
+  align-self: center;
+  -webkit-align-self: center;
+  height: 10px;
+  bottom: 185px;
+  left: 10%;
+  width: 80%; }
+
+.circleProgressDiv {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-radius: 10px;
+  z-index: 2147483647; }
+
+#progress-bar::-webkit-progress-bar {
+  background: #9677ff; }
+
+#progress-bar[value] {
+  color: white; }
+
+#progress-bar::-webkit-progress-value {
+  background: white; }
+
+#progress-bar::-moz-progress-bar {
+  background: white; }
+
+.progressDiv {
+  border-radius: 5px;
+  width: 5px;
+  height: 5px;
+  background: white; }
+
+.progresses::-webkit-progress-bar {
+  background: #575757; }
+
+.progresses::-webkit-progress-value {
+  background: #9677ff; }
+
+.progresses::-moz-progress-bar {
+  background: #9677ff; }
+
+.backwardActiveButton, .backwardDisButton {
+  opacity: 0.3; }
+
+.backwardDisButton {
+  opacity: 0.3;
+  background: transparent; }
+
+/*# sourceMappingURL=video_upper_menu.css.map */

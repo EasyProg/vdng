@@ -1,0 +1,40 @@
+.nonPlayingDiv {
+  pointer-events: none;
+  align-self: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: black;
+  font-family: "ComfortaaRegular";
+  font-size: 3em;
+  color: white;
+  min-height: 480px;
+  min-width: 720px; }
+
+.playHoldImg, .playHoldImg:hover, .playHoldImg:target {
+  margin: 0 auto;
+  position: relative;
+  width: 20%;
+  height: 35%; }
+
+.playHoldImg:hover {
+  opacity: 0.9;
+  cursor: pointer; }
+
+.playHoldImg:target {
+  opacity: 0.9; }
+
+.bottomText {
+  margin-top: 5vh;
+  letter-spacing: 1px; }
+
+.bottomTextUn {
+  top: 50vh;
+  letter-spacing: 1px; }
+
+/*# sourceMappingURL=holdscreen.css.map */

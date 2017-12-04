@@ -1,0 +1,26 @@
+.mobileMenuContainer {
+  position: absolute;
+  height: 70vh;
+  width: 100vw;
+  background: yellow;
+  top: 30vh; }
+
+.mobileMenuHeader {
+  position: relative;
+  height: 5vh;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "ComfortaaRegular";
+  font-size: 1.4vw; }
+
+.mobileMenuHeader > div {
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  width: 31%;
+  height: 100%; }
+
+/*# sourceMappingURL=mobilemenu.css.map */

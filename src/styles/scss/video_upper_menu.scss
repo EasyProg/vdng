@@ -1,0 +1,184 @@
+@import 'variables';
+$divPlayerWidth:80%;
+$divPlayerWidthPx:1000px;
+$plButtonsLeft:10%;
+.centerDiv                         {
+  height: 100%;
+  width: 100%;
+  display:flex;
+  display:-webkit-flex;
+  flex-direction:column;
+  -webkit-flex-direction:column;
+  justify-content: center;
+  -webkit-justify-content:center;
+}
+.playBackDivMain  {
+  position: absolute;
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  left:0;
+  height:20vh;
+  top:80%;
+}
+.divPlayer                         {
+  align-self: center;
+  position: absolute;
+  bottom:115px;
+  left:$plButtonsLeft;
+  width: $divPlayerWidth;
+  max-width:$divPlayerWidth;
+  min-width:0;
+  height: 70px;
+  background: #805EE0;
+  display:flex;
+  display:-webkit-flex;
+  flex-direction:row;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-between;
+  -webkit-justify-content:space-between;
+  z-index:2147483647;
+}
+.divPlayer:fullscreen {
+  position: absolute;
+  z-index:2147483647;
+}
+//.divPlayer:fullscreen {
+//@extend .divPlayer;
+//}
+.playerButtonsDiv                  {
+  cursor:pointer;
+  display:flex;
+  display:-webkit-flex;
+  margin: auto;
+  width: $divPlayerWidth/3.7;
+  min-width:200px;
+  height: 40px;
+  justify-content: space-between;
+  -webkit-justify-content:space-between;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.playerButtonsDiv>i:hover          {
+  text-shadow: 2px 2px 3px
+  rgba(255,255,255,0.3),0 0 1em white;
+}
+.playerButtonsDiv>img:hover        {
+  //text-shadow: 1px 1px 2px black, 0 0 1em red;
+  //margin: 0 auto;
+  //box-shadow:inset 0 0 60px 50px
+  //rgba(255,255,255,0.6),0 0 2em white;
+
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+  background: transparent;
+  //outline: none;
+  //filter:drop-shadow(12px,12px,7px,rgba(0,0,0,0.5));
+  //border-radius: 17px;
+}
+.playerButtonsDiv>img:focus        {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+  background: transparent;
+}
+.videoTime                         {
+  cursor: default;
+  line-height: 2.9em;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 60px;
+  width:  80px;
+  font-size: 1.4em;
+  font-family: "ComfortaaRegular";
+  letter-spacing:1px;
+  color: white;
+}
+.progressBar                        {
+  position: absolute;
+  //bottom:0;
+  //top:20px;
+  //margin-bottom:20vh;
+  //margin-bottom: 20vh;
+  height: 10px;
+  top:50%;
+  width:100%;
+  max-width:100%;
+  min-width:350px;
+  background:$main_color;
+}
+.divForProgress                    {
+  position: absolute;
+  align-self: center;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  -webkit-align-self: center;
+  //@extend .progressBar;
+  height:10px;
+  //background-color: green;
+  bottom:185px;
+  left:10%;
+  width:80%;
+}
+.circleProgressDiv                 {
+  position: relative;
+  //left:$plButtonsLeft;
+  //bottom:0;
+  width:15px;
+  height:15px;
+  background:white;
+  border-radius: 10px;
+  z-index:2147483647;
+}
+
+.progressBarFull                   {
+  @extend .progressBar;
+  //top:83.5%;
+}
+#progress-bar::-webkit-progress-bar
+{
+  background: $main_color;
+}
+#progress-bar[value] {
+  color:white;
+}
+#progress-bar::-webkit-progress-value
+{
+  background:white;
+}
+#progress-bar::-moz-progress-bar   {
+  //background:$main_color;
+  background:white;
+  //color:black;
+}
+.progressDiv                       {
+  border-radius:5px;
+  width:5px;
+  height:5px;
+  background: white;
+}
+
+.progresses::-webkit-progress-bar  {
+  background: #575757;
+}
+.progresses::-webkit-progress-value
+{
+  background:$main_color;
+}
+.progresses::-moz-progress-bar     {
+  background: $main_color;
+  //background: #575757;
+  //color:$main_color;
+}
+
+.backwardActiveButton              {
+  opacity:0.3;
+}
+.backwardDisButton                 {
+  @extend .backwardActiveButton;
+  opacity:0.3;
+  background:transparent;
+}
+//.bottomPlayback {
+//position: fixed;
+//
+//}

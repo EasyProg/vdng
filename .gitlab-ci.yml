@@ -1,0 +1,72 @@
+stages:
+  - develop
+  - test
+  - deploy
+
+.deploy_job_template: &deploy_job_definition
+    script:
+        - bash
+        - cd /var/www/webplayer.hls.tv
+        - git fetch origin
+        - git add .
+        - git checkout -f $BRANCH
+        - git pull origin $BRANCH
+        - npm i
+        - unset CI
+        - npm run build
+        - mv public $(date '+%d-%b-%Y-%H-%M-%S')
+        - mv build public
+        - echo "Successfully deployed $HOST"
+
+deploy:webplayer.dev.hls.tv:
+    variables: 
+        BRANCH: "master"
+        HOST: "webplayer.test.hls.tv"
+    stage: test
+    tags:
+        - webplayer.test.hls.tv
+    only:
+        - master
+    <<: *deploy_job_definition
+    environment:
+        webplayer.test.hls.tv
+
+deploy:webplayer.test.hls.tv:
+    variables: 
+        BRANCH: "test"
+        HOST: "webplayer.test.hls.tv"
+    stage: develop
+    tags:
+        - webplayer.test.hls.tv
+    only:
+        - test
+    <<: *deploy_job_definition
+    environment:
+        webplayer.test.hls.tv
+       
+       
+deploy:ukos.hls.tv:
+    variables: 
+        BRANCH: $CI_COMMIT_REF_NAME
+        HOST: "ukos.hls.tv"
+    stage: test
+    when: manual
+    <<: *deploy_job_definition
+    tags:
+        - ukos.hls.tv
+    environment:
+        ukos.hls.tv
+
+
+deploy:webplayer.hls.tv-prod:
+    variables: 
+        BRANCH: "prod"
+        HOST: "webplayer.hls.tv"
+    stage: deploy
+    tags:
+        - web.hls.tv
+    only:
+        - prod
+    <<: *deploy_job_definition
+    environment:
+        webplayer.hls.tv

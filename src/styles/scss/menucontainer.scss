@@ -1,0 +1,46 @@
+.menuContainerNone {
+  //position:absolute;
+  //@extend .menuContainer;
+  width: 0;
+  min-width: 0;
+  //transition: width 0.3s ease-out 0.3s
+  //,min-width 0.3s ease 0.3s;
+  transition: min-width 0.3s ease;
+  -webkit-transition:min-width 0.5s ease;
+}
+
+
+.menuContainer
+{ top:0;
+  position:absolute;
+  width:30vw;
+  min-width:300px;
+  height:103vh;
+  //height: auto;
+  //min-height:auto;
+  min-height: 480px;
+  background: rgba(0,0,0,0.8);
+  transition: min-width 0.5s ease;
+  -webkit-transition:min-width 0.5s ease;
+
+}
+.twoMenuContainer
+{
+  @extend .menuContainer;
+  width:60vw;
+  min-width:600px;
+  //min-height:500
+  min-height: 480px;
+  transition: min-width 0.5s ease;
+}
+
+
+
+.threeMenuContainer
+{
+  @extend .menuContainer;
+  width:100vw;
+  min-width:1000px;
+  min-height: 480px;
+  transition: min-width 0.5s ease;
+}
